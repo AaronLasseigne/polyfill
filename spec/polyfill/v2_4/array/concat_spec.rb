@@ -72,33 +72,33 @@ RSpec.describe 'Array#concat' do
       expect(ary[3].tainted?).to be false
     end
 
-    it 'keeps untrusted status' do
-      ary = [1, 2]
-      ary.untrust
-      ary.concat([3])
-      expect(ary.untrusted?).to be true
-      ary.concat([])
-      expect(ary.untrusted?).to be true
-    end
+#     it 'keeps untrusted status' do
+#       ary = [1, 2]
+#       ary.untrust
+#       ary.concat([3])
+#       expect(ary.untrusted?).to be true
+#       ary.concat([])
+#       expect(ary.untrusted?).to be true
+#     end
 
-    it 'is not infected untrustedness by the other' do
-      ary = [1, 2]
-      other = [3]; other.untrust
-      expect(ary.untrusted?).to be false
-      ary.concat(other)
-      expect(ary.untrusted?).to be false
-    end
+#     it 'is not infected untrustedness by the other' do
+#       ary = [1, 2]
+#       other = [3]; other.untrust
+#       expect(ary.untrusted?).to be false
+#       ary.concat(other)
+#       expect(ary.untrusted?).to be false
+#     end
 
-    it 'keeps the untrusted status of elements' do
-      ary = [Object.new, Object.new, Object.new]
-      ary.each(&:untrust)
+#     it 'keeps the untrusted status of elements' do
+#       ary = [Object.new, Object.new, Object.new]
+#       ary.each(&:untrust)
 
-      ary.concat([Object.new])
-      expect(ary[0].untrusted?).to be true
-      expect(ary[1].untrusted?).to be true
-      expect(ary[2].untrusted?).to be true
-      expect(ary[3].untrusted?).to be false
-    end
+#       ary.concat([Object.new])
+#       expect(ary[0].untrusted?).to be true
+#       expect(ary[1].untrusted?).to be true
+#       expect(ary[2].untrusted?).to be true
+#       expect(ary[3].untrusted?).to be false
+#     end
 
     it 'appends elements to an Array with enough capacity that has been shifted' do
       ary = [1, 2, 3, 4, 5]

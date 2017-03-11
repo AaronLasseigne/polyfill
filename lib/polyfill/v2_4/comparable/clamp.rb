@@ -11,13 +11,13 @@ module Polyfill
             return min if min > self
             return max if max < self
             self
-          end
+          end if RUBY_VERSION < '2.4.0'
 
           def respond_to?(method, *)
             return true if method.to_sym == :clamp
 
             super
-          end
+          end if RUBY_VERSION < '2.4.0'
         end
 
         refine ::Numeric do

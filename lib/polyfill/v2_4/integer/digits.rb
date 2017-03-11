@@ -15,13 +15,13 @@ module Polyfill
               acc.push(value)
             end
             acc
-          end unless ::Integer.respond_to?(:digits)
+          end if RUBY_VERSION < '2.4.0'
 
           def respond_to?(method, *)
             return true if method.to_sym == :digits
 
             super
-          end
+          end if RUBY_VERSION < '2.4.0'
         end
       end
     end

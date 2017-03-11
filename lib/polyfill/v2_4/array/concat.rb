@@ -12,7 +12,7 @@ module Polyfill
             end
 
             replace(acc)
-          end
+          end if RUBY_VERSION < '2.4.0'
         end
       end
     end

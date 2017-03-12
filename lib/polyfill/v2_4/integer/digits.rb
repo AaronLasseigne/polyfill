@@ -6,7 +6,7 @@ module Polyfill
           def digits(base = 10)
             raise Math::DomainError, 'out of domain' if self < 0
             raise ArgumentError, 'negative radix' if base < 0
-            raise ArgumentError, "invalid radix #{base}" if base == 0 || base == 1
+            raise ArgumentError, "invalid radix #{base}" if base < 2
 
             acc = []
             remainder = self

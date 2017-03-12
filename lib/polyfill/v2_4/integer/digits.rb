@@ -2,7 +2,7 @@ module Polyfill
   module V2_4
     module Integer
       module Digits
-        refine ::Integer do
+        module Method
           def digits(base = 10)
             raise Math::DomainError, 'out of domain' if self < 0
             raise ArgumentError, 'negative radix' if base < 0
@@ -22,6 +22,10 @@ module Polyfill
 
             super
           end if RUBY_VERSION < '2.4.0'
+        end
+
+        refine ::Integer do
+          include Method
         end
       end
     end

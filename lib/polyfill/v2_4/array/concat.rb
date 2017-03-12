@@ -2,7 +2,7 @@ module Polyfill
   module V2_4
     module Array
       module Concat
-        refine ::Array do
+        module Method
           def concat(*others)
             return super if others.length == 1
 
@@ -13,6 +13,10 @@ module Polyfill
 
             replace(acc)
           end if RUBY_VERSION < '2.4.0'
+        end
+
+        refine ::Array do
+          include Method
         end
       end
     end

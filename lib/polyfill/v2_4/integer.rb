@@ -1,6 +1,7 @@
 require 'polyfill/v2_4/integer/ceil'
 require 'polyfill/v2_4/integer/digits'
 require 'polyfill/v2_4/integer/floor'
+require 'polyfill/v2_4/integer/truncate'
 
 module Polyfill
   module V2_4
@@ -8,6 +9,7 @@ module Polyfill
       include Ceil
       include Digits
       include Floor
+      include Truncate
     end
   end
 end

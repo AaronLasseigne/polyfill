@@ -1,5 +1,7 @@
 # Polyfill
 
+[![Build](https://travis-ci.org/AaronLasseigne/polyfill.svg?branch=master)](https://travis-ci.org/AaronLasseigne/polyfill)
+
 Polyfill implements newer Ruby features into older versions. If the Ruby
 version already supports the polyfill then calling it does nothing. This is
 designed to allow gem maintainers to use newer methods and gain their

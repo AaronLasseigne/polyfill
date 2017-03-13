@@ -16,18 +16,18 @@ RSpec.describe 'Integer#round' do
       expect(1.round(1)).to eql 1.0
     end
 
-    it 'calls to_int on anything passed' do
-      value = double('value')
-      allow(value).to receive(:to_int).and_return(1)
-      expect(1.round(value)).to eql 1.0
-    end
-
     it 'rounds up when called with < 0' do
       expect(14.round(-1)).to eql 10
       expect(15.round(-1)).to eql 20
       expect(15.round(-2)).to eql 0
       expect(-14.round(-1)).to eql(-10)
       expect(-15.round(-1)).to eql(-20)
+    end
+
+    it 'calls to_int on anything passed' do
+      value = double('value')
+      allow(value).to receive(:to_int).and_return(1)
+      expect(1.round(value)).to eql 1.0
     end
 
     context 'optional :half' do

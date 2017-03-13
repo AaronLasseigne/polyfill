@@ -16,16 +16,16 @@ RSpec.describe 'Integer#truncate' do
       expect(1.truncate(1)).to eql 1.0
     end
 
-    it 'calls to_int on anything passed' do
-      value = double('value')
-      allow(value).to receive(:to_int).and_return(1)
-      expect(1.truncate(value)).to eql 1.0
-    end
-
     it 'truncates up when called with < 0' do
       expect(15.truncate(-1)).to eql 10
       expect(15.truncate(-2)).to eql 0
       expect(-15.truncate(-1)).to eql(-10)
+    end
+
+    it 'calls to_int on anything passed' do
+      value = double('value')
+      allow(value).to receive(:to_int).and_return(1)
+      expect(1.truncate(value)).to eql 1.0
     end
   end
 end

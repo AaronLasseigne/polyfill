@@ -1,6 +1,7 @@
 RSpec.describe 'Comparable#clamp' do
   it 'works as a mixin' do
     klass = Class.new do
+      include Comparable
       include Polyfill::V2_4::Comparable::Clamp::Method
     end
 

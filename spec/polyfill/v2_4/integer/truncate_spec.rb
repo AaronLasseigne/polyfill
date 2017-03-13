@@ -25,7 +25,7 @@ RSpec.describe 'Integer#truncate' do
     it 'truncates up when called with < 0' do
       expect(15.truncate(-1)).to eql 10
       expect(15.truncate(-2)).to eql 0
-      expect(-15.truncate(-1)).to eql -10
+      expect(-15.truncate(-1)).to eql(-10)
     end
   end
 end

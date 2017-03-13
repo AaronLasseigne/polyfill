@@ -26,8 +26,8 @@ RSpec.describe 'Integer#round' do
       expect(14.round(-1)).to eql 10
       expect(15.round(-1)).to eql 20
       expect(15.round(-2)).to eql 0
-      expect(-14.round(-1)).to eql -10
-      expect(-15.round(-1)).to eql -20
+      expect(-14.round(-1)).to eql(-10)
+      expect(-15.round(-1)).to eql(-20)
     end
 
     context 'optional :half' do

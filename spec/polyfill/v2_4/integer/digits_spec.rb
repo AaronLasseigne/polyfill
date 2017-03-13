@@ -1,6 +1,10 @@
 RSpec.describe 'Integer#digits' do
   using Polyfill::V2_4::Integer::Digits
 
+  it 'responds to digits' do
+    expect(1.respond_to?(:digits)).to be true
+  end
+
   it 'returns a Math::DomainError for negative values' do
     expect { -1.digits }.to raise_error(Math::DomainError, 'out of domain')
   end
@@ -23,6 +27,12 @@ RSpec.describe 'Integer#digits' do
       expect(12_345.digits(7)).to eql [4, 6, 6, 0, 5]
       expect(10.digits(16)).to eql [10]
       expect(12_345.digits(100)).to eql [45, 23, 1]
+    end
+
+    it 'calls to_int on anything passed' do
+      value = double('value')
+      allow(value).to receive(:to_int).and_return(10)
+      expect(1.digits(value)).to eql [1]
     end
   end
 end

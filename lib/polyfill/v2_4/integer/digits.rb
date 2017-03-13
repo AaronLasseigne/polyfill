@@ -4,6 +4,7 @@ module Polyfill
       module Digits
         module Method
           def digits(base = 10)
+            base = base.to_int
             raise Math::DomainError, 'out of domain' if self < 0
             raise ArgumentError, 'negative radix' if base < 0
             raise ArgumentError, "invalid radix #{base}" if base < 2

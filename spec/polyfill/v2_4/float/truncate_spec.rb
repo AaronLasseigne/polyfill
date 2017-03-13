@@ -20,11 +20,6 @@ RSpec.describe 'Float#truncate' do
     it 'returns an integer and truncates when called with < 0' do
       expect((15.0).truncate(-1)).to eql 10
       expect((15.0).truncate(-2)).to eql 0
-    end
-
-    it 'truncates up when called with < 0' do
-      expect((15.0).truncate(-1)).to eql 10
-      expect((15.0).truncate(-2)).to eql 0
       expect((-15.0).truncate(-1)).to eql(-10)
     end
 

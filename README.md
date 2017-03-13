@@ -113,7 +113,7 @@ method is only defined if the Ruby version requires it.
 | Enumerator::Lazy | #chunk_while           | No          |
 |                  | #uniq                  | No          |
 | File             | #empty?                | No          |
-| Float            | #ceil                  | No          |
+| Float            | #ceil                  | Yes         |
 |                  | #floor                 | No          |
 |                  | #round                 | No          |
 |                  | #truncate              | No          |

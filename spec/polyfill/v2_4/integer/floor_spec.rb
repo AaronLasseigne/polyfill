@@ -16,7 +16,7 @@ RSpec.describe 'Integer#floor' do
       expect(1.floor(1)).to eql 1.0
     end
 
-    it 'floors up when called with < 0' do
+    it 'floors down when called with < 0' do
       expect(15.floor(-1)).to eql 10
       expect(15.floor(-2)).to eql 0
     end

@@ -12,12 +12,12 @@ RSpec.describe 'Float#floor' do
       expect((1.1).floor(0)).to eql 1
     end
 
-    it 'floors up when called with > 0' do
+    it 'floors down when called with > 0' do
       expect((1.15).floor(1)).to eql 1.1
       expect((1.115).floor(2)).to eql 1.11
     end
 
-    it 'returns an integer and floors up when called with < 0' do
+    it 'returns an integer and floors down when called with < 0' do
       expect((15.0).floor(-1)).to eql 10
       expect((15.0).floor(-2)).to eql 0
     end

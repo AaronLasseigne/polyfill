@@ -114,7 +114,7 @@ method is only defined if the Ruby version requires it.
 |                  | #uniq                  | No          |
 | File             | #empty?                | No          |
 | Float            | #ceil                  | Yes         |
-|                  | #floor                 | No          |
+|                  | #floor                 | Yes         |
 |                  | #round                 | No          |
 |                  | #truncate              | No          |
 | Hash             | #compact               | No          |

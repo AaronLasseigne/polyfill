@@ -1,41 +1,186 @@
 # Polyfill
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/polyfill`. To experiment with that code, run `bin/console` for an interactive prompt.
+Polyfill implements newer Ruby features into older versions. If the Ruby
+version already supports the polyfill then calling it does nothing. This is
+designed to allow gem maintainers to use newer methods and gain their
+advantages while retaining backwards compatibility. It can also be used for
+code that would like newer features but is not completely ready to upgrade
+Ruby versions. The polyfills are built using refinements so there is **no
+monkey patching** that may cause issues outside of your use.
 
-TODO: Delete this and the text above, and describe your gem
+Right now the only update is from 2.3 to 2.4 however the goal is to go all the way back to 2.0 (when refinements were introduced). Additionally, core methods are being focused on but stdlib will eventually be added.
+
+- [Caveat Emptor](#caveat-emptor)
+- [Installation](#installation)
+- [Goals](#goals)
+- [Usage](#usage)
+- [Implementation Table](#implementation-table)
+
+## Caveat Emptor
+
+Not all features can be perfectly implemented. This is a best effort
+implementation but it's best to always test thoroughly across versions.
+This project is also currently pre-1.0. Breaking changes may occur on
+any release. Once a stable API is built it will be moved to 1.0.0.
+
+See the [implementation table](#implementation-table) for specifics about what has been implemented.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add it to your Gemfile:
 
 ```ruby
-gem 'polyfill'
+gem 'polyfill', '0.1.0'
 ```
 
-And then execute:
+Or install it manually:
 
-    $ bundle
+```sh
+$ gem install polyfill
+```
 
-Or install it yourself as:
+This project uses [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-    $ gem install polyfill
+## Goals
+
+1. Features should ideally mimic the true behavior (including bugs).
+2. Features should not significantly burden the runtime.
+3. Keep everything modular so users can be specific or broad in their usage.
 
 ## Usage
 
-TODO: Write usage instructions here
+To use all updates:
 
-## Development
+```ruby
+using Polyfill
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To use all updates up to V2_4:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+using Polyfill::V2_4
+```
+
+To use all updates for a particular object, add it to the end:
+
+```ruby
+using Polyfill::V2_4::Array
+using Polyfill::V2_4::String
+```
+
+To use a particular method, we can add it after the object. The first word
+of the method is uppercased. Predicate methods (ending with a question mark)
+have their question converted to a `__Q`. Dangerous methods (ending with an
+exclamation mark) have their exclamation replaced with `__E`.
+
+```ruby
+using Polyfill::V2_4::Array::Concat
+using Polyfill::V2_4::Dir::Empty__Q # :empty?
+using Polyfill::V2_4::Hash::Compact__E # :compact!
+```
+
+Any method can be accessed as a stand-alone module by adding `Method` to
+the end:
+
+```ruby
+include Polyfill::V2_4::Comparable::Clamp::Method
+```
+
+**A note about modules:** Prior to 2.4, refinements do not work on modules.
+This means modules like `Comparable` will apply the refinement to all child
+classes. Anything custom classes that inherit from `Comparable` will be
+unaffected by the refinement. In cases like this you can use `include` as
+demonstrated above to pull in the needed method. Just like always, the
+method is only defined if the Ruby version requires it.
+
+
+## Implementation Table
+
+### 2.3 to 2.4
+
+| Object           | Method                 | Implemented | Notes |
+| ---------------- | ---------------------- | ----------- | ----- |
+| Array            | #concat                | Yes         |
+|                  | #max                   | No          |
+|                  | #min                   | No          |
+|                  | #pack                  | No          |
+|                  | #sum                   | No          |
+| Comparable       | #clamp                 | Yes         |
+| Dir              | #empty?                | No          |
+| Enumerable       | #chunk                 | No          |
+|                  | #sum                   | No          |
+|                  | #uniq                  | No          |
+| Enumerator::Lazy | #chunk_while           | No          |
+|                  | #uniq                  | No          |
+| File             | #empty?                | No          |
+| Float            | #ceil                  | No          |
+|                  | #floor                 | No          |
+|                  | #round                 | No          |
+|                  | #truncate              | No          |
+| Hash             | #compact               | No          |
+|                  | #compact!              | No          |
+|                  | #transform_values      | No          |
+|                  | #transform_values!     | No          |
+| Integer          | #ceil                  | Yes         |
+|                  | #digits                | Yes         |
+|                  | #floor                 | Yes         |
+|                  | #round                 | Yes         |
+|                  | #truncate              | Yes         |
+| IO               | #each_line             | No          |
+|                  | .foreach               | No          |
+|                  | #gets                  | No          |
+|                  | #readline              | No          |
+|                  | #readlines             | No          |
+| Kernel           | #clone                 | No          |
+| MatchData        | #named_captures        | No          |
+|                  | #values_at             | No          |
+| Module           | #refine                | No          |
+|                  | .used_modules          | No          |
+| Numeric          | #finite?               | Yes         |
+|                  | #infinite?             | Yes         |
+| Rational         | #round                 | No          |
+| Regexp           | #match?                | No          |
+| String           | #capitalize            | No          |
+|                  | #capitalize!           | No          |
+|                  | #casecmp?              | No          |
+|                  | #concat                | Yes         |
+|                  | #downcase              | No          |
+|                  | #downcase!             | No          |
+|                  | #each_line             | No          |
+|                  | #lines                 | No          |
+|                  | #match?                | No          |
+|                  | .new                   | No          |
+|                  | #prepend               | Yes         |
+|                  | #swapcase              | No          |
+|                  | #swapcase!             | No          |
+|                  | #unpack1               | No          |
+|                  | #upcase                | No          |
+|                  | #upcase!               | No          |
+| StringIO         | #each_line             | No          |
+|                  | #gets                  | No          |
+|                  | #readline              | No          |
+|                  | #readlines             | No          |
+| Symbol           | #capitalize            | No          |
+|                  | #capitalize!           | No          |
+|                  | #casecmp?              | No          |
+|                  | #downcase              | No          |
+|                  | #downcase!             | No          |
+|                  | #match                 | No          |
+|                  | #match?                | No          |
+|                  | #swapcase              | No          |
+|                  | #swapcase!             | No          |
+|                  | #upcase                | No          |
+|                  | #upcase!               | No          |
+| Thread           | #report\_on\_exception | No          |
+|                  | .report\_on\_exception | No          |
+| TracePoint       | #callee_id             | No          |
+| Warning          | #warn                  | No          |
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Aaron Lasseigne/polyfill.
+Bug reports and pull requests are welcome on GitHub at https://github.com/AaronLasseigne/polyfill.
+Please read the [contributing file](CONTRIBUTING.md) prior to pull requests.
 
+## Credits
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
+Polyfill is licensed under the [MIT License](LICENSE.md).

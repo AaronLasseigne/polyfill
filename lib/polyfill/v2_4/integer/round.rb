@@ -4,7 +4,7 @@ module Polyfill
       module Round
         module Method
           def round(ndigits = 0, half: nil)
-            unless [nil, :down, :even, :up].include?(half)
+            unless [nil, :down, :even, :up, 'down', 'even', 'up'].include?(half)
               raise ArgumentError, "invalid rounding mode: #{half}"
             end
             ndigits = ndigits.to_int

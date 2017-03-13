@@ -116,7 +116,7 @@ method is only defined if the Ruby version requires it.
 | Float            | #ceil                  | Yes         |
 |                  | #floor                 | Yes         |
 |                  | #round                 | No          |
-|                  | #truncate              | No          |
+|                  | #truncate              | Yes         |
 | Hash             | #compact               | No          |
 |                  | #compact!              | No          |
 |                  | #transform_values      | No          |

@@ -24,8 +24,8 @@ RSpec.describe 'Float#floor' do
 
     it 'calls to_int on anything passed' do
       value = double('value')
-      allow(value).to receive(:to_int).and_return(1)
-      expect((1.15).floor(value)).to eql 1.1
+      expect(value).to receive(:to_int).and_return(1)
+      (1.15).floor(value)
     end
   end
 end

@@ -24,8 +24,8 @@ RSpec.describe 'Integer#truncate' do
 
     it 'calls to_int on anything passed' do
       value = double('value')
-      allow(value).to receive(:to_int).and_return(1)
-      expect(1.truncate(value)).to eql 1.0
+      expect(value).to receive(:to_int).and_return(1)
+      1.truncate(value)
     end
   end
 end

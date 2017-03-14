@@ -119,7 +119,7 @@ method is only defined if the Ruby version requires it.
 |                  | #floor                 | Yes         |
 |                  | #round                 | No          |
 |                  | #truncate              | Yes         |
-| Hash             | #compact               | No          |
+| Hash             | #compact               | Yes         |
 |                  | #compact!              | No          |
 |                  | #transform_values      | No          |
 |                  | #transform_values!     | No          |

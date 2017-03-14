@@ -12,7 +12,7 @@ module Polyfill
               (self * place).floor / place.to_f
             else
               place = 10 ** -ndigits
-              (self.to_f / place).floor * place
+              (self / place).floor * place
             end
           end if RUBY_VERSION < '2.4.0'
         end

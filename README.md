@@ -120,7 +120,7 @@ method is only defined if the Ruby version requires it.
 |                  | #round                 | No          |
 |                  | #truncate              | Yes         |
 | Hash             | #compact               | Yes         |
-|                  | #compact!              | No          |
+|                  | #compact!              | Yes         |
 |                  | #transform_values      | No          |
 |                  | #transform_values!     | No          |
 | Integer          | #ceil                  | Yes         |

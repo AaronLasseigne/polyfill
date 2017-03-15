@@ -9,7 +9,7 @@ RSpec.describe 'Hash#compact!' do
     expect({ a: 1, b: false, c: nil }.compact!).to eql(a: 1, b: false)
   end
 
-  it 'returns everything if nothing changes' do
+  it 'returns nil if nothing changes' do
     expect({a: 1}.compact!).to be nil
   end
 

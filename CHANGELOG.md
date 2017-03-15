@@ -5,6 +5,7 @@
  - v2.4 Hash#compact
  - v2.4 Hash#compact!
  - v2.4 Hash#transform_values
+ - v2.4 Hash#transform_values!
 
 ## Changes
 

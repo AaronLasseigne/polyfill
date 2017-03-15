@@ -1,5 +1,5 @@
 RSpec.describe 'Numeric#finite?' do
-  using Polyfill::V2_4::Numeric::Finite__Q
+  using Polyfill::V2_4::Numeric::FiniteQ
 
   it 'responds to finite?' do
     expect(1.respond_to?(:finite?)).to be true

@@ -6,6 +6,12 @@
  - v2.4 Hash#compact!
  - v2.4 Hash#transform_values
 
+## Changes
+
+ - Modules are camel case instead of only uppercasing the first letter of the method name.
+ - Modules for predicate methods now end with `Q` instead of `__Q`.
+ - Modules for dangerous methods now end with `E` instead of `__E`.
+
 # [0.1.0][] (2017-03-14)
 
  - v2.4 Array#concat

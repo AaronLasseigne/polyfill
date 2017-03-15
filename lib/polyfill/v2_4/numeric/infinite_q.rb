@@ -1,7 +1,7 @@
 module Polyfill
   module V2_4
     module Numeric
-      module Infinite__Q
+      module InfiniteQ
         module Method
           def infinite?
             nil

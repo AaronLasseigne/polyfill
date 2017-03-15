@@ -1,7 +1,7 @@
 module Polyfill
   module V2_4
     module Numeric
-      module Finite__Q
+      module FiniteQ
         module Method
           def finite?
             true

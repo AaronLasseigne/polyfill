@@ -1,7 +1,7 @@
 module Polyfill
   module V2_4
     module Hash
-      module Transform_values
+      module TransformValues
         module Method
           if RUBY_VERSION < '2.4.0'
             def transform_values

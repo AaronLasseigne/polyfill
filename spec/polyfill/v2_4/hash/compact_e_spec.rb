@@ -1,5 +1,5 @@
 RSpec.describe 'Hash#compact!' do
-  using Polyfill::V2_4::Hash::Compact__E
+  using Polyfill::V2_4::Hash::CompactE
 
   it 'responds to compact!' do
     expect({}.respond_to?(:compact!)).to be true

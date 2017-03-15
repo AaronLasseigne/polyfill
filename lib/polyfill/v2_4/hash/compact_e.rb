@@ -1,7 +1,7 @@
 module Polyfill
   module V2_4
     module Hash
-      module Compact__E
+      module CompactE
         module Method
           def compact!
             reject! { |_, v| v.nil? }

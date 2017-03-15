@@ -1,5 +1,5 @@
 RSpec.describe 'Numeric#infinite?' do
-  using Polyfill::V2_4::Numeric::Infinite__Q
+  using Polyfill::V2_4::Numeric::InfiniteQ
 
   it 'responds to infinite?' do
     expect(1.respond_to?(:infinite?)).to be true

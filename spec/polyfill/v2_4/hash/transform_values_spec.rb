@@ -1,5 +1,5 @@
 RSpec.describe 'Hash#transform_values' do
-  using Polyfill::V2_4::Hash::Transform_values
+  using Polyfill::V2_4::Hash::TransformValues
 
   it 'responds to transform_values' do
     expect({}.respond_to?(:transform_values)).to be true

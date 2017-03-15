@@ -70,15 +70,16 @@ using Polyfill::V2_4::Array
 using Polyfill::V2_4::String
 ```
 
-To use a particular method, we can add it after the object. The first word
-of the method is uppercased. Predicate methods (ending with a question mark)
-have their question converted to a `__Q`. Dangerous methods (ending with an
-exclamation mark) have their exclamation replaced with `__E`.
+To use a particular method, we can add it after the object. The method is
+converted to camel case. Predicate methods (ending with a question mark)
+have their question converted to a `Q`. Dangerous methods (ending with an
+exclamation mark) have their exclamation replaced with `E`.
 
 ```ruby
 using Polyfill::V2_4::Array::Concat
-using Polyfill::V2_4::Dir::Empty__Q # :empty?
-using Polyfill::V2_4::Hash::Compact__E # :compact!
+using Polyfill::V2_4::Dir::EmptyQ # :empty?
+using Polyfill::V2_4::Hash::CompactE # :compact!
+using Polyfill::V2_4::Hash::TransformValues # :transform_values!
 ```
 
 Any method can be accessed as a stand-alone module by adding `Method` to

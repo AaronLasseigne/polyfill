@@ -1,3 +1,11 @@
+# [0.2.0][]
+
+## Added
+
+ - v2.4 Hash#compact
+ - v2.4 Hash#compact!
+ - v2.4 Hash#transform_values
+
 # [0.1.0][] (2017-03-14)
 
  - v2.4 Array#concat
@@ -15,4 +23,5 @@
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
-[0.1.0]: [0.1.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.0.0...v0.1.0
+[0.2.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.0.0...v0.1.0

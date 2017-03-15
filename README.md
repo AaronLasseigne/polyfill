@@ -121,7 +121,7 @@ method is only defined if the Ruby version requires it.
 |                  | #truncate              | Yes         |
 | Hash             | #compact               | Yes         |
 |                  | #compact!              | Yes         |
-|                  | #transform_values      | No          |
+|                  | #transform_values      | Yes         |
 |                  | #transform_values!     | No          |
 | Integer          | #ceil                  | Yes         |
 |                  | #digits                | Yes         |

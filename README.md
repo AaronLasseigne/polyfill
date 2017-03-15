@@ -135,7 +135,7 @@ method is only defined if the Ruby version requires it.
 |                  | #readline              | No          |
 |                  | #readlines             | No          |
 | Kernel           | #clone                 | No          |
-| MatchData        | #named_captures        | No          |
+| MatchData        | #named_captures        | Yes         |
 |                  | #values_at             | No          |
 | Module           | #refine                | No          |
 |                  | .used_modules          | No          |

@@ -14,14 +14,16 @@ module Polyfill
           end if RUBY_VERSION < '2.4.0'
         end
 
-        refine ::Numeric do
-          include Method
-        end
-        refine ::String do
-          include Method
-        end
-        refine ::Time do
-          include Method
+        if RUBY_VERSION < '2.4.0'
+          refine ::Numeric do
+            include Method
+          end
+          refine ::String do
+            include Method
+          end
+          refine ::Time do
+            include Method
+          end
         end
       end
     end

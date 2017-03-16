@@ -15,8 +15,10 @@ module Polyfill
           end if RUBY_VERSION < '2.4.0'
         end
 
-        refine ::String do
-          include Method
+        if RUBY_VERSION < '2.4.0'
+          refine ::String do
+            include Method
+          end
         end
       end
     end

@@ -3,6 +3,7 @@
 ## Added
 
  - v2.4 MatchData#named_captures
+ - v2.4 MatchData#values_at
  - v2.4 Hash#compact
  - v2.4 Hash#compact!
  - v2.4 Hash#transform_values

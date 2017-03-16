@@ -1,10 +1,6 @@
 RSpec.describe 'Hash#compact!' do
   using Polyfill::V2_4::Hash::CompactE
 
-  it 'responds to compact!' do
-    expect({}.respond_to?(:compact!)).to be true
-  end
-
   it 'removes keys with nil values' do
     expect({ a: 1, b: false, c: nil }.compact!).to eql(a: 1, b: false)
   end

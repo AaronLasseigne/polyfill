@@ -1,10 +1,6 @@
 RSpec.describe 'Integer#digits' do
   using Polyfill::V2_4::Integer::Digits
 
-  it 'responds to digits' do
-    expect(1.respond_to?(:digits)).to be true
-  end
-
   it 'returns a Math::DomainError for negative values' do
     expect { -1.digits }.to raise_error(Math::DomainError, 'out of domain')
   end

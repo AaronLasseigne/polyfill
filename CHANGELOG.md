@@ -14,6 +14,7 @@
  - Modules are camel case instead of only uppercasing the first letter of the method name.
  - Modules for predicate methods now end with `Q` instead of `__Q`.
  - Modules for dangerous methods now end with `E` instead of `__E`.
+ - Methods will no longer attempt to fix `#respond_to?`, `#methods`, or `.instance_methods`. This will be revisited later with a more comprehensive solution.
 
 # [0.1.0][] (2017-03-14)
 

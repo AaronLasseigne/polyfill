@@ -1,12 +1,6 @@
 RSpec.describe 'Hash#transform_values' do
   using Polyfill::V2_4::Hash::TransformValues
 
-  it 'responds to transform_values' do
-    expect({}.respond_to?(:transform_values)).to be true
-    expect({}.methods).to include :transform_values
-    expect(Hash.instance_methods).to include :transform_values
-  end
-
   it 'transforms the values of the hash and returns a new one' do
     expect({ a: 1, b: 2, c: 3 }.transform_values {|v| v * v + 1 }).to eql(a: 2, b: 5, c: 10)
     expect({ a: 1, b: 2, c: 3 }.transform_values(&:to_s)).to eql(a: '1', b: '2', c: '3')

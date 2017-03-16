@@ -13,21 +13,6 @@ module Polyfill
         if RUBY_VERSION < '2.4.0'
           refine ::MatchData do
             include Method
-
-            def respond_to?(method, *)
-              return true if method.to_sym == :named_captures
-
-              super
-            end
-
-            def methods
-              super + [:named_captures]
-            end
-          end
-          refine ::MatchData.singleton_class do
-            def instance_methods
-              super + [:named_captures]
-            end
           end
         end
       end

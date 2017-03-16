@@ -23,21 +23,6 @@ module Polyfill
         if RUBY_VERSION < '2.4.0'
           refine ::Hash do
             include Method
-
-            def respond_to?(method, *)
-              return true if method.to_sym == :transform_values!
-
-              super
-            end
-
-            def methods
-              super + [:transform_values!]
-            end
-          end
-          refine ::Hash.singleton_class do
-            def instance_methods
-              super + [:transform_values!]
-            end
           end
         end
       end

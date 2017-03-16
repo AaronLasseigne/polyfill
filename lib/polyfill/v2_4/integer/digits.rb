@@ -17,12 +17,6 @@ module Polyfill
             end
             acc
           end if RUBY_VERSION < '2.4.0'
-
-          def respond_to?(method, *)
-            return true if method.to_sym == :digits
-
-            super
-          end if RUBY_VERSION < '2.4.0'
         end
 
         refine ::Integer do

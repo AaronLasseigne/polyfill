@@ -1,3 +1,5 @@
+# [0.3.0][]
+
 # [0.2.0][] (2017-03-16)
 
 ## Added
@@ -33,5 +35,6 @@
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[0.3.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.0.0...v0.1.0

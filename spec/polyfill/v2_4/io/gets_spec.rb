@@ -5,7 +5,8 @@ RSpec.describe 'IO#gets' do
     File.join(File.dirname(__FILE__), 'fixtures', file_name)
   end
 
-  let(:io) { IO.new(IO.sysopen(fixture('file.txt'))) }
+  let(:file_name) { fixture('file.txt') }
+  let(:io) { IO.new(IO.sysopen(file_name)) }
 
   context 'existing behavior' do
     it 'works' do
@@ -51,6 +52,10 @@ RSpec.describe 'IO#gets' do
 
       it 'does not chomp when the separator is changed and the limit is set and chomp is false' do
         expect(io.gets(' ', 5, chomp: false)).to eql 'line '
+      end
+
+      it 'works with File' do
+        expect(File.new(file_name).gets(chomp: true)).to eql 'line 1'
       end
     end
   end

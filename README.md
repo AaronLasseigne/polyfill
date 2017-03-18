@@ -109,7 +109,7 @@ method is only defined if the Ruby version requires it.
 |                  | #pack                  | No          |
 |                  | #sum                   | No          |
 | Comparable       | #clamp                 | Yes         |
-| Dir              | .empty?                | No          |
+| Dir              | .empty?                | Yes         |
 | Enumerable       | #chunk                 | No          |
 |                  | #sum                   | No          |
 |                  | #uniq                  | No          |

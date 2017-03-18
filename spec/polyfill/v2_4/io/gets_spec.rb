@@ -1,11 +1,11 @@
 RSpec.describe 'IO#gets' do
   using Polyfill::V2_4::IO::Gets
 
-  def file(file_name)
+  def fixture(file_name)
     File.join(File.dirname(__FILE__), 'fixtures', file_name)
   end
 
-  let(:io) { IO.new(IO.sysopen(file('file.txt'))) }
+  let(:io) { IO.new(IO.sysopen(fixture('file.txt'))) }
 
   context 'existing behavior' do
     it 'works' do

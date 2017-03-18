@@ -109,13 +109,13 @@ method is only defined if the Ruby version requires it.
 |                  | #pack                  | No          |
 |                  | #sum                   | No          |
 | Comparable       | #clamp                 | Yes         |
-| Dir              | #empty?                | No          |
+| Dir              | .empty?                | No          |
 | Enumerable       | #chunk                 | No          |
 |                  | #sum                   | No          |
 |                  | #uniq                  | No          |
 | Enumerator::Lazy | #chunk_while           | No          |
 |                  | #uniq                  | No          |
-| File             | #empty?                | No          |
+| File             | .empty?                | Yes         |
 | Float            | #ceil                  | Yes         |
 |                  | #floor                 | Yes         |
 |                  | #round                 | No          |

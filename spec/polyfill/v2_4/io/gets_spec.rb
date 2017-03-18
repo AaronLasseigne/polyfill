@@ -54,6 +54,12 @@ RSpec.describe 'IO#gets' do
         expect(io.gets(' ', 5, chomp: false)).to eql 'line '
       end
 
+      it 'returns nil to end the file' do
+        io.gets(chomp: true)
+        io.gets(chomp: true)
+        expect(io.gets(chomp: true)).to be nil
+      end
+
       it 'works with File' do
         expect(File.new(file_name).gets(chomp: true)).to eql 'line 1'
       end

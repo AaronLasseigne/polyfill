@@ -8,7 +8,7 @@ module Polyfill
 
             input = super(*others)
 
-            if hash[0] && hash[0][:chomp]
+            if !input.nil? && hash[0] && hash[0][:chomp]
               separator = others.find { |other| other.respond_to?(:to_str) }
               if separator
                 input.chomp!(separator)

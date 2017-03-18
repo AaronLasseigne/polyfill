@@ -132,7 +132,7 @@ method is only defined if the Ruby version requires it.
 | IO               | #each_line             | No          |
 |                  | .foreach               | No          |
 |                  | #gets                  | Yes         |
-|                  | #readline              | No          |
+|                  | #readline              | Yes         |
 |                  | #readlines             | No          |
 | Kernel           | #clone                 | No          |
 | MatchData        | #named_captures        | Yes         |

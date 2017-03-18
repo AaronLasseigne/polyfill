@@ -1,11 +1,9 @@
-require 'polyfill/v2_4/numeric/finite_q'
-require 'polyfill/v2_4/numeric/infinite_q'
+require 'polyfill/v2_4/numeric/instance'
 
 module Polyfill
   module V2_4
     module Numeric
-      include FiniteQ
-      include InfiniteQ
+      include Instance
     end
   end
 end

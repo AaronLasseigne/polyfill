@@ -7,6 +7,10 @@
  - v2.4 IO#gets
  - v2.4 IO#readline
 
+## Changes
+
+ - New way to select methods that doesn't rely on knowing the module structure
+
 # [0.2.0][] (2017-03-16)
 
 ## Added

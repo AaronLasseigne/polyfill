@@ -57,45 +57,30 @@ To use all updates:
 using Polyfill
 ```
 
-To use all updates up to V2_4:
+To specify methods from a particular object use it's class name and pass an
+array of strings containing the methods you'd like to use. Instance methods
+need to start with "#" and class methods need to start with ".".
 
 ```ruby
-using Polyfill::V2_4
+using Polyfill(
+  Array: %w[#concat],
+  Dir: %w[.empty?],
+  Hash: %w[#compact! #transform_values],
+)
 ```
 
-To use all updates for a particular object, add it to the end:
+Methods can be included in the same way. Prior to Ruby 2.4, refinements did
+not work on modules. In order to get methods you'll need to include them after
+the module. Calling `using` on a module will add it to all core Ruby classes
+that include it. The methods will only be included if they are needed by the
+Ruby version running the code.
 
 ```ruby
-using Polyfill::V2_4::Array
-using Polyfill::V2_4::String
+class Foo
+  include Comparable
+  include Polyfill(Comparable: %w[#clamp])
+end
 ```
-
-To use a particular method, we can add it after the object. The method is
-converted to camel case. Predicate methods (ending with a question mark)
-have their question converted to a `Q`. Dangerous methods (ending with an
-exclamation mark) have their exclamation replaced with `E`.
-
-```ruby
-using Polyfill::V2_4::Array::Concat
-using Polyfill::V2_4::Dir::EmptyQ # :empty?
-using Polyfill::V2_4::Hash::CompactE # :compact!
-using Polyfill::V2_4::Hash::TransformValues # :transform_values!
-```
-
-Any method can be accessed as a stand-alone module by adding `Method` to
-the end:
-
-```ruby
-include Polyfill::V2_4::Comparable::Clamp::Method
-```
-
-**A note about modules:** Prior to 2.4, refinements do not work on modules.
-This means modules like `Comparable` will apply the refinement to all child
-classes. Anything custom classes that inherit from `Comparable` will be
-unaffected by the refinement. In cases like this you can use `include` as
-demonstrated above to pull in the needed method. Just like always, the
-method is only defined if the Ruby version requires it.
-
 
 ## Implementation Table
 

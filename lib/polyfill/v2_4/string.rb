@@ -1,11 +1,9 @@
-require 'polyfill/v2_4/string/concat'
-require 'polyfill/v2_4/string/prepend'
+require 'polyfill/v2_4/string/instance'
 
 module Polyfill
   module V2_4
     module String
-      include Concat
-      include Prepend
+      include Instance
     end
   end
 end

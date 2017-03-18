@@ -1,9 +1,9 @@
-require 'polyfill/v2_4/dir/empty_q'
+require 'polyfill/v2_4/dir/class'
 
 module Polyfill
   module V2_4
     module Dir
-      include EmptyQ
+      include Class
     end
   end
 end

@@ -131,7 +131,7 @@ method is only defined if the Ruby version requires it.
 |                  | #truncate              | Yes         |
 | IO               | #each_line             | No          |
 |                  | .foreach               | No          |
-|                  | #gets                  | No          |
+|                  | #gets                  | Yes         |
 |                  | #readline              | No          |
 |                  | #readlines             | No          |
 | Kernel           | #clone                 | No          |

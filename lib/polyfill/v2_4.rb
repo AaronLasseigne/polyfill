@@ -5,6 +5,7 @@ require 'polyfill/v2_4/file'
 require 'polyfill/v2_4/float'
 require 'polyfill/v2_4/hash'
 require 'polyfill/v2_4/integer'
+require 'polyfill/v2_4/io'
 require 'polyfill/v2_4/match_data'
 require 'polyfill/v2_4/numeric'
 require 'polyfill/v2_4/string'
@@ -18,6 +19,7 @@ module Polyfill
     include Float
     include Hash
     include Integer
+    include IO
     include MatchData
     include Numeric
     include String

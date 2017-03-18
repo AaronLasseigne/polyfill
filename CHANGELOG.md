@@ -4,6 +4,7 @@
 
  - v2.4 Dir.empty?
  - v2.4 File.empty?
+ - v2.4 IO#gets
 
 # [0.2.0][] (2017-03-16)
 

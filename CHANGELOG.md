@@ -6,6 +6,8 @@
  - v2.4 File.empty?
  - v2.4 IO#gets
  - v2.4 IO#readline
+ - v2.4 IO#readlines
+ - v2.4 IO.readlines
 
 ## Changes
 

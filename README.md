@@ -118,7 +118,8 @@ end
 |                  | .foreach               | No          |
 |                  | #gets                  | Yes         |
 |                  | #readline              | Yes         |
-|                  | #readlines             | No          |
+|                  | #readlines             | Yes         |
+|                  | .readlines             | Yes         |
 | Kernel           | #clone                 | No          |
 | MatchData        | #named_captures        | Yes         |
 |                  | #values_at             | Yes         |

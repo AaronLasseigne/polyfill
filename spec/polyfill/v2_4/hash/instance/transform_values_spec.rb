@@ -7,7 +7,7 @@ RSpec.describe 'Hash#transform_values' do
   end
 
   it 'returns an enumerable when no block is given' do
-    expect({}.transform_values).to be_an(Enumerator)
+    expect({}.transform_values).to be_an Enumerator
     expect(
       { a: 1, b: 2, c: 3 }.transform_values.with_index { |v, i| "#{v}.#{i}" }
     ).to eql(a: '1.0', b: '2.1', c: '3.2')

@@ -145,10 +145,10 @@ end
 |                  | #unpack1               | No          |
 |                  | #upcase                | No          |
 |                  | #upcase!               | No          |
-| StringIO         | #each_line             | No          |
-|                  | #gets                  | No          |
-|                  | #readline              | No          |
-|                  | #readlines             | No          |
+| StringIO         | #each_line             | Yes         |
+|                  | #gets                  | Yes         |
+|                  | #readline              | Yes         |
+|                  | #readlines             | Yes         |
 | Symbol           | #capitalize            | No          |
 |                  | #capitalize!           | No          |
 |                  | #casecmp?              | No          |

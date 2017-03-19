@@ -9,6 +9,7 @@ require 'polyfill/v2_4/io'
 require 'polyfill/v2_4/match_data'
 require 'polyfill/v2_4/numeric'
 require 'polyfill/v2_4/string'
+require 'polyfill/v2_4/string_io'
 
 module Polyfill
   module V2_4
@@ -23,5 +24,6 @@ module Polyfill
     include MatchData
     include Numeric
     include String
+    include StringIO
   end
 end

@@ -10,6 +10,10 @@
  - v2.4 IO#readline
  - v2.4 IO#readlines
  - v2.4 IO.readlines
+ - v2.4 StringIO#each_line
+ - v2.4 StringIO#gets
+ - v2.4 StringIO#readline
+ - v2.4 StringIO#readlines
 
 ## Changes
 

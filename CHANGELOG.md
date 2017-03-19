@@ -5,6 +5,7 @@
  - v2.4 Dir.empty?
  - v2.4 File.empty?
  - v2.4 IO#each_line
+ - v2.4 IO.foreach
  - v2.4 IO#gets
  - v2.4 IO#readline
  - v2.4 IO#readlines

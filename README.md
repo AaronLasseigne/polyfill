@@ -115,7 +115,7 @@ end
 |                  | #round                 | Yes         |
 |                  | #truncate              | Yes         |
 | IO               | #each_line             | Yes         |
-|                  | .foreach               | No          |
+|                  | .foreach               | Yes         |
 |                  | #gets                  | Yes         |
 |                  | #readline              | Yes         |
 |                  | #readlines             | Yes         |

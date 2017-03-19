@@ -5,13 +5,18 @@ RSpec.describe 'String#lines' do
 
   context 'existing behavior' do
     it 'works' do
+      expect(str.lines).to eql ["line 1\n", "line 2\n"]
+    end
+
+    it 'works with a block' do
+      orig = $VERBOSE
+      $VERBOSE = nil
+
       acc = []
       expect(str.lines { |line| acc << line }).to be str
       expect(acc).to eql ["line 1\n", "line 2\n"]
-    end
 
-    it 'works without a block' do
-      expect(str.lines).to eql ["line 1\n", "line 2\n"]
+      $VERBOSE = orig
     end
   end
 

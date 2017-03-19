@@ -141,8 +141,8 @@ end
 |                  | #concat                | Yes         |
 |                  | #downcase              | No          |
 |                  | #downcase!             | No          |
-|                  | #each_line             | No          |
-|                  | #lines                 | No          |
+|                  | #each_line             | Yes         |
+|                  | #lines                 | Yes         |
 |                  | #match?                | No          |
 |                  | .new                   | No          |
 |                  | #prepend               | Yes         |

@@ -1,4 +1,6 @@
 require 'polyfill/v2_4/string/instance/concat'
+require 'polyfill/v2_4/string/instance/each_line'
+require 'polyfill/v2_4/string/instance/lines'
 require 'polyfill/v2_4/string/instance/prepend'
 
 module Polyfill
@@ -6,6 +8,8 @@ module Polyfill
     module String
       module Instance
         include Concat
+        include EachLine
+        include Lines
         include Prepend
       end
     end

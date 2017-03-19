@@ -10,12 +10,11 @@ module Polyfill
               input = super(*others)
 
               if !input.nil? && hash[0] && hash[0][:chomp]
-                separator = others.find { |other| other.respond_to?(:to_str) }
-                if separator
-                  input.chomp!(separator)
-                else
-                  input.chomp!
-                end
+                separator = others.find do |other|
+                  other.respond_to?(:to_str)
+                end || $/
+
+                input.chomp!(separator)
               end
 
               input

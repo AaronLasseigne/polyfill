@@ -6,42 +6,29 @@ module Polyfill
           module Method
             def each_line(*args)
               hash, others = args.partition { |arg| arg.is_a?(::Hash) }
-
               chomps = hash[0] && hash[0][:chomp]
 
               unless block_given?
-                if chomps
-                  separator = others.find { |other| other.respond_to?(:to_str) }
+                return super(*others) unless chomps
 
-                  return Enumerator.new do |yielder|
-                    block =
-                      if separator
-                        Proc.new do |line|
-                          yielder.yield(line.chomp(separator))
-                        end
-                      else
-                        Proc.new do |line|
-                          yielder.yield(line.chomp)
-                        end
-                      end
-                    super(*others, &block)
+                separator = others.find do |other|
+                  other.respond_to?(:to_str)
+                end || $/
+                return Enumerator.new do |yielder|
+                  super(*others) do |line|
+                    yielder.yield(line.chomp(separator))
                   end
-                else
-                  return super(*others)
                 end
               end
 
               block =
                 if chomps
-                  separator = others.find { |other| other.respond_to?(:to_str) }
-                  if separator
-                    Proc.new do |line|
-                      yield(line.chomp(separator))
-                    end
-                  else
-                    Proc.new do |line|
-                      yield(line.chomp)
-                    end
+                  separator = others.find do |other|
+                    other.respond_to?(:to_str)
+                  end || $/
+
+                  Proc.new do |line|
+                    yield(line.chomp(separator))
                   end
                 else
                   Proc.new

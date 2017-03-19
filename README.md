@@ -114,7 +114,7 @@ end
 |                  | #floor                 | Yes         |
 |                  | #round                 | Yes         |
 |                  | #truncate              | Yes         |
-| IO               | #each_line             | No          |
+| IO               | #each_line             | Yes         |
 |                  | .foreach               | No          |
 |                  | #gets                  | Yes         |
 |                  | #readline              | Yes         |

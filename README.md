@@ -69,6 +69,12 @@ using Polyfill(
 )
 ```
 
+If you want all of the methods for a particular class you can use `:all`.
+
+```ruby
+using Polyfill(Numeric: :all)
+```
+
 Methods can be included in the same way. Prior to Ruby 2.4, refinements did
 not work on modules. In order to get methods you'll need to include them after
 the module. Calling `using` on a module will add it to all core Ruby classes

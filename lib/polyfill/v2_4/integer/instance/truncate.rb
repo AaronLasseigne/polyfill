@@ -9,8 +9,8 @@ module Polyfill
               return super() if ndigits == 0
               return to_f if ndigits > 0
 
-              place = 10 ** -ndigits
-              (self.to_f / place).truncate * place
+              place = 10**-ndigits
+              (to_f / place).truncate * place
             end
           end
 

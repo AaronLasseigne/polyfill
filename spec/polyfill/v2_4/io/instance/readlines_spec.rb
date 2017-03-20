@@ -25,17 +25,17 @@ RSpec.describe 'IO#readlines' do
       end
 
       it 'chomps when the separator is changed and chomp is true' do
-        expect(io.readlines(' ', chomp: true)).to eql ['line', "1\nline", "2\n"]
+        expect(io.readlines(' ', chomp: true)).to eql %W[line 1\nline 2\n]
       end
 
       it 'accepts implicit strings' do
         obj = double('string')
         allow(obj).to receive(:to_str).and_return(' ')
-        expect(io.readlines(obj, chomp: true)).to eql ['line', "1\nline", "2\n"]
+        expect(io.readlines(obj, chomp: true)).to eql %W[line 1\nline 2\n]
       end
 
       it 'chomps when the separator is changed and the limit is set and chomp is true' do
-        expect(io.readlines(' ', 5, chomp: true)).to eql ['line', "1\nlin", 'e', "2\n"]
+        expect(io.readlines(' ', 5, chomp: true)).to eql %W[line 1\nlin e 2\n]
       end
 
       it 'does not chomp the lines when false' do

@@ -1,0 +1,25 @@
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+Style/ClassAndModuleCamelCase:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%W': '[]'
+    '%i': '[]'
+    '%w': '[]'

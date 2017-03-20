@@ -1,3 +1,5 @@
+require 'English'
+
 module Polyfill
   module V2_4
     module String
@@ -14,7 +16,7 @@ module Polyfill
                 if chomps
                   separator = others.find do |other|
                     other.respond_to?(:to_str)
-                  end || $/
+                  end || $INPUT_RECORD_SEPARATOR
 
                   lines.each { |line| line.chomp!(separator) }
                 end
@@ -26,9 +28,9 @@ module Polyfill
                 if chomps
                   separator = others.find do |other|
                     other.respond_to?(:to_str)
-                  end || $/
+                  end || $INPUT_RECORD_SEPARATOR
 
-                  Proc.new do |line|
+                  proc do |line|
                     yield(line.chomp(separator))
                   end
                 else

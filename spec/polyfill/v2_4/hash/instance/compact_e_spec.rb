@@ -6,7 +6,7 @@ RSpec.describe 'Hash#compact!' do
   end
 
   it 'returns nil if nothing changes' do
-    expect({a: 1}.compact!).to be nil
+    expect({ a: 1 }.compact!).to be nil
   end
 
   it 'modifies the original' do

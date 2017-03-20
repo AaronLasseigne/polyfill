@@ -9,11 +9,11 @@ module Polyfill
               return super() if ndigits == 0
 
               if ndigits > 0
-                place = 10 ** ndigits
+                place = 10**ndigits
                 (self * place).ceil / place.to_f
               else
-                place = 10 ** -ndigits
-                (self.to_f / place).ceil * place
+                place = 10**-ndigits
+                (self / place).ceil * place
               end
             end
           end

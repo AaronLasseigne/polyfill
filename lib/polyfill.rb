@@ -5,7 +5,7 @@ module Polyfill
   include V2_4
 end
 
-def Polyfill(options)
+def Polyfill(options) # rubocop:disable Style/MethodName
   mod = Module.new
 
   klasses, others = options.partition { |key,| key[/\A[A-Z]/] }
@@ -47,7 +47,7 @@ def Polyfill(options)
             method[1..-1]
           end
         method_name.capitalize!
-        method_name.gsub!(/_(.)/) { $1.capitalize }
+        method_name.gsub!(/_(.)/) { |match| match[1].capitalize }
 
         method_mod =
           begin
@@ -59,7 +59,7 @@ def Polyfill(options)
           end
 
         mod.module_eval do
-          include class_or_module_mod.const_get(type, false).const_get(method_name, false)
+          include method_mod
         end
       end
     end

@@ -1,3 +1,5 @@
+require 'English'
+
 module Polyfill
   module V2_4
     module IO
@@ -12,7 +14,7 @@ module Polyfill
               if hash[0] && hash[0][:chomp]
                 separator = others.find do |other|
                   other.respond_to?(:to_str)
-                end || $/
+                end || $INPUT_RECORD_SEPARATOR
 
                 input.chomp!(separator)
               end

@@ -101,7 +101,7 @@ end
 |                  | #sum                   | No          |
 | Comparable       | #clamp                 | Yes         |
 | Dir              | .empty?                | Yes         |
-| Enumerable       | #chunk                 | No          |
+| Enumerable       | #chunk                 | Yes         |
 |                  | #sum                   | No          |
 |                  | #uniq                  | No          |
 | Enumerator::Lazy | #chunk_while           | No          |

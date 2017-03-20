@@ -1,6 +1,7 @@
 require 'polyfill/v2_4/array'
 require 'polyfill/v2_4/comparable'
 require 'polyfill/v2_4/dir'
+require 'polyfill/v2_4/enumerable'
 require 'polyfill/v2_4/file'
 require 'polyfill/v2_4/float'
 require 'polyfill/v2_4/hash'
@@ -18,6 +19,7 @@ module Polyfill
     include Array
     include Comparable
     include Dir
+    include Enumerable
     include File
     include Float
     include Hash

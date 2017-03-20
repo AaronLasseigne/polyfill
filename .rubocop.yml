@@ -10,6 +10,8 @@ Metrics/MethodLength:
   Enabled: false
 Metrics/PerceivedComplexity:
   Enabled: false
+Style/AsciiComments:
+  Enabled: false
 Style/BarePercentLiterals:
   EnforcedStyle: percent_q
 Style/ClassAndModuleCamelCase:

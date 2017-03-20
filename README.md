@@ -138,7 +138,7 @@ end
 | Regexp           | #match?                | Yes         |
 | String           | #capitalize            | No          |
 |                  | #capitalize!           | No          |
-|                  | #casecmp?              | No          |
+|                  | #casecmp?              | Partial     | Does not support Unicode characters.
 |                  | #concat                | Yes         |
 |                  | #downcase              | No          |
 |                  | #downcase!             | No          |
@@ -158,7 +158,7 @@ end
 |                  | #readlines             | Yes         |
 | Symbol           | #capitalize            | No          |
 |                  | #capitalize!           | No          |
-|                  | #casecmp?              | No          |
+|                  | #casecmp?              | Partial     | Does not support Unicode characters.
 |                  | #downcase              | No          |
 |                  | #downcase!             | No          |
 |                  | #match                 | Yes         |

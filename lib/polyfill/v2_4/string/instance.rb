@@ -1,3 +1,4 @@
+require 'polyfill/v2_4/string/instance/casecmp_q'
 require 'polyfill/v2_4/string/instance/concat'
 require 'polyfill/v2_4/string/instance/each_line'
 require 'polyfill/v2_4/string/instance/lines'
@@ -9,6 +10,7 @@ module Polyfill
   module V2_4
     module String
       module Instance
+        include CasecmpQ
         include Concat
         include EachLine
         include Lines

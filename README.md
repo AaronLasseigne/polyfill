@@ -162,7 +162,7 @@ end
 |                  | #downcase              | No          |
 |                  | #downcase!             | No          |
 |                  | #match                 | No          |
-|                  | #match?                | No          |
+|                  | #match?                | Yes         |
 |                  | #swapcase              | No          |
 |                  | #swapcase!             | No          |
 |                  | #upcase                | No          |

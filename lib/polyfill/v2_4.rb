@@ -11,6 +11,7 @@ require 'polyfill/v2_4/numeric'
 require 'polyfill/v2_4/regexp'
 require 'polyfill/v2_4/string'
 require 'polyfill/v2_4/string_io'
+require 'polyfill/v2_4/symbol'
 
 module Polyfill
   module V2_4
@@ -27,5 +28,6 @@ module Polyfill
     include Regexp
     include String
     include StringIO
+    include Symbol
   end
 end

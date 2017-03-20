@@ -13,6 +13,7 @@
  - v2.4 IO.readlines
  - v2.4 String#each_line
  - v2.4 String#lines
+ - v2.4 String#unpack1
  - v2.4 StringIO#each_line
  - v2.4 StringIO#gets
  - v2.4 StringIO#readline

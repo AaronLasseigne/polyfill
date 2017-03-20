@@ -149,7 +149,7 @@ end
 |                  | #prepend               | Yes         |
 |                  | #swapcase              | No          |
 |                  | #swapcase!             | No          |
-|                  | #unpack1               | No          |
+|                  | #unpack1               | Yes         |
 |                  | #upcase                | No          |
 |                  | #upcase!               | No          |
 | StringIO         | #each_line             | Yes         |

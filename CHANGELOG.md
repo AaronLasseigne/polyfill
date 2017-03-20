@@ -8,6 +8,7 @@
  - v2.4 String#lines
  - v2.4 String#match?
  - v2.4 String#unpack1
+ - v2.4 Symbol#match
  - v2.4 Symbol#match?
 
 # [0.3.0][] (2017-03-19)

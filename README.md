@@ -161,7 +161,7 @@ end
 |                  | #casecmp?              | No          |
 |                  | #downcase              | No          |
 |                  | #downcase!             | No          |
-|                  | #match                 | No          |
+|                  | #match                 | Yes         |
 |                  | #match?                | Yes         |
 |                  | #swapcase              | No          |
 |                  | #swapcase!             | No          |

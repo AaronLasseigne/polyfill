@@ -144,7 +144,7 @@ end
 |                  | #downcase!             | No          |
 |                  | #each_line             | Yes         |
 |                  | #lines                 | Yes         |
-|                  | #match?                | No          |
+|                  | #match?                | Yes         |
 |                  | .new                   | No          |
 |                  | #prepend               | Yes         |
 |                  | #swapcase              | No          |

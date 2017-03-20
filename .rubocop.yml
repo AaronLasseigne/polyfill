@@ -16,6 +16,8 @@ Style/ClassAndModuleCamelCase:
   Enabled: false
 Style/Documentation:
   Enabled: false
+Style/DoubleNegation:
+  Enabled: false
 Style/NumericPredicate:
   EnforcedStyle: comparison
 Style/PercentLiteralDelimiters:

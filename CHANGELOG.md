@@ -8,6 +8,7 @@
  - v2.4 String#each_line
  - v2.4 String#lines
  - v2.4 String#match?
+ - v2.4 String.new
  - v2.4 String#unpack1
  - v2.4 Symbol#casecmp?
  - v2.4 Symbol#match

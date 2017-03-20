@@ -145,7 +145,7 @@ end
 |                  | #each_line             | Yes         |
 |                  | #lines                 | Yes         |
 |                  | #match?                | Yes         |
-|                  | .new                   | No          |
+|                  | .new                   | Partial     | Allows `:capacity` option to pass but does nothing.
 |                  | #prepend               | Yes         |
 |                  | #swapcase              | No          |
 |                  | #swapcase!             | No          |

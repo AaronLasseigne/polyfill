@@ -9,14 +9,11 @@ RSpec.describe 'String#lines' do
     end
 
     it 'works with a block' do
-      orig = $VERBOSE
-      $VERBOSE = nil
-
-      acc = []
-      expect(str.lines { |line| acc << line }).to be str
-      expect(acc).to eql ["line 1\n", "line 2\n"]
-
-      $VERBOSE = orig
+      skip_warnings do
+        acc = []
+        expect(str.lines { |line| acc << line }).to be str
+        expect(acc).to eql ["line 1\n", "line 2\n"]
+      end
     end
   end
 

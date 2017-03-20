@@ -123,7 +123,7 @@ end
 | IO               | #each_line             | Yes         |
 |                  | .foreach               | Yes         |
 |                  | #gets                  | Yes         |
-|                  | #lines                 | No          |
+|                  | #lines                 | Yes         |
 |                  | #readline              | Yes         |
 |                  | #readlines             | Yes         |
 |                  | .readlines             | Yes         |

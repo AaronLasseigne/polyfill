@@ -8,6 +8,7 @@ require 'polyfill/v2_4/integer'
 require 'polyfill/v2_4/io'
 require 'polyfill/v2_4/match_data'
 require 'polyfill/v2_4/numeric'
+require 'polyfill/v2_4/regexp'
 require 'polyfill/v2_4/string'
 require 'polyfill/v2_4/string_io'
 
@@ -23,6 +24,7 @@ module Polyfill
     include IO
     include MatchData
     include Numeric
+    include Regexp
     include String
     include StringIO
   end

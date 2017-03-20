@@ -135,7 +135,7 @@ end
 | Numeric          | #finite?               | Yes         |
 |                  | #infinite?             | Yes         |
 | Rational         | #round                 | No          |
-| Regexp           | #match?                | No          |
+| Regexp           | #match?                | Yes         |
 | String           | #capitalize            | No          |
 |                  | #capitalize!           | No          |
 |                  | #casecmp?              | No          |

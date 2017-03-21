@@ -103,7 +103,7 @@ end
 | Dir              | .empty?                | Yes         |
 | Enumerable       | #chunk                 | Yes         |
 |                  | #sum                   | Yes         |
-|                  | #uniq                  | No          |
+|                  | #uniq                  | Yes         |
 | Enumerator::Lazy | #chunk_while           | No          |
 |                  | #uniq                  | No          |
 | File             | .empty?                | Yes         |

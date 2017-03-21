@@ -16,7 +16,7 @@ module Polyfill
                 separator = others.find do |other|
                   other.respond_to?(:to_str)
                 end || $INPUT_RECORD_SEPARATOR
-                return Enumerator.new do |yielder|
+                return ::Enumerator.new do |yielder|
                   super(*others) do |line|
                     yielder.yield(line.chomp(separator))
                   end

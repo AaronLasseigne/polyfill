@@ -105,7 +105,7 @@ end
 |                  | #sum                   | Yes         |
 |                  | #uniq                  | Yes         |
 | Enumerator::Lazy | #chunk_while           | No          |
-|                  | #uniq                  | No          |
+|                  | #uniq                  | Yes         |
 | File             | .empty?                | Yes         |
 | Float            | #ceil                  | Yes         |
 |                  | #floor                 | Yes         |

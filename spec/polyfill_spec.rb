@@ -55,6 +55,10 @@ RSpec.describe 'Polyfill' do
             expect do
               Polyfill(ThisIsNotARealClass: :all)
             end.to raise_error(ArgumentError, '"ThisIsNotARealClass" is not a valid class or has no updates')
+
+            expect do
+              Polyfill('ThisIsNotA::RealClass': :all)
+            end.to raise_error(ArgumentError, '"ThisIsNotA::RealClass" is not a valid class or has no updates')
           end
 
           it 'fails on methods missing a starting "." or "#"' do

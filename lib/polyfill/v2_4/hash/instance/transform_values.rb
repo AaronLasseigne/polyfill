@@ -6,7 +6,7 @@ module Polyfill
           module Method
             def transform_values
               unless block_given?
-                return Enumerator.new(keys.size) do |yielder|
+                return ::Enumerator.new(keys.size) do |yielder|
                   each_with_object({}) do |(k, v), acc|
                     acc[k] = yielder.yield(v)
                   end

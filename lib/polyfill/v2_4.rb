@@ -2,6 +2,7 @@ require_relative 'v2_4/enumerable'
 require_relative 'v2_4/array'
 require_relative 'v2_4/comparable'
 require_relative 'v2_4/dir'
+require_relative 'v2_4/enumerator/lazy'
 require_relative 'v2_4/file'
 require_relative 'v2_4/float'
 require_relative 'v2_4/hash'
@@ -20,6 +21,7 @@ module Polyfill
     include Comparable
     include Dir
     include Enumerable
+    include Enumerator::Lazy
     include File
     include Float
     include Hash

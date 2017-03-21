@@ -20,6 +20,8 @@ Style/Documentation:
   Enabled: false
 Style/DoubleNegation:
   Enabled: false
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
 Style/NumericPredicate:
   EnforcedStyle: comparison
 Style/PercentLiteralDelimiters:

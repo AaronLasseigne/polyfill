@@ -98,7 +98,7 @@ end
 |                  | #max                   | No          |
 |                  | #min                   | No          |
 |                  | #pack                  | No          |
-|                  | #sum                   | No          |
+|                  | #sum                   | Yes         |
 | Comparable       | #clamp                 | Yes         |
 | Dir              | .empty?                | Yes         |
 | Enumerable       | #chunk                 | Yes         |

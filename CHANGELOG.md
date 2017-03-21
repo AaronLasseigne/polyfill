@@ -2,6 +2,7 @@
 
 ## Added
 
+ - v2.4 Array#sum
  - v2.4 Enumerable#chunk
  - v2.4 Enumerable#sum
  - v2.4 IO#lines

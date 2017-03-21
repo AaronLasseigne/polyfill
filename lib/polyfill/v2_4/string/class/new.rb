@@ -6,7 +6,7 @@ module Polyfill
           module Method
             def new(*args)
               hash = args.find { |arg| arg.is_a?(::Hash) }
-              hash.delete(:capacity) if hash
+              hash && hash.delete(:capacity) if hash
 
               super(*args)
             end

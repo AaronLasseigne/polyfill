@@ -28,12 +28,13 @@ RSpec.describe 'Enumerable#uniq' do
 
   it 'will base uniqueness off of the block' do
     expect(Dir.new(fixture).uniq { |file_name| file_name[0] }).to eql %w[. file.txt]
+    enum = Enumerator.new do |y|
+      y << 1
+      y << 2
+      y << 3
+    end
     expect(
-      Enumerator.new do |y|
-        y << 1
-        y << 2
-        y << 3
-      end.uniq { |n| n % 2 }
+      enum.uniq { |n| n % 2 }
     ).to eql [1, 2]
     expect(
       { one: 1, two: 2, three: 3 }.uniq { |_, v| v % 2 }

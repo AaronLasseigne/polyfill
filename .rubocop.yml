@@ -1,3 +1,5 @@
+AllCops:
+  TargetRubyVersion: 2.3
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
@@ -19,6 +21,8 @@ Style/ClassAndModuleCamelCase:
 Style/Documentation:
   Enabled: false
 Style/DoubleNegation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
   Enabled: false
 Style/MultilineMethodCallIndentation:
   EnforcedStyle: indented

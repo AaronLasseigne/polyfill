@@ -95,8 +95,8 @@ end
 | Object           | Method                 | Implemented | Notes |
 | ---------------- | ---------------------- | ----------- | ----- |
 | Array            | #concat                | Yes         |
-|                  | #max                   | No          |
-|                  | #min                   | No          |
+|                  | #max                   | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
+|                  | #min                   | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
 |                  | #pack                  | No          |
 |                  | #sum                   | Yes         |
 | Comparable       | #clamp                 | Yes         |

@@ -1,10 +1,10 @@
-require 'polyfill/v2_4/string/instance/casecmp_q'
-require 'polyfill/v2_4/string/instance/concat'
-require 'polyfill/v2_4/string/instance/each_line'
-require 'polyfill/v2_4/string/instance/lines'
-require 'polyfill/v2_4/string/instance/match_q'
-require 'polyfill/v2_4/string/instance/prepend'
-require 'polyfill/v2_4/string/instance/unpack1'
+require_relative 'instance/casecmp_q'
+require_relative 'instance/concat'
+require_relative 'instance/each_line'
+require_relative 'instance/lines'
+require_relative 'instance/match_q'
+require_relative 'instance/prepend'
+require_relative 'instance/unpack1'
 
 module Polyfill
   module V2_4

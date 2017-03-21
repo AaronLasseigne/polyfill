@@ -1,5 +1,5 @@
-require 'polyfill/v2_4/string/class'
-require 'polyfill/v2_4/string/instance'
+require_relative 'string/class'
+require_relative 'string/instance'
 
 module Polyfill
   module V2_4

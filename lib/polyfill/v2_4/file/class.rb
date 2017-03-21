@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/file/class/empty_q'
+require_relative 'class/empty_q'
 
 module Polyfill
   module V2_4

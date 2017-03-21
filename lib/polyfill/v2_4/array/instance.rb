@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/array/instance/concat'
+require_relative 'instance/concat'
 
 module Polyfill
   module V2_4

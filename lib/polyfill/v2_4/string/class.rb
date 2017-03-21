@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/string/class/new'
+require_relative 'class/new'
 
 module Polyfill
   module V2_4

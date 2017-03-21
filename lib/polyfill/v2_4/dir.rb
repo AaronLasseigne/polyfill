@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/dir/class'
+require_relative 'dir/class'
 
 module Polyfill
   module V2_4

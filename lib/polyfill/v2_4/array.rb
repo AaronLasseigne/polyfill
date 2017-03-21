@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/array/instance'
+require_relative 'array/instance'
 
 module Polyfill
   module V2_4

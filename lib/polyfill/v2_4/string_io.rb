@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/string_io/instance'
+require_relative 'string_io/instance'
 
 module Polyfill
   module V2_4

@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/symbol/instance'
+require_relative 'symbol/instance'
 
 module Polyfill
   module V2_4

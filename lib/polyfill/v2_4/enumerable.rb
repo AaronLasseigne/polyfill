@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/enumerable/instance'
+require_relative 'enumerable/instance'
 
 module Polyfill
   module V2_4

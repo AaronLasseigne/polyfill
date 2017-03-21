@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/enumerable/instance/chunk'
+require_relative 'instance/chunk'
 
 module Polyfill
   module V2_4

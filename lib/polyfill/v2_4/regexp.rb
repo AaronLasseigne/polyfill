@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/regexp/instance'
+require_relative 'regexp/instance'
 
 module Polyfill
   module V2_4

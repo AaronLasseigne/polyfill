@@ -1,6 +1,6 @@
-require 'polyfill/v2_4/float/instance/ceil'
-require 'polyfill/v2_4/float/instance/floor'
-require 'polyfill/v2_4/float/instance/truncate'
+require_relative 'instance/ceil'
+require_relative 'instance/floor'
+require_relative 'instance/truncate'
 
 module Polyfill
   module V2_4

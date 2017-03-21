@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/hash/instance'
+require_relative 'hash/instance'
 
 module Polyfill
   module V2_4

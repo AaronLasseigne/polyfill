@@ -1,7 +1,7 @@
-require 'polyfill/v2_4/hash/instance/compact'
-require 'polyfill/v2_4/hash/instance/compact_e'
-require 'polyfill/v2_4/hash/instance/transform_values'
-require 'polyfill/v2_4/hash/instance/transform_values_e'
+require_relative 'instance/compact'
+require_relative 'instance/compact_e'
+require_relative 'instance/transform_values'
+require_relative 'instance/transform_values_e'
 
 module Polyfill
   module V2_4

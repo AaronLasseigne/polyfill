@@ -1,5 +1,5 @@
-require 'polyfill/v2_4/numeric/instance/finite_q'
-require 'polyfill/v2_4/numeric/instance/infinite_q'
+require_relative 'instance/finite_q'
+require_relative 'instance/infinite_q'
 
 module Polyfill
   module V2_4

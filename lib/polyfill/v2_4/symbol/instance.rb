@@ -1,6 +1,6 @@
-require 'polyfill/v2_4/symbol/instance/casecmp_q'
-require 'polyfill/v2_4/symbol/instance/match_q'
-require 'polyfill/v2_4/symbol/instance/match'
+require_relative 'instance/casecmp_q'
+require_relative 'instance/match_q'
+require_relative 'instance/match'
 
 module Polyfill
   module V2_4

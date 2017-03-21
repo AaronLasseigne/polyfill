@@ -3,6 +3,7 @@
 ## Added
 
  - v2.4 Enumerable#chunk
+ - v2.4 Enumerable#sum
  - v2.4 IO#lines
  - v2.4 Regexp#match?
  - v2.4 String#casecmp?

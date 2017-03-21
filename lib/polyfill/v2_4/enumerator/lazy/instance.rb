@@ -1,3 +1,4 @@
+require_relative 'instance/chunk_while'
 require_relative 'instance/uniq'
 
 module Polyfill
@@ -5,6 +6,7 @@ module Polyfill
     module Enumerator
       module Lazy
         module Instance
+          include ChunkWhile
           include Uniq
         end
       end

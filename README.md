@@ -144,7 +144,9 @@ end
 |                  | #finite?                 | Yes         |
 |                  | #infinite?               | Yes         |
 | Object           | #clone                   | Yes         |
-| OptionParser     | #parse                   | No          |
+| OptionParser     | #order                   | No          |
+|                  | #order!                  | No          |
+|                  | #parse                   | No          |
 |                  | #parse!                  | No          |
 |                  | #permute                 | No          |
 |                  | #permute!                | No          |

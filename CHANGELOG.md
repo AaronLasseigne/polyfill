@@ -12,6 +12,7 @@
  - v2.4 Numeric#clone
  - v2.4 Numeric#dup
  - v2.4 Object#clone
+ - v2.4 Pathname#empty?
  - v2.4 Regexp#match?
  - v2.4 String#casecmp?
  - v2.4 String#each_line

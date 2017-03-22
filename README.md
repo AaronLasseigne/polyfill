@@ -150,7 +150,7 @@ end
 |                  | #parse!                  | No          |
 |                  | #permute                 | No          |
 |                  | #permute!                | No          |
-| Pathname         | #empty?                  | No          |
+| Pathname         | #empty?                  | Yes         |
 | Readline         | #quoting_detection_proc  | No          |
 |                  | #quoting_detection_proc= | No          |
 | REXML::Element   | #[]                      | No          |

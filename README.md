@@ -109,6 +109,7 @@ end
 | Enumerator::Lazy | #chunk_while             | Yes         |
 |                  | #uniq                    | Yes         |
 | File             | .empty?                  | Yes         |
+| FileTest         | .empty?                  | No          |
 | Float            | #ceil                    | Yes         |
 |                  | #floor                   | Yes         |
 |                  | #round                   | No          |

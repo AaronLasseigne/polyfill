@@ -15,14 +15,12 @@ module Polyfill
             end
           end
 
-          if RUBY_VERSION < '2.4.0'
-            refine ::Object do
-              include Method
-            end
+          refine ::Object do
+            include Method
+          end
 
-            def self.included(base)
-              base.include Method
-            end
+          def self.included(base)
+            base.include Method
           end
         end
       end

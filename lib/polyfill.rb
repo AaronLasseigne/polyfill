@@ -14,6 +14,8 @@ def Polyfill(options) # rubocop:disable Style/MethodName
     raise ArgumentError, "unknown keyword: #{others.first[0]}"
   end
 
+  needs_update = RUBY_VERSION[/\A(\d+\.\d+)/, 1] < '2.4'
+
   klasses.each do |names, methods|
     class_or_module_mod = names
       .to_s
@@ -27,6 +29,8 @@ def Polyfill(options) # rubocop:disable Style/MethodName
       end
 
     if methods == :all
+      next unless needs_update
+
       mod.module_eval do
         include class_or_module_mod
       end
@@ -61,6 +65,8 @@ def Polyfill(options) # rubocop:disable Style/MethodName
           rescue NameError
             raise ArgumentError, %Q("#{method}" is not a valid method on #{names} or has no updates)
           end
+
+        next unless needs_update
 
         mod.module_eval do
           include method_mod

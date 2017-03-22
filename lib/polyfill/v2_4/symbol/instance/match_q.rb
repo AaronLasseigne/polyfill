@@ -3,14 +3,12 @@ module Polyfill
     module Symbol
       module Instance
         module MatchQ
-          if RUBY_VERSION < '2.4.0'
-            refine ::Symbol do
-              include String::Instance::MatchQ::Method
-            end
+          refine ::Symbol do
+            include String::Instance::MatchQ::Method
+          end
 
-            def self.included(base)
-              base.include String::Instance::MatchQ::Method
-            end
+          def self.included(base)
+            base.include String::Instance::MatchQ::Method
           end
         end
       end

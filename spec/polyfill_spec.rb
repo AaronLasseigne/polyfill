@@ -4,7 +4,7 @@ RSpec.describe 'Polyfill' do
       using Polyfill
 
       it 'adds everything' do
-        if RUBY_VERSION < '2.4.0'
+        when_ruby_below '2.4' do
           expect { 1.finite? }.to_not raise_error
           expect { {}.transform_values }.to_not raise_error
         end
@@ -39,13 +39,13 @@ RSpec.describe 'Polyfill' do
             it 'adds the particular methods requested for that class' do
               expect { {}.compact }.to_not raise_error
               expect { {}.compact! }.to_not raise_error
-              if RUBY_VERSION < '2.4.0'
+              when_ruby_below '2.4' do
                 expect { Dir.empty?('directory') }.to_not raise_error
               end
             end
 
             it 'does not add methods that were not requested' do
-              if RUBY_VERSION < '2.4.0'
+              when_ruby_below '2.4' do
                 expect { {}.transform_values }.to raise_error(NoMethodError)
               end
             end
@@ -83,7 +83,7 @@ RSpec.describe 'Polyfill' do
         include Polyfill
       end
 
-      if RUBY_VERSION < '2.4.0'
+      when_ruby_below '2.4' do
         # expect(klass.respond_to?(:empty?)).to be true
         expect(klass.new.respond_to?(:finite?)).to be true
         expect(klass.new.respond_to?(:clamp)).to be true
@@ -105,7 +105,7 @@ RSpec.describe 'Polyfill' do
       end
 
       expect(klass.new.respond_to?(:finite?)).to be true
-      if RUBY_VERSION < '2.4.0'
+      when_ruby_below '2.4' do
         expect(klass.new.respond_to?(:infinite?)).to be false
       end
     end

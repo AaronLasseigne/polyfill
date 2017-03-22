@@ -131,7 +131,9 @@ end
 |                  | #values_at             | Yes         |
 | Module           | #refine                | No          |
 |                  | .used_modules          | No          |
-| Numeric          | #finite?               | Yes         |
+| Numeric          | #clone                 | Yes         |
+|                  | #dup                   | Yes         |
+|                  | #finite?               | Yes         |
 |                  | #infinite?             | Yes         |
 | Object           | #clone                 | Yes         |
 | Rational         | #round                 | No          |

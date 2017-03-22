@@ -5,13 +5,11 @@ RSpec.describe 'Dir.empty?' do
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)
   end
 
+  before(:all) { Dir.mkdir(fixture('empty')) }
+  after(:all) { Dir.rmdir(fixture('empty')) }
+
   it 'returns true if the file is a directory and has no content' do
-    dir = fixture('empty')
-    Dir.mkdir(dir) unless Dir.exist?(dir)
-
-    expect(Dir.empty?(dir)).to be true
-
-    Dir.rmdir(dir)
+    expect(Dir.empty?(fixture('empty'))).to be true
   end
 
   it 'returns false when the file is a directory and has content' do

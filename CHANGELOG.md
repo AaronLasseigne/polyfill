@@ -9,6 +9,7 @@
  - v2.4 Enumerator::Lazy#chunk_while
  - v2.4 Enumerator::Lazy#uniq
  - v2.4 IO#lines
+ - v2.4 Object#clone
  - v2.4 Regexp#match?
  - v2.4 String#casecmp?
  - v2.4 String#each_line

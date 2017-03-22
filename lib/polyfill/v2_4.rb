@@ -10,6 +10,7 @@ require_relative 'v2_4/integer'
 require_relative 'v2_4/io'
 require_relative 'v2_4/match_data'
 require_relative 'v2_4/numeric'
+require_relative 'v2_4/object'
 require_relative 'v2_4/regexp'
 require_relative 'v2_4/string'
 require_relative 'v2_4/string_io'
@@ -27,8 +28,10 @@ module Polyfill
     include Hash
     include Integer
     include IO
+    include Kernel
     include MatchData
     include Numeric
+    include Object
     include Regexp
     include String
     include StringIO

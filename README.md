@@ -127,13 +127,13 @@ end
 |                  | #readline              | Yes         |
 |                  | #readlines             | Yes         |
 |                  | .readlines             | Yes         |
-| Kernel           | #clone                 | No          |
 | MatchData        | #named_captures        | Yes         |
 |                  | #values_at             | Yes         |
 | Module           | #refine                | No          |
 |                  | .used_modules          | No          |
 | Numeric          | #finite?               | Yes         |
 |                  | #infinite?             | Yes         |
+| Object           | #clone                 | Yes         |
 | Rational         | #round                 | No          |
 | Regexp           | #match?                | Yes         |
 | String           | #capitalize            | No          |

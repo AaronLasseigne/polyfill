@@ -92,87 +92,105 @@ end
 
 ### 2.3 to 2.4
 
-| Object           | Method                 | Implemented | Notes |
-| ---------------- | ---------------------- | ----------- | ----- |
-| Array            | #concat                | Yes         |
-|                  | #max                   | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
-|                  | #min                   | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
-|                  | #pack                  | No          |
-|                  | #sum                   | Yes         |
-| Comparable       | #clamp                 | Yes         |
-| Dir              | .empty?                | Yes         |
-| Enumerable       | #chunk                 | Yes         |
-|                  | #sum                   | Yes         |
-|                  | #uniq                  | Yes         |
-| Enumerator::Lazy | #chunk_while           | Yes         |
-|                  | #uniq                  | Yes         |
-| File             | .empty?                | Yes         |
-| Float            | #ceil                  | Yes         |
-|                  | #floor                 | Yes         |
-|                  | #round                 | No          |
-|                  | #truncate              | Yes         |
-| Hash             | #compact               | Yes         |
-|                  | #compact!              | Yes         |
-|                  | #transform_values      | Yes         |
-|                  | #transform_values!     | Yes         |
-| Integer          | #ceil                  | Yes         |
-|                  | #digits                | Yes         |
-|                  | #floor                 | Yes         |
-|                  | #round                 | Yes         |
-|                  | #truncate              | Yes         |
-| IO               | #each_line             | Yes         |
-|                  | .foreach               | Yes         |
-|                  | #gets                  | Yes         |
-|                  | #lines                 | Yes         |
-|                  | #readline              | Yes         |
-|                  | #readlines             | Yes         |
-|                  | .readlines             | Yes         |
-| MatchData        | #named_captures        | Yes         |
-|                  | #values_at             | Yes         |
-| Module           | #refine                | No          |
-|                  | .used_modules          | No          |
-| Numeric          | #clone                 | Yes         |
-|                  | #dup                   | Yes         |
-|                  | #finite?               | Yes         |
-|                  | #infinite?             | Yes         |
-| Object           | #clone                 | Yes         |
-| Rational         | #round                 | No          |
-| Regexp           | #match?                | Yes         |
-| String           | #capitalize            | No          |
-|                  | #capitalize!           | No          |
-|                  | #casecmp?              | Partial     | Does not support Unicode characters.
-|                  | #concat                | Yes         |
-|                  | #downcase              | No          |
-|                  | #downcase!             | No          |
-|                  | #each_line             | Yes         |
-|                  | #lines                 | Yes         |
-|                  | #match?                | Yes         |
-|                  | .new                   | Partial     | Allows `:capacity` option to pass but does nothing.
-|                  | #prepend               | Yes         |
-|                  | #swapcase              | No          |
-|                  | #swapcase!             | No          |
-|                  | #unpack1               | Yes         |
-|                  | #upcase                | No          |
-|                  | #upcase!               | No          |
-| StringIO         | #each_line             | Yes         |
-|                  | #gets                  | Yes         |
-|                  | #readline              | Yes         |
-|                  | #readlines             | Yes         |
-| Symbol           | #capitalize            | No          |
-|                  | #capitalize!           | No          |
-|                  | #casecmp?              | Partial     | Does not support Unicode characters.
-|                  | #downcase              | No          |
-|                  | #downcase!             | No          |
-|                  | #match                 | Yes         |
-|                  | #match?                | Yes         |
-|                  | #swapcase              | No          |
-|                  | #swapcase!             | No          |
-|                  | #upcase                | No          |
-|                  | #upcase!               | No          |
-| Thread           | #report\_on\_exception | No          |
-|                  | .report\_on\_exception | No          |
-| TracePoint       | #callee_id             | No          |
-| Warning          | #warn                  | No          |
+| Object           | Method                   | Implemented | Notes |
+| ---------------- | ------------------------ | ----------- | ----- |
+| Array            | #concat                  | Yes         |
+|                  | #max                     | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
+|                  | #min                     | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
+|                  | #pack                    | No          |
+|                  | #sum                     | Yes         |
+| Binding          | #irb                     | No          |
+| Comparable       | #clamp                   | Yes         |
+| CSV              | #new                     | No          |
+| Dir              | .empty?                  | Yes         |
+| Enumerable       | #chunk                   | Yes         |
+|                  | #sum                     | Yes         |
+|                  | #uniq                    | Yes         |
+| Enumerator::Lazy | #chunk_while             | Yes         |
+|                  | #uniq                    | Yes         |
+| File             | .empty?                  | Yes         |
+| Float            | #ceil                    | Yes         |
+|                  | #floor                   | Yes         |
+|                  | #round                   | No          |
+|                  | #truncate                | Yes         |
+| Hash             | #compact                 | Yes         |
+|                  | #compact!                | Yes         |
+|                  | #transform_values        | Yes         |
+|                  | #transform_values!       | Yes         |
+| Integer          | #ceil                    | Yes         |
+|                  | #digits                  | Yes         |
+|                  | #floor                   | Yes         |
+|                  | #round                   | Yes         |
+|                  | #truncate                | Yes         |
+| IO               | #each_line               | Yes         |
+|                  | .foreach                 | Yes         |
+|                  | #gets                    | Yes         |
+|                  | #lines                   | Yes         |
+|                  | #readline                | Yes         |
+|                  | #readlines               | Yes         |
+|                  | .readlines               | Yes         |
+| IPAddr           | #==                      | No          |
+|                  | #<=>                     | No          |
+| Logger           | #new                     | No          |
+| MatchData        | #named_captures          | Yes         |
+|                  | #values_at               | Yes         |
+| Module           | #refine                  | No          |
+|                  | .used_modules            | No          |
+| Net::HTTP        | #post                    | No          |
+| Net::FTP         | #new                     | No          |
+|                  | #status                  | No          |
+| Numeric          | #clone                   | Yes         |
+|                  | #dup                     | Yes         |
+|                  | #finite?                 | Yes         |
+|                  | #infinite?               | Yes         |
+| Object           | #clone                   | Yes         |
+| OptionParser     | #parse                   | No          |
+|                  | #parse!                  | No          |
+|                  | #permute                 | No          |
+|                  | #permute!                | No          |
+| Pathname         | #empty?                  | No          |
+| Readline         | #quoting_detection_proc  | No          |
+|                  | #quoting_detection_proc= | No          |
+| REXML::Element   | #[]                      | No          |
+| Rational         | #round                   | No          |
+| Regexp           | #match?                  | Yes         |
+| Set              | #compare_by_identity     | No          |
+|                  | #compare_by_identity?    | No          |
+| String           | #capitalize              | No          |
+|                  | #capitalize!             | No          |
+|                  | #casecmp?                | Partial     | Does not support Unicode characters.
+|                  | #concat                  | Yes         |
+|                  | #downcase                | No          |
+|                  | #downcase!               | No          |
+|                  | #each_line               | Yes         |
+|                  | #lines                   | Yes         |
+|                  | #match?                  | Yes         |
+|                  | .new                     | Partial     | Allows `:capacity` option to pass but does nothing.
+|                  | #prepend                 | Yes         |
+|                  | #swapcase                | No          |
+|                  | #swapcase!               | No          |
+|                  | #unpack1                 | Yes         |
+|                  | #upcase                  | No          |
+|                  | #upcase!                 | No          |
+| StringIO         | #each_line               | Yes         |
+|                  | #gets                    | Yes         |
+|                  | #readline                | Yes         |
+|                  | #readlines               | Yes         |
+| Symbol           | #capitalize              | No          |
+|                  | #capitalize!             | No          |
+|                  | #casecmp?                | Partial     | Does not support Unicode characters.
+|                  | #downcase                | No          |
+|                  | #downcase!               | No          |
+|                  | #match                   | Yes         |
+|                  | #match?                  | Yes         |
+|                  | #swapcase                | No          |
+|                  | #swapcase!               | No          |
+|                  | #upcase                  | No          |
+|                  | #upcase!                 | No          |
+| Thread           | #report\_on\_exception   | No          |
+|                  | .report\_on\_exception   | No          |
+| TracePoint       | #callee_id               | No          |
+| Warning          | #warn                    | No          |
 
 ## Contributing
 

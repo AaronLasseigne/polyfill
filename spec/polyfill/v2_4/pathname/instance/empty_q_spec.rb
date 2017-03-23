@@ -1,3 +1,5 @@
+require 'pathname'
+
 RSpec.describe 'Pathname#empty?' do
   using Polyfill(Pathname: %w[#empty?])
 

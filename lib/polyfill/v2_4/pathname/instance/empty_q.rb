@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Polyfill
   module V2_4
     module Pathname

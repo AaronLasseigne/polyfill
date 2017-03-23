@@ -178,4 +178,4 @@ Please read the [contributing file](CONTRIBUTING.md) prior to pull requests.
 
 ## Credits
 
-Polyfill is licensed under the [MIT License](LICENSE.md).
+Polyfill is licensed under the [MIT License](LICENSE.txt).

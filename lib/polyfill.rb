@@ -45,15 +45,16 @@ def Polyfill(options) # rubocop:disable Style/MethodName
           else
             raise ArgumentError, %Q("#{method}" must start with a "." if it's a class method or "#" if it's an instance method)
           end
-        method_name =
-          case method[-1]
-          when '?'
-            "#{method[1..-2]}_q"
-          when '!'
-            "#{method[1..-2]}_e"
-          else
-            method[1..-1]
-          end
+
+        method_name = method[1..-1]
+        symbol_conversions = {
+          '=' => 'equal',
+          '<' => 'lessthan',
+          '>' => 'greaterthan',
+          '?' => '_q',
+          '!' => '_e'
+        }
+        method_name.gsub!(/[#{symbol_conversions.keys.join}]/o, symbol_conversions)
         method_name.capitalize!
         method_name.gsub!(/_(.)/) { |match| match[1].capitalize }
 

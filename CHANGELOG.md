@@ -9,6 +9,8 @@
  - v2.4 Enumerator::Lazy#chunk_while
  - v2.4 Enumerator::Lazy#uniq
  - v2.4 IO#lines
+ - v2.4 IPAddr#==
+ - v2.4 IPAddr#<=>
  - v2.4 Numeric#clone
  - v2.4 Numeric#dup
  - v2.4 Object#clone

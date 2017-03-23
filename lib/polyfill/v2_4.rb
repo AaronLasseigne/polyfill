@@ -16,6 +16,7 @@ require_relative 'v2_4/string'
 require_relative 'v2_4/string_io'
 require_relative 'v2_4/symbol'
 
+require_relative 'v2_4/i_p_addr'
 require_relative 'v2_4/pathname'
 
 module Polyfill
@@ -39,6 +40,7 @@ module Polyfill
     include StringIO
     include Symbol
 
+    include IPAddr
     include Pathname
   end
 end

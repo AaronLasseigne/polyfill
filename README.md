@@ -130,8 +130,8 @@ end
 |                  | #readline                | Yes         |
 |                  | #readlines               | Yes         |
 |                  | .readlines               | Yes         |
-| IPAddr           | #==                      | No          |
-|                  | #<=>                     | No          |
+| IPAddr           | #==                      | Yes         |
+|                  | #<=>                     | Yes         |
 | Logger           | #new                     | No          |
 | MatchData        | #named_captures          | Yes         |
 |                  | #values_at               | Yes         |

@@ -6,7 +6,7 @@ module Polyfill
           module Method
             def transform_values!
               unless block_given?
-                return Enumerator.new(keys.size) do |yielder|
+                return ::Enumerator.new(keys.size) do |yielder|
                   replace(each_with_object({}) do |(k, v), acc|
                     acc[k] = yielder.yield(v)
                   end)
@@ -19,14 +19,12 @@ module Polyfill
             end
           end
 
-          if RUBY_VERSION < '2.4.0'
-            refine ::Hash do
-              include Method
-            end
+          refine ::Hash do
+            include Method
+          end
 
-            def self.included(base)
-              base.include Method
-            end
+          def self.included(base)
+            base.include Method
           end
         end
       end

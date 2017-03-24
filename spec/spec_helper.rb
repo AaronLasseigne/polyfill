@@ -19,9 +19,7 @@ RSpec.configure do |config|
 
   config.warnings = true
 
-  if config.files_to_run.one?
-    config.default_formatter = 'doc'
-  end
+  config.default_formatter = 'doc' if config.files_to_run.one?
 
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
@@ -34,4 +32,17 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
+end
+
+def skip_warnings
+  orig = $VERBOSE
+  $VERBOSE = nil
+
+  yield
+
+  $VERBOSE = orig
+end
+
+def when_ruby_below(version)
+  yield if RUBY_VERSION[/\A(\d+\.\d+)/, 1] < version
 end

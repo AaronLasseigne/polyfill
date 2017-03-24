@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/match_data/instance'
+require_relative 'match_data/instance'
 
 module Polyfill
   module V2_4

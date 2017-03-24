@@ -1,0 +1,35 @@
+AllCops:
+  TargetRubyVersion: 2.3
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+Style/ClassAndModuleCamelCase:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%W': '[]'
+    '%i': '[]'
+    '%w': '[]'

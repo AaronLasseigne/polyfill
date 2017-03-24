@@ -2,7 +2,7 @@ RSpec.describe 'Hash#transform_values' do
   using Polyfill(Hash: %w[#transform_values])
 
   it 'transforms the values of the hash and returns a new one' do
-    expect({ a: 1, b: 2, c: 3 }.transform_values {|v| v * v + 1 }).to eql(a: 2, b: 5, c: 10)
+    expect({ a: 1, b: 2, c: 3 }.transform_values { |v| v * v + 1 }).to eql(a: 2, b: 5, c: 10)
     expect({ a: 1, b: 2, c: 3 }.transform_values(&:to_s)).to eql(a: '1', b: '2', c: '3')
   end
 

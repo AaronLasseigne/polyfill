@@ -16,19 +16,21 @@ RSpec.describe 'Array#concat' do
     end
 
     it 'does not loop endlessly when argument is self' do
-      ary = ['x', 'y']
-      expect(ary.concat(ary)).to eql ['x', 'y', 'x', 'y']
+      ary = %w[x y]
+      expect(ary.concat(ary)).to eql %w[x y x y]
     end
 
     it 'tries to convert the passed argument to an Array using #to_ary' do
       obj = double('to_ary')
-      allow(obj).to receive(:to_ary).and_return(['x', 'y'])
+      allow(obj).to receive(:to_ary).and_return(%w[x y])
       expect([4, 5, 6].concat(obj)).to eql [4, 5, 6, 'x', 'y']
     end
 
     it 'does not call #to_ary on Array subclasses' do
       klass = Class.new(Array) do
-        def to_ary() ["to_ary", "was", "called!"] end
+        def to_ary
+          %w[to_ary was called!]
+        end
       end
       obj = klass.new([5, 6, 7])
       expect(obj).to_not receive(:to_ary)
@@ -55,7 +57,8 @@ RSpec.describe 'Array#concat' do
 
     it 'is not infected by the other' do
       ary = [1, 2]
-      other = [3]; other.taint
+      other = [3]
+      other.taint
       expect(ary.tainted?).to be false
       ary.concat(other)
       expect(ary.tainted?).to be false
@@ -71,34 +74,6 @@ RSpec.describe 'Array#concat' do
       expect(ary[2].tainted?).to be true
       expect(ary[3].tainted?).to be false
     end
-
-#     it 'keeps untrusted status' do
-#       ary = [1, 2]
-#       ary.untrust
-#       ary.concat([3])
-#       expect(ary.untrusted?).to be true
-#       ary.concat([])
-#       expect(ary.untrusted?).to be true
-#     end
-
-#     it 'is not infected untrustedness by the other' do
-#       ary = [1, 2]
-#       other = [3]; other.untrust
-#       expect(ary.untrusted?).to be false
-#       ary.concat(other)
-#       expect(ary.untrusted?).to be false
-#     end
-
-#     it 'keeps the untrusted status of elements' do
-#       ary = [Object.new, Object.new, Object.new]
-#       ary.each(&:untrust)
-
-#       ary.concat([Object.new])
-#       expect(ary[0].untrusted?).to be true
-#       expect(ary[1].untrusted?).to be true
-#       expect(ary[2].untrusted?).to be true
-#       expect(ary[3].untrusted?).to be false
-#     end
 
     it 'appends elements to an Array with enough capacity that has been shifted' do
       ary = [1, 2, 3, 4, 5]

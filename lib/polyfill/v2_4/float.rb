@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/float/instance'
+require_relative 'float/instance'
 
 module Polyfill
   module V2_4

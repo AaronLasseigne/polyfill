@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/comparable/instance'
+require_relative 'comparable/instance'
 
 module Polyfill
   module V2_4

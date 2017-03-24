@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/comparable/instance/clamp'
+require_relative 'instance/clamp'
 
 module Polyfill
   module V2_4

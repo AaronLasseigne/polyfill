@@ -1,5 +1,5 @@
-require 'polyfill/v2_4/io/class/foreach'
-require 'polyfill/v2_4/io/class/readlines'
+require_relative 'class/foreach'
+require_relative 'class/readlines'
 
 module Polyfill
   module V2_4

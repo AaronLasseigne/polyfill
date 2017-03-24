@@ -6,7 +6,7 @@ RSpec.describe 'Hash#compact' do
   end
 
   it 'returns everything if nothing changes' do
-    expect({a: 1}.compact).to eql(a: 1)
+    expect({ a: 1 }.compact).to eql(a: 1)
   end
 
   it 'does not modify the original' do

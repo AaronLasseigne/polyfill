@@ -41,19 +41,19 @@ RSpec.describe 'IO.foreach' do
 
       it 'chomps when the separator is changed and chomp is true' do
         IO.foreach(file_name, ' ', chomp: true) { |line| acc << line }
-        expect(acc).to eql ['line', "1\nline", "2\n"]
+        expect(acc).to eql %W[line 1\nline 2\n]
       end
 
       it 'accepts implicit strings' do
         obj = double('string')
         allow(obj).to receive(:to_str).and_return(' ')
         IO.foreach(file_name, obj, chomp: true) { |line| acc << line }
-        expect(acc).to eql ['line', "1\nline", "2\n"]
+        expect(acc).to eql %W[line 1\nline 2\n]
       end
 
       it 'chomps when the separator is changed and the limit is set and chomp is true' do
         IO.foreach(file_name, ' ', 5, chomp: true) { |line| acc << line }
-        expect(acc).to eql ['line', "1\nlin", 'e', "2\n"]
+        expect(acc).to eql %W[line 1\nlin e 2\n]
       end
 
       it 'does not chomp the lines when false' do

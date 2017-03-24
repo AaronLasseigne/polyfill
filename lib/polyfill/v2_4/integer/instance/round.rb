@@ -12,19 +12,17 @@ module Polyfill
               return super() if ndigits == 0
               return to_f if ndigits > 0
 
-              place = 10 ** -ndigits
-              (self.to_f / place).round * place
+              place = 10**-ndigits
+              (to_f / place).round * place
             end
           end
 
-          if RUBY_VERSION < '2.4.0'
-            refine ::Integer do
-              include Method
-            end
+          refine ::Integer do
+            include Method
+          end
 
-            def self.included(base)
-              base.include Method
-            end
+          def self.included(base)
+            base.include Method
           end
         end
       end

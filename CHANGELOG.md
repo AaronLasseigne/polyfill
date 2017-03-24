@@ -1,4 +1,32 @@
-# [0.3.0][]
+# [0.4.0][]
+
+## Added
+
+ - v2.4 Array#sum
+ - v2.4 Enumerable#chunk
+ - v2.4 Enumerable#sum
+ - v2.4 Enumerable#uniq
+ - v2.4 Enumerator::Lazy#chunk_while
+ - v2.4 Enumerator::Lazy#uniq
+ - v2.4 IO#lines
+ - v2.4 IPAddr#==
+ - v2.4 IPAddr#<=>
+ - v2.4 Numeric#clone
+ - v2.4 Numeric#dup
+ - v2.4 Object#clone
+ - v2.4 Pathname#empty?
+ - v2.4 Regexp#match?
+ - v2.4 String#casecmp?
+ - v2.4 String#each_line
+ - v2.4 String#lines
+ - v2.4 String#match?
+ - v2.4 String.new
+ - v2.4 String#unpack1
+ - v2.4 Symbol#casecmp?
+ - v2.4 Symbol#match
+ - v2.4 Symbol#match?
+
+# [0.3.0][] (2017-03-19)
 
 ## Added
 
@@ -19,7 +47,7 @@
 
  - New way to select methods that doesn't rely on knowing the module structure
 
-# [0.2.0][] (2017-03-16)
+# [0.2.0][] (2017-03-17)
 
 ## Added
 
@@ -54,6 +82,7 @@
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[0.4.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.0.0...v0.1.0

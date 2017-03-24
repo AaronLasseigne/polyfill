@@ -1,5 +1,5 @@
-require 'polyfill/v2_4/match_data/instance/named_captures'
-require 'polyfill/v2_4/match_data/instance/values_at'
+require_relative 'instance/named_captures'
+require_relative 'instance/values_at'
 
 module Polyfill
   module V2_4

@@ -1,4 +1,4 @@
-require 'polyfill/v2_4/numeric/instance'
+require_relative 'numeric/instance'
 
 module Polyfill
   module V2_4

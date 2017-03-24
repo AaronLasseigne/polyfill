@@ -1,8 +1,8 @@
-require 'polyfill/v2_4/integer/instance/ceil'
-require 'polyfill/v2_4/integer/instance/digits'
-require 'polyfill/v2_4/integer/instance/floor'
-require 'polyfill/v2_4/integer/instance/round'
-require 'polyfill/v2_4/integer/instance/truncate'
+require_relative 'instance/ceil'
+require_relative 'instance/digits'
+require_relative 'instance/floor'
+require_relative 'instance/round'
+require_relative 'instance/truncate'
 
 module Polyfill
   module V2_4

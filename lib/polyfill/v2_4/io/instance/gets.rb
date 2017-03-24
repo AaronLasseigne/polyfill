@@ -1,3 +1,5 @@
+require 'English'
+
 module Polyfill
   module V2_4
     module IO
@@ -10,26 +12,23 @@ module Polyfill
               input = super(*others)
 
               if !input.nil? && hash[0] && hash[0][:chomp]
-                separator = others.find { |other| other.respond_to?(:to_str) }
-                if separator
-                  input.chomp!(separator)
-                else
-                  input.chomp!
-                end
+                separator = others.find do |other|
+                  other.respond_to?(:to_str)
+                end || $INPUT_RECORD_SEPARATOR
+
+                input.chomp!(separator)
               end
 
               input
             end
           end
 
-          if RUBY_VERSION < '2.4.0'
-            refine ::IO do
-              include Method
-            end
+          refine ::IO do
+            include Method
+          end
 
-            def self.included(base)
-              base.include Method
-            end
+          def self.included(base)
+            base.include Method
           end
         end
       end

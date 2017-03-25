@@ -1,4 +1,5 @@
 require 'polyfill/version'
+require 'polyfill/utils'
 require 'polyfill/v2_3'
 require 'polyfill/v2_4'
 

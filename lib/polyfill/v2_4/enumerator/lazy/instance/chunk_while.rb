@@ -5,7 +5,9 @@ module Polyfill
         module Instance
           module ChunkWhile
             module Method
-              using V2_3::Enumerable::Instance::ChunkWhile
+              Utils.when_ruby_below('2.3') do
+                using V2_3::Enumerable::Instance::ChunkWhile
+              end
 
               def chunk_while
                 super.lazy

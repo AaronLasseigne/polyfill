@@ -17,6 +17,8 @@ Right now the only update is from 2.3 to 2.4 however the goal is to go all the w
 - [Goals](#goals)
 - [Usage](#usage)
 - [Implementation Table](#implementation-table)
+  - [2.3 to 2.4](#23-to-24)
+  - [2.2 to 2.3](#22-to-23)
 
 ## Caveat Emptor
 
@@ -194,6 +196,13 @@ end
 |                  | .report\_on\_exception   | No          |
 | TracePoint       | #callee_id               | No          |
 | Warning          | #warn                    | No          |
+
+### 2.2 to 2.3
+
+| Object           | Method                   | Implemented | Notes |
+| ---------------- | ------------------------ | ----------- | ----- |
+| Enumerable       | #chunk_while             | Yes         |
+| String           | .new                     | Yes         |
 
 ## Contributing
 

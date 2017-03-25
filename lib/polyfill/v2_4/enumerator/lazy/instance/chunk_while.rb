@@ -5,6 +5,8 @@ module Polyfill
         module Instance
           module ChunkWhile
             module Method
+              using V2_3::Enumerable::Instance::ChunkWhile
+
               def chunk_while
                 super.lazy
               end

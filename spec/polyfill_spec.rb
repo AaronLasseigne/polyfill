@@ -24,17 +24,21 @@ RSpec.describe 'Polyfill' do
         end
 
         context 'passed :all' do
-          using Polyfill(Numeric: :all)
+          using Polyfill(Enumerable: :all)
 
           it 'adds everything for that class' do
-            expect { 1.finite? }.to_not raise_error
-            expect { 1.infinite? }.to_not raise_error
+            expect { [].chunk }.to_not raise_error # added v2.4
+            expect { [].chunk_while {} }.to_not raise_error # added v2.3
           end
         end
 
         context 'passed an array of strings' do
           context 'for requested methods' do
-            using Polyfill(Hash: %w[#compact #compact!], Dir: %w[.empty?])
+            using Polyfill(
+              Dir: %w[.empty?],
+              Enumerable: %w[#chunk_while],
+              Hash: %w[#compact #compact!]
+            )
 
             it 'adds the particular methods requested for that class' do
               expect { {}.compact }.to_not raise_error
@@ -42,6 +46,7 @@ RSpec.describe 'Polyfill' do
               when_ruby_below '2.4' do
                 expect { Dir.empty?('directory') }.to_not raise_error
               end
+              expect { [].chunk_while {} }.to_not raise_error
             end
 
             it 'does not add methods that were not requested' do

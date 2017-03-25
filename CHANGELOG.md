@@ -1,5 +1,10 @@
 # [0.5.0][]
 
+## Added
+ - Support for Ruby 2.2
+ - v2.3 String.new
+ - v2.3 Enumerable#chunk_while
+
 # [0.4.0][] (2017-03-24)
 
 ## Added

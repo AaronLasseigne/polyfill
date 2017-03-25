@@ -1,3 +1,5 @@
+require 'stringio'
+
 RSpec.describe 'Enumerable#chunk' do
   using Polyfill(Enumerable: %w[#chunk])
 

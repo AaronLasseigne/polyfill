@@ -201,8 +201,36 @@ end
 
 | Object           | Method                   | Implemented | Notes |
 | ---------------- | ------------------------ | ----------- | ----- |
-| Enumerable       | #chunk_while             | Yes         |
-| String           | .new                     | Yes         |
+| ARGF             | #read_nonblock           | No          |
+| Array            | #bsearch_index           | No          |
+|                  | #dig                     | No          |
+| Comparable       | #==                      | No          |
+| Enumerable       | #chunk                   | No          |
+|                  | #chunk_while             | Yes         |
+|                  | #grep_v                  | No          |
+|                  | #slice_before            | No          |
+| Enumerator::Lazy | #grep_v                  | No          |
+| File             | .mkfifo                  | No          |
+| Hash             | #<                       | No          |
+|                  | #<=                      | No          |
+|                  | #>                       | No          |
+|                  | #>=                      | No          |
+|                  | #dig                     | No          |
+|                  | #fetch_values            | No          |
+|                  | #to_proc                 | No          |
+| IO               | #advise                  | No          |
+| Kernel           | #loop                    | No          |
+| Module           | #deprecate_constant      | No          |
+| NameError        | #receiver                | No          |
+| Numeric          | #negative?               | No          |
+|                  | #positive?               | No          |
+| Queue            | #close                   | No          |
+| String           | #+@                      | No          |
+|                  | #-@                      | No          |
+|                  | .new                     | Yes         |
+| Struct           | #dig                     | No          |
+| Thread           | #name                    | No          |
+|                  | #name=                   | No          |
 
 ## Contributing
 

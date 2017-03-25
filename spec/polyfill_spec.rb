@@ -83,18 +83,6 @@ RSpec.describe 'Polyfill' do
   end
 
   context 'include' do
-    it 'can include everything (please do not do this)' do
-      klass = Class.new do
-        include Polyfill
-      end
-
-      when_ruby_below '2.4' do
-        # expect(klass.respond_to?(:empty?)).to be true
-        expect(klass.new.respond_to?(:finite?)).to be true
-        expect(klass.new.respond_to?(:clamp)).to be true
-      end
-    end
-
     it 'can include everything for a class' do
       klass = Class.new(Numeric) do
         include Polyfill(Numeric: :all)

@@ -4,10 +4,8 @@ RSpec.describe 'Polyfill' do
       using Polyfill
 
       it 'adds everything' do
-        when_ruby_below '2.4' do
-          expect { 1.finite? }.to_not raise_error
-          expect { {}.transform_values }.to_not raise_error
-        end
+        expect { 1.finite? }.to_not raise_error
+        expect { {}.transform_values }.to_not raise_error
       end
     end
 
@@ -43,9 +41,7 @@ RSpec.describe 'Polyfill' do
             it 'adds the particular methods requested for that class' do
               expect { {}.compact }.to_not raise_error
               expect { {}.compact! }.to_not raise_error
-              when_ruby_below '2.4' do
-                expect { Dir.empty?('directory') }.to_not raise_error
-              end
+              expect { Dir.empty?('.') }.to_not raise_error
               expect { [].chunk_while {} }.to_not raise_error
             end
 

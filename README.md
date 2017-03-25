@@ -77,6 +77,13 @@ If you want all of the methods for a particular class you can use `:all`.
 using Polyfill(Numeric: :all)
 ```
 
+Updates can be stopped at a specific version by pass it via `:version`. The
+version selected must be formatted as "MAJOR.MINOR".
+
+```ruby
+using Polyfill(version: '2.3', Numeric: :all)
+```
+
 Methods can be included in the same way. Prior to Ruby 2.4, refinements did
 not work on modules. In order to get methods you'll need to include them after
 the module. Calling `using` on a module will add it to all core Ruby classes

@@ -12,16 +12,25 @@ def Polyfill(options) # rubocop:disable Style/MethodName
   mod = Module.new
 
   objects, others = options.partition { |key,| key[/\A[A-Z]/] }
+  others = others.to_h
+
+  versions = {
+    '2.3' => Polyfill::V2_3,
+    '2.4' => Polyfill::V2_4
+  }
+  desired_version = others.delete(:version) || versions.keys.max
+  unless versions.keys.include?(desired_version)
+    raise ArgumentError, "invalid value for keyword version: #{desired_version}"
+  end
+  versions.reject! do |version_number, _|
+    version_number > desired_version
+  end
 
   unless others.empty?
     raise ArgumentError, "unknown keyword: #{others.first[0]}"
   end
 
   current_ruby_version = RUBY_VERSION[/\A(\d+\.\d+)/, 1]
-  versions = {
-    '2.3' => Polyfill::V2_3,
-    '2.4' => Polyfill::V2_4
-  }
 
   objects.each do |full_name, methods|
     object_module_names = full_name.to_s.split('::')

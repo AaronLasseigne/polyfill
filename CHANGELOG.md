@@ -2,6 +2,7 @@
 
 ## Added
  - Support for Ruby 2.2
+ - :version option to limit the max acceptable version for changes
  - v2.3 String.new
  - v2.3 Enumerable#chunk_while
 

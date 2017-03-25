@@ -16,6 +16,27 @@ RSpec.describe 'Polyfill' do
         end.to raise_error(ArgumentError, 'unknown keyword: invalid_key')
       end
 
+      context ':version' do
+        it 'errors on invalid version numbers' do
+          expect do
+            Polyfill(version: 'invalid')
+          end.to raise_error(ArgumentError, 'invalid value for keyword version: invalid')
+        end
+
+        context 'with a valid version number' do
+          using Polyfill(version: '2.3', Enumerable: :all)
+
+          it 'limits updates to the version given' do
+            expect { [].chunk_while {} }.to_not raise_error # added v2.3
+
+            when_ruby_below('2.4') do
+              # blockless vesion added v2.4
+              expect { [].chunk }.to raise_error(ArgumentError)
+            end
+          end
+        end
+      end
+
       context 'capitalized symbols are treated as class names' do
         it 'returns a Module' do
           expect(Polyfill({})).to be_a Module

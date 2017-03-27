@@ -24,12 +24,26 @@ RSpec.describe 'Polyfill' do
         end
 
         context 'with a valid version number' do
+          using Polyfill(version: '2.3')
+
+          it 'limits updates to the version given' do
+            expect { [].chunk_while {} }.to_not raise_error # added v2.3
+
+            when_ruby_below('2.4') do
+              # blockless vesion added v2.4
+              expect { [].chunk }.to raise_error(ArgumentError)
+            end
+          end
+        end
+
+        context 'with a valid version number and a specification' do
           using Polyfill(version: '2.3', Enumerable: :all)
 
           it 'limits updates to the version given' do
             expect { [].chunk_while {} }.to_not raise_error # added v2.3
 
             when_ruby_below('2.4') do
+              expect { 1.finite? }.to raise_error(NoMethodError)
               # blockless vesion added v2.4
               expect { [].chunk }.to raise_error(ArgumentError)
             end

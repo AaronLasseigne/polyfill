@@ -1,10 +1,15 @@
 # [0.6.0][]
 
+## Fix
+
+ - You can now use the `:version` option with no other specification
+
 # [0.5.0][] (2017-03-26)
 
 ## Added
+
  - Support for Ruby 2.2
- - :version option to limit the max acceptable version for changes
+ - `:version` option to limit the max acceptable version for changes
  - v2.3 String.new
  - v2.3 Enumerable#chunk_while
 

@@ -6,6 +6,8 @@ require 'polyfill/v2_4'
 module Polyfill
   include V2_3
   include V2_4
+
+  module Parcel; end
 end
 
 def Polyfill(options) # rubocop:disable Style/MethodName
@@ -107,5 +109,5 @@ def Polyfill(options) # rubocop:disable Style/MethodName
     end
   end
 
-  mod
+  Polyfill::Parcel.const_set("O#{mod.object_id}", mod)
 end

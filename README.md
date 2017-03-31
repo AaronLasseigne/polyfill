@@ -231,8 +231,8 @@ end
 | Numeric          | #negative?               | No          |
 |                  | #positive?               | No          |
 | Queue            | #close                   | No          |
-| String           | #+@                      | No          |
-|                  | #-@                      | No          |
+| String           | #+@                      | Yes         |
+|                  | #-@                      | Yes         |
 |                  | .new                     | Yes         |
 | Struct           | #dig                     | Yes         |
 | Thread           | #name                    | No          |

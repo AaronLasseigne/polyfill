@@ -83,6 +83,9 @@ def Polyfill(options) # rubocop:disable Style/MethodName
 
           method_name = method[1..-1]
           symbol_conversions = {
+            '-' => 'minus', # must come first otherwise it creates a range in the regexp
+            '+' => 'plus',
+            '@' => '_unary',
             '=' => 'equal',
             '<' => 'lessthan',
             '>' => 'greaterthan',

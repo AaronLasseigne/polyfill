@@ -212,8 +212,7 @@ end
 | Array            | #bsearch_index           | No          |
 |                  | #dig                     | Yes         |
 | Comparable       | #==                      | No          |
-| Enumerable       | #chunk                   | No          |
-|                  | #chunk_while             | Yes         |
+| Enumerable       | #chunk_while             | Yes         |
 |                  | #grep_v                  | Yes         |
 |                  | #slice_before            | No          |
 | Enumerator::Lazy | #grep_v                  | No          |

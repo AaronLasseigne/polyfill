@@ -4,6 +4,10 @@
 
  - You can now use the `:version` option with no other specification
 
+## Added
+
+ - v2.3 Enumerable#grep_v
+
 # [0.5.0][] (2017-03-26)
 
 ## Added

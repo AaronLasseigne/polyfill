@@ -210,7 +210,7 @@ end
 | ---------------- | ------------------------ | ----------- | ----- |
 | ARGF             | #read_nonblock           | No          |
 | Array            | #bsearch_index           | No          |
-|                  | #dig                     | No          |
+|                  | #dig                     | Yes         |
 | Comparable       | #==                      | No          |
 | Enumerable       | #chunk                   | No          |
 |                  | #chunk_while             | Yes         |
@@ -222,7 +222,7 @@ end
 |                  | #<=                      | No          |
 |                  | #>                       | No          |
 |                  | #>=                      | No          |
-|                  | #dig                     | No          |
+|                  | #dig                     | Yes         |
 |                  | #fetch_values            | No          |
 |                  | #to_proc                 | No          |
 | IO               | #advise                  | No          |
@@ -235,7 +235,7 @@ end
 | String           | #+@                      | No          |
 |                  | #-@                      | No          |
 |                  | .new                     | Yes         |
-| Struct           | #dig                     | No          |
+| Struct           | #dig                     | Yes         |
 | Thread           | #name                    | No          |
 |                  | #name=                   | No          |
 

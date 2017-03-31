@@ -6,7 +6,10 @@
 
 ## Added
 
+ - v2.3 Array#dig
  - v2.3 Enumerable#grep_v
+ - v2.3 Hash#dig
+ - v2.3 Struct#dig
 
 # [0.5.0][] (2017-03-26)
 

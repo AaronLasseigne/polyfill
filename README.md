@@ -223,7 +223,7 @@ end
 |                  | #>=                      | No          |
 |                  | #dig                     | Yes         |
 |                  | #fetch_values            | Yes         |
-|                  | #to_proc                 | No          |
+|                  | #to_proc                 | Partial     | Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671
 | IO               | #advise                  | No          |
 | Kernel           | #loop                    | No          |
 | Module           | #deprecate_constant      | No          |

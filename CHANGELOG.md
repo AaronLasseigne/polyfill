@@ -8,6 +8,7 @@
 
  - v2.3 Array#dig
  - v2.3 Enumerable#grep_v
+ - v2.3 Enumerator::Lazy#grep_v
  - v2.3 Hash#dig
  - v2.3 Hash#fetch_values
  - v2.3 Hash#to_proc

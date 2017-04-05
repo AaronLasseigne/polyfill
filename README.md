@@ -215,7 +215,7 @@ end
 | Enumerable       | #chunk_while             | Yes         |
 |                  | #grep_v                  | Yes         |
 |                  | #slice_before            | No          |
-| Enumerator::Lazy | #grep_v                  | No          |
+| Enumerator::Lazy | #grep_v                  | Yes         |
 | File             | .mkfifo                  | No          |
 | Hash             | #<                       | No          |
 |                  | #<=                      | No          |

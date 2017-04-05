@@ -8,5 +8,11 @@ RSpec.describe 'Enumerator::Lazy#chunk_while' do
         .chunk_while { |a, b| a.even? == b.even? }
         .force
     ).to eql [[1], [2], [3, 5], [8], [13, 21]]
+    expect(
+      (1..Float::INFINITY)
+        .lazy
+        .chunk_while { |a, b| a.even? == b.even? }
+        .first(2)
+    ).to eql [[1], [2]]
   end
 end

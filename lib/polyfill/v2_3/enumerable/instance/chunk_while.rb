@@ -7,11 +7,11 @@ module Polyfill
         module ChunkWhile
           module Method
             def chunk_while
-              block = Proc.new
+              block = ::Proc.new
 
               return [self] if size == 1
 
-              Enumerator.new do |yielder|
+              ::Enumerator.new do |yielder|
                 output = []
                 each_cons(2).with_index(1) do |(a, b), run|
                   if run == size - 1

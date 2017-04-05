@@ -7,7 +7,7 @@ module Polyfill
         module GrepV
           module Method
             def grep_v(pattern)
-              output = self - grep(pattern)
+              output = to_a - grep(pattern)
               output.map!(&Proc.new) if block_given?
               output
             end

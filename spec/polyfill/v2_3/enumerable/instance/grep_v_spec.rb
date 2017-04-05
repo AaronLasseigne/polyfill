@@ -12,6 +12,9 @@ RSpec.describe 'Enumerable#grep_v' do
   describe 'without block' do
     it 'returns an Array of matched elements' do
       expect(numerous.grep_v(odd_matcher)).to eql [0, 2, 4, 6, 8]
+      expect(
+        { one: 1, two: 2 }.grep_v(->((_, v)) { v.odd? })
+      ).to eql [[:two, 2]]
     end
 
     it 'compares pattern with gathered array when yielded with multiple arguments' do

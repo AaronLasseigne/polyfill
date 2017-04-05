@@ -222,7 +222,7 @@ end
 |                  | #>                       | No          |
 |                  | #>=                      | No          |
 |                  | #dig                     | Yes         |
-|                  | #fetch_values            | No          |
+|                  | #fetch_values            | Yes         |
 |                  | #to_proc                 | No          |
 | IO               | #advise                  | No          |
 | Kernel           | #loop                    | No          |

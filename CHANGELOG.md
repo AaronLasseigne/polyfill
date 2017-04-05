@@ -9,6 +9,7 @@
  - v2.3 Array#dig
  - v2.3 Enumerable#grep_v
  - v2.3 Hash#dig
+ - v2.3 Hash#fetch_values
  - v2.3 String#+@
  - v2.3 String#-@
  - v2.3 Struct#dig

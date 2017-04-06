@@ -7,6 +7,16 @@ please add it to the documentation.
 
 ### Code
 
+A list of changes can be found at:
+
+https://raw.githubusercontent.com/ruby/ruby/v2_4_1/NEWS
+https://raw.githubusercontent.com/ruby/ruby/v2_3_4/NEWS
+https://raw.githubusercontent.com/ruby/ruby/v2_2_7/NEWS
+https://raw.githubusercontent.com/ruby/ruby/v2_1_10/NEWS
+https://raw.githubusercontent.com/ruby/ruby/v2_0_0_648/NEWS
+
+Specific changes can be found by going to the [Ruby bug/feature tracker].
+
 These are the steps that you'll need to follow for submitting code:
 
 1. [Fork](#fork)
@@ -88,3 +98,4 @@ eyes catch more issues. After everything is fixed: VICTORY!
 [documentation]: README.md
 [Fork]: https://github.com/AaronLasseigne/polyfill/fork
 [Ruby Spec Suite]: https://github.com/ruby/spec
+[Ruby bug/feature tracker]: https://bugs.ruby-lang.org

@@ -8,7 +8,7 @@ module Polyfill
           module Method
             def grep_v(pattern)
               output = to_a - grep(pattern)
-              output.map!(&Proc.new) if block_given?
+              output.map!(&::Proc.new) if block_given?
               output
             end
           end

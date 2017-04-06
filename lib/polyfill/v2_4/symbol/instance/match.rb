@@ -6,7 +6,7 @@ module Polyfill
           module Method
             def match(*args)
               if block_given?
-                to_s.match(*args, &Proc.new)
+                to_s.match(*args, &::Proc.new)
               else
                 to_s.match(*args)
               end

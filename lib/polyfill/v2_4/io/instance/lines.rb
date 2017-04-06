@@ -33,7 +33,7 @@ module Polyfill
                     yield(line.chomp(separator))
                   end
                 else
-                  Proc.new
+                  ::Proc.new
                 end
 
               super(*others, &block)

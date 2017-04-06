@@ -6,7 +6,7 @@ module Polyfill
           module Method
             def uniq
               if block_given?
-                to_a.uniq(&Proc.new)
+                to_a.uniq(&::Proc.new)
               else
                 to_a.uniq
               end

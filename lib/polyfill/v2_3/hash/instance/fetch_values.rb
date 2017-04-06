@@ -8,7 +8,7 @@ module Polyfill
               keys.each_with_object([]) do |key, values|
                 value =
                   if block_given?
-                    fetch(key, &Proc.new)
+                    fetch(key, &::Proc.new)
                   else
                     fetch(key)
                   end

@@ -206,37 +206,78 @@ end
 
 ### 2.2 to 2.3
 
-| Object           | Method                   | Implemented | Notes |
-| ---------------- | ------------------------ | ----------- | ----- |
-| ARGF             | #read_nonblock           | No          |
-| Array            | #bsearch_index           | No          |
-|                  | #dig                     | Yes         |
-| Comparable       | #==                      | No          |
-| Enumerable       | #chunk_while             | Yes         |
-|                  | #grep_v                  | Yes         |
-|                  | #slice_before            | Yes         |
-| Enumerator::Lazy | #grep_v                  | Yes         |
-| File             | .mkfifo                  | No          |
-| Hash             | #<                       | No          |
-|                  | #<=                      | No          |
-|                  | #>                       | No          |
-|                  | #>=                      | No          |
-|                  | #dig                     | Yes         |
-|                  | #fetch_values            | Yes         |
-|                  | #to_proc                 | Partial     | Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671
-| IO               | #advise                  | No          |
-| Kernel           | #loop                    | No          |
-| Module           | #deprecate_constant      | No          |
-| NameError        | #receiver                | No          |
-| Numeric          | #negative?               | No          |
-|                  | #positive?               | No          |
-| Queue            | #close                   | No          |
-| String           | #+@                      | Yes         |
-|                  | #-@                      | Yes         |
-|                  | .new                     | Yes         |
-| Struct           | #dig                     | Yes         |
-| Thread           | #name                    | No          |
-|                  | #name=                   | No          |
+| Object                  | Method                   | Implemented | Notes |
+| ----------------------- | ------------------------ | ----------- | ----- |
+| ARGF                    | #read_nonblock           | No          |
+| Array                   | #bsearch_index           | No          |
+|                         | #dig                     | Yes         |
+|                         | #flatten                 | No          |
+|                         | #flatten!                | No          |
+|                         | #inspect                 | No          |
+|                         | #pack                    | No          |
+| Base64                  | .urlsafe_encode64        | No          |
+|                         | .urlsafe_decode64        | No          |
+| BasicSocket             | #recv                    | No          |
+|                         | #recv_nonblock           | No          |
+|                         | #recvmsg_nonblock        | No          |
+|                         | #sendmsg_nonblock        | No          |
+| Comparable              | #==                      | No          |
+| Coverage                | .peek_result             | No          |
+| Enumerable              | #chunk                   | No          |
+|                         | #chunk_while             | Yes         |
+|                         | #grep_v                  | Yes         |
+|                         | #slice_before            | Yes         |
+| Enumerator::Lazy        | #grep_v                  | Yes         |
+| File                    | .mkfifo                  | No          |
+| File::Stat              | #ino                     | No          |
+| Hash                    | #<                       | No          |
+|                         | #<=                      | No          |
+|                         | #>                       | No          |
+|                         | #>=                      | No          |
+|                         | #dig                     | Yes         |
+|                         | #fetch_values            | Yes         |
+|                         | #inspect                 | No          |
+|                         | #to_proc                 | Partial     | Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671
+| IO                      | #advise                  | No          |
+|                         | #close                   | No          |
+|                         | #each_codepoint          | No          |
+|                         | #wait_readable           | No          |
+| Kernel                  | #loop                    | No          |
+| Logger                  | #level=                  | No          |
+|                         | #reopen                  | No          |
+| Module                  | #define_method           | No          |
+|                         | #deprecate_constant      | No          |
+| NameError               | #receiver                | No          |
+| Net::FTP                | .default_passive=        | No          |
+|                         | #mlst                    | No          |
+|                         | #mlsd                    | No          |
+| Net::HTTP               | #open_timeout            | No          |
+| Numeric                 | #negative?               | No          |
+|                         | #positive?               | No          |
+| Object                  | #define_singleton_method | No          |
+|                         | #timeout                 | No          |
+| ObjectSpace             | .count_symbols           | No          |
+|                         | .count_imemo_objects     | No          |
+|                         | .internal_class_of       | No          |
+|                         | .internal_super_of       | No          |
+| OpenSSL::SSL::SSLSocket | #accept_nonblock         | No          |
+|                         | #connect_nonblock        | No          |
+| Pathname                | #ascend                  | No          |
+|                         | #descend                 | No          |
+| Queue                   | #close                   | No          |
+| Socket                  | #accept_nonblock         | No          |
+|                         | #connect_nonblock        | No          |
+| String                  | #+@                      | Yes         |
+|                         | #-@                      | Yes         |
+|                         | .new                     | Yes         |
+|                         | #unpack                  | No          |
+| StringIO                | #set_encoding            | No          |
+| Struct                  | #dig                     | Yes         |
+| TCPServer               | #accept_nonblock         | No          |
+| Thread                  | #name                    | No          |
+|                         | #name=                   | No          |
+| UNIXServer              | #accept_nonblock         | No          |
+| Vector                  | #round                   | No          |
 
 ## Contributing
 

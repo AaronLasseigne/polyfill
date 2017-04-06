@@ -34,7 +34,7 @@ See the [implementation table](#implementation-table) for specifics about what h
 Add it to your Gemfile:
 
 ```ruby
-gem 'polyfill', '0.6.0'
+gem 'polyfill', '0.7.0'
 ```
 
 Or install it manually:

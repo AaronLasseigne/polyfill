@@ -12,7 +12,6 @@ A list of changes can be found at:
  * https://raw.githubusercontent.com/ruby/ruby/v2_4_1/NEWS
  * https://raw.githubusercontent.com/ruby/ruby/v2_3_4/NEWS
  * https://raw.githubusercontent.com/ruby/ruby/v2_2_7/NEWS
- * https://raw.githubusercontent.com/ruby/ruby/v2_1_10/NEWS
 
 Specific changes can be found by going to the [Ruby bug/feature tracker].
 

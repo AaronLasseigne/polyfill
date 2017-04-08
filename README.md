@@ -17,6 +17,7 @@ monkey patching** that may cause issues outside of your use.
 - [Implementation Table](#implementation-table)
   - [2.3 to 2.4](#23-to-24)
   - [2.2 to 2.3](#22-to-23)
+  - [2.1 to 2.2](#21-to-22)
 
 ## Caveat Emptor
 
@@ -276,6 +277,79 @@ end
 |                         | #name=                   | No          |
 | UNIXServer              | #accept_nonblock         | No          |
 | Vector                  | #round                   | No          |
+
+### 2.1 to 2.2
+
+| Object      | Method                                  | Implemented | Notes |
+| ----------  | --------------------------------------- | ----------- | ----- |
+| Binding     | #local_variables                        | No          |
+|             | #receiver                               | No          |
+| Dir         | #fileno                                 | No          |
+| Enumerable  | #max                                    | No          |
+|             | #max_by                                 | No          |
+|             | #min                                    | No          |
+|             | #min_by                                 | No          |
+|             | #slice_after                            | No          |
+|             | #slice_when                             | No          |
+| Etc         | .confstr                                | No          |
+|             | .sysconf                                | No          |
+|             | .nprocessors                            | No          |
+|             | .uname                                  | No          |
+| Float       | #next_float                             | No          |
+|             | #prev_float                             | No          |
+| File        | .birthtime                              | No          |
+|             | #birthtime                              | No          |
+|             | .find                                   | No          |
+|             | #find                                   | No          |
+| File::Stat  | #birthtime                              | No          |
+| GC          | .latest_gc_info                         | No          |
+|             | .stat                                   | No          |
+| IO          | #each_codepoint                         | No          |
+|             | #nonblock_read                          | No          |
+|             | #nonblock_write                         | No          |
+|             | #pathconf                               | No          |
+| Kernel      | #itself                                 | No          |
+|             | #throw                                  | No          |
+| Math        | .atan2                                  | No          |
+|             | .log                                    | No          |
+| Matrix      | #+@                                     | No          |
+|             | #-@                                     | No          |
+|             | #adjugate                               | No          |
+|             | #cofactor                               | No          |
+|             | #first_minor                            | No          |
+|             | .hstack                                 | No          |
+|             | #hstack                                 | No          |
+|             | #laplace_expansion                      | No          |
+|             | .vstack                                 | No          |
+|             | #vstack                                 | No          |
+| Method      | #curry                                  | No          |
+|             | #super_method                           | No          |
+| ObjectSpace | .memsize_of                             | No          |
+| Pathname    | #/                                      | No          |
+|             | #birthtime                              | No          |
+|             | #find                                   | No          |
+| Prime       | .prime?                                 | No          |
+| Process     | .spawn                                  | No          |
+| String      | #unicode_normalize                      | No          |
+|             | #unicode_normalize!                     | No          |
+|             | #unicode_normalized?                    | No          |
+| Time        | .httpdate                               | No          |
+|             | .parse                                  | No          |
+|             | .rfc2822                                | No          |
+|             | .strptime                               | No          |
+|             | .xmlschema                              | No          |
+| TSort       | .each_strongly_connected_component      | No          |
+|             | .each_strongly_connected_component_from | No          |
+|             | .tsort_each                             | No          |
+| Vector      | #+@                                     | No          |
+|             | #-@                                     | No          |
+|             | #angle_with                             | No          |
+|             | .basis                                  | No          |
+|             | #cross                                  | No          |
+|             | #cross_product                          | No          |
+|             | #dot                                    | No          |
+|             | .independent?                           | No          |
+|             | #independent?                           | No          |
 
 ## Contributing
 

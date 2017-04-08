@@ -1,9 +1,11 @@
 require 'polyfill/version'
 require 'polyfill/utils'
+require 'polyfill/v2_2'
 require 'polyfill/v2_3'
 require 'polyfill/v2_4'
 
 module Polyfill
+  include V2_2
   include V2_3
   include V2_4
 
@@ -17,6 +19,7 @@ def Polyfill(options) # rubocop:disable Style/MethodName
   others = others.to_h
 
   versions = {
+    '2.2' => Polyfill::V2_2,
     '2.3' => Polyfill::V2_3,
     '2.4' => Polyfill::V2_4
   }

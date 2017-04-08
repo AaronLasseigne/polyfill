@@ -308,7 +308,7 @@ end
 |             | #nonblock_read                          | No          |
 |             | #nonblock_write                         | No          |
 |             | #pathconf                               | No          |
-| Kernel      | #itself                                 | No          |
+| Kernel      | #itself                                 | Yes         |
 |             | #throw                                  | No          |
 | Math        | .atan2                                  | No          |
 |             | .log                                    | No          |

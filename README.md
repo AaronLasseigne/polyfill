@@ -15,9 +15,9 @@ monkey patching** that may cause issues outside of your use.
 - [Goals](#goals)
 - [Usage](#usage)
 - [Implementation Table](#implementation-table)
-  - [2.3 to 2.4](#23-to-24)
-  - [2.2 to 2.3](#22-to-23)
-  - [2.1 to 2.2](#21-to-22)
+  - [2.4](#24)
+  - [2.3](#23)
+  - [2.2](#22)
 
 ## Caveat Emptor
 
@@ -98,7 +98,7 @@ end
 
 ## Implementation Table
 
-### 2.3 to 2.4
+### 2.4
 
 | Object           | Method                   | Implemented | Notes |
 | ---------------- | ------------------------ | ----------- | ----- |
@@ -203,7 +203,7 @@ end
 | TracePoint       | #callee_id               | No          |
 | Warning          | #warn                    | No          |
 
-### 2.2 to 2.3
+### 2.3
 
 | Object                  | Method                   | Implemented | Notes |
 | ----------------------- | ------------------------ | ----------- | ----- |
@@ -278,7 +278,7 @@ end
 | UNIXServer              | #accept_nonblock         | No          |
 | Vector                  | #round                   | No          |
 
-### 2.1 to 2.2
+### 2.2
 
 | Object      | Method                                  | Implemented | Notes |
 | ----------  | --------------------------------------- | ----------- | ----- |

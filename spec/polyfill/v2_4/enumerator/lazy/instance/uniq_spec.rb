@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerator::Lazy#uniq' do
-  using Polyfill('Enumerator::Lazy': %w[#uniq])
+  using Polyfill(:'Enumerator::Lazy' => %w[#uniq])
 
   it 'uniques the elements' do
     expect([1, 1, 2].lazy.uniq.force).to eql [1, 2]

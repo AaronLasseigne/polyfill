@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerator::Lazy#grep_v' do
-  using Polyfill('Enumerator::Lazy': %w[#grep_v])
+  using Polyfill(:'Enumerator::Lazy' => %w[#grep_v])
 
   let(:yieldsmixed) { [nil, 0, nil, :default_arg, [], [], [0], [0, 1], [0, 1, 2]].to_enum.lazy }
 

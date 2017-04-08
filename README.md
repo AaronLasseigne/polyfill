@@ -10,8 +10,6 @@ code that would like newer features but is not completely ready to upgrade
 Ruby versions. The polyfills are built using refinements so there is **no
 monkey patching** that may cause issues outside of your use.
 
-Right now the only update is from 2.3 to 2.4 however the goal is to go all the way back to 2.0 (when refinements were introduced). Additionally, core methods are being focused on but stdlib will eventually be added.
-
 - [Caveat Emptor](#caveat-emptor)
 - [Installation](#installation)
 - [Goals](#goals)

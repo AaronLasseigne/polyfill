@@ -107,6 +107,7 @@ end
 |                  | #min                     | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
 |                  | #pack                    | No          |
 |                  | #sum                     | Yes         |
+| BasicObject      | #__send__                | No          |
 | Binding          | #irb                     | No          |
 | Comparable       | #clamp                   | Yes         |
 | CSV              | #new                     | No          |
@@ -140,6 +141,7 @@ end
 |                  | .readlines               | Yes         |
 | IPAddr           | #==                      | Yes         |
 |                  | #<=>                     | Yes         |
+| Kernel           | #send                    | No          |
 | Logger           | #new                     | No          |
 | MatchData        | #named_captures          | Yes         |
 |                  | #values_at               | Yes         |
@@ -196,6 +198,7 @@ end
 |                  | #match?                  | Yes         |
 |                  | #swapcase                | No          |
 |                  | #swapcase!               | No          |
+|                  | #to_proc                 | No          |
 |                  | #upcase                  | No          |
 |                  | #upcase!                 | No          |
 | Thread           | #report\_on\_exception   | No          |

@@ -1,7 +1,7 @@
 RSpec.describe 'Polyfill' do
   context 'using' do
     context 'without arguments' do
-      using Polyfill
+      using Polyfill()
 
       it 'adds everything' do
         expect { 1.finite? }.to_not raise_error

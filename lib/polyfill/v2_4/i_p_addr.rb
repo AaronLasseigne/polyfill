@@ -1,9 +1,17 @@
-require_relative 'i_p_addr/instance'
-
 module Polyfill
   module V2_4
     module IPAddr
-      include Instance
+      def ==(*)
+        super
+      rescue
+        false
+      end
+
+      def <=>(*)
+        super
+      rescue
+        nil
+      end
     end
   end
 end

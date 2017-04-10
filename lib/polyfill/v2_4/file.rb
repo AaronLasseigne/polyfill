@@ -1,9 +1,11 @@
-require_relative 'file/class'
-
 module Polyfill
   module V2_4
     module File
-      include Class
+      module ClassMethods
+        def empty?(file_name)
+          zero?(file_name)
+        end
+      end
     end
   end
 end

@@ -1,9 +1,11 @@
-require_relative 'dir/class'
-
 module Polyfill
   module V2_4
     module Dir
-      include Class
+      module ClassMethods
+        def empty?(path_name)
+          exist?(path_name) && (entries(path_name) - ['.', '..']).empty?
+        end
+      end
     end
   end
 end

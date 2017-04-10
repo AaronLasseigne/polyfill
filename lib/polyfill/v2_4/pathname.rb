@@ -1,9 +1,13 @@
-require_relative 'pathname/instance'
-
 module Polyfill
   module V2_4
     module Pathname
-      include Instance
+      def empty?
+        if directory?
+          children.empty?
+        else
+          zero?
+        end
+      end
     end
   end
 end

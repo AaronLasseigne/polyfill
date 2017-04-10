@@ -1,9 +1,45 @@
-require_relative 'hash/instance'
-
 module Polyfill
   module V2_3
     module Hash
-      include Instance
+      def dig(head, *rest)
+        [head, *rest].reduce(self) do |value, accessor|
+          next_value =
+            case value
+            when ::Array
+              value.at(accessor)
+            when ::Hash
+              value[accessor]
+            when ::Struct
+              value[accessor] if value.members.include?(accessor)
+            else
+              begin
+                break value.dig(*rest)
+              rescue NoMethodError
+                raise TypeError, "#{value.class} does not have a #dig method"
+              end
+            end
+
+          break nil if next_value.nil?
+          next_value
+        end
+      end
+
+      def fetch_values(*keys)
+        keys.each_with_object([]) do |key, values|
+          value =
+            if block_given?
+              fetch(key, &::Proc.new)
+            else
+              fetch(key)
+            end
+
+          values << value
+        end
+      end
+
+      def to_proc
+        method(:[]).to_proc
+      end
     end
   end
 end

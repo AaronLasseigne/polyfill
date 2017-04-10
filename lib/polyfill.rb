@@ -1,18 +1,11 @@
 require 'polyfill/version'
-require 'polyfill/utils'
-require 'polyfill/v2_2'
-require 'polyfill/v2_3'
-require 'polyfill/v2_4'
+require 'stringio'
 
 module Polyfill
-  include V2_2
-  include V2_3
-  include V2_4
-
   module Parcel; end
 end
 
-def Polyfill(options) # rubocop:disable Style/MethodName
+def Polyfill(options = {}) # rubocop:disable Style/MethodName
   mod = Module.new
 
   objects, others = options.partition { |key,| key[/\A[A-Z]/] }
@@ -36,92 +29,134 @@ def Polyfill(options) # rubocop:disable Style/MethodName
   end
 
   current_ruby_version = RUBY_VERSION[/\A(\d+\.\d+)/, 1]
+  all_instance_modules = []
 
   if objects.empty?
-    mod.module_eval do
-      versions.each do |_, object_module|
-        include object_module
+    objects = versions.each_with_object({}) do |(_, version_module), acc|
+      version_module.constants(false).each do |obj_name|
+        acc[obj_name] = :all
       end
     end
-  else
-    objects.each do |full_name, methods|
-      object_module_names = full_name.to_s.split('::')
+  end
 
-      object_modules = versions
-        .map do |version_number, version_module|
-          begin
-            final_module = object_module_names
-              .reduce(version_module) do |current_mod, name|
-                current_mod.const_get(name, false)
-              end
+  objects.each do |full_name, methods|
+    object_module_names = full_name.to_s.split('::')
 
-            [version_number, final_module]
-          rescue NameError
-            nil
-          end
+    object_modules = versions
+      .map do |version_number, version_module|
+        begin
+          final_module = object_module_names
+            .reduce(version_module) do |current_mod, name|
+              current_mod.const_get(name, false)
+            end
+
+          [version_number, final_module]
+        rescue NameError
+          nil
         end
-        .compact
+      end
+      .compact
 
-      if object_modules.empty?
-        raise ArgumentError, %Q("#{full_name}" is not a valid class or has no updates)
+    if object_modules.empty?
+      raise ArgumentError, %Q("#{full_name}" is not a valid class or has no updates)
+    end
+
+    class_modules = object_modules.map do |version_number, object_module|
+      temp_mod =
+        begin
+          object_module.const_get(:ClassMethods, false).clone
+        rescue NameError
+          Module.new
+        end
+      [version_number, temp_mod]
+    end
+    instance_modules = object_modules.map do |version_number, object_module|
+      [version_number, object_module.clone]
+    end
+
+    if methods != :all && (method_name = methods.find { |method| method !~ /\A[.#]/ })
+      raise ArgumentError, %Q("#{method_name}" must start with a "." if it's a class method or "#" if it's an instance method)
+    end
+
+    available_class_methods = class_modules.flat_map { |_, class_module| class_module.instance_methods }.uniq
+    class_methods =
+      if methods == :all
+        available_class_methods
+      else
+        methods.select { |method| method.start_with?('.') }.map { |method| method[1..-1].to_sym }
+      end
+    available_instance_methods = instance_modules.flat_map { |_, instance_module| instance_module.instance_methods }.uniq
+    instance_methods =
+      if methods == :all
+        available_instance_methods
+      else
+        methods.select { |method| method.start_with?('#') }.map { |method| method[1..-1].to_sym }
       end
 
-      if methods == :all
-        mod.module_eval do
-          object_modules.each do |version_number, object_module|
-            include object_module if version_number > current_ruby_version
+    unless (leftovers = (class_methods - available_class_methods)).empty?
+      raise ArgumentError, %Q(".#{leftovers.first}" is not a valid method on #{full_name} or has no updates)
+    end
+    unless (leftovers = (instance_methods - available_instance_methods)).empty?
+      raise ArgumentError, %Q("##{leftovers.first}" is not a valid method on #{full_name} or has no updates)
+    end
+
+    base_class = object_modules.first.last.name.sub(/\APolyfill::V\d_\d::/, '')
+    base_classes =
+      case base_class
+      when 'Comparable'
+        %w[Numeric String Time]
+      when 'Enumerable'
+        %w[Array Dir Enumerator Hash IO Range StringIO Struct]
+      when 'Kernel'
+        %w[Object]
+      else
+        [base_class]
+      end
+
+    class_modules.each do |version_number, class_module|
+      next if version_number <= current_ruby_version
+
+      class_module.instance_methods.each do |name|
+        class_module.send(:remove_method, name) unless class_methods.include?(name)
+      end
+
+      mod.module_eval do
+        base_classes.each do |klass|
+          refine Object.const_get(klass).singleton_class do
+            include class_module
           end
         end
-      else
-        methods.each do |method|
-          type =
-            case method[0]
-            when '.'
-              :Class
-            when '#'
-              :Instance
-            else
-              raise ArgumentError, %Q("#{method}" must start with a "." if it's a class method or "#" if it's an instance method)
-            end
+      end
+    end
 
-          method_name = method[1..-1]
-          symbol_conversions = {
-            '-' => 'minus', # must come first otherwise it creates a range in the regexp
-            '+' => 'plus',
-            '@' => '_unary',
-            '=' => 'equal',
-            '<' => 'lessthan',
-            '>' => 'greaterthan',
-            '?' => '_q',
-            '!' => '_e'
-          }
-          method_name.gsub!(/[#{symbol_conversions.keys.join}]/o, symbol_conversions)
-          method_name.capitalize!
-          method_name.gsub!(/_(.)/) { |match| match[1].capitalize }
+    instance_modules.each do |version_number, instance_module|
+      next if version_number <= current_ruby_version
 
-          method_modules = object_modules
-            .map do |version_number, object_module|
-              begin
-                [version_number, object_module.const_get(type, false).const_get(method_name, false)]
-              rescue NameError
-                nil
-              end
-            end
-            .compact
+      instance_module.instance_methods.each do |name|
+        instance_module.send(:remove_method, name) unless instance_methods.include?(name)
+      end
 
-          if method_modules.empty?
-            raise ArgumentError, %Q("#{method}" is not a valid method on #{full_name} or has no updates)
-          end
+      all_instance_modules << instance_module
 
-          mod.module_eval do
-            method_modules.each do |version_number, method_module|
-              include method_module if version_number > current_ruby_version
-            end
+      mod.module_eval do
+        base_classes.each do |klass|
+          refine Object.const_get(klass) do
+            include instance_module
           end
         end
       end
     end
   end
 
+  mod.singleton_class.send(:define_method, :included) do |base|
+    all_instance_modules.each do |instance_module|
+      base.include instance_module
+    end
+  end
+
   Polyfill::Parcel.const_set("O#{mod.object_id}", mod)
 end
+
+require 'polyfill/v2_2'
+require 'polyfill/v2_3'
+require 'polyfill/v2_4'

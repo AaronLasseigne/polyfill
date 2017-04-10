@@ -62,14 +62,12 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     end
 
     class_modules = object_modules.map do |version_number, object_module|
-      temp_mod =
-        begin
-          object_module.const_get(:ClassMethods, false).clone
-        rescue NameError
-          Module.new
-        end
-      [version_number, temp_mod]
-    end
+      begin
+        [version_number, object_module.const_get(:ClassMethods, false).clone]
+      rescue NameError
+        nil
+      end
+    end.compact
     instance_modules = object_modules.map do |version_number, object_module|
       [version_number, object_module.clone]
     end
@@ -78,20 +76,17 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
       raise ArgumentError, %Q("#{method_name}" must start with a "." if it's a class method or "#" if it's an instance method)
     end
 
-    available_class_methods = class_modules.flat_map { |_, class_module| class_module.instance_methods }.uniq
-    class_methods =
-      if methods == :all
-        available_class_methods
-      else
-        methods.select { |method| method.start_with?('.') }.map { |method| method[1..-1].to_sym }
-      end
-    available_instance_methods = instance_modules.flat_map { |_, instance_module| instance_module.instance_methods }.uniq
-    instance_methods =
-      if methods == :all
-        available_instance_methods
-      else
-        methods.select { |method| method.start_with?('#') }.map { |method| method[1..-1].to_sym }
-      end
+    all_methods_for = lambda do |modules|
+      modules.flat_map { |_, class_module| class_module.instance_methods }.uniq
+    end
+    available_class_methods = all_methods_for.call(class_modules)
+    available_instance_methods = all_methods_for.call(instance_modules)
+
+    select_and_clean = lambda do |leader|
+      methods.select { |method| method.start_with?(leader) }.map { |method| method[1..-1].to_sym }
+    end
+    class_methods = methods == :all ? available_class_methods : select_and_clean.call('.')
+    instance_methods = methods == :all ? available_instance_methods : select_and_clean.call('#')
 
     unless (leftovers = (class_methods - available_class_methods)).empty?
       raise ArgumentError, %Q(".#{leftovers.first}" is not a valid method on #{full_name} or has no updates)

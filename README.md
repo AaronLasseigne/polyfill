@@ -244,7 +244,7 @@ end
 |                         | #close                   | No          |
 |                         | #each_codepoint          | No          |
 |                         | #wait_readable           | No          |
-| Kernel                  | #loop                    | No          |
+| Kernel                  | #loop                    | Yes         |
 | Logger                  | #level=                  | No          |
 |                         | #reopen                  | No          |
 | Module                  | #define_method           | No          |

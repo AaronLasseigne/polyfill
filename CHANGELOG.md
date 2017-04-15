@@ -4,6 +4,7 @@
 
  - Support for Ruby 2.1
  - v2.2 Kernel#itself
+ - v2.3 Kernel#loop
 
 # [0.6.0][] (2017-04-06)
 

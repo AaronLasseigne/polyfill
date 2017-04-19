@@ -141,6 +141,8 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         class_module.send(:remove_method, name) unless requested_class_methods.include?(name)
       end
 
+      next if class_module.instance_methods.empty?
+
       mod.module_exec(requested_class_methods) do |methods_added|
         base_classes.each do |klass|
           refine Object.const_get(klass).singleton_class do
@@ -176,6 +178,8 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
       instance_module.instance_methods.each do |name|
         instance_module.send(:remove_method, name) unless requested_instance_methods.include?(name)
       end
+
+      next if instance_module.instance_methods.empty?
 
       all_instance_modules << instance_module
 

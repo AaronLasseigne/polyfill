@@ -1,5 +1,7 @@
-require 'polyfill/version'
+require 'ipaddr'
 require 'stringio'
+require 'polyfill/version'
+require 'polyfill/utils'
 
 module Polyfill
   module Parcel; end
@@ -23,6 +25,8 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
   versions.reject! do |version_number, _|
     version_number > desired_version
   end
+
+  native = others.delete(:native) { false }
 
   unless others.empty?
     raise ArgumentError, "unknown keyword: #{others.first[0]}"
@@ -115,10 +119,27 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         class_module.send(:remove_method, name) unless class_methods.include?(name)
       end
 
-      mod.module_eval do
+      mod.module_exec(class_methods) do |methods_added|
         base_classes.each do |klass|
           refine Object.const_get(klass).singleton_class do
             include class_module
+
+            if native
+              Polyfill::Utils.ignore_warnings do
+                define_method :respond_to? do |name, include_all = false|
+                  return true if methods_added.include?(name)
+
+                  super(name, include_all)
+                end
+
+                define_method :__send__ do |name, *args, &block|
+                  return super(name, *args, &block) unless methods_added.include?(name)
+
+                  class_module.instance_method(name).bind(self).call(*args, &block)
+                end
+                alias_method :send, :__send__
+              end
+            end
           end
         end
       end
@@ -133,10 +154,27 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
 
       all_instance_modules << instance_module
 
-      mod.module_eval do
+      mod.module_exec(instance_methods) do |methods_added|
         base_classes.each do |klass|
           refine Object.const_get(klass) do
             include instance_module
+
+            if native
+              Polyfill::Utils.ignore_warnings do
+                define_method :respond_to? do |name, include_all = false|
+                  return super(name, include_all) unless methods_added.include?(name)
+
+                  true
+                end
+
+                define_method :__send__ do |name, *args, &block|
+                  return super(name, *args, &block) unless methods_added.include?(name)
+
+                  instance_module.instance_method(name).bind(self).call(*args, &block)
+                end
+                alias_method :send, :__send__
+              end
+            end
           end
         end
       end

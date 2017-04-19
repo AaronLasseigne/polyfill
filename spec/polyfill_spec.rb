@@ -51,6 +51,74 @@ RSpec.describe 'Polyfill' do
         end
       end
 
+      context ':native' do
+        context 'is true' do
+          using Polyfill(
+            native: true,
+            Array: %w[#concat #sum],
+            File: %w[.empty?]
+          )
+
+          context '#respond_to?' do
+            it 'works for existing methods' do
+              expect([].respond_to?(:size)).to be true
+            end
+
+            it 'works for updates' do
+              expect([].respond_to?(:concat)).to be true
+            end
+
+            it 'works for new methods' do
+              expect([].respond_to?(:sum)).to be true
+              expect(File.respond_to?(:empty?)).to be true
+            end
+          end
+
+          context '#__send__' do
+            it 'works for existing methods' do
+              expect([].__send__(:size)).to eql 0
+            end
+
+            it 'works for updates' do
+              expect([].__send__(:concat, [1], [2])).to eql [1, 2]
+            end
+
+            it 'works for new methods' do
+              expect([].__send__(:sum)).to eql 0
+              expect(File.__send__(:empty?, '.')).to be false
+            end
+          end
+
+          context '#send' do
+            it 'works for existing methods' do
+              expect([].send(:size)).to eql 0
+            end
+
+            it 'works for updates' do
+              expect([].send(:concat, [1], [2])).to eql [1, 2]
+            end
+
+            it 'works for new methods' do
+              expect([].send(:sum)).to eql 0
+              expect(File.send(:empty?, '.')).to be false
+            end
+          end
+        end
+
+        context 'is false' do
+          using Polyfill(
+            native: false,
+            Array: %w[#concat #sum],
+            File: %w[.empty?]
+          )
+
+          it 'does not add #respond_to? support' do
+            expect([].respond_to?(:sum)).to be false
+            expect(File.respond_to?(:empty?)).to be false
+          end
+        end
+      end
+
       context 'capitalized symbols are treated as class names' do
         it 'returns a Module named Polyfill::Parcel::*' do
           mod = Polyfill({})

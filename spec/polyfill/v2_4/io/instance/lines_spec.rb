@@ -2,7 +2,7 @@ RSpec.describe 'IO#lines' do
   using Polyfill(IO: %w[#lines])
 
   around(:all) do |example|
-    skip_warnings do
+    ignore_warnings do
       example.run
     end
   end

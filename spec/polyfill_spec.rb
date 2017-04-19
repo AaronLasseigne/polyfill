@@ -113,8 +113,10 @@ RSpec.describe 'Polyfill' do
           )
 
           it 'does not add #respond_to? support' do
-            expect([].respond_to?(:sum)).to be false
-            expect(File.respond_to?(:empty?)).to be false
+            when_ruby_below('2.4') do
+              expect([].respond_to?(:sum)).to be false
+              expect(File.respond_to?(:empty?)).to be false
+            end
           end
         end
       end

@@ -297,7 +297,7 @@ end
 |             | #min                                    | No          |
 |             | #min_by                                 | No          |
 |             | #slice_after                            | Yes         |
-|             | #slice_when                             | No          |
+|             | #slice_when                             | Yes         |
 | Etc         | .confstr                                | No          |
 |             | .sysconf                                | No          |
 |             | .nprocessors                            | No          |

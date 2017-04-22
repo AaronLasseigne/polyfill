@@ -1,5 +1,9 @@
 # [0.8.0][]
 
+## Added
+
+ - v2.2 Enumerable#slice_when
+
 # [0.7.0][] (2017-04-22)
 
 ## Changed

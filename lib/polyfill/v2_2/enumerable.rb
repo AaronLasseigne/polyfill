@@ -29,6 +29,25 @@ module Polyfill
           end
         end
       end
+
+      def slice_when
+        block = ::Proc.new
+
+        ::Enumerator.new do |yielder|
+          output = []
+          each do |element, *rest|
+            elements = rest.any? ? [element, *rest] : element
+
+            if output.empty? || !block.call(output.last, elements)
+              output.push(elements)
+            else
+              yielder << output
+              output = [elements]
+            end
+          end
+          yielder << output unless output.empty?
+        end
+      end
     end
   end
 end

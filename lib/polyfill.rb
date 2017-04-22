@@ -35,15 +35,6 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     raise ArgumentError, "unknown keyword: #{others.first[0]}"
   end
 
-  # if no objects are given we need them all
-  if objects.empty?
-    objects = versions.each_with_object({}) do |(_, version_module), acc|
-      version_module.constants(false).each do |obj_name|
-        acc[obj_name] = :all
-      end
-    end
-  end
-
   #
   # useful vars
   #

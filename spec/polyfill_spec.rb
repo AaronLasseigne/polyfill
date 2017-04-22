@@ -3,9 +3,11 @@ RSpec.describe 'Polyfill' do
     context 'without arguments' do
       using Polyfill()
 
-      it 'adds everything' do
-        expect { 1.finite? }.to_not raise_error
-        expect { {}.transform_values }.to_not raise_error
+      it 'adds nothing' do
+        when_ruby_below('2.3') do
+          expect { 1.finite? }.to raise_error(NoMethodError)
+          expect { {}.transform_values }.to raise_error(NoMethodError)
+        end
       end
     end
 

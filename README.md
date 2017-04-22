@@ -52,21 +52,10 @@ This project uses [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Usage
 
-To use all updates:
-
-```ruby
-using Polyfill()
-```
-
-All updates up to a specific minor version:
-
-```ruby
-using Polyfill(version: '2.3')
-```
-
-To specify methods from a particular object use its class name and pass an
-array of strings containing the methods you'd like to use. Instance methods
-need to start with "#" and class methods need to start with ".".
+With the `Polyfill` method, you can polyfill methods for one or more Ruby
+objects. Each object is passed as a key. The value is an array of strings
+containing the methods you would like to polyfill. Instance methods need to
+start with '#' and class methods need to start with '.'.
 
 ```ruby
 using Polyfill(
@@ -76,10 +65,18 @@ using Polyfill(
 )
 ```
 
-If you want all of the methods for a particular class you can use `:all`.
+If you want all of the methods for a particular object you can use `:all` in
+place of the array.
 
 ```ruby
 using Polyfill(Numeric: :all)
+```
+
+Polyfills can be halted at a maximum version with the `:version` option. The
+version must be a string with the major and minor version only.
+
+```ruby
+using Polyfill(version: '2.3', Numeric: :all)
 ```
 
 When you add a method it will not be available in all of the ways a normal
@@ -99,7 +96,7 @@ you can add the polyfill by using `include`.
 ```ruby
 class Foo
   include Comparable
-  include Polyfill(Comparable: %w[#clamp])
+  include Polyfill(Comparable: :all)
 end
 ```
 

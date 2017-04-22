@@ -70,4 +70,15 @@ RSpec.describe 'Enumerable#slice_after' do
       expect(result).to eql [[[1, 2], [3, 4, 5]], [[6, 7, 8, 9]]]
     end
   end
+
+  context 'with #lazy' do
+    it 'works' do
+      expect(
+        (1..Float::INFINITY)
+          .lazy
+          .slice_after { |a| a % 3 == 0 }
+          .first(3)
+      ).to eql [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    end
+  end
 end

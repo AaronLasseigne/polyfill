@@ -4,12 +4,19 @@ module Polyfill
       def chunk_while
         block = ::Proc.new
 
-        return [self] if size == 1
+        enum_count =
+          begin
+            size
+          rescue NameError
+            count
+          end
+
+        return [self] if enum_count == 1
 
         ::Enumerator.new do |yielder|
           output = []
           each_cons(2).with_index(1) do |(a, b), run|
-            if run == size - 1
+            if run == enum_count - 1
               if block.call(a, b)
                 output.push(a, b)
                 yielder << output

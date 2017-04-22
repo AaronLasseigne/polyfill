@@ -6,6 +6,12 @@ module Polyfill
         raise ArgumentError, 'wrong number of arguments (given 0, expected 1)' if !pattern && !block_given?
 
         matcher = pattern || ::Proc.new
+        enum_count =
+          begin
+            size
+          rescue NameError
+            count
+          end
 
         ::Enumerator.new do |yielder|
           output = []
@@ -14,7 +20,7 @@ module Polyfill
             elements = rest.any? ? [element, *rest] : element
 
             output.push(elements)
-            if matcher === elements || run == count # rubocop:disable Style/CaseEquality
+            if matcher === elements || run == enum_count # rubocop:disable Style/CaseEquality
               yielder << output
               output = []
             end

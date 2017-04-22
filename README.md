@@ -46,7 +46,7 @@ This project uses [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Goals
 
-1. Features should ideally mimic the true behavior (including bugs).
+1. Features should ideally mimic the true behavior (including bugs, error messages, etc).
 2. Features should not significantly burden the runtime.
 3. Keep everything modular so users can be specific or broad in their usage.
 
@@ -55,10 +55,16 @@ This project uses [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 To use all updates:
 
 ```ruby
-using Polyfill
+using Polyfill()
 ```
 
-To specify methods from a particular object use it's class name and pass an
+All updates up to a specific minor version:
+
+```ruby
+using Polyfill(version: '2.3')
+```
+
+To specify methods from a particular object use its class name and pass an
 array of strings containing the methods you'd like to use. Instance methods
 need to start with "#" and class methods need to start with ".".
 
@@ -66,7 +72,7 @@ need to start with "#" and class methods need to start with ".".
 using Polyfill(
   Array: %w[#concat],
   Dir: %w[.empty?],
-  Hash: %w[#compact! #transform_values],
+  Hash: %w[#compact! #transform_values]
 )
 ```
 
@@ -76,18 +82,19 @@ If you want all of the methods for a particular class you can use `:all`.
 using Polyfill(Numeric: :all)
 ```
 
-Updates can be stopped at a specific version by pass it via `:version`. The
-version selected must be formatted as "MAJOR.MINOR".
+When you add a method it will not be available in all of the ways a normal
+method is. For example, you can't call `send` on a refined method prior to
+Ruby 2.4. To gain back some of this support you can set `native: true`.
+This currently adds support for `respond_to?`, `__send__`, and `send`.
 
 ```ruby
-using Polyfill(version: '2.3', Numeric: :all)
+using Polyfill(native: true, Numeric: :all)
 ```
 
-Methods can be included in the same way. Prior to Ruby 2.4, refinements did
-not work on modules. In order to get methods you'll need to include them after
-the module. Calling `using` on a module will add it to all core Ruby classes
-that include it. The methods will only be included if they are needed by the
-Ruby version running the code.
+Prior to Ruby 2.4, refinements do not work on Modules. When using a polyfill
+on a module it will instead refine the core classes that use the module. If
+you're building your own class, it will not receive the polyfill. Instead,
+you can add the polyfill by using `include`.
 
 ```ruby
 class Foo

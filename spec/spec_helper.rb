@@ -45,6 +45,14 @@ def skip_warnings
   $VERBOSE = orig
 end
 
+def when_ruby(version)
+  yield if RUBY_VERSION[/\A(\d+\.\d+)/, 1] == version
+end
+
+def when_ruby_above(version)
+  yield if RUBY_VERSION[/\A(\d+\.\d+)/, 1] > version
+end
+
 def when_ruby_below(version)
   yield if RUBY_VERSION[/\A(\d+\.\d+)/, 1] < version
 end

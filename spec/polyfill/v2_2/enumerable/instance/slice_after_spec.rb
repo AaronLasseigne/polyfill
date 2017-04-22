@@ -40,18 +40,32 @@ RSpec.describe 'Enumerable#slice_after' do
 
     context 'and an argument' do
       it 'raises an ArgumentError' do
-        expect do
-          @enum.slice_after(42) { |i| i == 6 }
-        end.to raise_error(ArgumentError, 'both pattern and block are given')
+        when_ruby('2.2') do
+          expect do
+            @enum.slice_after(42) { |i| i == 6 }
+          end.to raise_error(ArgumentError, 'both pattan and block are given')
+        end
+        when_ruby_above('2.2') do
+          expect do
+            @enum.slice_after(42) { |i| i == 6 }
+          end.to raise_error(ArgumentError, 'both pattern and block are given')
+        end
       end
     end
   end
 
   it 'raises an ArgumentError when given an incorrect number of arguments' do
     expect { @enum.slice_after('one', 'two') }.to raise_error(ArgumentError)
-    expect do
-      @enum.slice_after
-    end.to raise_error(ArgumentError, 'wrong number of arguments (given 0, expected 1)')
+    when_ruby('2.2') do
+      expect do
+        @enum.slice_after
+      end.to raise_error(ArgumentError, 'wrong number of arguments (0 for 1)')
+    end
+    when_ruby_above('2.2') do
+      expect do
+        @enum.slice_after
+      end.to raise_error(ArgumentError, 'wrong number of arguments (given 0, expected 1)')
+    end
   end
 
   context 'when an iterator method yields more than one value' do

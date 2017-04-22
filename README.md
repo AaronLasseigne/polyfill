@@ -292,7 +292,7 @@ end
 |             | #max_by                                 | No          |
 |             | #min                                    | No          |
 |             | #min_by                                 | No          |
-|             | #slice_after                            | No          |
+|             | #slice_after                            | Yes         |
 |             | #slice_when                             | No          |
 | Etc         | .confstr                                | No          |
 |             | .sysconf                                | No          |

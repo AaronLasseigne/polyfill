@@ -3,6 +3,7 @@
 ## Added
 
  - Support for Ruby 2.1
+ - v2.2 Enumerable#slice_after
  - v2.2 Kernel#itself
  - v2.3 Kernel#loop
 

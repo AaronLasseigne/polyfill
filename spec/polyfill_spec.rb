@@ -26,7 +26,10 @@ RSpec.describe 'Polyfill' do
         end
 
         context 'with a valid version number' do
-          using Polyfill(version: '2.3')
+          using Polyfill(
+            version: '2.3',
+            Enumerable: :all
+          )
 
           it 'limits updates to the version given' do
             expect { [].chunk_while {} }.to_not raise_error # added v2.3

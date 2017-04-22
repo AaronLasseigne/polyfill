@@ -111,7 +111,7 @@ end
 |                  | #min                     | No          | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
 |                  | #pack                    | No          |
 |                  | #sum                     | Yes         |
-| BasicObject      | #__send__                | No          |
+| BasicObject      | #\_\_send\_\_            | No          |
 | Binding          | #irb                     | No          |
 | Comparable       | #clamp                   | Yes         |
 | CSV              | #new                     | No          |

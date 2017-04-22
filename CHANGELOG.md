@@ -1,5 +1,9 @@
 # [0.7.0][]
 
+## Changed
+
+ - Sending no parameters to `Polyfill()` now returns nothing instead of everything.
+
 ## Added
 
  - Support for Ruby 2.1
@@ -65,6 +69,10 @@
 
 # [0.3.0][] (2017-03-19)
 
+## Changed
+
+ - New way to select methods that doesn't rely on knowing the module structure
+
 ## Added
 
  - v2.4 Dir.empty?
@@ -80,11 +88,14 @@
  - v2.4 StringIO#readline
  - v2.4 StringIO#readlines
 
-## Changes
-
- - New way to select methods that doesn't rely on knowing the module structure
-
 # [0.2.0][] (2017-03-17)
+
+## Changed
+
+ - Modules are camel case instead of only uppercasing the first letter of the method name.
+ - Modules for predicate methods now end with `Q` instead of `__Q`.
+ - Modules for dangerous methods now end with `E` instead of `__E`.
+ - Methods will no longer attempt to fix `#respond_to?`, `#methods`, or `.instance_methods`. This will be revisited later with a more comprehensive solution.
 
 ## Added
 
@@ -94,13 +105,6 @@
  - v2.4 Hash#compact!
  - v2.4 Hash#transform_values
  - v2.4 Hash#transform_values!
-
-## Changes
-
- - Modules are camel case instead of only uppercasing the first letter of the method name.
- - Modules for predicate methods now end with `Q` instead of `__Q`.
- - Modules for dangerous methods now end with `E` instead of `__E`.
- - Methods will no longer attempt to fix `#respond_to?`, `#methods`, or `.instance_methods`. This will be revisited later with a more comprehensive solution.
 
 # [0.1.0][] (2017-03-14)
 
@@ -119,6 +123,9 @@
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[0.7.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.6.0...v0.7.0
+[0.6.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.1.0...v0.2.0

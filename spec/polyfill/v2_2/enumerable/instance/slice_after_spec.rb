@@ -83,6 +83,14 @@ RSpec.describe 'Enumerable#slice_after' do
       result = enum.slice_after { |i| i == [3, 4, 5] }.to_a
       expect(result).to eql [[[1, 2], [3, 4, 5]], [[6, 7, 8, 9]]]
     end
+
+    it 'processes all yielded values' do
+      def foo
+        yield 1, 2
+        yield 3, 4
+      end
+      expect(to_enum(:foo).slice_after { false }.to_a).to eql [[[1, 2], [3, 4]]]
+    end
   end
 
   context 'with #lazy' do

@@ -38,4 +38,14 @@ RSpec.describe 'Enumerable#chunk_while' do
       expect([1].chunk_while(&:even?).to_a).to eql [[1]]
     end
   end
+
+  context 'when an iterator method yields more than one value' do
+    it 'processes all yielded values' do
+      def foo
+        yield 1, 2
+        yield 3, 4
+      end
+      expect(to_enum(:foo).chunk_while { false }.to_a).to eql [[[1, 2]], [[3, 4]]]
+    end
+  end
 end

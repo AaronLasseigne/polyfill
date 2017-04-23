@@ -1,6 +1,10 @@
+require_relative 'numeric'
+
 module Polyfill
   module V2_4
     module Enumerable
+      using Polyfill(Numeric: %w[#dup])
+
       def chunk(*)
         return enum_for(:chunk) unless block_given?
 
@@ -8,12 +12,7 @@ module Polyfill
       end
 
       def sum(init = 0)
-        acc =
-          begin
-            init.dup
-          rescue TypeError
-            init
-          end
+        acc = init.dup
 
         each do |elem|
           acc += block_given? ? yield(elem) : elem

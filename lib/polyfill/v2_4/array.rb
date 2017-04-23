@@ -1,6 +1,10 @@
+require_relative 'numeric'
+
 module Polyfill
   module V2_4
     module Array
+      using Polyfill(Numeric: %w[#dup])
+
       def concat(*others)
         return super if others.length == 1
 
@@ -13,12 +17,7 @@ module Polyfill
       end
 
       def sum(init = 0)
-        acc =
-          begin
-            init.dup
-          rescue TypeError
-            init
-          end
+        acc = init.dup
 
         each do |elem|
           acc += block_given? ? yield(elem) : elem

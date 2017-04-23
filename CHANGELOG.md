@@ -7,6 +7,7 @@
 ## Fixed
 
  - v2.3 Enumerable#chunk_while and v2.2 Enumerable#slice_after should not require `count`
+ - v2.4 Array#sum should not use `each` (the Enumerable version does)
 
 # [0.7.0][] (2017-04-22)
 

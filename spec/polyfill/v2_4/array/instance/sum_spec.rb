@@ -19,4 +19,11 @@ RSpec.describe 'Array#sum' do
     expect(%w[a b c].sum(init)).to eql 'abc'
     expect(init).to eql ''
   end
+
+  it 'does not use each' do
+    obj = [1, 2, 3]
+    expect(obj).to_not receive(:each)
+
+    expect(obj.sum).to eql 6
+  end
 end

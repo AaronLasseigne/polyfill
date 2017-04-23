@@ -19,7 +19,8 @@ module Polyfill
       def sum(init = 0)
         acc = init.dup
 
-        each do |elem|
+        for i in 0..(size - 1) # rubocop:disable Style/For
+          elem = self[i]
           acc += block_given? ? yield(elem) : elem
         end
 

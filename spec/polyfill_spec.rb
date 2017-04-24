@@ -186,6 +186,20 @@ RSpec.describe 'Polyfill' do
             end.to raise_error(ArgumentError, '"#this_is_not_a_method" is not a valid method on String or has no updates')
           end
         end
+
+        context 'load order' do
+          using Polyfill(
+            Enumerable: %w[#sum],
+            Array: %w[#sum]
+          )
+
+          it 'loads modules before classes' do
+            # the Array version does not use `each`
+            obj = [1, 2, 3]
+            expect(obj).to_not receive(:each)
+            obj.sum
+          end
+        end
       end
     end
   end

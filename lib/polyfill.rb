@@ -14,6 +14,15 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
   # parse options
   #
   objects, others = options.partition { |key,| key[/\A[A-Z]/] }
+  objects.sort! do |a, b|
+    if !a.is_a?(Class) && b.is_a?(Class)
+      -1
+    elsif a.is_a?(Class) && !b.is_a?(Class)
+      1
+    else
+      0
+    end
+  end
   others = others.to_h
 
   versions = {

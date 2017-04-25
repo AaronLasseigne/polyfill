@@ -307,6 +307,7 @@ end
 | File        | .birthtime                              | No          |
 |             | #birthtime                              | No          |
 | File::Stat  | #birthtime                              | No          |
+| Find        | .find                                   | No          |
 | GC          | .latest_gc_info                         | No          |
 |             | .stat                                   | No          |
 | IO          | #each_codepoint                         | No          |

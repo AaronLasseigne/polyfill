@@ -306,8 +306,6 @@ end
 |             | #prev_float                             | No          |
 | File        | .birthtime                              | No          |
 |             | #birthtime                              | No          |
-|             | .find                                   | No          |
-|             | #find                                   | No          |
 | File::Stat  | #birthtime                              | No          |
 | GC          | .latest_gc_info                         | No          |
 |             | .stat                                   | No          |

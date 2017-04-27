@@ -1,4 +1,4 @@
-RSpec.describe 'Polyfill' do
+RSpec.describe 'Polyfill()' do
   context 'using' do
     context 'without arguments' do
       using Polyfill()
@@ -21,7 +21,7 @@ RSpec.describe 'Polyfill' do
       context ':version' do
         it 'errors on invalid version numbers' do
           expect do
-            Polyfill(version: 'invalid')
+            Polyfill(version: 'invalid', Enumerable: :all)
           end.to raise_error(ArgumentError, 'invalid value for keyword version: invalid')
         end
 
@@ -35,20 +35,6 @@ RSpec.describe 'Polyfill' do
             expect { [].chunk_while {} }.to_not raise_error # added v2.3
 
             when_ruby_below('2.4') do
-              # blockless vesion added v2.4
-              expect { [].chunk }.to raise_error(ArgumentError)
-            end
-          end
-        end
-
-        context 'with a valid version number and a specification' do
-          using Polyfill(version: '2.3', Enumerable: :all)
-
-          it 'limits updates to the version given' do
-            expect { [].chunk_while {} }.to_not raise_error # added v2.3
-
-            when_ruby_below('2.4') do
-              expect { 1.finite? }.to raise_error(NoMethodError)
               # blockless vesion added v2.4
               expect { [].chunk }.to raise_error(ArgumentError)
             end
@@ -167,11 +153,11 @@ RSpec.describe 'Polyfill' do
           it 'fails on invalid classes' do
             expect do
               Polyfill(ThisIsNotARealClass: :all)
-            end.to raise_error(ArgumentError, '"ThisIsNotARealClass" is not a valid class or has no updates')
+            end.to raise_error(ArgumentError, '"ThisIsNotARealClass" is not a valid object or has no updates')
 
             expect do
               Polyfill(:'ThisIsNotA::RealClass' => :all)
-            end.to raise_error(ArgumentError, '"ThisIsNotA::RealClass" is not a valid class or has no updates')
+            end.to raise_error(ArgumentError, '"ThisIsNotA::RealClass" is not a valid object or has no updates')
           end
 
           it 'fails on methods missing a starting "." or "#"' do
@@ -200,28 +186,6 @@ RSpec.describe 'Polyfill' do
             obj.sum
           end
         end
-      end
-    end
-  end
-
-  context 'include' do
-    it 'can include everything for a class' do
-      klass = Class.new(Numeric) do
-        include Polyfill(Numeric: :all)
-      end
-
-      expect(klass.new.respond_to?(:finite?)).to be true
-      expect(klass.new.respond_to?(:infinite?)).to be true
-    end
-
-    it 'can include particular methods for a class' do
-      klass = Class.new(Numeric) do
-        include Polyfill(Numeric: %w[#finite?])
-      end
-
-      expect(klass.new.respond_to?(:finite?)).to be true
-      when_ruby_below '2.4' do
-        expect(klass.new.respond_to?(:infinite?)).to be false
       end
     end
   end

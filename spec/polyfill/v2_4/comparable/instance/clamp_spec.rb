@@ -1,13 +1,4 @@
 RSpec.describe 'Comparable#clamp' do
-  it 'works as a mixin' do
-    klass = Class.new do
-      include Comparable
-      include Polyfill(Comparable: %w[#clamp])
-    end
-
-    expect(klass.new.respond_to?(:clamp)).to be true
-  end
-
   using Polyfill(Comparable: %w[#clamp])
 
   it 'returns the value if it is between min and max' do

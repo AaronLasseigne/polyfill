@@ -1,7 +1,13 @@
 # [0.8.0][]
 
+## Changed
+
+ - `Polyfill()` is no longer used with `include` or `extend`. Instead `Polyfill.get` should
+   be used.
+
 ## Added
 
+ - Polyfill.get for getting modules to include or extend
  - v2.2 Enumerable#slice_when
 
 ## Fixed

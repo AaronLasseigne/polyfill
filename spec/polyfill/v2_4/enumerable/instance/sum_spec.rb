@@ -41,7 +41,7 @@ RSpec.describe 'Enumerable#sum' do
   it 'uses each' do
     klass = Class.new do
       include Enumerable
-      include Polyfill(Enumerable: %w[#sum])
+      include Polyfill.get(:Enumerable, %i[sum])
 
       def each
         if block_given?

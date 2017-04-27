@@ -72,7 +72,7 @@ RSpec.describe 'Enumerable#slice_after' do
     it 'processes all yielded values' do
       enum = Class.new do
         include Enumerable
-        include Polyfill(Enumerable: %w[#slice_after])
+        include Polyfill.get(:Enumerable, %i[slice_after])
 
         def each
           yield 1, 2

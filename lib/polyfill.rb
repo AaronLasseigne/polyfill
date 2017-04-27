@@ -5,6 +5,99 @@ require 'polyfill/utils'
 
 module Polyfill
   module Parcel; end
+
+  def get(module_name, methods, options = {})
+    if Object.const_get(module_name.to_s).is_a?(Class)
+      raise ArgumentError, "#{module_name} is a class not a module"
+    end
+
+    #
+    # parse options
+    #
+    versions = {
+      '2.2' => Polyfill::V2_2,
+      '2.3' => Polyfill::V2_3,
+      '2.4' => Polyfill::V2_4
+    }
+    desired_version = options.delete(:version) || versions.keys.max
+    unless versions.keys.include?(desired_version)
+      raise ArgumentError, "invalid value for keyword version: #{desired_version}"
+    end
+    versions.reject! do |version_number, _|
+      version_number > desired_version
+    end
+
+    unless options.empty?
+      raise ArgumentError, "unknown keyword: #{options.first[0]}"
+    end
+
+    #
+    # find all polyfills for the module across all versions
+    #
+    module_names = module_name.to_s.split('::')
+    current_ruby_version = RUBY_VERSION[/\A(\d+\.\d+)/, 1]
+
+    modules_with_updates = []
+    modules = []
+    versions.each do |version_number, version_module|
+      begin
+        final_module = module_names
+          .reduce(version_module) do |current_mod, name|
+          current_mod.const_get(name, false)
+        end
+
+        modules_with_updates << final_module
+
+        next if version_number <= current_ruby_version
+
+        modules << final_module.clone
+      rescue NameError
+        nil
+      end
+    end
+
+    if modules_with_updates.empty?
+      raise ArgumentError, %Q("#{module_name}" has no updates)
+    end
+
+    #
+    # remove methods that were not requested
+    #
+    methods_with_updates = modules_with_updates.flat_map(&:instance_methods).uniq
+    requested_methods = methods == :all ? methods_with_updates : methods
+
+    unless (leftovers = (requested_methods - methods_with_updates)).empty?
+      raise ArgumentError, %Q("##{leftovers.first}" is not a valid method on #{module_name} or has no updates)
+    end
+
+    modules.each do |instance_module|
+      instance_module.instance_methods.each do |name|
+        instance_module.send(:remove_method, name) unless requested_methods.include?(name)
+      end
+    end
+
+    #
+    # build the module to return
+    #
+    mod = Module.new
+
+    # make sure the methods get added if this module is included
+    mod.singleton_class.send(:define_method, :included) do |base|
+      modules.each do |module_to_add|
+        base.include module_to_add unless module_to_add.instance_methods.empty?
+      end
+    end
+
+    # make sure the methods get added if this module is extended
+    mod.singleton_class.send(:define_method, :extended) do |base|
+      modules.each do |module_to_add|
+        base.extend module_to_add unless module_to_add.instance_methods.empty?
+      end
+    end
+
+    Polyfill::Parcel.const_set("O#{mod.object_id}", mod)
+  end
+  module_function :get
 end
 
 def Polyfill(options = {}) # rubocop:disable Style/MethodName
@@ -45,10 +138,9 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
   end
 
   #
-  # useful vars
+  # useful var
   #
   current_ruby_version = RUBY_VERSION[/\A(\d+\.\d+)/, 1]
-  all_instance_modules = []
 
   objects.each do |full_name, methods|
     #
@@ -72,7 +164,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
       .compact
 
     if object_modules.empty?
-      raise ArgumentError, %Q("#{full_name}" is not a valid class or has no updates)
+      raise ArgumentError, %Q("#{full_name}" is not a valid object or has no updates)
     end
 
     #
@@ -181,8 +273,6 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
 
       next if instance_module.instance_methods.empty?
 
-      all_instance_modules << instance_module
-
       mod.module_exec(requested_instance_methods) do |methods_added|
         base_classes.each do |klass|
           refine Object.const_get(klass) do
@@ -207,15 +297,6 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
           end
         end
       end
-    end
-  end
-
-  #
-  # make sure the includes get added if this module is included
-  #
-  mod.singleton_class.send(:define_method, :included) do |base|
-    all_instance_modules.each do |instance_module|
-      base.include instance_module
     end
   end
 

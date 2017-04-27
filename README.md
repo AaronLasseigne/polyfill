@@ -52,6 +52,8 @@ This project uses [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Usage
 
+### Polyfill
+
 With the `Polyfill` method, you can polyfill methods for one or more Ruby
 objects. Each object is passed as a key. The value is an array of strings
 containing the methods you would like to polyfill. Instance methods need to
@@ -88,15 +90,37 @@ This currently adds support for `respond_to?`, `__send__`, and `send`.
 using Polyfill(native: true, Numeric: :all)
 ```
 
+### Polyfill.get
+
 Prior to Ruby 2.4, refinements do not work on Modules. When using a polyfill
 on a module it will instead refine the core classes that use the module. If
 you're building your own class, it will not receive the polyfill. Instead,
-you can add the polyfill by using `include`.
+you can `include` (or `extend`) in a polyfill with `Polyfill.get`.
 
 ```ruby
 class Foo
   include Comparable
-  include Polyfill(Comparable: :all)
+  include Polyfill.get(:Comparable, :all)
+end
+```
+
+To use specific methods you can pass an array of symbols in place of `:all`.
+
+```ruby
+class Foo
+  include Comparable
+  include Polyfill.get(:Comparable, %i[clamp])
+end
+```
+
+Like before, the polyfills can be halted at a maximum version with the
+`:version` option. The version must be a string with the major and minor
+version only.
+
+```ruby
+class Foo
+  include Comparable
+  include Polyfill.get(:Comparable, :all, version: '2.3')
 end
 ```
 

@@ -42,5 +42,31 @@ module Polyfill
       end
     end
     module_function :keep_only_these_methods!
+
+    def modules_to_use(module_name, versions)
+      modules_with_updates = []
+      modules = []
+
+      versions.each do |version_number, version_module|
+        begin
+          final_module = version_module.const_get(module_name.to_s, false)
+
+          modules_with_updates << final_module
+
+          next if version_number <= InternalUtils.current_ruby_version
+
+          modules << final_module.clone
+        rescue NameError
+          nil
+        end
+      end
+
+      if modules_with_updates.empty?
+        raise ArgumentError, %Q("#{module_name}" has no updates)
+      end
+
+      [modules_with_updates, modules]
+    end
+    module_function :modules_to_use
   end
 end

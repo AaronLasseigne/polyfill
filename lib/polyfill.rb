@@ -23,25 +23,7 @@ module Polyfill
     #
     # find all polyfills for the module across all versions
     #
-    modules_with_updates = []
-    modules = []
-    versions.each do |version_number, version_module|
-      begin
-        final_module = version_module.const_get(module_name.to_s, false)
-
-        modules_with_updates << final_module
-
-        next if version_number <= InternalUtils.current_ruby_version
-
-        modules << final_module.clone
-      rescue NameError
-        nil
-      end
-    end
-
-    if modules_with_updates.empty?
-      raise ArgumentError, %Q("#{module_name}" has no updates)
-    end
+    modules_with_updates, modules = InternalUtils.modules_to_use(module_name, versions)
 
     #
     # remove methods that were not requested
@@ -110,25 +92,8 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     #
     # find all polyfills for the object across all versions
     #
-    modules_with_updates = []
-    instance_modules = []
-    versions.each do |version_number, version_module|
-      begin
-        final_module = version_module.const_get(module_name.to_s, false)
-
-        modules_with_updates << final_module
-
-        next if version_number <= Polyfill::InternalUtils.current_ruby_version
-
-        instance_modules << final_module.clone
-      rescue NameError
-        nil
-      end
-    end
-
-    if modules_with_updates.empty?
-      raise ArgumentError, %Q("#{module_name}" is not a valid object or has no updates)
-    end
+    modules_with_updates, instance_modules =
+      Polyfill::InternalUtils.modules_to_use(module_name, versions)
 
     class_modules = modules_with_updates.map do |module_with_updates|
       begin

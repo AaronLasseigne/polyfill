@@ -80,5 +80,14 @@ module Polyfill
       requested_methods
     end
     module_function :methods_to_keep
+
+    def create_parcel
+      mod = Module.new
+
+      yield(mod)
+
+      Polyfill::Parcel.const_set("O#{mod.object_id}", mod)
+    end
+    module_function :create_parcel
   end
 end

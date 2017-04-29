@@ -110,35 +110,33 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     #
     # find all polyfills for the object across all versions
     #
-    object_modules = versions
-      .map do |version_number, version_module|
-        begin
-          final_module = version_module.const_get(module_name.to_s, false)
+    modules_with_updates = []
+    instance_modules = []
+    versions.each do |version_number, version_module|
+      begin
+        final_module = version_module.const_get(module_name.to_s, false)
 
-          [version_number, final_module]
-        rescue NameError
-          nil
-        end
+        modules_with_updates << final_module
+
+        next if version_number <= Polyfill::InternalUtils.current_ruby_version
+
+        instance_modules << final_module.clone
+      rescue NameError
+        nil
       end
-      .compact
+    end
 
-    if object_modules.empty?
+    if modules_with_updates.empty?
       raise ArgumentError, %Q("#{module_name}" is not a valid object or has no updates)
     end
 
-    #
-    # get all class modules and instance modules from the polyfills
-    #
-    class_modules = object_modules.map do |version_number, object_module|
+    class_modules = modules_with_updates.map do |module_with_updates|
       begin
-        [version_number, object_module.const_get(:ClassMethods, false).clone]
+        module_with_updates.const_get(:ClassMethods, false).clone
       rescue NameError
         nil
       end
     end.compact
-    instance_modules = object_modules.map do |version_number, object_module|
-      [version_number, object_module.clone]
-    end
 
     #
     # get all requested class and instance methods
@@ -148,7 +146,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     end
 
     all_methods_for = lambda do |modules|
-      modules.flat_map { |_, m| m.instance_methods }.uniq
+      modules.flat_map { |m| m.instance_methods }.uniq
     end
     available_class_methods = all_methods_for.call(class_modules)
     available_instance_methods = all_methods_for.call(instance_modules)
@@ -169,7 +167,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     #
     # get the class(es) to refine
     #
-    base_class = object_modules.first.last.name.sub(/\APolyfill::V\d_\d::/, '')
+    base_class = module_name.to_s
     base_classes =
       case base_class
       when 'Comparable'
@@ -185,9 +183,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     #
     # refine in class methods
     #
-    class_modules.each do |version_number, class_module|
-      next if version_number <= Polyfill::InternalUtils.current_ruby_version
-
+    class_modules.each do |class_module|
       Polyfill::InternalUtils.keep_only_these_methods!(class_module, requested_class_methods)
 
       next if class_module.instance_methods.empty?
@@ -221,9 +217,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     #
     # refine in instance methods
     #
-    instance_modules.each do |version_number, instance_module|
-      next if version_number <= Polyfill::InternalUtils.current_ruby_version
-
+    instance_modules.each do |instance_module|
       Polyfill::InternalUtils.keep_only_these_methods!(instance_module, requested_instance_methods)
 
       next if instance_module.instance_methods.empty?

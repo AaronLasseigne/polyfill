@@ -54,9 +54,7 @@ module Polyfill
     end
 
     modules.each do |instance_module|
-      instance_module.instance_methods.each do |name|
-        instance_module.send(:remove_method, name) unless requested_methods.include?(name)
-      end
+      InternalUtils.keep_only_these_methods!(instance_module, requested_methods)
     end
 
     #
@@ -190,9 +188,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     class_modules.each do |version_number, class_module|
       next if version_number <= Polyfill::InternalUtils.current_ruby_version
 
-      class_module.instance_methods.each do |name|
-        class_module.send(:remove_method, name) unless requested_class_methods.include?(name)
-      end
+      Polyfill::InternalUtils.keep_only_these_methods!(class_module, requested_class_methods)
 
       next if class_module.instance_methods.empty?
 
@@ -228,9 +224,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     instance_modules.each do |version_number, instance_module|
       next if version_number <= Polyfill::InternalUtils.current_ruby_version
 
-      instance_module.instance_methods.each do |name|
-        instance_module.send(:remove_method, name) unless requested_instance_methods.include?(name)
-      end
+      Polyfill::InternalUtils.keep_only_these_methods!(instance_module, requested_instance_methods)
 
       next if instance_module.instance_methods.empty?
 

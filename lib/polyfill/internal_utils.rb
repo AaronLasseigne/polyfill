@@ -35,5 +35,12 @@ module Polyfill
         .to_h
     end
     module_function :polyfill_versions_to_use
+
+    def keep_only_these_methods!(mod, whitelist)
+      mod.instance_methods.each do |name|
+        mod.send(:remove_method, name) unless whitelist.include?(name)
+      end
+    end
+    module_function :keep_only_these_methods!
   end
 end

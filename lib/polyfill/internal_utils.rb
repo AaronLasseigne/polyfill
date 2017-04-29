@@ -65,7 +65,7 @@ module Polyfill
         raise ArgumentError, %Q("#{module_name}" has no updates)
       end
 
-      modules
+      [modules_with_updates, modules]
     end
     module_function :modules_to_use
 

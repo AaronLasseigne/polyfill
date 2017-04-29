@@ -23,12 +23,12 @@ module Polyfill
     #
     # find all polyfills for the module across all versions
     #
-    modules = InternalUtils.modules_to_use(module_name, versions)
+    modules_with_updates, modules = InternalUtils.modules_to_use(module_name, versions)
 
     #
     # remove methods that were not requested
     #
-    requested_methods = InternalUtils.methods_to_keep(modules, methods, '#', module_name)
+    requested_methods = InternalUtils.methods_to_keep(modules_with_updates, methods, '#', module_name)
 
     modules.each do |instance_module|
       InternalUtils.keep_only_these_methods!(instance_module, requested_methods)
@@ -87,8 +87,15 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
       #
       # find all polyfills for the object across all versions
       #
-      instance_modules = Polyfill::InternalUtils.modules_to_use(module_name, versions)
+      modules_with_updates, instance_modules = Polyfill::InternalUtils.modules_to_use(module_name, versions)
 
+      class_modules_with_updates = modules_with_updates.map do |module_with_updates|
+        begin
+          module_with_updates.const_get(:ClassMethods, false)
+        rescue NameError
+          nil
+        end
+      end.compact
       class_modules = instance_modules.map do |module_with_updates|
         begin
           module_with_updates.const_get(:ClassMethods, false).clone
@@ -114,9 +121,9 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         end
 
       requested_instance_methods =
-        Polyfill::InternalUtils.methods_to_keep(instance_modules, instance_methods, '#', module_name)
+        Polyfill::InternalUtils.methods_to_keep(modules_with_updates, instance_methods, '#', module_name)
       requested_class_methods =
-        Polyfill::InternalUtils.methods_to_keep(class_modules, class_methods, '.', module_name)
+        Polyfill::InternalUtils.methods_to_keep(class_modules_with_updates, class_methods, '.', module_name)
 
       #
       # get the class(es) to refine

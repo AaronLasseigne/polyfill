@@ -14,18 +14,7 @@ module Polyfill
     #
     # parse options
     #
-    versions = {
-      '2.2' => Polyfill::V2_2,
-      '2.3' => Polyfill::V2_3,
-      '2.4' => Polyfill::V2_4
-    }
-    desired_version = options.delete(:version) || versions.keys.max
-    unless versions.keys.include?(desired_version)
-      raise ArgumentError, "invalid value for keyword version: #{desired_version}"
-    end
-    versions.reject! do |version_number, _|
-      version_number > desired_version
-    end
+    versions = InternalUtils.polyfill_versions_to_use(options.delete(:version))
 
     unless options.empty?
       raise ArgumentError, "unknown keyword: #{options.first[0]}"
@@ -42,7 +31,7 @@ module Polyfill
 
         modules_with_updates << final_module
 
-        next if version_number <= current_ruby_version
+        next if version_number <= InternalUtils.current_ruby_version
 
         modules << final_module.clone
       rescue NameError
@@ -112,19 +101,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
   end
   others = others.to_h
 
-  versions = {
-    '2.2' => Polyfill::V2_2,
-    '2.3' => Polyfill::V2_3,
-    '2.4' => Polyfill::V2_4
-  }
-  desired_version = others.delete(:version) || versions.keys.max
-  unless versions.keys.include?(desired_version)
-    raise ArgumentError, "invalid value for keyword version: #{desired_version}"
-  end
-  versions.reject! do |version_number, _|
-    version_number > desired_version
-  end
-
+  versions = Polyfill::InternalUtils.polyfill_versions_to_use(others.delete(:version))
   native = others.delete(:native) { false }
 
   unless others.empty?

@@ -1,7 +1,5 @@
 require 'polyfill'
 
-include Polyfill::InternalUtils
-
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4.
@@ -36,14 +34,18 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
+def ignore_warnings
+  Polyfill::InternalUtils.ignore_warnings(&Proc.new)
+end
+
 def when_ruby(version)
-  yield if current_ruby_version == version
+  yield if Polyfill::InternalUtils.current_ruby_version == version
 end
 
 def when_ruby_above(version)
-  yield if current_ruby_version > version
+  yield if Polyfill::InternalUtils.current_ruby_version > version
 end
 
 def when_ruby_below(version)
-  yield if current_ruby_version < version
+  yield if Polyfill::InternalUtils.current_ruby_version < version
 end

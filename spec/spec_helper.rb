@@ -36,15 +36,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-def skip_warnings
-  orig = $VERBOSE
-  $VERBOSE = nil
-
-  yield
-
-  $VERBOSE = orig
-end
-
 def when_ruby(version)
   yield if RUBY_VERSION[/\A(\d+\.\d+)/, 1] == version
 end

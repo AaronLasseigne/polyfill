@@ -1,7 +1,7 @@
 require 'ipaddr'
 require 'stringio'
 require 'polyfill/version'
-require 'polyfill/utils'
+require 'polyfill/internal_utils'
 
 module Polyfill
   module Parcel; end
@@ -241,7 +241,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
             include class_module
 
             if native
-              Polyfill::Utils.ignore_warnings do
+              Polyfill::InternalUtils.ignore_warnings do
                 define_method :respond_to? do |name, include_all = false|
                   return true if methods_added.include?(name)
 
@@ -279,7 +279,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
             include instance_module
 
             if native
-              Polyfill::Utils.ignore_warnings do
+              Polyfill::InternalUtils.ignore_warnings do
                 define_method :respond_to? do |name, include_all = false|
                   return super(name, include_all) unless methods_added.include?(name)
 

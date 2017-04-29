@@ -1,5 +1,5 @@
 module Polyfill
-  module Utils
+  module InternalUtils
     def ignore_warnings
       orig = $VERBOSE
       $VERBOSE = nil

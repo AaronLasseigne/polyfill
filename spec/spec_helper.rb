@@ -1,6 +1,6 @@
 require 'polyfill'
 
-include Polyfill::Utils
+include Polyfill::InternalUtils
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

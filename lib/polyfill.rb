@@ -34,16 +34,11 @@ module Polyfill
     #
     # find all polyfills for the module across all versions
     #
-    module_names = module_name.to_s.split('::')
-
     modules_with_updates = []
     modules = []
     versions.each do |version_number, version_module|
       begin
-        final_module = module_names
-          .reduce(version_module) do |current_mod, name|
-          current_mod.const_get(name, false)
-        end
+        final_module = version_module.const_get(module_name.to_s, false)
 
         modules_with_updates << final_module
 
@@ -136,19 +131,14 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     raise ArgumentError, "unknown keyword: #{others.first[0]}"
   end
 
-  objects.each do |full_name, methods|
+  objects.each do |module_name, methods|
     #
     # find all polyfills for the object across all versions
     #
-    object_module_names = full_name.to_s.split('::')
-
     object_modules = versions
       .map do |version_number, version_module|
         begin
-          final_module = object_module_names
-            .reduce(version_module) do |current_mod, name|
-              current_mod.const_get(name, false)
-            end
+          final_module = version_module.const_get(module_name.to_s, false)
 
           [version_number, final_module]
         rescue NameError
@@ -158,7 +148,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
       .compact
 
     if object_modules.empty?
-      raise ArgumentError, %Q("#{full_name}" is not a valid object or has no updates)
+      raise ArgumentError, %Q("#{module_name}" is not a valid object or has no updates)
     end
 
     #
@@ -195,10 +185,10 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     requested_instance_methods = methods == :all ? available_instance_methods : select_and_clean.call('#')
 
     unless (leftovers = (requested_class_methods - available_class_methods)).empty?
-      raise ArgumentError, %Q(".#{leftovers.first}" is not a valid method on #{full_name} or has no updates)
+      raise ArgumentError, %Q(".#{leftovers.first}" is not a valid method on #{module_name} or has no updates)
     end
     unless (leftovers = (requested_instance_methods - available_instance_methods)).empty?
-      raise ArgumentError, %Q("##{leftovers.first}" is not a valid method on #{full_name} or has no updates)
+      raise ArgumentError, %Q("##{leftovers.first}" is not a valid method on #{module_name} or has no updates)
     end
 
     #

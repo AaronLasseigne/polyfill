@@ -35,7 +35,6 @@ module Polyfill
     # find all polyfills for the module across all versions
     #
     module_names = module_name.to_s.split('::')
-    current_ruby_version = RUBY_VERSION[/\A(\d+\.\d+)/, 1]
 
     modules_with_updates = []
     modules = []
@@ -137,11 +136,6 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     raise ArgumentError, "unknown keyword: #{others.first[0]}"
   end
 
-  #
-  # useful var
-  #
-  current_ruby_version = RUBY_VERSION[/\A(\d+\.\d+)/, 1]
-
   objects.each do |full_name, methods|
     #
     # find all polyfills for the object across all versions
@@ -227,7 +221,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     # refine in class methods
     #
     class_modules.each do |version_number, class_module|
-      next if version_number <= current_ruby_version
+      next if version_number <= Polyfill::InternalUtils.current_ruby_version
 
       class_module.instance_methods.each do |name|
         class_module.send(:remove_method, name) unless requested_class_methods.include?(name)
@@ -265,7 +259,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     # refine in instance methods
     #
     instance_modules.each do |version_number, instance_module|
-      next if version_number <= current_ruby_version
+      next if version_number <= Polyfill::InternalUtils.current_ruby_version
 
       instance_module.instance_methods.each do |name|
         instance_module.send(:remove_method, name) unless requested_instance_methods.include?(name)

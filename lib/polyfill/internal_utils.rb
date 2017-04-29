@@ -65,8 +65,20 @@ module Polyfill
         raise ArgumentError, %Q("#{module_name}" has no updates)
       end
 
-      [modules_with_updates, modules]
+      modules
     end
     module_function :modules_to_use
+
+    def methods_to_keep(modules, methods, lead_symbol, module_name)
+      methods_with_updates = modules.flat_map(&:instance_methods).uniq
+      requested_methods = methods == :all ? methods_with_updates : methods
+
+      unless (leftovers = (requested_methods - methods_with_updates)).empty?
+        raise ArgumentError, %Q("#{lead_symbol}#{leftovers.first}" is not a valid method on #{module_name} or has no updates)
+      end
+
+      requested_methods
+    end
+    module_function :methods_to_keep
   end
 end

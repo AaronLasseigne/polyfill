@@ -23,17 +23,12 @@ module Polyfill
     #
     # find all polyfills for the module across all versions
     #
-    modules_with_updates, modules = InternalUtils.modules_to_use(module_name, versions)
+    modules = InternalUtils.modules_to_use(module_name, versions)
 
     #
     # remove methods that were not requested
     #
-    methods_with_updates = modules_with_updates.flat_map(&:instance_methods).uniq
-    requested_methods = methods == :all ? methods_with_updates : methods
-
-    unless (leftovers = (requested_methods - methods_with_updates)).empty?
-      raise ArgumentError, %Q("##{leftovers.first}" is not a valid method on #{module_name} or has no updates)
-    end
+    requested_methods = InternalUtils.methods_to_keep(modules, methods, '#', module_name)
 
     modules.each do |instance_module|
       InternalUtils.keep_only_these_methods!(instance_module, requested_methods)
@@ -92,10 +87,9 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
     #
     # find all polyfills for the object across all versions
     #
-    modules_with_updates, instance_modules =
-      Polyfill::InternalUtils.modules_to_use(module_name, versions)
+    instance_modules = Polyfill::InternalUtils.modules_to_use(module_name, versions)
 
-    class_modules = modules_with_updates.map do |module_with_updates|
+    class_modules = instance_modules.map do |module_with_updates|
       begin
         module_with_updates.const_get(:ClassMethods, false).clone
       rescue NameError
@@ -110,24 +104,19 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
       raise ArgumentError, %Q("#{method_name}" must start with a "." if it's a class method or "#" if it's an instance method)
     end
 
-    all_methods_for = lambda do |modules|
-      modules.flat_map { |m| m.instance_methods }.uniq
-    end
-    available_class_methods = all_methods_for.call(class_modules)
-    available_instance_methods = all_methods_for.call(instance_modules)
+    instance_methods, class_methods =
+      if methods == :all
+        [:all, :all]
+      else
+        methods
+          .partition { |m| m.start_with?('#') }
+          .map { |method_list| method_list.map { |name| name[1..-1].to_sym } }
+      end
 
-    select_and_clean = lambda do |leader|
-      methods.select { |method| method.start_with?(leader) }.map { |method| method[1..-1].to_sym }
-    end
-    requested_class_methods = methods == :all ? available_class_methods : select_and_clean.call('.')
-    requested_instance_methods = methods == :all ? available_instance_methods : select_and_clean.call('#')
-
-    unless (leftovers = (requested_class_methods - available_class_methods)).empty?
-      raise ArgumentError, %Q(".#{leftovers.first}" is not a valid method on #{module_name} or has no updates)
-    end
-    unless (leftovers = (requested_instance_methods - available_instance_methods)).empty?
-      raise ArgumentError, %Q("##{leftovers.first}" is not a valid method on #{module_name} or has no updates)
-    end
+    requested_instance_methods =
+      Polyfill::InternalUtils.methods_to_keep(instance_modules, instance_methods, '#', module_name)
+    requested_class_methods =
+      Polyfill::InternalUtils.methods_to_keep(class_modules, class_methods, '.', module_name)
 
     #
     # get the class(es) to refine

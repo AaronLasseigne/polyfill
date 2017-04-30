@@ -316,7 +316,7 @@ end
 | Binding     | #local_variables                        | No          |
 |             | #receiver                               | No          |
 | Dir         | #fileno                                 | No          |
-| Enumerable  | #max                                    | No          |
+| Enumerable  | #max                                    | Yes         |
 |             | #max_by                                 | No          |
 |             | #min                                    | No          |
 |             | #min_by                                 | No          |

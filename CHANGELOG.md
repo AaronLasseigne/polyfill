@@ -1,5 +1,9 @@
 # [0.9.0][]
 
+## Added
+
+ - v2.2 Enumerable#max
+
 # [0.8.0][] (2017-04-27)
 
 ## Changed

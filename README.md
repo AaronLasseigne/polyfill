@@ -319,7 +319,7 @@ end
 | Enumerable  | #max                                    | Yes         |
 |             | #max_by                                 | Yes         |
 |             | #min                                    | Yes         |
-|             | #min_by                                 | No          |
+|             | #min_by                                 | Yes         |
 |             | #slice_after                            | Yes         |
 |             | #slice_when                             | Yes         |
 | Etc         | .confstr                                | No          |

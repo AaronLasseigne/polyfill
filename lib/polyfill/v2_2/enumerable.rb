@@ -27,6 +27,16 @@ module Polyfill
         (block_given? ? sort(&::Proc.new) : sort).first(n)
       end
 
+      def min_by(n = nil)
+        if n.nil? || n == 1 || !block_given?
+          return block_given? ? super(&::Proc.new) : super()
+        end
+
+        raise ArgumentError, "negative size (#{n})" if n < 0
+
+        sort_by(&::Proc.new).first(n)
+      end
+
       def slice_after(pattern = nil)
         raise ArgumentError, 'both pattern and block are given' if pattern && block_given?
         raise ArgumentError, 'wrong number of arguments (given 0, expected 1)' if !pattern && !block_given?

@@ -81,13 +81,13 @@ module Polyfill
     end
     module_function :methods_to_keep
 
-    def create_parcel
-      mod = Module.new
+    def create_module
+      mod = ::Module.new
 
       yield(mod)
 
-      Polyfill::Parcel.const_set("O#{mod.object_id}", mod)
+      Polyfill::Module.const_set("M#{mod.object_id}", mod)
     end
-    module_function :create_parcel
+    module_function :create_module
   end
 end

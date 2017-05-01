@@ -4,7 +4,7 @@ require 'polyfill/version'
 require 'polyfill/internal_utils'
 
 module Polyfill
-  module Parcel; end
+  module Module; end
 
   def get(module_name, methods, options = {})
     if Object.const_get(module_name.to_s).is_a?(Class)
@@ -37,7 +37,7 @@ module Polyfill
     #
     # build the module to return
     #
-    InternalUtils.create_parcel do |mod|
+    InternalUtils.create_module do |mod|
       # make sure the methods get added if this module is included
       mod.singleton_class.send(:define_method, :included) do |base|
         modules.each do |module_to_add|
@@ -82,7 +82,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
   #
   # build the module to return
   #
-  Polyfill::InternalUtils.create_parcel do |mod|
+  Polyfill::InternalUtils.create_module do |mod|
     objects.each do |module_name, methods|
       #
       # find all polyfills for the object across all versions

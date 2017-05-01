@@ -113,10 +113,10 @@ RSpec.describe 'Polyfill()' do
       end
 
       context 'capitalized symbols are treated as class names' do
-        it 'returns a Module named Polyfill::Parcel::*' do
+        it 'returns a Module named Polyfill::Module::*' do
           mod = Polyfill({})
           expect(mod).to be_a Module
-          expect(mod.name.start_with?('Polyfill::Parcel::')).to be true
+          expect(mod.name.start_with?('Polyfill::Module::')).to be true
         end
 
         context 'passed :all' do

@@ -317,7 +317,7 @@ end
 |             | #receiver                               | No          |
 | Dir         | #fileno                                 | No          |
 | Enumerable  | #max                                    | Yes         |
-|             | #max_by                                 | No          |
+|             | #max_by                                 | Yes         |
 |             | #min                                    | No          |
 |             | #min_by                                 | No          |
 |             | #slice_after                            | Yes         |

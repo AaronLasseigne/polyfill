@@ -4,6 +4,7 @@
 
  - v2.2 Enumerable#max
  - v2.2 Enumerable#max_by
+ - v2.2 Enumerable#min
 
 # [0.8.0][] (2017-04-27)
 

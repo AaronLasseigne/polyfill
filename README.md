@@ -318,7 +318,7 @@ end
 | Dir         | #fileno                                 | No          |
 | Enumerable  | #max                                    | Yes         |
 |             | #max_by                                 | Yes         |
-|             | #min                                    | No          |
+|             | #min                                    | Yes         |
 |             | #min_by                                 | No          |
 |             | #slice_after                            | Yes         |
 |             | #slice_when                             | Yes         |

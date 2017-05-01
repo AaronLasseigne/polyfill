@@ -84,6 +84,8 @@ RSpec.describe 'Enumerable#max' do
   it 'gathers whole arrays as elements when each yields multiple' do
     multi = Class.new do
       include Enumerable
+      include Polyfill.get(:Enumerable, %i[max])
+
       def each
         yield 1, 2
         yield 6, 7, 8, 9

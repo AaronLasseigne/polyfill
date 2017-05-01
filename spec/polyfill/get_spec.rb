@@ -125,4 +125,47 @@ RSpec.describe 'Polyfill.get' do
       end
     end
   end
+
+  context 'prepended' do
+    it 'can prepend everything for a class' do
+      obj = Class.new do
+        include Enumerable
+        prepend Polyfill.get(:Enumerable, :all)
+      end.new
+
+      expect(obj.respond_to?(:grep_v)).to be true
+      expect(obj.respond_to?(:sum)).to be true
+      expect(obj.respond_to?(:slice_after)).to be true
+    end
+
+    it 'can prepend particular methods for a class' do
+      obj = Class.new do
+        include Enumerable
+        prepend Polyfill.get(:Enumerable, %i[grep_v slice_after])
+      end.new
+
+      expect(obj.respond_to?(:grep_v)).to be true
+      when_ruby_below '2.4' do
+        expect(obj.respond_to?(:sum)).to be false
+      end
+      expect(obj.respond_to?(:slice_after)).to be true
+    end
+
+    context 'with arguments' do
+      context ':version' do
+        it 'prepends everything for a valid version number' do
+          obj = Class.new do
+            include Enumerable
+            prepend Polyfill.get(:Enumerable, :all, version: '2.3')
+          end.new
+
+          expect(obj.respond_to?(:grep_v)).to be true
+          when_ruby_below '2.4' do
+            expect(obj.respond_to?(:sum)).to be false
+          end
+          expect(obj.respond_to?(:slice_after)).to be true
+        end
+      end
+    end
+  end
 end

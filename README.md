@@ -95,7 +95,7 @@ using Polyfill(native: true, Numeric: :all)
 Prior to Ruby 2.4, refinements do not work on Modules. When using a polyfill
 on a module it will instead refine the core classes that use the module. If
 you're building your own class, it will not receive the polyfill. Instead,
-you can `include` (or `extend`) in a polyfill with `Polyfill.get`.
+you can `include` (or `extend` or `prepend`) in a polyfill with `Polyfill.get`.
 
 ```ruby
 class Foo

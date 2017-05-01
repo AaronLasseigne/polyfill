@@ -51,6 +51,13 @@ module Polyfill
           base.extend module_to_add unless module_to_add.instance_methods.empty?
         end
       end
+
+      # make sure the methods get added if this module is prepended
+      mod.singleton_class.send(:define_method, :prepended) do |base|
+        modules.each do |module_to_add|
+          base.prepend module_to_add unless module_to_add.instance_methods.empty?
+        end
+      end
     end
   end
   module_function :get

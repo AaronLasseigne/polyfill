@@ -21,26 +21,5 @@ require_relative 'v2_4/pathname'
 
 module Polyfill
   module V2_4
-    include Array
-    include Comparable
-    include Dir
-    include Enumerable
-    include Enumerator::Lazy
-    include File
-    include Float
-    include Hash
-    include Integer
-    include IO
-    include Kernel
-    include MatchData
-    include Numeric
-    include Object
-    include Regexp
-    include String
-    include StringIO
-    include Symbol
-
-    include IPAddr
-    include Pathname
   end
 end

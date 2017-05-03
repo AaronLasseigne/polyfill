@@ -8,12 +8,5 @@ require_relative 'v2_3/struct'
 
 module Polyfill
   module V2_3
-    include Array
-    include Hash
-    include Enumerable
-    include Enumerator::Lazy
-    include Kernel
-    include String
-    include Struct
   end
 end

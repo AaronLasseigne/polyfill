@@ -5,7 +5,7 @@ module Polyfill
   module Module; end
 
   def get(module_name, methods, options = {})
-    if Object.const_get(module_name.to_s).is_a?(Class)
+    if Object.const_get(module_name.to_s, false).is_a?(Class)
       raise ArgumentError, "#{module_name} is a class not a module"
     end
 
@@ -75,6 +75,9 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
       0
     end
   end
+  objects.each do |object_name, _|
+    Object.const_get(object_name.to_s, false)
+  end
   others = others.to_h
 
   versions = Polyfill::InternalUtils.polyfill_versions_to_use(others.delete(:version))
@@ -88,11 +91,11 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
   # build the module to return
   #
   Polyfill::InternalUtils.create_module do |mod|
-    objects.each do |module_name, methods|
+    objects.each do |object_name, methods|
       #
       # find all polyfills for the object across all versions
       #
-      modules_with_updates, instance_modules = Polyfill::InternalUtils.modules_to_use(module_name, versions)
+      modules_with_updates, instance_modules = Polyfill::InternalUtils.modules_to_use(object_name, versions)
 
       class_modules_with_updates = modules_with_updates.map do |module_with_updates|
         begin
@@ -126,16 +129,16 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         end
 
       requested_instance_methods =
-        Polyfill::InternalUtils.methods_to_keep(modules_with_updates, instance_methods, '#', module_name)
+        Polyfill::InternalUtils.methods_to_keep(modules_with_updates, instance_methods, '#', object_name)
       requested_class_methods =
-        Polyfill::InternalUtils.methods_to_keep(class_modules_with_updates, class_methods, '.', module_name)
+        Polyfill::InternalUtils.methods_to_keep(class_modules_with_updates, class_methods, '.', object_name)
 
       #
       # get the class(es) to refine
       #
-      base_class = module_name.to_s
-      base_classes =
-        case base_class
+      base_object = object_name.to_s
+      base_objects =
+        case base_object
         when 'Comparable'
           %w[Numeric String Time]
         when 'Enumerable'
@@ -143,9 +146,9 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         when 'Kernel'
           %w[Object]
         else
-          [base_class]
+          [base_object]
         end
-      base_classes.select! do |klass|
+      base_objects.select! do |klass|
         begin
           Object.const_get(klass, false)
         rescue NameError
@@ -162,7 +165,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         next if class_module.instance_methods.empty?
 
         mod.module_exec(requested_class_methods) do |methods_added|
-          base_classes.each do |klass|
+          base_objects.each do |klass|
             refine Object.const_get(klass, false).singleton_class do
               include class_module
 
@@ -196,7 +199,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         next if instance_module.instance_methods.empty?
 
         mod.module_exec(requested_instance_methods) do |methods_added|
-          base_classes.each do |klass|
+          base_objects.each do |klass|
             refine Object.const_get(klass, false) do
               include instance_module
 

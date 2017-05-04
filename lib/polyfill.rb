@@ -1,5 +1,3 @@
-require 'ipaddr'
-require 'stringio'
 require 'polyfill/version'
 require 'polyfill/internal_utils'
 
@@ -147,6 +145,13 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         else
           [base_class]
         end
+      base_classes.select! do |klass|
+        begin
+          Object.const_get(klass, false)
+        rescue NameError
+          false
+        end
+      end
 
       #
       # refine in class methods
@@ -158,7 +163,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
 
         mod.module_exec(requested_class_methods) do |methods_added|
           base_classes.each do |klass|
-            refine Object.const_get(klass).singleton_class do
+            refine Object.const_get(klass, false).singleton_class do
               include class_module
 
               if native
@@ -192,7 +197,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
 
         mod.module_exec(requested_instance_methods) do |methods_added|
           base_classes.each do |klass|
-            refine Object.const_get(klass) do
+            refine Object.const_get(klass, false) do
               include instance_module
 
               if native

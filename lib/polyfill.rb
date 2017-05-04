@@ -142,7 +142,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
         when 'Comparable'
           %w[Numeric String Time]
         when 'Enumerable'
-          %w[Array Dir Enumerator Hash IO Range StringIO Struct]
+          %w[Array Dir Enumerator Hash IO Matrix Range StringIO Struct Vector]
         when 'Kernel'
           %w[Object]
         else

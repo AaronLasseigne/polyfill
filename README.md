@@ -371,7 +371,7 @@ end
 | TSort       | .each_strongly_connected_component      | No          |
 |             | .each_strongly_connected_component_from | No          |
 |             | .tsort_each                             | No          |
-| Vector      | #+@                                     | No          |
+| Vector      | #+@                                     | Yes         |
 |             | #-@                                     | No          |
 |             | #angle_with                             | No          |
 |             | .basis                                  | No          |

@@ -6,6 +6,7 @@
  - v2.2 Enumerable#max_by
  - v2.2 Enumerable#min
  - v2.2 Enumerable#min_by
+ - v2.2 Vector#@+
  - Polyfill.get can now be used with `prepend`
 
 ## Fixed

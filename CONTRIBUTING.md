@@ -31,7 +31,7 @@ These are the steps that you'll need to follow for submitting code:
 
 The goal is to produce code that is identical to the real method. To
 ensure that nothing breaks and the new code is good we need tests! One
-of the best places to find examples is the [Ruby Spec Suite]. If the
+of the best places to find examples is the [Ruby Spec Suite]. If they
 have tests for the new functionality then make sure those same cases
 are covered.
 
@@ -58,14 +58,28 @@ bring it up and we'll figure it out.
 
 #### Lib
 
-The directory structure follows the module structure. Files are added
-(`require` and `include`) one directly level up from their location.
-This help keep everything segmented and stops there from being a
-single top level file with a ton of `require` statements.
+Instance methods can be added or updated directly in a module of the
+same name. All class methods will be in a nested module named
+`ClassMethods`. The class methods should be instance methods within
+that module.
 
-The structure is formulaic so looking through an existing example
-or two should clarify what to do. If you're not sure how to proceed,
-please reach out and we'll figure it out.
+```ruby
+module Polyfill
+  module V2_4
+    module Array
+      module ClassMethods
+        def example_class_method
+          # ...
+        end
+      end
+      
+      def example_instance_method
+        # ...
+      end
+    end
+  end
+end
+```
 
 Reusing the names of core classes means that in your methods you'll
 need to make sure you reference the top level class by preceding it

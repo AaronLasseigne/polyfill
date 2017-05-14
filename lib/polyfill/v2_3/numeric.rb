@@ -4,6 +4,10 @@ module Polyfill
       def negative?
         self < 0
       end
+
+      def positive?
+        self > 0
+      end
     end
   end
 end

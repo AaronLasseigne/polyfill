@@ -1,6 +1,7 @@
 # [0.10.0][]
 
  - v2.3 Numeric#negative?
+ - v2.3 Numeric#positive?
 
 # [0.9.0][] (2017-05-05)
 

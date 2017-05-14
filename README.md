@@ -285,7 +285,7 @@ end
 |                         | #mlsd                    | No          |
 | Net::HTTP               | #open_timeout            | No          |
 | Numeric                 | #negative?               | Yes         |
-|                         | #positive?               | No          |
+|                         | #positive?               | Yes         |
 | Object                  | #define_singleton_method | No          |
 |                         | #timeout                 | No          |
 | ObjectSpace             | .count_symbols           | No          |

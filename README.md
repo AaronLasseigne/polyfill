@@ -284,7 +284,7 @@ end
 |                         | #mlst                    | No          |
 |                         | #mlsd                    | No          |
 | Net::HTTP               | #open_timeout            | No          |
-| Numeric                 | #negative?               | No          |
+| Numeric                 | #negative?               | Yes         |
 |                         | #positive?               | No          |
 | Object                  | #define_singleton_method | No          |
 |                         | #timeout                 | No          |

@@ -3,6 +3,7 @@ require_relative 'v2_3/hash'
 require_relative 'v2_3/enumerable'
 require_relative 'v2_3/enumerator/lazy'
 require_relative 'v2_3/kernel'
+require_relative 'v2_3/numeric'
 require_relative 'v2_3/string'
 require_relative 'v2_3/struct'
 

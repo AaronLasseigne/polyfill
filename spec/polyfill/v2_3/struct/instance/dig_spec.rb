@@ -33,6 +33,6 @@ RSpec.describe 'Struct#dig' do
       { dug: args }
     end
 
-    expect(instance.dig(:a, :bar, :baz)).to eql(dug: [:bar, :baz])
+    expect(instance.dig(:a, :bar, :baz)).to eql(dug: %i[bar baz])
   end
 end

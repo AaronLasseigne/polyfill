@@ -121,7 +121,7 @@ def Polyfill(options = {}) # rubocop:disable Style/MethodName
 
       instance_methods, class_methods =
         if methods == :all
-          [:all, :all]
+          %i[all all]
         else
           methods
             .partition { |m| m.start_with?('#') }

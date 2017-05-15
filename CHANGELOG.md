@@ -1,4 +1,4 @@
-# [0.10.0][]
+# [0.10.0][] (2017-05-15)
 
  - v2.3 Numeric#negative?
  - v2.3 Numeric#positive?

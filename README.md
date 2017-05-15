@@ -1,5 +1,6 @@
 # Polyfill
 
+[![Version](https://badge.fury.io/rb/polyfill.svg)](https://rubygems.org/gems/polyfill)
 [![Build](https://travis-ci.org/AaronLasseigne/polyfill.svg?branch=master)](https://travis-ci.org/AaronLasseigne/polyfill)
 
 Polyfill implements newer Ruby features into older versions. If the Ruby

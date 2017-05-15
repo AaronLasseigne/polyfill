@@ -10,7 +10,6 @@ code that would like newer features but is not completely ready to upgrade
 Ruby versions. The polyfills are built using refinements so there is **no
 monkey patching** that may cause issues outside of your use.
 
-- [Caveat Emptor](#caveat-emptor)
 - [Installation](#installation)
 - [Goals](#goals)
 - [Usage](#usage)
@@ -21,21 +20,12 @@ monkey patching** that may cause issues outside of your use.
   - [2.3](#23)
   - [2.2](#22)
 
-## Caveat Emptor
-
-Not all features can be perfectly implemented. This is a best effort
-implementation but it's best to always test thoroughly across versions.
-This project is also currently pre-1.0. Breaking changes may occur on
-any release. Once a stable API is built it will be moved to 1.0.0.
-
-See the [implementation table](#implementation-table) for specifics about what has been implemented.
-
 ## Installation
 
 Add it to your Gemfile:
 
 ```ruby
-gem 'polyfill', '0.10.0'
+gem 'polyfill', '~> 1.0'
 ```
 
 Or install it manually:

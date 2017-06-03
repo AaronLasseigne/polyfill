@@ -12,7 +12,7 @@ module Polyfill
           end
 
           str = super(*others)
-          str.encode!(encoding) if encoding
+          str.force_encoding(encoding) if encoding
           str
         end
       end

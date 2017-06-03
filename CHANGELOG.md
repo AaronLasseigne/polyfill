@@ -1,8 +1,17 @@
+# [1.0.1][]
+
+## Fixed
+
+ - v2.3 String.new attempted to convert the encoded string instead of forcing
+   the encoding.
+
 # [1.0.0][] (2017-05-15)
 
  - Bumped to show stablization of the API
 
 # [0.10.0][] (2017-05-15)
+
+## Added
 
  - v2.3 Numeric#negative?
  - v2.3 Numeric#positive?
@@ -165,6 +174,7 @@
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[1.0.1]: https://github.com/AaronLasseigne/polyfill/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.10.0...v1.0.0
 [0.10.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.8.0...v0.9.0

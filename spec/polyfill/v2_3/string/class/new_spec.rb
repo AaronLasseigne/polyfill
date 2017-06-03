@@ -9,11 +9,10 @@ RSpec.describe 'String.new' do
   end
 
   context '2.3' do
-    it 'allows you to use the :encoding option' do
-      str = String.new('a', encoding: 'US-ASCII')
-
-      expect(str).to eql 'a'
-      expect(str.encoding.name).to eql 'US-ASCII'
+    it 'accepts an encoding argument' do
+      text = [0xA4, 0xA2].pack('CC').force_encoding 'utf-8'
+      str = String.new(text, encoding: 'euc-jp')
+      expect(str.encoding).to eql Encoding::EUC_JP
     end
 
     it 'throws an error on other unknown keywords' do

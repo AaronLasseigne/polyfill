@@ -1,3 +1,9 @@
+# Master
+
+## Added
+
+ - The verison now uses Gem::Version for easier comparisons
+
 # [1.0.1][] (2017-06-03)
 
 ## Fixed

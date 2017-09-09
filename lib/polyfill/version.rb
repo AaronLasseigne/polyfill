@@ -1,3 +1,3 @@
 module Polyfill
-  VERSION = '1.0.1'.freeze
+  VERSION = Gem::Version.new('1.0.1'.freeze)
 end

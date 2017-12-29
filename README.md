@@ -17,6 +17,7 @@ monkey patching** that may cause issues outside of your use.
   - [Polyfill](#polyfill-1)
   - [Polyfill.get](#polyfillget)
 - [Implementation Table](#implementation-table)
+  - [2.5](#25)
   - [2.4](#24)
   - [2.3](#23)
   - [2.2](#22)
@@ -118,6 +119,20 @@ end
 ```
 
 ## Implementation Table
+
+### 2.5
+
+I = Implemented, N = Not Implemented, P = Paritally Implemented
+
+|   | Object           | Method                   | Changes |
+| - | ---------------- | ------------------------ | ------- |
+| N | Integer          | #ceil                    | Always return an Integer.
+| N | Integer          | #floor                   | Always return an Integer.
+| N | Integer          | #pow                     | Accepts modulo argument for calculating modular exponentiation.
+| N | Integer          | #round                   | Always return an Integer.
+| N | Integer          | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
+| N | Integer          | #truncate                | Always return an Integer.
+
 
 ### 2.4
 

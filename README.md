@@ -125,7 +125,7 @@ end
 I = Implemented, N = Not Implemented, P = Paritally Implemented
 
 |   | Object           | Method                   | Changes |
-| - | ---------------- | ------------------------ | ------- |
+|:-:| ---------------- | ------------------------ | ------- |
 | N | Integer          | #ceil                    | Always return an Integer.
 | N | Integer          | #floor                   | Always return an Integer.
 | N | Integer          | #pow                     | Accepts modulo argument for calculating modular exponentiation.
@@ -139,7 +139,7 @@ I = Implemented, N = Not Implemented, P = Paritally Implemented
 I = Implemented, N = Not Implemented, P = Paritally Implemented
 
 |   | Object           | Method                   | Changes | Notes |
-| - | ---------------- | ------------------------ | ------- | ----- |
+|:-:| ---------------- | ------------------------ | ------- | ----- |
 | I | Array            | #concat                  |         |
 | N |                  | #max                     |         | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
 | N |                  | #min                     |         | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
@@ -249,7 +249,7 @@ I = Implemented, N = Not Implemented, P = Paritally Implemented
 I = Implemented, N = Not Implemented, P = Paritally Implemented
 
 |   | Object                  | Method                   | Changes | Notes |
-| - | ----------------------- | ------------------------ | ------- | ----- |
+|:-:| ----------------------- | ------------------------ | ------- | ----- |
 | N | ARGF                    | #read_nonblock           |         |
 | N | Array                   | #bsearch_index           |         |
 | I |                         | #dig                     |         |
@@ -326,7 +326,7 @@ I = Implemented, N = Not Implemented, P = Paritally Implemented
 I = Implemented, N = Not Implemented, P = Paritally Implemented
 
 |   | Object      | Method                                  | Changes | Notes |
-| - | ----------  | --------------------------------------- | ------- | ----- |
+|:-:| ----------  | --------------------------------------- | ------- | ----- |
 | N | Binding     | #local_variables                        |         |
 | N |             | #receiver                               |         |
 | N | Dir         | #fileno                                 |         |

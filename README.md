@@ -122,278 +122,278 @@ end
 
 ### 2.5
 
-I = Implemented, N = Not Implemented, P = Paritally Implemented
+✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
 |   | Object           | Method                   | Changes |
 |:-:| ---------------- | ------------------------ | ------- |
-| N | Integer          | #ceil                    | Always return an Integer.
-| N | Integer          | #floor                   | Always return an Integer.
-| N | Integer          | #pow                     | Accepts modulo argument for calculating modular exponentiation.
-| N | Integer          | #round                   | Always return an Integer.
-| N | Integer          | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
-| N | Integer          | #truncate                | Always return an Integer.
+| ✗ | Integer          | #ceil                    | Always return an Integer.
+| ✗ | Integer          | #floor                   | Always return an Integer.
+| ✗ | Integer          | #pow                     | Accepts modulo argument for calculating modular exponentiation.
+| ✗ | Integer          | #round                   | Always return an Integer.
+| ✗ | Integer          | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
+| ✗ | Integer          | #truncate                | Always return an Integer.
 
 
 ### 2.4
 
-I = Implemented, N = Not Implemented, P = Paritally Implemented
+✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
 |   | Object           | Method                   | Changes | Notes |
 |:-:| ---------------- | ------------------------ | ------- | ----- |
-| I | Array            | #concat                  |         |
-| N |                  | #max                     |         | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
-| N |                  | #min                     |         | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
-| N |                  | #pack                    |         |
-| I |                  | #sum                     |         |
-| N | BasicObject      | #\_\_send\_\_            |         |
-| N | Binding          | #irb                     |         |
-| I | Comparable       | #clamp                   |         |
-| N | CSV              | #new                     |         |
-| I | Dir              | .empty?                  |         |
-| I | Enumerable       | #chunk                   |         |
-| I |                  | #sum                     |         |
-| I |                  | #uniq                    |         |
-| I | Enumerator::Lazy | #chunk_while             |         |
-| I |                  | #uniq                    |         |
-| I | File             | .empty?                  |         |
-| N | FileTest         | .empty?                  |         |
-| I | Float            | #ceil                    |         |
-| I |                  | #floor                   |         |
-| N |                  | #round                   |         |
-| I |                  | #truncate                |         |
-| I | Hash             | #compact                 |         |
-| I |                  | #compact!                |         |
-| I |                  | #transform_values        |         |
-| I |                  | #transform_values!       |         |
-| I | Integer          | #ceil                    |         |
-| I |                  | #digits                  |         |
-| I |                  | #floor                   |         |
-| I |                  | #round                   |         |
-| I |                  | #truncate                |         |
-| I | IO               | #each_line               |         |
-| I |                  | .foreach                 |         |
-| I |                  | #gets                    |         |
-| I |                  | #lines                   |         |
-| I |                  | #readline                |         |
-| I |                  | #readlines               |         |
-| I |                  | .readlines               |         |
-| I | IPAddr           | #==                      |         |
-| I |                  | #<=>                     |         |
-| N | Kernel           | #send                    |         |
-| N | Logger           | #new                     |         |
-| I | MatchData        | #named_captures          |         |
-| I |                  | #values_at               |         |
-| N | Module           | #refine                  |         |
-| N |                  | .used_modules            |         |
-| N | Net::HTTP        | #post                    |         |
-| N | Net::FTP         | #new                     |         |
-| N |                  | #status                  |         |
-| I | Numeric          | #clone                   |         |
-| I |                  | #dup                     |         |
-| I |                  | #finite?                 |         |
-| I |                  | #infinite?               |         |
-| I | Object           | #clone                   |         |
-| N | OptionParser     | #order                   |         |
-| N |                  | #order!                  |         |
-| N |                  | #parse                   |         |
-| N |                  | #parse!                  |         |
-| N |                  | #permute                 |         |
-| N |                  | #permute!                |         |
-| I | Pathname         | #empty?                  |         |
-| N | Readline         | #quoting_detection_proc  |         |
-| N |                  | #quoting_detection_proc= |         |
-| N | REXML::Element   | #[]                      |         |
-| N | Rational         | #round                   |         |
-| I | Regexp           | #match?                  |         |
-| N | Set              | #compare_by_identity     |         |
-| N |                  | #compare_by_identity?    |         |
-| N | String           | #capitalize              |         |
-| N |                  | #capitalize!             |         |
+| ✓ | Array            | #concat                  |         |
+| ✗ |                  | #max                     |         | This method already existed but was inherited from `Enumerable`. ✓t was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
+| ✗ |                  | #min                     |         | This method already existed but was inherited from `Enumerable`. ✓t was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
+| ✗ |                  | #pack                    |         |
+| ✓ |                  | #sum                     |         |
+| ✗ | BasicObject      | #\_\_send\_\_            |         |
+| ✗ | Binding          | #irb                     |         |
+| ✓ | Comparable       | #clamp                   |         |
+| ✗ | CSV              | #new                     |         |
+| ✓ | Dir              | .empty?                  |         |
+| ✓ | Enumerable       | #chunk                   |         |
+| ✓ |                  | #sum                     |         |
+| ✓ |                  | #uniq                    |         |
+| ✓ | Enumerator::Lazy | #chunk_while             |         |
+| ✓ |                  | #uniq                    |         |
+| ✓ | File             | .empty?                  |         |
+| ✗ | FileTest         | .empty?                  |         |
+| ✓ | Float            | #ceil                    |         |
+| ✓ |                  | #floor                   |         |
+| ✗ |                  | #round                   |         |
+| ✓ |                  | #truncate                |         |
+| ✓ | Hash             | #compact                 |         |
+| ✓ |                  | #compact!                |         |
+| ✓ |                  | #transform_values        |         |
+| ✓ |                  | #transform_values!       |         |
+| ✓ | Integer          | #ceil                    |         |
+| ✓ |                  | #digits                  |         |
+| ✓ |                  | #floor                   |         |
+| ✓ |                  | #round                   |         |
+| ✓ |                  | #truncate                |         |
+| ✓ | IO               | #each_line               |         |
+| ✓ |                  | .foreach                 |         |
+| ✓ |                  | #gets                    |         |
+| ✓ |                  | #lines                   |         |
+| ✓ |                  | #readline                |         |
+| ✓ |                  | #readlines               |         |
+| ✓ |                  | .readlines               |         |
+| ✓ | IPAddr           | #==                      |         |
+| ✓ |                  | #<=>                     |         |
+| ✗ | Kernel           | #send                    |         |
+| ✗ | Logger           | #new                     |         |
+| ✓ | MatchData        | #named_captures          |         |
+| ✓ |                  | #values_at               |         |
+| ✗ | Module           | #refine                  |         |
+| ✗ |                  | .used_modules            |         |
+| ✗ | Net::HTTP        | #post                    |         |
+| ✗ | Net::FTP         | #new                     |         |
+| ✗ |                  | #status                  |         |
+| ✓ | Numeric          | #clone                   |         |
+| ✓ |                  | #dup                     |         |
+| ✓ |                  | #finite?                 |         |
+| ✓ |                  | #infinite?               |         |
+| ✓ | Object           | #clone                   |         |
+| ✗ | OptionParser     | #order                   |         |
+| ✗ |                  | #order!                  |         |
+| ✗ |                  | #parse                   |         |
+| ✗ |                  | #parse!                  |         |
+| ✗ |                  | #permute                 |         |
+| ✗ |                  | #permute!                |         |
+| ✓ | Pathname         | #empty?                  |         |
+| ✗ | Readline         | #quoting_detection_proc  |         |
+| ✗ |                  | #quoting_detection_proc= |         |
+| ✗ | REXML::Element   | #[]                      |         |
+| ✗ | Rational         | #round                   |         |
+| ✓ | Regexp           | #match?                  |         |
+| ✗ | Set              | #compare_by_identity     |         |
+| ✗ |                  | #compare_by_identity?    |         |
+| ✗ | String           | #capitalize              |         |
+| ✗ |                  | #capitalize!             |         |
 | P |                  | #casecmp?                |         | Does not support Unicode characters.
-| I |                  | #concat                  |         |
-| N |                  | #downcase                |         |
-| N |                  | #downcase!               |         |
-| I |                  | #each_line               |         |
-| I |                  | #lines                   |         |
-| I |                  | #match?                  |         |
+| ✓ |                  | #concat                  |         |
+| ✗ |                  | #downcase                |         |
+| ✗ |                  | #downcase!               |         |
+| ✓ |                  | #each_line               |         |
+| ✓ |                  | #lines                   |         |
+| ✓ |                  | #match?                  |         |
 | P |                  | .new                     |         | Allows `:capacity` option to pass but does nothing.
-| I |                  | #prepend                 |         |
-| N |                  | #swapcase                |         |
-| N |                  | #swapcase!               |         |
-| I |                  | #unpack1                 |         |
-| N |                  | #upcase                  |         |
-| N |                  | #upcase!                 |         |
-| I | StringIO         | #each_line               |         |
-| I |                  | #gets                    |         |
-| I |                  | #readline                |         |
-| I |                  | #readlines               |         |
-| N | Symbol           | #capitalize              |         |
-| N |                  | #capitalize!             |         |
+| ✓ |                  | #prepend                 |         |
+| ✗ |                  | #swapcase                |         |
+| ✗ |                  | #swapcase!               |         |
+| ✓ |                  | #unpack1                 |         |
+| ✗ |                  | #upcase                  |         |
+| ✗ |                  | #upcase!                 |         |
+| ✓ | StringIO         | #each_line               |         |
+| ✓ |                  | #gets                    |         |
+| ✓ |                  | #readline                |         |
+| ✓ |                  | #readlines               |         |
+| ✗ | Symbol           | #capitalize              |         |
+| ✗ |                  | #capitalize!             |         |
 | P |                  | #casecmp?                |         | Does not support Unicode characters.
-| N |                  | #downcase                |         |
-| N |                  | #downcase!               |         |
-| I |                  | #match                   |         |
-| I |                  | #match?                  |         |
-| N |                  | #swapcase                |         |
-| N |                  | #swapcase!               |         |
-| N |                  | #to_proc                 |         |
-| N |                  | #upcase                  |         |
-| N |                  | #upcase!                 |         |
-| N | Thread           | #report\_on\_exception   |         |
-| N |                  | .report\_on\_exception   |         |
-| N | TracePoint       | #callee_id               |         |
-| N | Warning          | #warn                    |         |
+| ✗ |                  | #downcase                |         |
+| ✗ |                  | #downcase!               |         |
+| ✓ |                  | #match                   |         |
+| ✓ |                  | #match?                  |         |
+| ✗ |                  | #swapcase                |         |
+| ✗ |                  | #swapcase!               |         |
+| ✗ |                  | #to_proc                 |         |
+| ✗ |                  | #upcase                  |         |
+| ✗ |                  | #upcase!                 |         |
+| ✗ | Thread           | #report\_on\_exception   |         |
+| ✗ |                  | .report\_on\_exception   |         |
+| ✗ | TracePoint       | #callee_id               |         |
+| ✗ | Warning          | #warn                    |         |
 
 ### 2.3
 
-I = Implemented, N = Not Implemented, P = Paritally Implemented
+✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
 |   | Object                  | Method                   | Changes | Notes |
 |:-:| ----------------------- | ------------------------ | ------- | ----- |
-| N | ARGF                    | #read_nonblock           |         |
-| N | Array                   | #bsearch_index           |         |
-| I |                         | #dig                     |         |
-| N |                         | #flatten                 |         |
-| N |                         | #flatten!                |         |
-| N |                         | #inspect                 |         |
-| N |                         | #pack                    |         |
-| N | Base64                  | .urlsafe_encode64        |         |
-| N |                         | .urlsafe_decode64        |         |
-| N | BasicSocket             | #recv                    |         |
-| N |                         | #recv_nonblock           |         |
-| N |                         | #recvmsg_nonblock        |         |
-| N |                         | #sendmsg_nonblock        |         |
-| N | Comparable              | #==                      |         |
-| N | Coverage                | .peek_result             |         |
-| N | Enumerable              | #chunk                   |         |
-| I |                         | #chunk_while             |         |
-| I |                         | #grep_v                  |         |
-| I |                         | #slice_before            |         |
-| I | Enumerator::Lazy        | #grep_v                  |         |
-| N | File                    | .mkfifo                  |         |
-| N | File::Stat              | #ino                     |         |
-| N | Hash                    | #<                       |         |
-| N |                         | #<=                      |         |
-| N |                         | #>                       |         |
-| N |                         | #>=                      |         |
-| I |                         | #dig                     |         |
-| I |                         | #fetch_values            |         |
-| N |                         | #inspect                 |         |
+| ✗ | ARGF                    | #read_nonblock           |         |
+| ✗ | Array                   | #bsearch_index           |         |
+| ✓ |                         | #dig                     |         |
+| ✗ |                         | #flatten                 |         |
+| ✗ |                         | #flatten!                |         |
+| ✗ |                         | #inspect                 |         |
+| ✗ |                         | #pack                    |         |
+| ✗ | Base64                  | .urlsafe_encode64        |         |
+| ✗ |                         | .urlsafe_decode64        |         |
+| ✗ | BasicSocket             | #recv                    |         |
+| ✗ |                         | #recv_nonblock           |         |
+| ✗ |                         | #recvmsg_nonblock        |         |
+| ✗ |                         | #sendmsg_nonblock        |         |
+| ✗ | Comparable              | #==                      |         |
+| ✗ | Coverage                | .peek_result             |         |
+| ✗ | Enumerable              | #chunk                   |         |
+| ✓ |                         | #chunk_while             |         |
+| ✓ |                         | #grep_v                  |         |
+| ✓ |                         | #slice_before            |         |
+| ✓ | Enumerator::Lazy        | #grep_v                  |         |
+| ✗ | File                    | .mkfifo                  |         |
+| ✗ | File::Stat              | #ino                     |         |
+| ✗ | Hash                    | #<                       |         |
+| ✗ |                         | #<=                      |         |
+| ✗ |                         | #>                       |         |
+| ✗ |                         | #>=                      |         |
+| ✓ |                         | #dig                     |         |
+| ✓ |                         | #fetch_values            |         |
+| ✗ |                         | #inspect                 |         |
 | P |                         | #to_proc                 |         | Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671
-| N | IO                      | #advise                  |         |
-| N |                         | #close                   |         |
-| N |                         | #each_codepoint          |         |
-| N |                         | #wait_readable           |         |
-| I | Kernel                  | #loop                    |         |
-| N | Logger                  | #level=                  |         |
-| N |                         | #reopen                  |         |
-| N | Module                  | #define_method           |         |
-| N |                         | #deprecate_constant      |         |
-| N | NameError               | #receiver                |         |
-| N | Net::FTP                | .default_passive=        |         |
-| N |                         | #mlst                    |         |
-| N |                         | #mlsd                    |         |
-| N | Net::HTTP               | #open_timeout            |         |
-| I | Numeric                 | #negative?               |         |
-| I |                         | #positive?               |         |
-| N | Object                  | #define_singleton_method |         |
-| N |                         | #timeout                 |         |
-| N | ObjectSpace             | .count_symbols           |         |
-| N |                         | .count_imemo_objects     |         |
-| N |                         | .internal_class_of       |         |
-| N |                         | .internal_super_of       |         |
-| N | OpenSSL::SSL::SSLSocket | #accept_nonblock         |         |
-| N |                         | #connect_nonblock        |         |
-| N | Pathname                | #ascend                  |         |
-| N |                         | #descend                 |         |
-| N | Queue                   | #close                   |         |
-| N | Socket                  | #accept_nonblock         |         |
-| N |                         | #connect_nonblock        |         |
-| I | String                  | #+@                      |         |
-| I |                         | #-@                      |         |
-| I |                         | .new                     |         |
-| N |                         | #unpack                  |         |
-| N | StringIO                | #set_encoding            |         |
-| I | Struct                  | #dig                     |         |
-| N | TCPServer               | #accept_nonblock         |         |
-| N | Thread                  | #name                    |         |
-| N |                         | #name=                   |         |
-| N | UNIXServer              | #accept_nonblock         |         |
-| N | Vector                  | #round                   |         |
+| ✗ | IO                      | #advise                  |         |
+| ✗ |                         | #close                   |         |
+| ✗ |                         | #each_codepoint          |         |
+| ✗ |                         | #wait_readable           |         |
+| ✓ | Kernel                  | #loop                    |         |
+| ✗ | Logger                  | #level=                  |         |
+| ✗ |                         | #reopen                  |         |
+| ✗ | Module                  | #define_method           |         |
+| ✗ |                         | #deprecate_constant      |         |
+| ✗ | NameError               | #receiver                |         |
+| ✗ | Net::FTP                | .default_passive=        |         |
+| ✗ |                         | #mlst                    |         |
+| ✗ |                         | #mlsd                    |         |
+| ✗ | Net::HTTP               | #open_timeout            |         |
+| ✓ | Numeric                 | #negative?               |         |
+| ✓ |                         | #positive?               |         |
+| ✗ | Object                  | #define_singleton_method |         |
+| ✗ |                         | #timeout                 |         |
+| ✗ | ObjectSpace             | .count_symbols           |         |
+| ✗ |                         | .count_imemo_objects     |         |
+| ✗ |                         | .internal_class_of       |         |
+| ✗ |                         | .internal_super_of       |         |
+| ✗ | OpenSSL::SSL::SSLSocket | #accept_nonblock         |         |
+| ✗ |                         | #connect_nonblock        |         |
+| ✗ | Pathname                | #ascend                  |         |
+| ✗ |                         | #descend                 |         |
+| ✗ | Queue                   | #close                   |         |
+| ✗ | Socket                  | #accept_nonblock         |         |
+| ✗ |                         | #connect_nonblock        |         |
+| ✓ | String                  | #+@                      |         |
+| ✓ |                         | #-@                      |         |
+| ✓ |                         | .new                     |         |
+| ✗ |                         | #unpack                  |         |
+| ✗ | String✓O                | #set_encoding            |         |
+| ✓ | Struct                  | #dig                     |         |
+| ✗ | TCPServer               | #accept_nonblock         |         |
+| ✗ | Thread                  | #name                    |         |
+| ✗ |                         | #name=                   |         |
+| ✗ | UN✓XServer              | #accept_nonblock         |         |
+| ✗ | Vector                  | #round                   |         |
 
 ### 2.2
 
-I = Implemented, N = Not Implemented, P = Paritally Implemented
+✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
 |   | Object      | Method                                  | Changes | Notes |
 |:-:| ----------  | --------------------------------------- | ------- | ----- |
-| N | Binding     | #local_variables                        |         |
-| N |             | #receiver                               |         |
-| N | Dir         | #fileno                                 |         |
-| I | Enumerable  | #max                                    |         |
-| I |             | #max_by                                 |         |
-| I |             | #min                                    |         |
-| I |             | #min_by                                 |         |
-| I |             | #slice_after                            |         |
-| I |             | #slice_when                             |         |
-| N | Etc         | .confstr                                |         |
-| N |             | .sysconf                                |         |
-| N |             | .nprocessors                            |         |
-| N |             | .uname                                  |         |
-| N | Float       | #next_float                             |         |
-| N |             | #prev_float                             |         |
-| N | File        | .birthtime                              |         |
-| N |             | #birthtime                              |         |
-| N | File::Stat  | #birthtime                              |         |
-| N | Find        | .find                                   |         |
-| N | GC          | .latest_gc_info                         |         |
-| N |             | .stat                                   |         |
-| N | IO          | #each_codepoint                         |         |
-| N |             | #nonblock_read                          |         |
-| N |             | #nonblock_write                         |         |
-| N |             | #pathconf                               |         |
-| I | Kernel      | #itself                                 |         |
-| N |             | #throw                                  |         |
-| N | Math        | .atan2                                  |         |
-| N |             | .log                                    |         |
-| N | Matrix      | #+@                                     |         |
-| N |             | #-@                                     |         |
-| N |             | #adjugate                               |         |
-| N |             | #cofactor                               |         |
-| N |             | #first_minor                            |         |
-| N |             | .hstack                                 |         |
-| N |             | #hstack                                 |         |
-| N |             | #laplace_expansion                      |         |
-| N |             | .vstack                                 |         |
-| N |             | #vstack                                 |         |
-| N | Method      | #curry                                  |         |
-| N |             | #super_method                           |         |
-| N | ObjectSpace | .memsize_of                             |         |
-| N | Pathname    | #/                                      |         |
-| N |             | #birthtime                              |         |
-| N |             | #find                                   |         |
-| N | Prime       | .prime?                                 |         |
-| N | Process     | .spawn                                  |         |
-| N | String      | #unicode_normalize                      |         |
-| N |             | #unicode_normalize!                     |         |
-| N |             | #unicode_normalized?                    |         |
-| N | Time        | .httpdate                               |         |
-| N |             | .parse                                  |         |
-| N |             | .rfc2822                                |         |
-| N |             | .strptime                               |         |
-| N |             | .xmlschema                              |         |
-| N | TSort       | .each_strongly_connected_component      |         |
-| N |             | .each_strongly_connected_component_from |         |
-| N |             | .tsort_each                             |         |
-| I | Vector      | #+@                                     |         |
-| N |             | #-@                                     |         |
-| N |             | #angle_with                             |         |
-| N |             | .basis                                  |         |
-| N |             | #cross                                  |         |
-| N |             | #cross_product                          |         |
-| N |             | #dot                                    |         |
-| N |             | .independent?                           |         |
-| N |             | #independent?                           |         |
+| ✗ | Binding     | #local_variables                        |         |
+| ✗ |             | #receiver                               |         |
+| ✗ | Dir         | #fileno                                 |         |
+| ✓ | Enumerable  | #max                                    |         |
+| ✓ |             | #max_by                                 |         |
+| ✓ |             | #min                                    |         |
+| ✓ |             | #min_by                                 |         |
+| ✓ |             | #slice_after                            |         |
+| ✓ |             | #slice_when                             |         |
+| ✗ | Etc         | .confstr                                |         |
+| ✗ |             | .sysconf                                |         |
+| ✗ |             | .nprocessors                            |         |
+| ✗ |             | .uname                                  |         |
+| ✗ | Float       | #next_float                             |         |
+| ✗ |             | #prev_float                             |         |
+| ✗ | File        | .birthtime                              |         |
+| ✗ |             | #birthtime                              |         |
+| ✗ | File::Stat  | #birthtime                              |         |
+| ✗ | Find        | .find                                   |         |
+| ✗ | GC          | .latest_gc_info                         |         |
+| ✗ |             | .stat                                   |         |
+| ✗ | IO          | #each_codepoint                         |         |
+| ✗ |             | #nonblock_read                          |         |
+| ✗ |             | #nonblock_write                         |         |
+| ✗ |             | #pathconf                               |         |
+| ✓ | Kernel      | #itself                                 |         |
+| ✗ |             | #throw                                  |         |
+| ✗ | Math        | .atan2                                  |         |
+| ✗ |             | .log                                    |         |
+| ✗ | Matrix      | #+@                                     |         |
+| ✗ |             | #-@                                     |         |
+| ✗ |             | #adjugate                               |         |
+| ✗ |             | #cofactor                               |         |
+| ✗ |             | #first_minor                            |         |
+| ✗ |             | .hstack                                 |         |
+| ✗ |             | #hstack                                 |         |
+| ✗ |             | #laplace_expansion                      |         |
+| ✗ |             | .vstack                                 |         |
+| ✗ |             | #vstack                                 |         |
+| ✗ | Method      | #curry                                  |         |
+| ✗ |             | #super_method                           |         |
+| ✗ | ObjectSpace | .memsize_of                             |         |
+| ✗ | Pathname    | #/                                      |         |
+| ✗ |             | #birthtime                              |         |
+| ✗ |             | #find                                   |         |
+| ✗ | Prime       | .prime?                                 |         |
+| ✗ | Process     | .spawn                                  |         |
+| ✗ | String      | #unicode_normalize                      |         |
+| ✗ |             | #unicode_normalize!                     |         |
+| ✗ |             | #unicode_normalized?                    |         |
+| ✗ | Time        | .httpdate                               |         |
+| ✗ |             | .parse                                  |         |
+| ✗ |             | .rfc2822                                |         |
+| ✗ |             | .strptime                               |         |
+| ✗ |             | .xmlschema                              |         |
+| ✗ | TSort       | .each_strongly_connected_component      |         |
+| ✗ |             | .each_strongly_connected_component_from |         |
+| ✗ |             | .tsort_each                             |         |
+| ✓ | Vector      | #+@                                     |         |
+| ✗ |             | #-@                                     |         |
+| ✗ |             | #angle_with                             |         |
+| ✗ |             | .basis                                  |         |
+| ✗ |             | #cross                                  |         |
+| ✗ |             | #cross_product                          |         |
+| ✗ |             | #dot                                    |         |
+| ✗ |             | .independent?                           |         |
+| ✗ |             | #independent?                           |         |
 
 ## Contributing
 

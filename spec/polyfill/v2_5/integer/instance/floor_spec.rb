@@ -1,22 +1,13 @@
 RSpec.describe 'Integer#floor' do
-  using Polyfill(Integer: %w[#floor], version: '2.4')
+  using Polyfill(Integer: %w[#floor], version: '2.5')
 
   context 'existing behavior' do
     it 'returns itself' do
       expect(1.floor).to eql 1
     end
-  end
 
-  context '2.4' do
     it 'returns itself when called with 0' do
       expect(1.floor(0)).to eql 1
-    end
-
-    when_ruby_below('2.5') do
-      it 'returns a float of the number when called with > 0' do
-        expect(1.floor(1)).to eql 1.0
-        expect(1.floor(2)).to eql 1.0
-      end
     end
 
     it 'floors down when called with < 0' do
@@ -28,6 +19,13 @@ RSpec.describe 'Integer#floor' do
       value = double('value')
       expect(value).to receive(:to_int).and_return(1)
       1.floor(value)
+    end
+  end
+
+  context '2.5' do
+    it 'returns itself when called with > 0' do
+      expect(1.floor(1)).to eql 1
+      expect(1.floor(2)).to eql 1
     end
   end
 end

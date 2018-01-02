@@ -126,12 +126,12 @@ end
 
 |   | Object           | Method                   | Changes |
 |:-:| ---------------- | ------------------------ | ------- |
-| ✗ | Integer          | #ceil                    | Always return an Integer.
-| ✗ | Integer          | #floor                   | Always return an Integer.
+| ✓ | Integer          | #ceil                    | Always return an Integer.
+| ✓ | Integer          | #floor                   | Always return an Integer.
 | ✗ | Integer          | #pow                     | Accepts modulo argument for calculating modular exponentiation.
-| ✗ | Integer          | #round                   | Always return an Integer.
+| ✓ | Integer          | #round                   | Always return an Integer.
 | ✗ | Integer          | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
-| ✗ | Integer          | #truncate                | Always return an Integer.
+| ✓ | Integer          | #truncate                | Always return an Integer.
 
 
 ### 2.4

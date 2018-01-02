@@ -1,22 +1,13 @@
 RSpec.describe 'Integer#ceil' do
-  using Polyfill(Integer: %w[#ceil], version: '2.4')
+  using Polyfill(Integer: %w[#ceil], version: '2.5')
 
   context 'existing behavior' do
     it 'returns itself' do
       expect(1.ceil).to eql 1
     end
-  end
 
-  context '2.4' do
     it 'returns itself when called with 0' do
       expect(1.ceil(0)).to eql 1
-    end
-
-    when_ruby_below('2.5') do
-      it 'returns a float of the number when called with > 0' do
-        expect(1.ceil(1)).to eql 1.0
-        expect(1.ceil(2)).to eql 1.0
-      end
     end
 
     it 'ceils up when called with < 0' do
@@ -28,6 +19,13 @@ RSpec.describe 'Integer#ceil' do
       value = double('value')
       expect(value).to receive(:to_int).and_return(1)
       1.ceil(value)
+    end
+  end
+
+  context '2.5' do
+    it 'returns itself when called with > 0' do
+      expect(1.ceil(1)).to eql 1
+      expect(1.ceil(2)).to eql 1
     end
   end
 end

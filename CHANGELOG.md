@@ -1,8 +1,14 @@
 # Master
 
+# [1.1.0][] (TBD)
+
 ## Added
 
  - The verison now uses Gem::Version for easier comparisons
+ - v2.5 Integer#ceil
+ - v2.5 Integer#floor
+ - v2.5 Integer#round
+ - v2.5 Integer#truncate
 
 # [1.0.1][] (2017-06-03)
 
@@ -180,6 +186,7 @@
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[1.1.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/AaronLasseigne/polyfill/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.10.0...v1.0.0
 [0.10.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.9.0...v0.10.0

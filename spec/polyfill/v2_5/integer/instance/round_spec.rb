@@ -1,22 +1,13 @@
 RSpec.describe 'Integer#round' do
-  using Polyfill(Integer: %w[#round], version: '2.4')
+  using Polyfill(Integer: %w[#round], version: '2.5')
 
   context 'existing behavior' do
     it 'returns itself' do
       expect(1.round).to eql 1
     end
-  end
 
-  context '2.4' do
     it 'returns itself when called with 0' do
       expect(1.round(0)).to eql 1
-    end
-
-    when_ruby_below('2.5') do
-      it 'returns a float of the number when called with > 0' do
-        expect(1.round(1)).to eql 1.0
-        expect(1.round(2)).to eql 1.0
-      end
     end
 
     it 'rounds up when called with < 0' do
@@ -53,6 +44,13 @@ RSpec.describe 'Integer#round' do
         allow(s).to receive(:intern).and_return(:even)
         expect { 1.round(0, half: s) }.to raise_error(ArgumentError)
       end
+    end
+  end
+
+  context '2.5' do
+    it 'returns itself when called with > 0' do
+      expect(1.round(1)).to eql 1
+      expect(1.round(2)).to eql 1
     end
   end
 end

@@ -127,11 +127,11 @@ end
 |   | Object           | Method                   | Changes |
 |:-:| ---------------- | ------------------------ | ------- |
 | ✓ | Integer          | #ceil                    | Always return an Integer.
-| ✓ | Integer          | #floor                   | Always return an Integer.
-| ✗ | Integer          | #pow                     | Accepts modulo argument for calculating modular exponentiation.
-| ✓ | Integer          | #round                   | Always return an Integer.
-| ✗ | Integer          | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
-| ✓ | Integer          | #truncate                | Always return an Integer.
+| ✓ |                  | #floor                   | Always return an Integer.
+| ✗ |                  | #pow                     | Accepts modulo argument for calculating modular exponentiation.
+| ✓ |                  | #round                   | Always return an Integer.
+| ✓ |                  | #truncate                | Always return an Integer.
+| ✗ | Numeric          | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
 
 
 ### 2.4

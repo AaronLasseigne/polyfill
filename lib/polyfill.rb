@@ -230,3 +230,4 @@ end
 require 'polyfill/v2_2'
 require 'polyfill/v2_3'
 require 'polyfill/v2_4'
+require 'polyfill/v2_5'

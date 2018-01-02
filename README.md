@@ -126,68 +126,160 @@ end
 
 |   | Object           | Method                   | Changes |
 |:-:| ---------------- | ------------------------ | ------- |
-| ✓ | Integer          | #ceil                    | Always return an Integer.
+| ✗ | Array            | #append                  | New (alias for `push`)
+| ✗ |                  | #prepend                 | New (alias for `unshift`)
+| ✗ | BigDecimal       | #clone                   | Returns the receiver itself instead of making a new instance.
+| ✗ |                  | #dup                     | Returns the receiver itself instead of making a new instance.
+| ✗ | Dir              | .children                | New
+| ✗ |                  | .each_child              | New
+| ✗ |                  | #glob                    | Accepts a new optional keyword argument, `:base`.
+| ✗ | Enumerable       | #any?                    | Accepts a pattern argument.
+| ✗ |                  | #all?                    | Accepts a pattern argument.
+| ✗ |                  | #none?                   | Accepts a pattern argument.
+| ✗ |                  | #one?                    | Accepts a pattern argument.
+| ✗ | ERB              | .result_with_hash        | New
+| ✗ | Exception        | #full_message            | New
+| ✗ | File             | .identical?              | Support ReFS 128bit ino on Windows 8.1 and later.
+| ✗ |                  | .lutime                  | New
+| ✗ |                  | .open                    | Accepts a new optional keyword argument, `:newline`.
+| ✗ |                  | #path                    | Raises an `IOError` for files opened with `File::Constants::TMPFILE` option.
+| ✗ | File::Stat       | #atime                   | Support fractional second timestamps on Windows 8 and later.
+| ✗ |                  | #ctime                   | Support fractional second timestamps on Windows 8 and later.
+| ✗ |                  | #ino                     | Support ReFS 128bit ino on Windows 8.1 and later.
+| ✗ |                  | #mtime                   | Support fractional second timestamps on Windows 8 and later.
+| ✗ | Hash             | #slice                   | New
+| ✗ |                  | #transform_keys          | New
+| ✗ |                  | #transform_keys!         | New
+| ✗ | Integer          | #allbits?                | New
+| ✗ |                  | #anybits?                | New
+| ✓ |                  | #ceil                    | Always return an Integer.
 | ✓ |                  | #floor                   | Always return an Integer.
+| ✗ |                  | #nobits?                 | New
 | ✗ |                  | #pow                     | Same as `**` but it accepts an optional modulo argument for calculating modular exponentiation.
 | ✓ |                  | #round                   | Always return an Integer.
+| ✗ |                  | .sqrt                    | New
 | ✓ |                  | #truncate                | Always return an Integer.
-| ✗ | Numeric          | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
-
+| ✗ | IO               | #pread                   | New
+| ✗ |                  | #pwrite                  | New
+| ✗ |                  | #write                   | Accepts multiple arguments.
+| ✗ | IOError          | #close                   | Instead of raising an error with the message "stream closed", the message will be "stream closed in another thread".
+| ✗ | IPAddr           | #link_local?             | New
+| ✗ |                  | #loopback?               | New
+| ✗ |                  | .new                     | No longer accepts an invalid address mask.
+| ✗ |                  | #prefix?                 | New
+| ✗ |                  | #private?                | New
+| ✗ | Kernel           | #yield_self              | New
+| ✗ |                  | #pp                      | New
+| ✗ |                  | #warn                    | Accepts a new optional keyword argument, `:uplevel`.
+| ✗ | KeyError         | #key                     | New
+| ✗ |                  | #receiver                | New
+| ✗ | Matrix           | .combine                 | New
+| ✗ |                  | #combine                 | New
+| ✗ |                  | #entrywise_product       | New
+| ✗ |                  | #hadamard_product        | New
+| ✗ | Method           | #===                     | New
+| ✗ | Module           | #attr                    | Is now public.
+| ✗ |                  | #attr_accessor           | Is now public.
+| ✗ |                  | #attr_reader             | Is now public.
+| ✗ |                  | #attr_writer             | Is now public.
+| ✗ |                  | #alias_method            | Is now public.
+| ✗ |                  | #define_method           | Is now public.
+| ✗ |                  | #remove_method           | Is now public.
+| ✗ |                  | #undef_method            | Is now public.
+| ✗ | Net::HTTP        | #max_version             | New
+| ✗ |                  | #min_version             | New
+| ✗ |                  | .new                     | Accepts a new optional keyword argument, `:no_proxy`.
+| ✗ |                  | #proxy_pass              | Reflects the http_proxy environment variable if the system's environment variable is multiuser safe.
+| ✗ |                  | #proxy_user              | Reflects the http_proxy environment variable if the system's environment variable is multiuser safe.
+| ✗ | Numeric          | #<                       | No longer hide exceptions from `#coerce` and will return `nil` if coercion is impossible.
+| ✗ |                  | #<=                      | No longer hide exceptions from `#coerce` and will return `nil` if coercion is impossible.
+| ✗ |                  | #>                       | No longer hide exceptions from `#coerce` and will return `nil` if coercion is impossible.
+| ✗ |                  | #>=                      | No longer hide exceptions from `#coerce` and will return `nil` if coercion is impossible.
+| ✗ |                  | #step                    | No longer hides errors from coerce method when given a step value which cannot be compared with #> to 0.
+| ✗ | Pathname         | #glob                    | New
+| ✗ | Process          | .last_status             | New (alias of `$?`)
+| ✗ |                  | .times                   | Precision is improved if getrusage(2) exists.
+| ✗ | Range            | .initialize              | No longer hides exceptions when comparing begin and end with `<=>` and raise a "bad value for range" `ArgumentError` but instead lets the exception from the `<=>` call go through.
+| ✗ | Random           | #urandom                 | Renamed from `raw_seed`.
+| ✗ | SecureRandom     | .alphanumeric            | New
+| ✗ | Set              | #===                     | New (alias of `include?`)
+| ✗ |                  | #reset                   | New
+| ✗ |                  | #to_s                    | New (alias of `inspect`)
+| ✗ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.
+| ✗ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
+| ✗ |                  | #delete_prefix           | New
+| ✗ |                  | #delete_prefix!          | New
+| ✗ |                  | #delete_suffix           | New
+| ✗ |                  | #delete_suffix!          | New
+| ✗ |                  | #each_grapheme_cluster   | New
+| ✗ |                  | #grapheme_clusters       | New
+| ✗ |                  | #start_with?             | Accepts regular expression arguments.
+| ✗ |                  | #undump                  | New
+| ✗ | StringIO         | #write                   | Accepts multiple arguments.
+| ✗ | StringScanner    | #captures                | New
+| ✗ |                  | #size                    | New
+| ✗ |                  | #values_at               | New
+| ✗ | Struct           | .new                     | Accepts a new optional keyword argument, `:keyword_init`.
+| ✗ | Thread           | #fetch                   | New
+| ✗ |                  | #name=                   | Description set by `Thread#name=` is now visible on Windows 10.
+| ✗ | Time             | #at                      | Accepts a third argument which specifies the unit of the second argument.
+| ✗ | URI              | .open                    | New (alias of `Kernel.open`)
+| ✗ | Zlib::GzipWriter | #write                   | Accepts multiple arguments.
 
 ### 2.4
 
 ✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
-|   | Object           | Method                   | Changes | Notes |
-|:-:| ---------------- | ------------------------ | ------- | ----- |
-| ✓ | Array            | #concat                  |         |
-| ✗ |                  | #max                     |         | This method already existed but was inherited from `Enumerable`. ✓t was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
-| ✗ |                  | #min                     |         | This method already existed but was inherited from `Enumerable`. ✓t was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
-| ✗ |                  | #pack                    |         |
-| ✓ |                  | #sum                     |         |
-| ✗ | BasicObject      | #\_\_send\_\_            |         |
-| ✗ | Binding          | #irb                     |         |
-| ✓ | Comparable       | #clamp                   |         |
-| ✗ | CSV              | #new                     |         |
-| ✓ | Dir              | .empty?                  |         |
-| ✓ | Enumerable       | #chunk                   |         |
+|   | Object           | Method                   | Changes |
+|:-:| ---------------- | ------------------------ | ------- |
+| ✓ | Array            | #concat                  | Accepts multiple arguments.
+| ✗ |                  | #max                     | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#max` no longer affects this.
+| ✗ |                  | #min                     | This method already existed but was inherited from `Enumerable`. It was optimized on `Array` so redefining `Enumerable#min` no longer affects this.
+| ✗ |                  | #pack                    | Accepts a new optional keyword argument, `buffer`.
+| ✓ |                  | #sum                     | Like `Enumerable#sum` but does not depend on the definition of `each`.
+| ✗ | BasicObject      | #\_\_send\_\_            | Supports refined methods.
+| ✗ | Binding          | #irb                     | Start a REPL session like `binding.pry`.
+| ✓ | Comparable       | #clamp                   | New
+| ✗ | CSV              | #new                     | Accepts a new optional keyword argument, `liberal_parsing`.
+| ✓ | Dir              | .empty?                  | New
+| ✓ | Enumerable       | #chunk                   | Calling without a block returns an enumerator.
 | ✓ |                  | #sum                     |         |
 | ✓ |                  | #uniq                    |         |
 | ✓ | Enumerator::Lazy | #chunk_while             |         |
 | ✓ |                  | #uniq                    |         |
 | ✓ | File             | .empty?                  |         |
 | ✗ | FileTest         | .empty?                  |         |
-| ✓ | Float            | #ceil                    |         |
-| ✓ |                  | #floor                   |         |
-| ✗ |                  | #round                   |         |
-| ✓ |                  | #truncate                |         |
+| ✓ | Float            | #ceil                    | Accepts an optional digits argument.
+| ✓ |                  | #floor                   | Accepts an optional digits argument.
+| ✗ |                  | #round                   | Accepts an optional digits argument and provides a new optional keyword argument, `half`.
+| ✓ |                  | #truncate                | Accepts an optional digits argument.
 | ✓ | Hash             | #compact                 |         |
 | ✓ |                  | #compact!                |         |
 | ✓ |                  | #transform_values        |         |
 | ✓ |                  | #transform_values!       |         |
-| ✓ | Integer          | #ceil                    |         |
+| ✓ | Integer          | #ceil                    | Accepts an optional digits argument.
 | ✓ |                  | #digits                  |         |
-| ✓ |                  | #floor                   |         |
-| ✓ |                  | #round                   |         |
-| ✓ |                  | #truncate                |         |
-| ✓ | IO               | #each_line               |         |
-| ✓ |                  | .foreach                 |         |
-| ✓ |                  | #gets                    |         |
+| ✓ |                  | #floor                   | Accepts an optional digits argument.
+| ✓ |                  | #round                   | Accepts an optional digits argument and provides a new optional keyword argument, `half`.
+| ✓ |                  | #truncate                | Accepts an optional digits argument.
+| ✓ | IO               | #each_line               | Accepts a new optional keyword argument, `chomp`.
+| ✓ |                  | .foreach                 | Accepts a new optional keyword argument, `chomp`.
+| ✓ |                  | #gets                    | Accepts a new optional keyword argument, `chomp`.
 | ✓ |                  | #lines                   |         |
 | ✓ |                  | #readline                |         |
 | ✓ |                  | #readlines               |         |
-| ✓ |                  | .readlines               |         |
-| ✓ | IPAddr           | #==                      |         |
-| ✓ |                  | #<=>                     |         |
-| ✗ | Kernel           | #send                    |         |
+| ✓ |                  | .readlines               | Accepts a new optional keyword argument, `chomp`.
+| ✓ | IPAddr           | #==                      | No longer raises an exception if coercion fails.
+| ✓ |                  | #<=>                     | No longer raises an exception if coercion fails.
+| ✗ | Kernel           | #send                    | Supports refined methods.
 | ✗ | Logger           | #new                     |         |
 | ✓ | MatchData        | #named_captures          |         |
-| ✓ |                  | #values_at               |         |
-| ✗ | Module           | #refine                  |         |
+| ✓ |                  | #values_at               | Supports named captures.
+| ✗ | Module           | #refine                  | Accepts a module as an argument.
 | ✗ |                  | .used_modules            |         |
-| ✗ | Net::HTTP        | #post                    |         |
-| ✗ | Net::FTP         | #new                     |         |
-| ✗ |                  | #status                  |         |
+| ✗ | Net::HTTP        | #post                    | New
+| ✗ | Net::FTP         | #new                     | Supports hash style options.
+| ✗ |                  | #status                  | Accepts a new optional keyword argument, `pathname`.
 | ✓ | Numeric          | #clone                   |         |
 | ✓ |                  | #dup                     |         |
 | ✓ |                  | #finite?                 |         |
@@ -202,198 +294,198 @@ end
 | ✓ | Pathname         | #empty?                  |         |
 | ✗ | Readline         | #quoting_detection_proc  |         |
 | ✗ |                  | #quoting_detection_proc= |         |
-| ✗ | REXML::Element   | #[]                      |         |
+| ✗ | REXML::Element   | #[]                      | If `String` or `Symbol` is specified, attribute value is returned. Otherwise, Nth child is returned.
 | ✗ | Rational         | #round                   |         |
-| ✓ | Regexp           | #match?                  |         |
-| ✗ | Set              | #compare_by_identity     |         |
-| ✗ |                  | #compare_by_identity?    |         |
-| ✗ | String           | #capitalize              |         |
-| ✗ |                  | #capitalize!             |         |
-| P |                  | #casecmp?                |         | Does not support Unicode characters.
-| ✓ |                  | #concat                  |         |
-| ✗ |                  | #downcase                |         |
-| ✗ |                  | #downcase!               |         |
-| ✓ |                  | #each_line               |         |
-| ✓ |                  | #lines                   |         |
+| ✓ | Regexp           | #match?                  | New
+| ✗ | Set              | #compare_by_identity     | New
+| ✗ |                  | #compare_by_identity?    | New
+| ✗ | String           | #capitalize              | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #capitalize!             | Supports Unicode and accepts several new keyword arguments.
+| P |                  | #casecmp?                | New (Does not support Unicode characters.)
+| ✓ |                  | #concat                  | Now accepts multiple arguments.
+| ✗ |                  | #downcase                | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #downcase!               | Supports Unicode and accepts several new keyword arguments.
+| ✓ |                  | #each_line               | Accepts a new optional keyword argument, `chomp`.
+| ✓ |                  | #lines                   | Accepts a new optional keyword argument, `chomp`.
 | ✓ |                  | #match?                  |         |
-| P |                  | .new                     |         | Allows `:capacity` option to pass but does nothing.
-| ✓ |                  | #prepend                 |         |
-| ✗ |                  | #swapcase                |         |
-| ✗ |                  | #swapcase!               |         |
+| P |                  | .new                     | Accepts a new optional keyword argument, `capacity`. (Allows `:capacity` option to pass but does nothing.)
+| ✓ |                  | #prepend                 | Now accepts multiple arguments.
+| ✗ |                  | #swapcase                | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #swapcase!               | Supports Unicode and accepts several new keyword arguments.
 | ✓ |                  | #unpack1                 |         |
-| ✗ |                  | #upcase                  |         |
-| ✗ |                  | #upcase!                 |         |
-| ✓ | StringIO         | #each_line               |         |
-| ✓ |                  | #gets                    |         |
-| ✓ |                  | #readline                |         |
-| ✓ |                  | #readlines               |         |
-| ✗ | Symbol           | #capitalize              |         |
-| ✗ |                  | #capitalize!             |         |
-| P |                  | #casecmp?                |         | Does not support Unicode characters.
-| ✗ |                  | #downcase                |         |
-| ✗ |                  | #downcase!               |         |
+| ✗ |                  | #upcase                  | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #upcase!                 | Supports Unicode and accepts several new keyword arguments.
+| ✓ | StringIO         | #each_line               | Accepts a new optional keyword argument, `chomp`.
+| ✓ |                  | #gets                    | Accepts a new optional keyword argument, `chomp`.
+| ✓ |                  | #readline                | Accepts a new optional keyword argument, `chomp`.
+| ✓ |                  | #readlines               | Accepts a new optional keyword argument, `chomp`.
+| ✗ | Symbol           | #capitalize              | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #capitalize!             | Supports Unicode and accepts several new keyword arguments.
+| P |                  | #casecmp?                | New (Does not support Unicode characters.)
+| ✗ |                  | #downcase                | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #downcase!               | Supports Unicode and accepts several new keyword arguments.
 | ✓ |                  | #match                   |         |
 | ✓ |                  | #match?                  |         |
-| ✗ |                  | #swapcase                |         |
-| ✗ |                  | #swapcase!               |         |
+| ✗ |                  | #swapcase                | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #swapcase!               | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #to_proc                 |         |
-| ✗ |                  | #upcase                  |         |
-| ✗ |                  | #upcase!                 |         |
+| ✗ |                  | #upcase                  | Supports Unicode and accepts several new keyword arguments.
+| ✗ |                  | #upcase!                 | Supports Unicode and accepts several new keyword arguments.
 | ✗ | Thread           | #report\_on\_exception   |         |
 | ✗ |                  | .report\_on\_exception   |         |
 | ✗ | TracePoint       | #callee_id               |         |
-| ✗ | Warning          | #warn                    |         |
+| ✗ | Warning          | #warn                    | New
 
 ### 2.3
 
 ✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
-|   | Object                  | Method                   | Changes | Notes |
-|:-:| ----------------------- | ------------------------ | ------- | ----- |
-| ✗ | ARGF                    | #read_nonblock           |         |
+|   | Object                  | Method                   | Changes |
+|:-:| ----------------------- | ------------------------ | ------- |
+| ✗ | ARGF                    | #read_nonblock           | Accepts a new optional keyword argument, `exception`.
 | ✗ | Array                   | #bsearch_index           |         |
-| ✓ |                         | #dig                     |         |
-| ✗ |                         | #flatten                 |         |
-| ✗ |                         | #flatten!                |         |
-| ✗ |                         | #inspect                 |         |
-| ✗ |                         | #pack                    |         |
-| ✗ | Base64                  | .urlsafe_encode64        |         |
-| ✗ |                         | .urlsafe_decode64        |         |
-| ✗ | BasicSocket             | #recv                    |         |
-| ✗ |                         | #recv_nonblock           |         |
-| ✗ |                         | #recvmsg_nonblock        |         |
-| ✗ |                         | #sendmsg_nonblock        |         |
-| ✗ | Comparable              | #==                      |         |
-| ✗ | Coverage                | .peek_result             |         |
-| ✗ | Enumerable              | #chunk                   |         |
+| ✓ |                         | #dig                     | New
+| ✗ |                         | #flatten                 | No longer calls `to_ary` on elements beyond the given level.
+| ✗ |                         | #flatten!                | No longer calls `to_ary` on elements beyond the given level.
+| ✗ |                         | #inspect                 | No longer raises an error if its content returns a string which is not compatible with `Encoding.default_external`.
+| ✗ |                         | #pack                    | Add `j` and `J` directives for pointer width integer type.
+| ✗ | Base64                  | .urlsafe_encode64        | Accepts a new optional keyword argument, `padding`.
+| ✗ |                         | .urlsafe_decode64        | Accepts a new optional keyword argument, `padding`.
+| ✗ | BasicSocket             | #recv                    | Allow an output `String` buffer argument.
+| ✗ |                         | #recv_nonblock           | Allow an output `String` buffer argument.
+| ✗ |                         | #recvmsg_nonblock        | Accepts a new keyword argument, `exception`.
+| ✗ |                         | #sendmsg_nonblock        | Accepts a new keyword argument, `exception`.
+| ✗ | Comparable              | #==                      | No longer rescues exceptions.
+| ✗ | Coverage                | .peek_result             | New
+| ✗ | Enumerable              | #chunk                   | No longer accepts the `initial_state` keyword argument.
 | ✓ |                         | #chunk_while             |         |
-| ✓ |                         | #grep_v                  |         |
-| ✓ |                         | #slice_before            |         |
-| ✓ | Enumerator::Lazy        | #grep_v                  |         |
+| ✓ |                         | #grep_v                  | New
+| ✓ |                         | #slice_before            | No longer accepts the `initial_state` keyword argument.
+| ✓ | Enumerator::Lazy        | #grep_v                  | New
 | ✗ | File                    | .mkfifo                  |         |
-| ✗ | File::Stat              | #ino                     |         |
+| ✗ | File::Stat              | #ino                     | On Windows, it always returned `0`, but now returns `BY_HANDLE_FILE_INFORMATION.nFileIndexHigh/Low`.
 | ✗ | Hash                    | #<                       |         |
 | ✗ |                         | #<=                      |         |
 | ✗ |                         | #>                       |         |
 | ✗ |                         | #>=                      |         |
-| ✓ |                         | #dig                     |         |
+| ✓ |                         | #dig                     | New
 | ✓ |                         | #fetch_values            |         |
-| ✗ |                         | #inspect                 |         |
-| P |                         | #to_proc                 |         | Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671
-| ✗ | IO                      | #advise                  |         |
-| ✗ |                         | #close                   |         |
-| ✗ |                         | #each_codepoint          |         |
-| ✗ |                         | #wait_readable           |         |
-| ✓ | Kernel                  | #loop                    |         |
+| ✗ |                         | #inspect                 | No longer raises an error if its content returns a string which is not compatible with `Encoding.default_external`.
+| P |                         | #to_proc                 | New (Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671)
+| ✗ | IO                      | #advise                  | No longer raises Errno::ENOSYS in cases where it was detected at build time but not available at runtime.
+| ✗ |                         | #close                   | Doesn't raise when the IO object is closed.
+| ✗ |                         | #each_codepoint          | Raises an exception at incomplete character before EOF when conversion takes place.
+| ✗ |                         | #wait_readable           | No longer checks FIONREAD.
+| ✓ | Kernel                  | #loop                    | When stopped by a StopIteration exception, returns what the enumerator has returned instead of nil.
 | ✗ | Logger                  | #level=                  |         |
-| ✗ |                         | #reopen                  |         |
-| ✗ | Module                  | #define_method           |         |
+| ✗ |                         | #reopen                  | New
+| ✗ | Module                  | #define_method           | Now requires a method body, `Proc`, `Method`, or a block.
 | ✗ |                         | #deprecate_constant      |         |
-| ✗ | NameError               | #receiver                |         |
-| ✗ | Net::FTP                | .default_passive=        |         |
-| ✗ |                         | #mlst                    |         |
-| ✗ |                         | #mlsd                    |         |
-| ✗ | Net::HTTP               | #open_timeout            |         |
-| ✓ | Numeric                 | #negative?               |         |
-| ✓ |                         | #positive?               |         |
-| ✗ | Object                  | #define_singleton_method |         |
-| ✗ |                         | #timeout                 |         |
-| ✗ | ObjectSpace             | .count_symbols           |         |
-| ✗ |                         | .count_imemo_objects     |         |
-| ✗ |                         | .internal_class_of       |         |
-| ✗ |                         | .internal_super_of       |         |
-| ✗ | OpenSSL::SSL::SSLSocket | #accept_nonblock         |         |
-| ✗ |                         | #connect_nonblock        |         |
+| ✗ | NameError               | #receiver                | New
+| ✗ | Net::FTP                | .default_passive=        | New
+| ✗ |                         | #mlst                    | New
+| ✗ |                         | #mlsd                    | New
+| ✗ | Net::HTTP               | #open_timeout            | Now has a default value of `60`.
+| ✓ | Numeric                 | #negative?               | New
+| ✓ |                         | #positive?               | New
+| ✗ | Object                  | #define_singleton_method | Now requires a method body, `Proc`, `Method`, or a block.
+| ✗ |                         | #timeout                 | Warns that it is deprecated.
+| ✗ | ObjectSpace             | .count_symbols           | New
+| ✗ |                         | .count_imemo_objects     | New
+| ✗ |                         | .internal_class_of       | New
+| ✗ |                         | .internal_super_of       | New
+| ✗ | OpenSSL::SSL::SSLSocket | #accept_nonblock         | Accepts a new keyword argument, `exception`.
+| ✗ |                         | #connect_nonblock        | Accepts a new keyword argument, `exception`.
 | ✗ | Pathname                | #ascend                  |         |
 | ✗ |                         | #descend                 |         |
 | ✗ | Queue                   | #close                   |         |
-| ✗ | Socket                  | #accept_nonblock         |         |
-| ✗ |                         | #connect_nonblock        |         |
-| ✓ | String                  | #+@                      |         |
-| ✓ |                         | #-@                      |         |
-| ✓ |                         | .new                     |         |
-| ✗ |                         | #unpack                  |         |
-| ✗ | String✓O                | #set_encoding            |         |
-| ✓ | Struct                  | #dig                     |         |
-| ✗ | TCPServer               | #accept_nonblock         |         |
-| ✗ | Thread                  | #name                    |         |
-| ✗ |                         | #name=                   |         |
-| ✗ | UN✓XServer              | #accept_nonblock         |         |
-| ✗ | Vector                  | #round                   |         |
+| ✗ | Socket                  | #accept_nonblock         | Accepts a new keyword argument, `exception`.
+| ✗ |                         | #connect_nonblock        | Accepts a new keyword argument, `exception`.
+| ✓ | String                  | #+@                      | New
+| ✓ |                         | #-@                      | New
+| ✓ |                         | .new                     | Accepts a new keyword argument, `encoding`.
+| ✗ |                         | #unpack                  | Add `j` and `J` directives for pointer width integer type.
+| ✗ | StringIO                | #set_encoding            | No longer sets the encoding of its buffer string.
+| ✓ | Struct                  | #dig                     | New
+| ✗ | TCPServer               | #accept_nonblock         | Accepts a new keyword argument, `exception`.
+| ✗ | Thread                  | #name                    | New
+| ✗ |                         | #name=                   | New
+| ✗ | UNIXServer              | #accept_nonblock         | Accepts a new keyword argument, `exception`.
+| ✗ | Vector                  | #round                   | New
 
 ### 2.2
 
 ✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
-|   | Object      | Method                                  | Changes | Notes |
-|:-:| ----------  | --------------------------------------- | ------- | ----- |
-| ✗ | Binding     | #local_variables                        |         |
-| ✗ |             | #receiver                               |         |
-| ✗ | Dir         | #fileno                                 |         |
-| ✓ | Enumerable  | #max                                    |         |
-| ✓ |             | #max_by                                 |         |
-| ✓ |             | #min                                    |         |
-| ✓ |             | #min_by                                 |         |
-| ✓ |             | #slice_after                            |         |
-| ✓ |             | #slice_when                             |         |
-| ✗ | Etc         | .confstr                                |         |
-| ✗ |             | .sysconf                                |         |
-| ✗ |             | .nprocessors                            |         |
-| ✗ |             | .uname                                  |         |
-| ✗ | Float       | #next_float                             |         |
-| ✗ |             | #prev_float                             |         |
-| ✗ | File        | .birthtime                              |         |
-| ✗ |             | #birthtime                              |         |
-| ✗ | File::Stat  | #birthtime                              |         |
-| ✗ | Find        | .find                                   |         |
+|   | Object      | Method                                  | Changes |
+|:-:| ----------  | --------------------------------------- | ------- |
+| ✗ | Binding     | #local_variables                        | New
+| ✗ |             | #receiver                               | New
+| ✗ | Dir         | #fileno                                 | New
+| ✓ | Enumerable  | #max                                    | Accepts a new optional argument to return multiple elements.
+| ✓ |             | #max_by                                 | Accepts a new optional argument to return multiple elements.
+| ✓ |             | #min                                    | Accepts a new optional argument to return multiple elements.
+| ✓ |             | #min_by                                 | Accepts a new optional argument to return multiple elements.
+| ✓ |             | #slice_after                            | New
+| ✓ |             | #slice_when                             | New
+| ✗ | Etc         | .confstr                                | New
+| ✗ |             | .sysconf                                | New
+| ✗ |             | .nprocessors                            | New
+| ✗ |             | .uname                                  | New
+| ✗ | Float       | #next_float                             | New
+| ✗ |             | #prev_float                             | New
+| ✗ | File        | .birthtime                              | New
+| ✗ |             | #birthtime                              | New
+| ✗ | File::Stat  | #birthtime                              | New
+| ✗ | Find        | .find                                   | Accepts a new optional keyword argument, `ignore_error`.
 | ✗ | GC          | .latest_gc_info                         |         |
 | ✗ |             | .stat                                   |         |
 | ✗ | IO          | #each_codepoint                         |         |
-| ✗ |             | #nonblock_read                          |         |
-| ✗ |             | #nonblock_write                         |         |
-| ✗ |             | #pathconf                               |         |
-| ✓ | Kernel      | #itself                                 |         |
-| ✗ |             | #throw                                  |         |
-| ✗ | Math        | .atan2                                  |         |
-| ✗ |             | .log                                    |         |
-| ✗ | Matrix      | #+@                                     |         |
-| ✗ |             | #-@                                     |         |
-| ✗ |             | #adjugate                               |         |
-| ✗ |             | #cofactor                               |         |
-| ✗ |             | #first_minor                            |         |
-| ✗ |             | .hstack                                 |         |
-| ✗ |             | #hstack                                 |         |
-| ✗ |             | #laplace_expansion                      |         |
-| ✗ |             | .vstack                                 |         |
-| ✗ |             | #vstack                                 |         |
-| ✗ | Method      | #curry                                  |         |
-| ✗ |             | #super_method                           |         |
+| ✗ |             | #nonblock_read                          | Supports pipes on Windows.
+| ✗ |             | #nonblock_write                         | Supports pipes on Windows.
+| ✗ |             | #pathconf                               | New
+| ✓ | Kernel      | #itself                                 | New
+| ✗ |             | #throw                                  | Raises `UncaughtThrowError`, subclass of `ArgumentError` when there is no corresponding catch block, instead of `ArgumentError`.
+| ✗ | Math        | .atan2                                  | Now returns values like as expected by C99 if both two arguments are infinity.
+| ✗ |             | .log                                    | Now raises `Math::DomainError` instead of returning `NaN` if the base is less than 0, and returns `NaN` instead of -infinity if both of two arguments are 0.
+| ✗ | Matrix      | #+@                                     | New
+| ✗ |             | #-@                                     | New
+| ✗ |             | #adjugate                               | New
+| ✗ |             | #cofactor                               | New
+| ✗ |             | #first_minor                            | New
+| ✗ |             | .hstack                                 | New
+| ✗ |             | #hstack                                 | New
+| ✗ |             | #laplace_expansion                      | New
+| ✗ |             | .vstack                                 | New
+| ✗ |             | #vstack                                 | New
+| ✗ | Method      | #curry                                  | New
+| ✗ |             | #super_method                           | New
 | ✗ | ObjectSpace | .memsize_of                             |         |
-| ✗ | Pathname    | #/                                      |         |
-| ✗ |             | #birthtime                              |         |
-| ✗ |             | #find                                   |         |
-| ✗ | Prime       | .prime?                                 |         |
+| ✗ | Pathname    | #/                                      | New (alias of `#+`)
+| ✗ |             | #birthtime                              | New
+| ✗ |             | #find                                   | Accepts a new optional keyword argument, `ignore_error`.
+| ✗ | Prime       | .prime?                                 | Now returns `false` for negative numbers.
 | ✗ | Process     | .spawn                                  |         |
-| ✗ | String      | #unicode_normalize                      |         |
-| ✗ |             | #unicode_normalize!                     |         |
-| ✗ |             | #unicode_normalized?                    |         |
+| ✗ | String      | #unicode_normalize                      | New
+| ✗ |             | #unicode_normalize!                     | New
+| ✗ |             | #unicode_normalized?                    | New
 | ✗ | Time        | .httpdate                               |         |
-| ✗ |             | .parse                                  |         |
-| ✗ |             | .rfc2822                                |         |
-| ✗ |             | .strptime                               |         |
-| ✗ |             | .xmlschema                              |         |
-| ✗ | TSort       | .each_strongly_connected_component      |         |
-| ✗ |             | .each_strongly_connected_component_from |         |
-| ✗ |             | .tsort_each                             |         |
-| ✓ | Vector      | #+@                                     |         |
-| ✗ |             | #-@                                     |         |
-| ✗ |             | #angle_with                             |         |
-| ✗ |             | .basis                                  |         |
-| ✗ |             | #cross                                  |         |
-| ✗ |             | #cross_product                          |         |
-| ✗ |             | #dot                                    |         |
-| ✗ |             | .independent?                           |         |
-| ✗ |             | #independent?                           |         |
+| ✗ |             | .parse                                  | May produce fixed-offset `Time` objects.
+| ✗ |             | .rfc2822                                | May produce fixed-offset `Time` objects.
+| ✗ |             | .strptime                               | May produce fixed-offset `Time` objects. Raises `ArgumentError` when there is no date information.
+| ✗ |             | .xmlschema                              | May produce fixed-offset `Time` objects.
+| ✗ | TSort       | .each_strongly_connected_component      | Returns an enumerator if no block is given.
+| ✗ |             | .each_strongly_connected_component_from | Returns an enumerator if no block is given.
+| ✗ |             | .tsort_each                             | Returns an enumerator if no block is given.
+| ✓ | Vector      | #+@                                     | New
+| ✗ |             | #-@                                     | New
+| ✗ |             | #angle_with                             | New
+| ✗ |             | .basis                                  | New
+| ✗ |             | #cross                                  | New (alias of `#cross_product`)
+| ✗ |             | #cross_product                          | New
+| ✗ |             | #dot                                    | New (alias of `#inner_product`)
+| ✗ |             | .independent?                           | New
+| ✗ |             | #independent?                           | New
 
 ## Contributing
 

@@ -1,5 +1,5 @@
 RSpec.describe 'File.empty?' do
-  using Polyfill(File: %w[.empty?])
+  using Polyfill(File: %w[.empty?], version: '2.4')
 
   def fixture(file_name)
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

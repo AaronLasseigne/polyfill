@@ -1,5 +1,5 @@
 RSpec.describe 'Numeric#infinite?' do
-  using Polyfill(Numeric: %w[#infinite?])
+  using Polyfill(Numeric: %w[#infinite?], version: '2.4')
 
   it 'returns nil if a number is not infinite' do
     expect(1.infinite?).to be nil

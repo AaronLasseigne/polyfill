@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#chunk_while' do
-  using Polyfill(Enumerable: %w[#chunk_while])
+  using Polyfill(Enumerable: %w[#chunk_while], version: '2.3')
 
   let(:enum) { [10, 9, 7, 6, 4, 3, 2, 1] }
   let(:result) { enum.chunk_while { |i, j| i - 1 == j } }

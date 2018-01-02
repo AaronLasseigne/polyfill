@@ -1,5 +1,5 @@
 RSpec.describe 'Struct#dig' do
-  using Polyfill(Struct: %w[#dig])
+  using Polyfill(Struct: %w[#dig], version: '2.3')
 
   let(:klass) { Struct.new(:a) }
   let(:instance) { klass.new(klass.new(b: [1, 2, 3])) }

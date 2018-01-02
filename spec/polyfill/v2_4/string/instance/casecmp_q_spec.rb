@@ -1,5 +1,5 @@
 RSpec.describe 'String#casecmp?' do
-  using Polyfill(String: %w[#casecmp?])
+  using Polyfill(String: %w[#casecmp?], version: '2.4')
 
   it 'returns true if the strings are equal after case folding' do
     expect('abc'.casecmp?('Abc')).to be true

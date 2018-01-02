@@ -1,5 +1,5 @@
 RSpec.describe 'StringIO#each_line' do
-  using Polyfill(StringIO: %w[#each_line])
+  using Polyfill(StringIO: %w[#each_line], version: '2.4')
 
   let(:io) { StringIO.new("line 1\nline 2\n") }
   let(:acc) { [] }

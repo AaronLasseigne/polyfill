@@ -1,5 +1,5 @@
 RSpec.describe 'String#+@' do
-  using Polyfill(String: %w[#+@])
+  using Polyfill(String: %w[#+@], version: '2.3')
 
   def fixture(file_name)
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

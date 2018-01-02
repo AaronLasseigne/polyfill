@@ -1,5 +1,5 @@
 RSpec.describe 'String.new' do
-  using Polyfill(String: %w[.new])
+  using Polyfill(String: %w[.new], version: '2.3')
 
   context 'existing behavior' do
     it 'works' do

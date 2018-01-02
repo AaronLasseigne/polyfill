@@ -1,5 +1,5 @@
 RSpec.describe 'String#prepend' do
-  using Polyfill(String: %w[#prepend])
+  using Polyfill(String: %w[#prepend], version: '2.4')
 
   context 'existing behavior' do
     it 'prepends the given argument to self and returns self' do

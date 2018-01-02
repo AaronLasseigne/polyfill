@@ -1,5 +1,5 @@
 RSpec.describe 'String#each_line' do
-  using Polyfill(String: %w[#each_line])
+  using Polyfill(String: %w[#each_line], version: '2.4')
 
   let(:str) { "line 1\nline 2\n" }
   let(:acc) { [] }

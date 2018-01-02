@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#uniq' do
-  using Polyfill(Enumerable: %w[#uniq])
+  using Polyfill(Enumerable: %w[#uniq], version: '2.4')
 
   def fixture(file_name = '')
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

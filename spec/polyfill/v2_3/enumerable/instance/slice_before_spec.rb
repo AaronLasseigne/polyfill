@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#slice_before' do
-  using Polyfill(Enumerable: %w[#slice_before])
+  using Polyfill(Enumerable: %w[#slice_before], version: '2.3')
 
   context 'existing behavior' do
     it 'works' do

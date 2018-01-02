@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#sum' do
-  using Polyfill(Enumerable: %w[#sum])
+  using Polyfill(Enumerable: %w[#sum], version: '2.4')
 
   def fixture(file_name = '')
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

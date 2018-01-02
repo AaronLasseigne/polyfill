@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#max_by' do
-  using Polyfill(Enumerable: %w[#max_by])
+  using Polyfill(Enumerable: %w[#max_by], version: '2.2')
 
   it 'returns an enumerator if no block' do
     expect([42].max_by).to be_an_instance_of(Enumerator)

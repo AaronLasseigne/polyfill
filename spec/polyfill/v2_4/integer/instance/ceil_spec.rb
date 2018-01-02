@@ -1,5 +1,5 @@
 RSpec.describe 'Integer#ceil' do
-  using Polyfill(Integer: %w[#ceil])
+  using Polyfill(Integer: %w[#ceil], version: '2.4')
 
   context 'existing behavior' do
     it 'returns itself' do

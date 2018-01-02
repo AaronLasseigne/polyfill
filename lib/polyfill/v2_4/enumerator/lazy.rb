@@ -2,7 +2,7 @@ module Polyfill
   module V2_4
     module Enumerator
       module Lazy
-        using Polyfill(Enumerable: %w[#chunk_while])
+        using Polyfill(Enumerable: %w[#chunk_while], version: '2.4')
 
         def chunk_while
           super.lazy

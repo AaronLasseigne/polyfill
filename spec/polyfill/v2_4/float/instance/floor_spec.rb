@@ -1,5 +1,5 @@
 RSpec.describe 'Float#floor' do
-  using Polyfill(Float: %w[#floor])
+  using Polyfill(Float: %w[#floor], version: '2.4')
 
   context 'existing behavior' do
     it 'returns the number as a rounded up integer' do

@@ -1,5 +1,5 @@
 RSpec.describe 'Array#dig' do
-  using Polyfill(Array: %w[#dig])
+  using Polyfill(Array: %w[#dig], version: '2.3')
 
   it 'returns #at with one arg' do
     expect(['a'].dig(0)).to eql 'a'

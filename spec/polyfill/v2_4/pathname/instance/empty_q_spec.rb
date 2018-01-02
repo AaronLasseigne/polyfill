@@ -1,7 +1,7 @@
 require 'pathname'
 
 RSpec.describe 'Pathname#empty?' do
-  using Polyfill(Pathname: %w[#empty?])
+  using Polyfill(Pathname: %w[#empty?], version: '2.4')
 
   def fixture(file_name)
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

@@ -3,7 +3,7 @@ require_relative 'numeric'
 module Polyfill
   module V2_4
     module Enumerable
-      using Polyfill(Numeric: %w[#dup])
+      using Polyfill(Numeric: %w[#dup], version: '2.4')
 
       def chunk(*)
         return enum_for(:chunk) unless block_given?

@@ -1,5 +1,5 @@
 RSpec.describe 'Hash#transform_values!' do
-  using Polyfill(Hash: %w[#transform_values!])
+  using Polyfill(Hash: %w[#transform_values!], version: '2.4')
 
   it 'transforms the values of the hash and returns a new one' do
     expect({ a: 1, b: 2, c: 3 }.transform_values! { |v| v * v + 1 }).to eql(a: 2, b: 5, c: 10)

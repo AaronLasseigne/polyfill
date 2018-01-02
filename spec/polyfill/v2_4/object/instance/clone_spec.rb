@@ -1,5 +1,5 @@
 RSpec.describe 'Object#clone' do
-  using Polyfill(Object: %w[#clone])
+  using Polyfill(Object: %w[#clone], version: '2.4')
 
   let(:ext) do
     Module.new do

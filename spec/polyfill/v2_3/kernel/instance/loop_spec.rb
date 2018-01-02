@@ -1,5 +1,5 @@
 RSpec.describe 'Kernel#loop' do
-  using Polyfill(Kernel: %w[#loop])
+  using Polyfill(Kernel: %w[#loop], version: '2.3')
 
   context 'existing behavior' do
     it 'is a private method' do

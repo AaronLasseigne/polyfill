@@ -1,5 +1,5 @@
 RSpec.describe 'Array#sum' do
-  using Polyfill(Array: %w[#sum])
+  using Polyfill(Array: %w[#sum], version: '2.4')
 
   it 'sums the elements with an initial value (default 0)' do
     expect([1, 2, 3].sum).to eql 6

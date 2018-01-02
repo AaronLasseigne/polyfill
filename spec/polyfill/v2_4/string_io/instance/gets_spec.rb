@@ -1,5 +1,5 @@
 RSpec.describe 'StringIO#gets' do
-  using Polyfill(StringIO: %w[#gets])
+  using Polyfill(StringIO: %w[#gets], version: '2.4')
 
   let(:io) { StringIO.new("line 1\nline 2\n") }
 

@@ -1,5 +1,5 @@
 RSpec.describe 'MatchData#named_captures' do
-  using Polyfill(MatchData: %w[#named_captures])
+  using Polyfill(MatchData: %w[#named_captures], version: '2.4')
 
   it 'returns a hash of named captures' do
     m = /(?<a>.)(?<b>.)/.match('01')

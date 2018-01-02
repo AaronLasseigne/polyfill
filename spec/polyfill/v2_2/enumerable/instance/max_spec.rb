@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#max' do
-  using Polyfill(Enumerable: %w[#max])
+  using Polyfill(Enumerable: %w[#max], version: '2.2')
 
   let(:e_strs) { %w[333 22 666666 1 55555 1010101010] }
   let(:e_ints) { [333, 22, 666_666, 55_555, 1_010_101_010] }

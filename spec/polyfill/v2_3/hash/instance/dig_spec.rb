@@ -1,5 +1,5 @@
 RSpec.describe 'Hash#dig' do
-  using Polyfill(Hash: %w[#dig])
+  using Polyfill(Hash: %w[#dig], version: '2.3')
 
   it 'returns #[] with one arg' do
     h = { 0 => false, a: 1 }

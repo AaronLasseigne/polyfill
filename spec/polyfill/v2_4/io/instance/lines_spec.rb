@@ -1,5 +1,5 @@
 RSpec.describe 'IO#lines' do
-  using Polyfill(IO: %w[#lines])
+  using Polyfill(IO: %w[#lines], version: '2.4')
 
   around(:all) do |example|
     ignore_warnings do

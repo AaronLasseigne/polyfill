@@ -1,5 +1,5 @@
 RSpec.describe 'Integer#digits' do
-  using Polyfill(Integer: %w[#digits])
+  using Polyfill(Integer: %w[#digits], version: '2.4')
 
   it 'returns a Math::DomainError for negative values' do
     expect { -1.digits }.to raise_error(Math::DomainError, 'out of domain')

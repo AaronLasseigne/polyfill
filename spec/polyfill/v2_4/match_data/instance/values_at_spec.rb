@@ -1,5 +1,5 @@
 RSpec.describe 'MatchData#values_at' do
-  using Polyfill(MatchData: %w[#values_at])
+  using Polyfill(MatchData: %w[#values_at], version: '2.4')
 
   context 'existing behavior' do
     it 'works as expected' do

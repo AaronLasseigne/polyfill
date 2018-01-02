@@ -1,5 +1,5 @@
 RSpec.describe 'Hash#compact' do
-  using Polyfill(Hash: %w[#compact])
+  using Polyfill(Hash: %w[#compact], version: '2.4')
 
   it 'removes keys with nil values' do
     expect({ a: 1, b: false, c: nil }.compact).to eql(a: 1, b: false)

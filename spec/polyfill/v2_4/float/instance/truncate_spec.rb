@@ -1,5 +1,5 @@
 RSpec.describe 'Float#truncate' do
-  using Polyfill(Float: %w[#truncate])
+  using Polyfill(Float: %w[#truncate], version: '2.4')
 
   context 'existing behavior' do
     it 'returns itself' do

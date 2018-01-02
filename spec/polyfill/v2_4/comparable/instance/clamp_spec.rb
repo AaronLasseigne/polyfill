@@ -1,5 +1,5 @@
 RSpec.describe 'Comparable#clamp' do
-  using Polyfill(Comparable: %w[#clamp])
+  using Polyfill(Comparable: %w[#clamp], version: '2.4')
 
   it 'returns the value if it is between min and max' do
     expect(12.clamp(0, 100)).to eql 12

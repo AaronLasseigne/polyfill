@@ -1,5 +1,5 @@
 RSpec.describe 'String#match?' do
-  using Polyfill(String: %w[#match?])
+  using Polyfill(String: %w[#match?], version: '2.4')
 
   it 'returns true if the pattern matches' do
     expect('Ruby'.match?(/R.../)).to be true

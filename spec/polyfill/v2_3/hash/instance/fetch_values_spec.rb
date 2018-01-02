@@ -1,5 +1,5 @@
 RSpec.describe 'Hash#fetch_values' do
-  using Polyfill(Hash: %w[#fetch_values])
+  using Polyfill(Hash: %w[#fetch_values], version: '2.3')
 
   let(:hash) { { a: 1, b: 2, c: 3 } }
 

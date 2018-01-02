@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerator::Lazy#chunk_while' do
-  using Polyfill(:'Enumerator::Lazy' => %w[#chunk_while])
+  using Polyfill(:'Enumerator::Lazy' => %w[#chunk_while], version: '2.4')
 
   it 'will chunk based on the block' do
     expect(

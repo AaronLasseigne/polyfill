@@ -1,5 +1,5 @@
 RSpec.describe 'Array#concat' do
-  using Polyfill(Array: %w[#concat])
+  using Polyfill(Array: %w[#concat], version: '2.4')
 
   context 'existing behavior' do
     it 'returns the array itself' do

@@ -1,5 +1,5 @@
 RSpec.describe 'IO#gets' do
-  using Polyfill(IO: %w[#gets])
+  using Polyfill(IO: %w[#gets], version: '2.4')
 
   def fixture(file_name)
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

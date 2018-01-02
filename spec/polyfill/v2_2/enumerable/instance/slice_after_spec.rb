@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#slice_after' do
-  using Polyfill(Enumerable: %w[#slice_after])
+  using Polyfill(Enumerable: %w[#slice_after], version: '2.2')
 
   before :each do
     @enum = (1..7).to_a.reverse

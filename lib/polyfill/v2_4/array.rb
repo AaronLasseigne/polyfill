@@ -3,7 +3,7 @@ require_relative 'numeric'
 module Polyfill
   module V2_4
     module Array
-      using Polyfill(Numeric: %w[#dup])
+      using Polyfill(Numeric: %w[#dup], version: '2.4')
 
       def concat(*others)
         return super if others.length == 1

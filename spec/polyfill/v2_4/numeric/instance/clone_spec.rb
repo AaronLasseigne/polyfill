@@ -1,5 +1,5 @@
 RSpec.describe 'Numeric#clone' do
-  using Polyfill(Numeric: %w[#clone])
+  using Polyfill(Numeric: %w[#clone], version: '2.4')
 
   it 'does not throw an error' do
     # on 2.4 this is crashing Ruby which is why it's now wrapped

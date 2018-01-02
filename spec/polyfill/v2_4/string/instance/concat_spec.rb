@@ -1,5 +1,5 @@
 RSpec.describe 'String#concat' do
-  using Polyfill(String: %w[#concat])
+  using Polyfill(String: %w[#concat], version: '2.4')
 
   context 'existing behavior' do
     it 'concatenates the given argument to self and returns self' do

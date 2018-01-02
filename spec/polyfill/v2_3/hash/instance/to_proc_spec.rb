@@ -1,5 +1,5 @@
 RSpec.describe 'Hash#to_proc' do
-  using Polyfill(Hash: %w[#to_proc])
+  using Polyfill(Hash: %w[#to_proc], version: '2.3')
 
   let(:key) { Object.new }
   let(:value) { Object.new }

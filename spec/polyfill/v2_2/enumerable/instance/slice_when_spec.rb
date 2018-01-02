@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#slice_when' do
-  using Polyfill(Enumerable: %w[#slice_when])
+  using Polyfill(Enumerable: %w[#slice_when], version: '2.2')
 
   let(:enum) { [10, 9, 7, 6, 4, 3, 2, 1] }
   let(:result) { enum.slice_when { |i, j| i - 1 != j } }

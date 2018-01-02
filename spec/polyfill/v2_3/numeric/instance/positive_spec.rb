@@ -1,5 +1,5 @@
 RSpec.describe 'Numeric#positive?' do
-  using Polyfill(Numeric: %w[#positive?])
+  using Polyfill(Numeric: %w[#positive?], version: '2.3')
 
   context 'on positive numbers' do
     it 'returns true' do

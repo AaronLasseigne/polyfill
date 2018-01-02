@@ -1,7 +1,7 @@
 require 'ipaddr'
 
 RSpec.describe 'IPAddr#<=>' do
-  using Polyfill(IPAddr: %w[#<=>])
+  using Polyfill(IPAddr: %w[#<=>], version: '2.4')
 
   context 'existing behavior' do
     it 'works' do

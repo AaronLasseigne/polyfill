@@ -1,5 +1,5 @@
 RSpec.describe 'String#-@' do
-  using Polyfill(String: %w[#-@])
+  using Polyfill(String: %w[#-@], version: '2.3')
 
   it 'returns self if the String is frozen' do
     input  = 'foo'.freeze

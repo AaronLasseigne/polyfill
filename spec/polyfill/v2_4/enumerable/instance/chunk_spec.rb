@@ -1,7 +1,7 @@
 require 'stringio'
 
 RSpec.describe 'Enumerable#chunk' do
-  using Polyfill(Enumerable: %w[#chunk])
+  using Polyfill(Enumerable: %w[#chunk], version: '2.4')
 
   def fixture(file_name)
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

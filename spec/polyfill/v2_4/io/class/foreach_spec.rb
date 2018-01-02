@@ -1,5 +1,5 @@
 RSpec.describe 'IO.foreach' do
-  using Polyfill(IO: %w[.foreach])
+  using Polyfill(IO: %w[.foreach], version: '2.4')
 
   def fixture(file_name)
     File.join(File.dirname(__FILE__), '..', 'fixtures', file_name)

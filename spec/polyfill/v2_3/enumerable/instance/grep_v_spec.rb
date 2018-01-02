@@ -1,5 +1,5 @@
 RSpec.describe 'Enumerable#grep_v' do
-  using Polyfill(Enumerable: %w[#grep_v])
+  using Polyfill(Enumerable: %w[#grep_v], version: '2.3')
 
   let(:numerous) { (0..9).to_a }
   let(:odd_matcher) do

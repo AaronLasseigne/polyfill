@@ -9,6 +9,7 @@
  - v2.5 Integer#floor
  - v2.5 Integer#round
  - v2.5 Integer#truncate
+ - v2.5 Hash#slice
 
 # [1.0.1][] (2017-06-03)
 

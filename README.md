@@ -147,7 +147,7 @@ end
 | ✗ |                  | #ctime                   | Support fractional second timestamps on Windows 8 and later.
 | ✗ |                  | #ino                     | Support ReFS 128bit ino on Windows 8.1 and later.
 | ✗ |                  | #mtime                   | Support fractional second timestamps on Windows 8 and later.
-| ✗ | Hash             | #slice                   | New
+| ✓ | Hash             | #slice                   | New
 | ✗ |                  | #transform_keys          | New
 | ✗ |                  | #transform_keys!         | New
 | ✗ | Integer          | #allbits?                | New

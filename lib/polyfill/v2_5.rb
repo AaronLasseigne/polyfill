@@ -1,3 +1,4 @@
+require_relative 'v2_5/hash'
 require_relative 'v2_5/integer'
 
 module Polyfill

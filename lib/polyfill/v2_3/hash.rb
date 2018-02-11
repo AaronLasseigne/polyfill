@@ -25,15 +25,16 @@ module Polyfill
       end
 
       def fetch_values(*keys)
-        keys.each_with_object([]) do |key, values|
-          value =
-            if block_given?
-              fetch(key, &::Proc.new)
-            else
-              fetch(key)
-            end
+        if block_given?
+          block = ::Proc.new
 
-          values << value
+          keys.each_with_object([]) do |key, values|
+            values << fetch(key, &block)
+          end
+        else
+          keys.each_with_object([]) do |key, values|
+            values << fetch(key)
+          end
         end
       end
 

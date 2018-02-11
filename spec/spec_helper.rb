@@ -35,7 +35,7 @@ RSpec.configure do |config|
 end
 
 def ignore_warnings
-  Polyfill::InternalUtils.ignore_warnings(&Proc.new)
+  Polyfill::InternalUtils.ignore_warnings(&::Proc.new)
 end
 
 def when_ruby(version)

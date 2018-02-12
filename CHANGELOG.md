@@ -5,6 +5,7 @@
 ## Added
 
  - The verison now uses Gem::Version for easier comparisons
+ - v2.5 Integer#allbits?
  - v2.5 Integer#ceil
  - v2.5 Integer#floor
  - v2.5 Integer#round

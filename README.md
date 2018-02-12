@@ -150,7 +150,7 @@ end
 | ✓ | Hash             | #slice                   | New
 | ✓ |                  | #transform_keys          | New
 | ✗ |                  | #transform_keys!         | New
-| ✗ | Integer          | #allbits?                | New
+| ✓ | Integer          | #allbits?                | New
 | ✗ |                  | #anybits?                | New
 | ✓ |                  | #ceil                    | Always return an Integer.
 | ✓ |                  | #floor                   | Always return an Integer.

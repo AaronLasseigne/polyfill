@@ -18,6 +18,15 @@ module Polyfill
       def truncate(*)
         super.to_i
       end
+
+      def allbits?(mask)
+        unless mask.respond_to?(:to_int)
+          raise TypeError, "no explicit conversion of #{mask.class} to Integer"
+        end
+
+        imask = mask.to_int
+        self & imask == imask
+      end
     end
   end
 end

@@ -27,6 +27,14 @@ module Polyfill
         imask = mask.to_int
         self & imask == imask
       end
+
+      def anybits?(mask)
+        unless mask.respond_to?(:to_int)
+          raise TypeError, "no explicit conversion of #{mask.class} to Integer"
+        end
+
+        self & mask.to_int != 0
+      end
     end
   end
 end

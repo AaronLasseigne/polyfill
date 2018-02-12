@@ -151,7 +151,7 @@ end
 | ✓ |                  | #transform_keys          | New
 | ✗ |                  | #transform_keys!         | New
 | ✓ | Integer          | #allbits?                | New
-| ✗ |                  | #anybits?                | New
+| ✓ |                  | #anybits?                | New
 | ✓ |                  | #ceil                    | Always return an Integer.
 | ✓ |                  | #floor                   | Always return an Integer.
 | ✗ |                  | #nobits?                 | New

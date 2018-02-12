@@ -154,7 +154,7 @@ end
 | ✓ |                  | #anybits?                | New
 | ✓ |                  | #ceil                    | Always return an Integer.
 | ✓ |                  | #floor                   | Always return an Integer.
-| ✗ |                  | #nobits?                 | New
+| ✓ |                  | #nobits?                 | New
 | ✗ |                  | #pow                     | Same as `**` but it accepts an optional modulo argument for calculating modular exponentiation.
 | ✓ |                  | #round                   | Always return an Integer.
 | ✗ |                  | .sqrt                    | New

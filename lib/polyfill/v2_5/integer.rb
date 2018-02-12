@@ -35,6 +35,14 @@ module Polyfill
 
         self & mask.to_int != 0
       end
+
+      def nobits?(mask)
+        unless mask.respond_to?(:to_int)
+          raise TypeError, "no explicit conversion of #{mask.class} to Integer"
+        end
+
+        self & mask.to_int == 0
+      end
     end
   end
 end

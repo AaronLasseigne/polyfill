@@ -168,7 +168,7 @@ end
 | ✗ |                  | .new                     | No longer accepts an invalid address mask.
 | ✗ |                  | #prefix?                 | New
 | ✗ |                  | #private?                | New
-| ✗ | Kernel           | #yield_self              | New
+| ✓ | Kernel           | #yield_self              | New
 | ✗ |                  | #pp                      | New
 | ✗ |                  | #warn                    | Accepts a new optional keyword argument, `:uplevel`.
 | ✗ | KeyError         | #key                     | New

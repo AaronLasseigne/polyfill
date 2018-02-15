@@ -14,6 +14,7 @@
  - v2.5 Integer#truncate
  - v2.5 Hash#slice
  - v2.5 Hash#transform_keys
+ - v2.5 Kernel#yield_self
 
 # [1.0.1][] (2017-06-03)
 

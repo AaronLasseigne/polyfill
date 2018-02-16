@@ -207,7 +207,7 @@ end
 | ✗ |                  | #to_s                    | New (alias of `inspect`)
 | ✗ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✗ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
-| ✗ |                  | #delete_prefix           | New
+| ✓ |                  | #delete_prefix           | New
 | ✗ |                  | #delete_prefix!          | New
 | ✗ |                  | #delete_suffix           | New
 | ✗ |                  | #delete_suffix!          | New

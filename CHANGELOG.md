@@ -15,6 +15,7 @@
  - v2.5 Hash#slice
  - v2.5 Hash#transform_keys
  - v2.5 Kernel#yield_self
+ - v2.5 String#delete_prefix
 
 # [1.0.1][] (2017-06-03)
 

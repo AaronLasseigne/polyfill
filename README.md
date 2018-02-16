@@ -40,7 +40,7 @@ This project uses [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Goals
 
-1. Features should ideally mimic the true behavior (including bugs, error messages, etc).
+1. Features should ideally mimic the true behavior (quirks, error messages, etc).
 2. Features should not significantly burden the runtime.
 3. Keep everything modular so users can be specific or broad in their usage.
 

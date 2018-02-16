@@ -30,17 +30,17 @@ RSpec.describe 'String#each_line' do
         expect(acc).to eql ['line 1', 'line 2']
       end
 
-      it 'chomps when the separator is changed and chomp is true' do
-        str.each_line(' ', chomp: true) { |line| acc << line }
-        expect(acc).to eql %W[line 1\nline 2\n]
-      end
+      # it 'chomps when the separator is changed and chomp is true' do
+      #   str.each_line(' ', chomp: true) { |line| acc << line }
+      #   expect(acc).to eql %W[line 1\nline 2\n]
+      # end
 
-      it 'accepts implicit strings' do
-        obj = double('string')
-        allow(obj).to receive(:to_str).and_return(' ')
-        str.each_line(obj, chomp: true) { |line| acc << line }
-        expect(acc).to eql %W[line 1\nline 2\n]
-      end
+      # it 'accepts implicit strings' do
+      #   obj = double('string')
+      #   allow(obj).to receive(:to_str).and_return(' ')
+      #   str.each_line(obj, chomp: true) { |line| acc << line }
+      #   expect(acc).to eql %W[line 1\nline 2\n]
+      # end
 
       it 'does not chomp the lines when false' do
         str.each_line(chomp: false) { |line| acc << line }

@@ -23,15 +23,15 @@ RSpec.describe 'String#lines' do
         expect(str.lines(chomp: true)).to eql ['line 1', 'line 2']
       end
 
-      it 'chomps when the separator is changed and chomp is true' do
-        expect(str.lines(' ', chomp: true)).to eql %W[line 1\nline 2\n]
-      end
+      # it 'chomps when the separator is changed and chomp is true' do
+      #   expect(str.lines(' ', chomp: true)).to eql %W[line 1\nline 2\n]
+      # end
 
-      it 'accepts implicit strings' do
-        obj = double('string')
-        allow(obj).to receive(:to_str).and_return(' ')
-        expect(str.lines(obj, chomp: true)).to eql %W[line 1\nline 2\n]
-      end
+      # it 'accepts implicit strings' do
+      #   obj = double('string')
+      #   allow(obj).to receive(:to_str).and_return(' ')
+      #   expect(str.lines(obj, chomp: true)).to eql %W[line 1\nline 2\n]
+      # end
 
       it 'does not chomp the lines when false' do
         expect(str.lines(chomp: false)).to eql ["line 1\n", "line 2\n"]

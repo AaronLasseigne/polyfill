@@ -122,6 +122,11 @@ end
 
 ### 2.5
 
+Attempting to modify frozen objects now throws `FrozenError` instead of
+`RuntimeError`. Methods where this change occurred are not listed below even
+though they have techically changed. `FrozenError` is a subclass of
+`RuntimeError` so it is safe to continue rescuing `RuntimeError` if needed.
+
 ✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
 |   | Object           | Method                   | Changes |

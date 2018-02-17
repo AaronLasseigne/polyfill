@@ -221,7 +221,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ |                  | #delete_suffix!          | New
 | ✗ |                  | #each_grapheme_cluster   | New
 | ✗ |                  | #grapheme_clusters       | New
-| P |                  | #start_with?             | Accepts regular expression arguments. **Differences:** Does not set globals.
+| P |                  | #start_with?             | Accepts regular expression arguments. **Differences:** Does not set `Regexp` globals.
 | ✗ |                  | #undump                  | New
 | ✗ | StringIO         | #write                   | Accepts multiple arguments.
 | ✗ | StringScanner    | #captures                | New

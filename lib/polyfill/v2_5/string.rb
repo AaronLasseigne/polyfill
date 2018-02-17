@@ -15,6 +15,10 @@ module Polyfill
         chomp(suffix)
       end
 
+      def delete_suffix!(suffix)
+        chomp!(suffix)
+      end
+
       def start_with?(*prefixes)
         super if prefixes.grep(Regexp).empty?
 

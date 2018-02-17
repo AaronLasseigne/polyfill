@@ -31,15 +31,15 @@ RSpec.describe 'String#delete_prefix!' do
     expect('hello'.delete_prefix!(o)).to eql 'o'
   end
 
-  it 'raises a FrozenError when self is frozen' do
-    expect { 'hello'.freeze.delete_prefix!('hell') }.to raise_error(frozen_error)
-    expect { 'hello'.freeze.delete_prefix!('') }.to raise_error(frozen_error)
-    expect { ''.freeze.delete_prefix!('') }.to raise_error(frozen_error)
+  it "raises a #{frozen_error_class} when self is frozen" do
+    expect { 'hello'.freeze.delete_prefix!('hell') }.to raise_error(frozen_error_class)
+    expect { 'hello'.freeze.delete_prefix!('') }.to raise_error(frozen_error_class)
+    expect { ''.freeze.delete_prefix!('') }.to raise_error(frozen_error_class)
 
     expect do
       begin
         ''.freeze.delete_prefix!('')
-      rescue frozen_error
+      rescue frozen_error_class
         throw(:working)
       end
     end.to throw_symbol(:working)

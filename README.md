@@ -209,7 +209,7 @@ end
 | ✗ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✓ |                  | #delete_prefix           | New
 | ✗ |                  | #delete_prefix!          | New
-| ✗ |                  | #delete_suffix           | New
+| ✓ |                  | #delete_suffix           | New
 | ✗ |                  | #delete_suffix!          | New
 | ✗ |                  | #each_grapheme_cluster   | New
 | ✗ |                  | #grapheme_clusters       | New

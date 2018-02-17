@@ -120,14 +120,17 @@ end
 
 ## Implementation Table
 
+✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
+
+Partial implemented features will be explained in the "Changes" section of the
+table. The explanation will follow "**Differences:**".
+
 ### 2.5
 
 Attempting to modify frozen objects now throws `FrozenError` instead of
 `RuntimeError`. Methods where this change occurred are not listed below even
 though they have techically changed. `FrozenError` is a subclass of
 `RuntimeError` so it is safe to continue rescuing `RuntimeError` if needed.
-
-✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
 |   | Object           | Method                   | Changes |
 |:-:| ---------------- | ------------------------ | ------- |
@@ -213,12 +216,12 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✗ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✓ |                  | #delete_prefix           | New
-| P |                  | #delete_prefix!          | New (Throws `RuntimeError` instead of `FrozenError` when attempting to modify a frozen string.)
+| P |                  | #delete_prefix!          | New **Differences:** Throws `RuntimeError` instead of `FrozenError` when attempting to modify a frozen string.
 | ✓ |                  | #delete_suffix           | New
 | ✗ |                  | #delete_suffix!          | New
 | ✗ |                  | #each_grapheme_cluster   | New
 | ✗ |                  | #grapheme_clusters       | New
-| P |                  | #start_with?             | Accepts regular expression arguments. (Does not set globals.)
+| P |                  | #start_with?             | Accepts regular expression arguments. **Differences:** Does not set globals.
 | ✗ |                  | #undump                  | New
 | ✗ | StringIO         | #write                   | Accepts multiple arguments.
 | ✗ | StringScanner    | #captures                | New
@@ -233,8 +236,6 @@ though they have techically changed. `FrozenError` is a subclass of
 
 ### 2.4
 
-✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
-
 |   | Object           | Method                   | Changes |
 |:-:| ---------------- | ------------------------ | ------- |
 | ✓ | Array            | #concat                  | Accepts multiple arguments.
@@ -248,76 +249,76 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | CSV              | #new                     | Accepts a new optional keyword argument, `liberal_parsing`.
 | ✓ | Dir              | .empty?                  | New
 | ✓ | Enumerable       | #chunk                   | Calling without a block returns an enumerator.
-| ✓ |                  | #sum                     |         |
-| ✓ |                  | #uniq                    |         |
-| ✓ | Enumerator::Lazy | #chunk_while             |         |
-| ✓ |                  | #uniq                    |         |
-| ✓ | File             | .empty?                  |         |
-| ✗ | FileTest         | .empty?                  |         |
+| ✓ |                  | #sum                     |
+| ✓ |                  | #uniq                    |
+| ✓ | Enumerator::Lazy | #chunk_while             |
+| ✓ |                  | #uniq                    |
+| ✓ | File             | .empty?                  |
+| ✗ | FileTest         | .empty?                  |
 | ✓ | Float            | #ceil                    | Accepts an optional digits argument.
 | ✓ |                  | #floor                   | Accepts an optional digits argument.
 | ✗ |                  | #round                   | Accepts an optional digits argument and provides a new optional keyword argument, `half`.
 | ✓ |                  | #truncate                | Accepts an optional digits argument.
-| ✓ | Hash             | #compact                 |         |
-| ✓ |                  | #compact!                |         |
-| ✓ |                  | #transform_values        |         |
-| ✓ |                  | #transform_values!       |         |
+| ✓ | Hash             | #compact                 |
+| ✓ |                  | #compact!                |
+| ✓ |                  | #transform_values        |
+| ✓ |                  | #transform_values!       |
 | ✓ | Integer          | #ceil                    | Accepts an optional digits argument.
-| ✓ |                  | #digits                  |         |
+| ✓ |                  | #digits                  |
 | ✓ |                  | #floor                   | Accepts an optional digits argument.
 | ✓ |                  | #round                   | Accepts an optional digits argument and provides a new optional keyword argument, `half`.
 | ✓ |                  | #truncate                | Accepts an optional digits argument.
 | ✓ | IO               | #each_line               | Accepts a new optional keyword argument, `chomp`.
 | ✓ |                  | .foreach                 | Accepts a new optional keyword argument, `chomp`.
 | ✓ |                  | #gets                    | Accepts a new optional keyword argument, `chomp`.
-| ✓ |                  | #lines                   |         |
-| ✓ |                  | #readline                |         |
-| ✓ |                  | #readlines               |         |
+| ✓ |                  | #lines                   |
+| ✓ |                  | #readline                |
+| ✓ |                  | #readlines               |
 | ✓ |                  | .readlines               | Accepts a new optional keyword argument, `chomp`.
 | ✓ | IPAddr           | #==                      | No longer raises an exception if coercion fails.
 | ✓ |                  | #<=>                     | No longer raises an exception if coercion fails.
 | ✗ | Kernel           | #send                    | Supports refined methods.
-| ✗ | Logger           | #new                     |         |
-| ✓ | MatchData        | #named_captures          |         |
+| ✗ | Logger           | #new                     |
+| ✓ | MatchData        | #named_captures          |
 | ✓ |                  | #values_at               | Supports named captures.
 | ✗ | Module           | #refine                  | Accepts a module as an argument.
-| ✗ |                  | .used_modules            |         |
+| ✗ |                  | .used_modules            |
 | ✗ | Net::HTTP        | #post                    | New
 | ✗ | Net::FTP         | #new                     | Supports hash style options.
 | ✗ |                  | #status                  | Accepts a new optional keyword argument, `pathname`.
-| ✓ | Numeric          | #clone                   |         |
-| ✓ |                  | #dup                     |         |
-| ✓ |                  | #finite?                 |         |
-| ✓ |                  | #infinite?               |         |
-| ✓ | Object           | #clone                   |         |
-| ✗ | OptionParser     | #order                   |         |
-| ✗ |                  | #order!                  |         |
-| ✗ |                  | #parse                   |         |
-| ✗ |                  | #parse!                  |         |
-| ✗ |                  | #permute                 |         |
-| ✗ |                  | #permute!                |         |
-| ✓ | Pathname         | #empty?                  |         |
-| ✗ | Readline         | #quoting_detection_proc  |         |
-| ✗ |                  | #quoting_detection_proc= |         |
+| ✓ | Numeric          | #clone                   |
+| ✓ |                  | #dup                     |
+| ✓ |                  | #finite?                 |
+| ✓ |                  | #infinite?               |
+| ✓ | Object           | #clone                   |
+| ✗ | OptionParser     | #order                   |
+| ✗ |                  | #order!                  |
+| ✗ |                  | #parse                   |
+| ✗ |                  | #parse!                  |
+| ✗ |                  | #permute                 |
+| ✗ |                  | #permute!                |
+| ✓ | Pathname         | #empty?                  |
+| ✗ | Readline         | #quoting_detection_proc  |
+| ✗ |                  | #quoting_detection_proc= |
 | ✗ | REXML::Element   | #[]                      | If `String` or `Symbol` is specified, attribute value is returned. Otherwise, Nth child is returned.
-| ✗ | Rational         | #round                   |         |
+| ✗ | Rational         | #round                   |
 | ✓ | Regexp           | #match?                  | New
 | ✗ | Set              | #compare_by_identity     | New
 | ✗ |                  | #compare_by_identity?    | New
 | ✗ | String           | #capitalize              | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #capitalize!             | Supports Unicode and accepts several new keyword arguments.
-| P |                  | #casecmp?                | New (Does not support Unicode characters.)
+| P |                  | #casecmp?                | New **Differences:** Does not support Unicode characters.
 | ✓ |                  | #concat                  | Now accepts multiple arguments.
 | ✗ |                  | #downcase                | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #downcase!               | Supports Unicode and accepts several new keyword arguments.
 | ✓ |                  | #each_line               | Accepts a new optional keyword argument, `chomp`.
 | ✓ |                  | #lines                   | Accepts a new optional keyword argument, `chomp`.
-| ✓ |                  | #match?                  |         |
-| P |                  | .new                     | Accepts a new optional keyword argument, `capacity`. (Allows `:capacity` option to pass but does nothing.)
+| ✓ |                  | #match?                  |
+| P |                  | .new                     | Accepts a new optional keyword argument, `capacity`. **Differences:** Allows `:capacity` option to pass but does nothing with it.
 | ✓ |                  | #prepend                 | Now accepts multiple arguments.
 | ✗ |                  | #swapcase                | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #swapcase!               | Supports Unicode and accepts several new keyword arguments.
-| ✓ |                  | #unpack1                 |         |
+| ✓ |                  | #unpack1                 |
 | ✗ |                  | #upcase                  | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #upcase!                 | Supports Unicode and accepts several new keyword arguments.
 | ✓ | StringIO         | #each_line               | Accepts a new optional keyword argument, `chomp`.
@@ -326,29 +327,27 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ |                  | #readlines               | Accepts a new optional keyword argument, `chomp`.
 | ✗ | Symbol           | #capitalize              | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #capitalize!             | Supports Unicode and accepts several new keyword arguments.
-| P |                  | #casecmp?                | New (Does not support Unicode characters.)
+| P |                  | #casecmp?                | New **Differences:** Does not support Unicode characters.
 | ✗ |                  | #downcase                | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #downcase!               | Supports Unicode and accepts several new keyword arguments.
-| ✓ |                  | #match                   |         |
-| ✓ |                  | #match?                  |         |
+| ✓ |                  | #match                   |
+| ✓ |                  | #match?                  |
 | ✗ |                  | #swapcase                | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #swapcase!               | Supports Unicode and accepts several new keyword arguments.
-| ✗ |                  | #to_proc                 |         |
+| ✗ |                  | #to_proc                 |
 | ✗ |                  | #upcase                  | Supports Unicode and accepts several new keyword arguments.
 | ✗ |                  | #upcase!                 | Supports Unicode and accepts several new keyword arguments.
-| ✗ | Thread           | #report\_on\_exception   |         |
-| ✗ |                  | .report\_on\_exception   |         |
-| ✗ | TracePoint       | #callee_id               |         |
+| ✗ | Thread           | #report\_on\_exception   |
+| ✗ |                  | .report\_on\_exception   |
+| ✗ | TracePoint       | #callee_id               |
 | ✗ | Warning          | #warn                    | New
 
 ### 2.3
 
-✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
-
 |   | Object                  | Method                   | Changes |
 |:-:| ----------------------- | ------------------------ | ------- |
 | ✗ | ARGF                    | #read_nonblock           | Accepts a new optional keyword argument, `exception`.
-| ✗ | Array                   | #bsearch_index           |         |
+| ✗ | Array                   | #bsearch_index           |
 | ✓ |                         | #dig                     | New
 | ✗ |                         | #flatten                 | No longer calls `to_ary` on elements beyond the given level.
 | ✗ |                         | #flatten!                | No longer calls `to_ary` on elements beyond the given level.
@@ -363,29 +362,29 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | Comparable              | #==                      | No longer rescues exceptions.
 | ✗ | Coverage                | .peek_result             | New
 | ✗ | Enumerable              | #chunk                   | No longer accepts the `initial_state` keyword argument.
-| ✓ |                         | #chunk_while             |         |
+| ✓ |                         | #chunk_while             |
 | ✓ |                         | #grep_v                  | New
 | ✓ |                         | #slice_before            | No longer accepts the `initial_state` keyword argument.
 | ✓ | Enumerator::Lazy        | #grep_v                  | New
-| ✗ | File                    | .mkfifo                  |         |
+| ✗ | File                    | .mkfifo                  |
 | ✗ | File::Stat              | #ino                     | On Windows, it always returned `0`, but now returns `BY_HANDLE_FILE_INFORMATION.nFileIndexHigh/Low`.
-| ✗ | Hash                    | #<                       |         |
-| ✗ |                         | #<=                      |         |
-| ✗ |                         | #>                       |         |
-| ✗ |                         | #>=                      |         |
+| ✗ | Hash                    | #<                       |
+| ✗ |                         | #<=                      |
+| ✗ |                         | #>                       |
+| ✗ |                         | #>=                      |
 | ✓ |                         | #dig                     | New
-| ✓ |                         | #fetch_values            |         |
+| ✓ |                         | #fetch_values            |
 | ✗ |                         | #inspect                 | No longer raises an error if its content returns a string which is not compatible with `Encoding.default_external`.
-| P |                         | #to_proc                 | New (Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671)
+| P |                         | #to_proc                 | New **Differences:** Works in every respect but returns a `lambda` instead of a `proc`. Returning a `proc` may be an error in MRI's implementation. See: https://bugs.ruby-lang.org/issues/12671)
 | ✗ | IO                      | #advise                  | No longer raises Errno::ENOSYS in cases where it was detected at build time but not available at runtime.
 | ✗ |                         | #close                   | Doesn't raise when the IO object is closed.
 | ✗ |                         | #each_codepoint          | Raises an exception at incomplete character before EOF when conversion takes place.
 | ✗ |                         | #wait_readable           | No longer checks FIONREAD.
 | ✓ | Kernel                  | #loop                    | When stopped by a StopIteration exception, returns what the enumerator has returned instead of nil.
-| ✗ | Logger                  | #level=                  |         |
+| ✗ | Logger                  | #level=                  |
 | ✗ |                         | #reopen                  | New
 | ✗ | Module                  | #define_method           | Now requires a method body, `Proc`, `Method`, or a block.
-| ✗ |                         | #deprecate_constant      |         |
+| ✗ |                         | #deprecate_constant      |
 | ✗ | NameError               | #receiver                | New
 | ✗ | Net::FTP                | .default_passive=        | New
 | ✗ |                         | #mlst                    | New
@@ -401,9 +400,9 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ |                         | .internal_super_of       | New
 | ✗ | OpenSSL::SSL::SSLSocket | #accept_nonblock         | Accepts a new keyword argument, `exception`.
 | ✗ |                         | #connect_nonblock        | Accepts a new keyword argument, `exception`.
-| ✗ | Pathname                | #ascend                  |         |
-| ✗ |                         | #descend                 |         |
-| ✗ | Queue                   | #close                   |         |
+| ✗ | Pathname                | #ascend                  |
+| ✗ |                         | #descend                 |
+| ✗ | Queue                   | #close                   |
 | ✗ | Socket                  | #accept_nonblock         | Accepts a new keyword argument, `exception`.
 | ✗ |                         | #connect_nonblock        | Accepts a new keyword argument, `exception`.
 | ✓ | String                  | #+@                      | New
@@ -419,8 +418,6 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | Vector                  | #round                   | New
 
 ### 2.2
-
-✓ = Implemented, ✗ = Not Implemented, P = Partially Implemented
 
 |   | Object      | Method                                  | Changes |
 |:-:| ----------  | --------------------------------------- | ------- |
@@ -443,9 +440,9 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ |             | #birthtime                              | New
 | ✗ | File::Stat  | #birthtime                              | New
 | ✗ | Find        | .find                                   | Accepts a new optional keyword argument, `ignore_error`.
-| ✗ | GC          | .latest_gc_info                         |         |
-| ✗ |             | .stat                                   |         |
-| ✗ | IO          | #each_codepoint                         |         |
+| ✗ | GC          | .latest_gc_info                         |
+| ✗ |             | .stat                                   |
+| ✗ | IO          | #each_codepoint                         |
 | ✗ |             | #nonblock_read                          | Supports pipes on Windows.
 | ✗ |             | #nonblock_write                         | Supports pipes on Windows.
 | ✗ |             | #pathconf                               | New
@@ -465,16 +462,16 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ |             | #vstack                                 | New
 | ✗ | Method      | #curry                                  | New
 | ✗ |             | #super_method                           | New
-| ✗ | ObjectSpace | .memsize_of                             |         |
+| ✗ | ObjectSpace | .memsize_of                             |
 | ✗ | Pathname    | #/                                      | New (alias of `#+`)
 | ✗ |             | #birthtime                              | New
 | ✗ |             | #find                                   | Accepts a new optional keyword argument, `ignore_error`.
 | ✗ | Prime       | .prime?                                 | Now returns `false` for negative numbers.
-| ✗ | Process     | .spawn                                  |         |
+| ✗ | Process     | .spawn                                  |
 | ✗ | String      | #unicode_normalize                      | New
 | ✗ |             | #unicode_normalize!                     | New
 | ✗ |             | #unicode_normalized?                    | New
-| ✗ | Time        | .httpdate                               |         |
+| ✗ | Time        | .httpdate                               |
 | ✗ |             | .parse                                  | May produce fixed-offset `Time` objects.
 | ✗ |             | .rfc2822                                | May produce fixed-offset `Time` objects.
 | ✗ |             | .strptime                               | May produce fixed-offset `Time` objects. Raises `ArgumentError` when there is no date information.

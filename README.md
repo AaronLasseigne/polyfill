@@ -213,7 +213,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✗ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✓ |                  | #delete_prefix           | New
-| ✗ |                  | #delete_prefix!          | New
+| P |                  | #delete_prefix!          | New (Throws `RuntimeError` instead of `FrozenError` when attempting to modify a frozen string.)
 | ✓ |                  | #delete_suffix           | New
 | ✗ |                  | #delete_suffix!          | New
 | ✗ |                  | #each_grapheme_cluster   | New

@@ -49,3 +49,11 @@ end
 def when_ruby_below(version)
   yield if Polyfill::InternalUtils.current_ruby_version < version
 end
+
+def frozen_error
+  if Polyfill::InternalUtils.current_ruby_version >= '2.5'
+    FrozenError
+  else
+    RuntimeError
+  end
+end

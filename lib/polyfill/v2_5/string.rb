@@ -5,6 +5,12 @@ module Polyfill
         sub(/\A#{prefix.to_str}/, ''.freeze)
       end
 
+      def delete_prefix!(prefix)
+        prev = dup
+        current = sub!(/\A#{prefix.to_str}/, ''.freeze)
+        prev == current ? nil : current
+      end
+
       def delete_suffix(suffix)
         chomp(suffix)
       end

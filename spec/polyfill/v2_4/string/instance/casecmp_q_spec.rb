@@ -16,4 +16,10 @@ RSpec.describe 'String#casecmp?' do
   it 'returns false if the strings are not equal after case folding' do
     expect('abc'.casecmp?('ab')).to be false
   end
+
+  when_ruby_below('2.5') do
+    it 'throws a TypeError if a the argument passed is not a string' do
+      expect { 'abc'.casecmp?(1) }.to raise_error TypeError
+    end
+  end
 end

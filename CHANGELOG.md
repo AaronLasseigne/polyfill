@@ -21,6 +21,11 @@
  - v2.5 String#delete_suffix!
  - v2.5 String#start_with?
 
+## Fixed
+
+ - v2.4 String#casecmp? threw a `NoMethodError` instead of a `TypeError` when
+   a non-string type argument was passed.
+
 # [1.0.1][] (2017-06-03)
 
 ## Fixed

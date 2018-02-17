@@ -1,6 +1,18 @@
 module Polyfill
   module V2_5
     module String
+      def casecmp(other_str)
+        super
+      rescue TypeError
+        nil
+      end
+
+      def casecmp?(other_str)
+        super
+      rescue TypeError
+        nil
+      end
+
       def delete_prefix(prefix)
         sub(/\A#{prefix.to_str}/, ''.freeze)
       end

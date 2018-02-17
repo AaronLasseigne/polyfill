@@ -213,8 +213,8 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | Set              | #===                     | New (alias of `include?`)
 | ✗ |                  | #reset                   | New
 | ✗ |                  | #to_s                    | New (alias of `inspect`)
-| ✗ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.
-| ✗ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
+| ✓ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.
+| ✓ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✓ |                  | #delete_prefix           | New
 | P |                  | #delete_prefix!          | New **Differences:** Throws `RuntimeError` instead of `FrozenError` when attempting to modify a frozen string.
 | ✓ |                  | #delete_suffix           | New (alias of `chomp`)

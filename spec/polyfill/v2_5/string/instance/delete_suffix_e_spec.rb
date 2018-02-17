@@ -35,4 +35,8 @@ RSpec.describe 'String#delete_suffix!' do
     expect { 'hello'.freeze.delete_suffix!('') }.to raise_error(frozen_error_class)
     expect { ''.freeze.delete_suffix!('') }.to raise_error(frozen_error_class)
   end
+
+  it 'throws a TypeError if a the argument passed is not a string' do
+    expect { 'abc'.delete_suffix!(1) }.to raise_error TypeError
+  end
 end

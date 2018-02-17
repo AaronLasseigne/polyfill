@@ -49,4 +49,8 @@ RSpec.describe 'String#delete_prefix' do
 
     expect(s.delete_prefix('hell')).to be_an_instance_of(klass)
   end
+
+  it 'throws a TypeError if a the argument passed is not a string' do
+    expect { 'abc'.delete_prefix(1) }.to raise_error TypeError
+  end
 end

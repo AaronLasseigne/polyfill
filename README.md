@@ -213,7 +213,7 @@ end
 | ✗ |                  | #delete_suffix!          | New
 | ✗ |                  | #each_grapheme_cluster   | New
 | ✗ |                  | #grapheme_clusters       | New
-| ✗ |                  | #start_with?             | Accepts regular expression arguments.
+| P |                  | #start_with?             | Accepts regular expression arguments. (Does not set globals.)
 | ✗ |                  | #undump                  | New
 | ✗ | StringIO         | #write                   | Accepts multiple arguments.
 | ✗ | StringScanner    | #captures                | New

@@ -17,6 +17,7 @@
  - v2.5 Kernel#yield_self
  - v2.5 String#delete_prefix
  - v2.5 String#delete_suffix
+ - v2.5 String#start_with?
 
 # [1.0.1][] (2017-06-03)
 

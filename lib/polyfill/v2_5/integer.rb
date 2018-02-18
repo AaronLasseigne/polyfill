@@ -20,28 +20,16 @@ module Polyfill
       end
 
       def allbits?(mask)
-        unless mask.respond_to?(:to_int)
-          raise TypeError, "no explicit conversion of #{mask.class} to Integer"
-        end
-
-        imask = mask.to_int
+        imask = InternalUtils.to_int(mask)
         self & imask == imask
       end
 
       def anybits?(mask)
-        unless mask.respond_to?(:to_int)
-          raise TypeError, "no explicit conversion of #{mask.class} to Integer"
-        end
-
-        self & mask.to_int != 0
+        self & InternalUtils.to_int(mask) != 0
       end
 
       def nobits?(mask)
-        unless mask.respond_to?(:to_int)
-          raise TypeError, "no explicit conversion of #{mask.class} to Integer"
-        end
-
-        self & mask.to_int == 0
+        self & InternalUtils.to_int(mask) == 0
       end
     end
   end

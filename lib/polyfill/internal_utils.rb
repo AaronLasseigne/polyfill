@@ -99,5 +99,14 @@ module Polyfill
       obj.to_str
     end
     module_function :to_str
+
+    def to_int(obj)
+      unless obj.respond_to?(:to_int)
+        raise TypeError, "no implicit conversion of #{obj.class} into Integer"
+      end
+
+      obj.to_int
+    end
+    module_function :to_int
   end
 end

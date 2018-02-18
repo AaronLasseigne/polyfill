@@ -90,5 +90,14 @@ module Polyfill
       Polyfill::Module.const_set("M#{mod.object_id}", mod)
     end
     module_function :create_module
+
+    def to_str(obj)
+      unless obj.respond_to?(:to_str)
+        raise TypeError, "no implicit conversion of #{obj.class} into String"
+      end
+
+      obj.to_str
+    end
+    module_function :to_str
   end
 end

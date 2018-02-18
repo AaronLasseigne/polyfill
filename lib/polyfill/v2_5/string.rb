@@ -14,17 +14,13 @@ module Polyfill
       end
 
       def delete_prefix(prefix)
-        sub(/\A#{prefix.to_str}/, ''.freeze)
-      rescue NoMethodError
-        raise TypeError, "no implicit conversion of #{prefix.class} into String"
+        sub(/\A#{InternalUtils.to_str(prefix)}/, ''.freeze)
       end
 
       def delete_prefix!(prefix)
         prev = dup
-        current = sub!(/\A#{prefix.to_str}/, ''.freeze)
+        current = sub!(/\A#{InternalUtils.to_str(prefix)}/, ''.freeze)
         prev == current ? nil : current
-      rescue NoMethodError
-        raise TypeError, "no implicit conversion of #{prefix.class} into String"
       end
 
       def delete_suffix(suffix)

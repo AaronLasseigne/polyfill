@@ -13,9 +13,7 @@ module Polyfill
       end
 
       def casecmp?(other)
-        casecmp(other.to_str) == 0
-      rescue NoMethodError
-        raise TypeError, "no implicit conversion of #{other.class} into String"
+        casecmp(InternalUtils.to_str(other)) == 0
       end
 
       def concat(*others)

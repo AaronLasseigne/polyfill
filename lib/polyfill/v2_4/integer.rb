@@ -2,7 +2,7 @@ module Polyfill
   module V2_4
     module Integer
       def ceil(ndigits = 0)
-        ndigits = ndigits.to_int
+        ndigits = InternalUtils.to_int(ndigits)
         return super() if ndigits == 0
         return to_f if ndigits > 0
 
@@ -11,7 +11,7 @@ module Polyfill
       end
 
       def digits(base = 10)
-        base = base.to_int
+        base = InternalUtils.to_int(base)
         raise Math::DomainError, 'out of domain' if self < 0
         raise ArgumentError, 'negative radix' if base < 0
         raise ArgumentError, "invalid radix #{base}" if base < 2
@@ -26,7 +26,7 @@ module Polyfill
       end
 
       def floor(ndigits = 0)
-        ndigits = ndigits.to_int
+        ndigits = InternalUtils.to_int(ndigits)
         return super() if ndigits == 0
         return to_f if ndigits > 0
 
@@ -38,7 +38,7 @@ module Polyfill
         unless [nil, :down, :even, :up, 'down', 'even', 'up'].include?(half)
           raise ArgumentError, "invalid rounding mode: #{half}"
         end
-        ndigits = ndigits.to_int
+        ndigits = InternalUtils.to_int(ndigits)
         return super() if ndigits == 0
         return to_f if ndigits > 0
 
@@ -47,7 +47,7 @@ module Polyfill
       end
 
       def truncate(ndigits = 0)
-        ndigits = ndigits.to_int
+        ndigits = InternalUtils.to_int(ndigits)
         return super() if ndigits == 0
         return to_f if ndigits > 0
 

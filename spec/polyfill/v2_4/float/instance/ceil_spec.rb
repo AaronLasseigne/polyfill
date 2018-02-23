@@ -27,5 +27,9 @@ RSpec.describe 'Float#ceil' do
       expect(value).to receive(:to_int).and_return(1)
       1.15.ceil(value)
     end
+
+    it 'raises a TypeError when given a non-Integer' do
+      expect { 1.1.ceil('a') }.to raise_error TypeError
+    end
   end
 end

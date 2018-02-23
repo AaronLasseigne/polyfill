@@ -30,5 +30,9 @@ RSpec.describe 'Integer#digits' do
       expect(value).to receive(:to_int).and_return(10)
       1.digits(value)
     end
+
+    it 'raises a TypeError when given a non-Integer' do
+      expect { 1.digits('a') }.to raise_error TypeError
+    end
   end
 end

@@ -2,7 +2,7 @@ module Polyfill
   module V2_4
     module Float
       def ceil(ndigits = 0)
-        ndigits = ndigits.to_int
+        ndigits = InternalUtils.to_int(ndigits)
         return super() if ndigits == 0
 
         if ndigits > 0
@@ -15,7 +15,7 @@ module Polyfill
       end
 
       def floor(ndigits = 0)
-        ndigits = ndigits.to_int
+        ndigits = InternalUtils.to_int(ndigits)
         return super() if ndigits == 0
 
         if ndigits > 0
@@ -28,7 +28,7 @@ module Polyfill
       end
 
       def truncate(ndigits = 0)
-        ndigits = ndigits.to_int
+        ndigits = InternalUtils.to_int(ndigits)
         return super() if ndigits == 0
 
         if ndigits > 0

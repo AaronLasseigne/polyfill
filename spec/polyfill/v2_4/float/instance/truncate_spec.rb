@@ -28,5 +28,9 @@ RSpec.describe 'Float#truncate' do
       expect(value).to receive(:to_int).and_return(1)
       1.15.truncate(value)
     end
+
+    it 'raises a TypeError when given a non-Integer' do
+      expect { 1.1.truncate('a') }.to raise_error TypeError
+    end
   end
 end

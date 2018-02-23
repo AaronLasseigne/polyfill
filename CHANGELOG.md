@@ -25,8 +25,18 @@
 
 ## Fixed
 
- - v2.4 String#casecmp? threw a `NoMethodError` instead of a `TypeError` when
-   a non-string type argument was passed.
+The following threw a `NoMethodError` instead of a `TypeError` when an
+incorrect type was passed:
+
+ - v2.4 Float#ceil
+ - v2.4 Float#floor
+ - v2.4 Float#truncate
+ - v2.4 Integer#ceil
+ - v2.4 Integer#digits
+ - v2.4 Integer#floor
+ - v2.4 Integer#round
+ - v2.4 Integer#truncate
+ - v2.4 String#casecmp?
 
 # [1.0.1][] (2017-06-03)
 

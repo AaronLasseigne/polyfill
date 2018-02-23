@@ -29,5 +29,9 @@ RSpec.describe 'Integer#floor' do
       expect(value).to receive(:to_int).and_return(1)
       1.floor(value)
     end
+
+    it 'raises a TypeError when given a non-Integer' do
+      expect { 1.floor('a') }.to raise_error TypeError
+    end
   end
 end

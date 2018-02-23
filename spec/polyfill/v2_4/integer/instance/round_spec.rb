@@ -33,6 +33,10 @@ RSpec.describe 'Integer#round' do
       1.round(value)
     end
 
+    it 'raises a TypeError when given a non-Integer' do
+      expect { 1.round('a') }.to raise_error TypeError
+    end
+
     context 'optional :half' do
       it 'does nothing' do
         expect(1.round(0, half: nil)).to eql 1

@@ -51,7 +51,7 @@ This project uses [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 With the `Polyfill` method, you can polyfill methods for one or more Ruby
 objects. Each object is passed as a key. The value is an array of strings
 containing the methods you would like to polyfill. Instance methods need to
-start with '#' and class methods need to start with '.'.
+start with "#" and class methods need to start with ".".
 
 ```ruby
 using Polyfill(

@@ -165,7 +165,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ |                  | #nobits?                 | New
 | ✗ |                  | #pow                     | Same as `**` but it accepts an optional modulo argument for calculating modular exponentiation.
 | ✓ |                  | #round                   | Always return an Integer.
-| ✗ |                  | .sqrt                    | New
+| ✓ |                  | .sqrt                    | New
 | ✓ |                  | #truncate                | Always return an Integer.
 | ✗ | IO               | #pread                   | New
 | ✗ |                  | #pwrite                  | New

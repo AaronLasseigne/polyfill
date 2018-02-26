@@ -4,6 +4,7 @@
 
 - v2.5 Integer.sqrt
 - v2.5 Dir.children
+- v2.5 Dir.each_child
 
 # [1.1.0][] (2018-02-23)
 

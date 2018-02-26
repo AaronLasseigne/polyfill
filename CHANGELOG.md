@@ -3,6 +3,7 @@
 # [1.2.0][] (TBD)
 
 - v2.5 Integer.sqrt
+- v2.5 Dir.children
 
 # [1.1.0][] (2018-02-23)
 

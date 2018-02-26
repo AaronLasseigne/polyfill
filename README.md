@@ -138,7 +138,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ |                  | #prepend                 | New (alias for `unshift`)
 | ✗ | BigDecimal       | #clone                   | Returns the receiver itself instead of making a new instance.
 | ✗ |                  | #dup                     | Returns the receiver itself instead of making a new instance.
-| ✗ | Dir              | .children                | New
+| ✓ | Dir              | .children                | New
 | ✗ |                  | .each_child              | New
 | ✗ |                  | #glob                    | Accepts a new optional keyword argument, `:base`.
 | ✗ | Enumerable       | #any?                    | Accepts a pattern argument.

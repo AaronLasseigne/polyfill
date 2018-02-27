@@ -230,7 +230,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | Struct           | .new                     | Accepts a new optional keyword argument, `:keyword_init`.
 | ✗ | Thread           | #fetch                   | New
 | ✗ |                  | #name=                   | Description set by `Thread#name=` is now visible on Windows 10.
-| ✗ | Time             | #at                      | Accepts a third argument which specifies the unit of the second argument.
+| ✓ | Time             | .at                      | Accepts a third argument which specifies the unit of the second argument.
 | ✗ | URI              | .open                    | New (alias of `Kernel.open`)
 | ✗ | Zlib::GzipWriter | #write                   | Accepts multiple arguments.
 

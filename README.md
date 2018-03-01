@@ -466,7 +466,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | Pathname    | #/                                      | New (alias of `#+`)
 | ✗ |             | #birthtime                              | New
 | ✗ |             | #find                                   | Accepts a new optional keyword argument, `ignore_error`.
-| ✗ | Prime       | .prime?                                 | Now returns `false` for negative numbers.
+| ✓ | Prime       | .prime?                                 | Now returns `false` for negative numbers.
 | ✗ | Process     | .spawn                                  |
 | ✗ | String      | #unicode_normalize                      | New
 | ✗ |             | #unicode_normalize!                     | New

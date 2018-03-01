@@ -6,6 +6,7 @@
 - v2.5 Dir.each_child
 - v2.5 Integer.sqrt
 - v2.5 Time.at
+- v2.2 Prime.prime?
 
 # [1.1.0][] (2018-02-23)
 

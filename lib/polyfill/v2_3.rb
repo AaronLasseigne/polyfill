@@ -7,6 +7,8 @@ require_relative 'v2_3/numeric'
 require_relative 'v2_3/string'
 require_relative 'v2_3/struct'
 
+require_relative 'v2_3/prime'
+
 module Polyfill
   module V2_3
   end

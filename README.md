@@ -402,6 +402,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ |                         | #connect_nonblock        | Accepts a new keyword argument, `exception`.
 | ✗ | Pathname                | #ascend                  |
 | ✗ |                         | #descend                 |
+| ✓ | Prime                   | .prime?                  | `ArgumentError` message says that an integer is expected instead of it being a comparison error.
 | ✗ | Queue                   | #close                   |
 | ✗ | Socket                  | #accept_nonblock         | Accepts a new keyword argument, `exception`.
 | ✗ |                         | #connect_nonblock        | Accepts a new keyword argument, `exception`.

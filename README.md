@@ -452,7 +452,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ | Kernel      | #itself                                 | New
 | ✗ |             | #throw                                  | Raises `UncaughtThrowError`, subclass of `ArgumentError` when there is no corresponding catch block, instead of `ArgumentError`.
 | ✗ | Math        | .atan2                                  | Now returns values like as expected by C99 if both two arguments are infinity.
-| ✗ |             | .log                                    | Now raises `Math::DomainError` instead of returning `NaN` if the base is less than 0, and returns `NaN` instead of -infinity if both of two arguments are 0.
+| ✓ |             | .log                                    | Now raises `Math::DomainError` instead of returning `NaN` if the base is less than 0, and returns `NaN` instead of -infinity if both of two arguments are 0.
 | ✗ | Matrix      | #+@                                     | New
 | ✗ |             | #-@                                     | New
 | ✗ |             | #adjugate                               | New

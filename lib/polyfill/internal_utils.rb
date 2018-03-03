@@ -108,5 +108,14 @@ module Polyfill
       obj.to_int
     end
     module_function :to_int
+
+    def to_f(obj)
+      unless obj.respond_to?(:to_f)
+        raise TypeError, "no implicit conversion of #{obj.class} into Float"
+      end
+
+      obj.to_f
+    end
+    module_function :to_f
   end
 end

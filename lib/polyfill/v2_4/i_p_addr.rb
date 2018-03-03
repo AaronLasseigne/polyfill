@@ -3,13 +3,13 @@ module Polyfill
     module IPAddr
       def ==(*)
         super
-      rescue
+      rescue ::IPAddr::InvalidAddressError
         false
       end
 
       def <=>(*)
         super
-      rescue
+      rescue ::IPAddr::InvalidAddressError
         nil
       end
     end

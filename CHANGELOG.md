@@ -1,6 +1,8 @@
 # Master
 
-# [1.2.0][] (TBD)
+# [1.2.0][] (2018-03-05)
+
+## Added
 
 - v2.5 BigDecimal#clone
 - v2.5 BigDecimal#dup
@@ -226,6 +228,7 @@ incorrect type was passed:
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[1.2.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/AaronLasseigne/polyfill/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AaronLasseigne/polyfill/compare/v0.10.0...v1.0.0

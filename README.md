@@ -27,7 +27,7 @@ monkey patching** that may cause issues outside of your use.
 Add it to your Gemfile:
 
 ```ruby
-gem 'polyfill', '~> 1.1'
+gem 'polyfill', '~> 1.2'
 ```
 
 Or install it manually:

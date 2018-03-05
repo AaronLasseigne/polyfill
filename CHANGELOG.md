@@ -2,6 +2,7 @@
 
 # [1.2.0][] (TBD)
 
+- v2.5 BigDecimal#dup
 - v2.5 Dir.children
 - v2.5 Dir.each_child
 - v2.5 Integer.sqrt

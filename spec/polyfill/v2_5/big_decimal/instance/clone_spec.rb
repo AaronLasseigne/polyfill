@@ -3,7 +3,7 @@ require 'bigdecimal'
 RSpec.describe 'BigDecimal#clone' do
   using Polyfill(BigDecimal: %w[#clone], version: '2.5')
 
-  let(:decimal) { BigDecimal.new('0') }
+  let(:decimal) { BigDecimal('0') }
 
   context 'existing behavior' do
     it 'returns an object of equal value' do

@@ -136,7 +136,7 @@ though they have techically changed. `FrozenError` is a subclass of
 |:-:| ---------------- | ------------------------ | ------- |
 | ✗ | Array            | #append                  | New (alias for `push`)
 | ✗ |                  | #prepend                 | New (alias for `unshift`)
-| ✗ | BigDecimal       | #clone                   | Returns the receiver itself instead of making a new instance.
+| ✓ | BigDecimal       | #clone                   | Returns the receiver itself instead of making a new instance.
 | ✓ |                  | #dup                     | Returns the receiver itself instead of making a new instance.
 | ✓ | Dir              | .children                | New
 | ✓ |                  | .each_child              | New

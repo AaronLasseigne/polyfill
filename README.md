@@ -141,8 +141,8 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ | Dir              | .children                | New
 | ✓ |                  | .each_child              | New
 | ✗ |                  | #glob                    | Accepts a new optional keyword argument, `:base`.
-| ✓ | Enumerable       | #any?                    | Accepts a pattern argument.
-| ✗ |                  | #all?                    | Accepts a pattern argument.
+| ✓ | Enumerable       | #all?                    | Accepts a pattern argument.
+| ✓ |                  | #any?                    | Accepts a pattern argument.
 | ✗ |                  | #none?                   | Accepts a pattern argument.
 | ✗ |                  | #one?                    | Accepts a pattern argument.
 | ✗ | ERB              | .result_with_hash        | New

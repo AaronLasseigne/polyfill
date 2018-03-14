@@ -4,6 +4,7 @@
 
 ## Added
 
+- v2.5 Enumerable#all?
 - v2.5 Enumerable#any?
 
 # [1.2.0][] (2018-03-05)

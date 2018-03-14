@@ -149,7 +149,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | Exception        | #full_message            | New
 | ✗ | File             | .identical?              | Support ReFS 128bit ino on Windows 8.1 and later.
 | ✗ |                  | .lutime                  | New
-| ✗ |                  | .open                    | Accepts a new optional keyword argument, `:newline`.
+| ✗ |                  | .open                    | Use of the optional argument `newline` now implies text mode.
 | ✗ |                  | #path                    | Raises an `IOError` for files opened with `File::Constants::TMPFILE` option.
 | ✗ | File::Stat       | #atime                   | Support fractional second timestamps on Windows 8 and later.
 | ✗ |                  | #ctime                   | Support fractional second timestamps on Windows 8 and later.

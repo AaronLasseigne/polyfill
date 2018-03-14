@@ -8,6 +8,7 @@
 - v2.5 Enumerable#any?
 - v2.5 Enumerable#none?
 - v2.5 Enumerable#one?
+- v2.3 Array#bsearch_index
 
 # [1.2.0][] (2018-03-05)
 

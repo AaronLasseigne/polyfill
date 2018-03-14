@@ -349,7 +349,7 @@ though they have techically changed. `FrozenError` is a subclass of
 |   | Object                  | Method                   | Changes |
 |:-:| ----------------------- | ------------------------ | ------- |
 | ✗ | ARGF                    | #read_nonblock           | Accepts a new optional keyword argument, `exception`.
-| ✗ | Array                   | #bsearch_index           | New
+| ✓ | Array                   | #bsearch_index           | New
 | ✓ |                         | #dig                     | New
 | ✗ |                         | #flatten                 | No longer calls `to_ary` on elements beyond the given level.
 | ✗ |                         | #flatten!                | No longer calls `to_ary` on elements beyond the given level.

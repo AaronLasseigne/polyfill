@@ -1,4 +1,5 @@
 require_relative 'v2_5/dir'
+require_relative 'v2_5/enumerable'
 require_relative 'v2_5/hash'
 require_relative 'v2_5/integer'
 require_relative 'v2_5/kernel'

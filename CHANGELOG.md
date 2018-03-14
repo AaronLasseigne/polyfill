@@ -2,6 +2,10 @@
 
 # [1.3.0][] (TBD)
 
+## Added
+
+- v2.5 Enumerable#any?
+
 # [1.2.0][] (2018-03-05)
 
 ## Added

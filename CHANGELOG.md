@@ -6,6 +6,7 @@
 
 - v2.5 Enumerable#all?
 - v2.5 Enumerable#any?
+- v2.5 Enumerable#none?
 
 # [1.2.0][] (2018-03-05)
 

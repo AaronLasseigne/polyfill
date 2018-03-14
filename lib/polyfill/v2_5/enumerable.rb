@@ -12,6 +12,12 @@ module Polyfill
 
         !grep(*pattern).empty?
       end
+
+      def none?(*pattern)
+        return super if pattern.empty?
+
+        grep(*pattern).empty?
+      end
     end
   end
 end

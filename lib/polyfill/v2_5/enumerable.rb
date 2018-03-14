@@ -18,6 +18,12 @@ module Polyfill
 
         grep(*pattern).empty?
       end
+
+      def one?(*pattern)
+        return super if pattern.empty?
+
+        grep(*pattern).size == 1
+      end
     end
   end
 end

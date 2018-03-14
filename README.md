@@ -144,7 +144,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ | Enumerable       | #all?                    | Accepts a pattern argument.
 | ✓ |                  | #any?                    | Accepts a pattern argument.
 | ✓ |                  | #none?                   | Accepts a pattern argument.
-| ✗ |                  | #one?                    | Accepts a pattern argument.
+| ✓ |                  | #one?                    | Accepts a pattern argument.
 | ✗ | ERB              | .result_with_hash        | New
 | ✗ | Exception        | #full_message            | New
 | ✗ | File             | .identical?              | Support ReFS 128bit ino on Windows 8.1 and later.

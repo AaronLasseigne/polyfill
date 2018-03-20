@@ -373,7 +373,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ | Hash                    | #<                       | New
 | ✓ |                         | #<=                      | New
 | ✓ |                         | #>                       | New
-| ✗ |                         | #>=                      | New
+| ✓ |                         | #>=                      | New
 | ✓ |                         | #dig                     | New
 | ✓ |                         | #fetch_values            | New
 | ✗ |                         | #inspect                 | No longer raises an error if its content returns a string which is not compatible with `Encoding.default_external`.

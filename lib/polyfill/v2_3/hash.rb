@@ -23,6 +23,12 @@ module Polyfill
         other.all? { |k, v| self[k] == v }
       end
 
+      def >=(other)
+        other = InternalUtils.to_hash(other)
+
+        other.all? { |k, v| self[k] == v }
+      end
+
       def dig(head, *rest)
         [head, *rest].reduce(self) do |value, accessor|
           next_value =

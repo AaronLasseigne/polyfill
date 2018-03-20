@@ -371,7 +371,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | File                    | .mkfifo                  | New
 | ✗ | File::Stat              | #ino                     | On Windows, it always returned `0`, but now returns `BY_HANDLE_FILE_INFORMATION.nFileIndexHigh/Low`.
 | ✓ | Hash                    | #<                       | New
-| ✗ |                         | #<=                      | New
+| ✓ |                         | #<=                      | New
 | ✓ |                         | #>                       | New
 | ✗ |                         | #>=                      | New
 | ✓ |                         | #dig                     | New

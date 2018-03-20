@@ -9,6 +9,12 @@ module Polyfill
         all? { |k, v| other[k] == v }
       end
 
+      def <=(other)
+        other = InternalUtils.to_hash(other)
+
+        all? { |k, v| other[k] == v }
+      end
+
       def >(other)
         other = InternalUtils.to_hash(other)
 

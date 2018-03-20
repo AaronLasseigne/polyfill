@@ -10,6 +10,7 @@
 - v2.5 Enumerable#one?
 - v2.3 Array#bsearch_index
 - v2.3 Hash#<
+- v2.3 Hash#<=
 - v2.3 Hash#>
 
 # [1.2.0][] (2018-03-05)

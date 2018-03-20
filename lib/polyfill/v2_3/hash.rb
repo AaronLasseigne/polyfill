@@ -1,6 +1,14 @@
 module Polyfill
   module V2_3
     module Hash
+      def >(other)
+        other = InternalUtils.to_hash(other)
+
+        return false if size == other.size
+
+        other.all? { |k, v| self[k] == v }
+      end
+
       def dig(head, *rest)
         [head, *rest].reduce(self) do |value, accessor|
           next_value =

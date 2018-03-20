@@ -1,5 +1,5 @@
 module Polyfill
-  module InternalUtils
+  module InternalUtils # rubocop:disable Metrics/ModuleLength
     VERSIONS = {
       '2.2' => 'V2_2',
       '2.3' => 'V2_3',
@@ -92,8 +92,12 @@ module Polyfill
     module_function :create_module
 
     def to_str(obj)
-      unless obj.respond_to?(:to_str)
-        raise TypeError, "no implicit conversion of #{obj.class} into String"
+      begin
+        unless obj.respond_to?(:to_str)
+          raise TypeError, "no implicit conversion of #{obj.class} into String"
+        end
+      rescue NoMethodError
+        raise TypeError, 'no implicit conversion of BasicObject into String'
       end
 
       obj.to_str
@@ -101,8 +105,12 @@ module Polyfill
     module_function :to_str
 
     def to_int(obj)
-      unless obj.respond_to?(:to_int)
-        raise TypeError, "no implicit conversion of #{obj.class} into Integer"
+      begin
+        unless obj.respond_to?(:to_int)
+          raise TypeError, "no implicit conversion of #{obj.class} into Integer"
+        end
+      rescue NoMethodError
+        raise TypeError, 'no implicit conversion of BasicObject into Integer'
       end
 
       obj.to_int
@@ -110,12 +118,29 @@ module Polyfill
     module_function :to_int
 
     def to_f(obj)
-      unless obj.respond_to?(:to_f)
-        raise TypeError, "no implicit conversion of #{obj.class} into Float"
+      begin
+        unless obj.respond_to?(:to_f)
+          raise TypeError, "no implicit conversion of #{obj.class} into Float"
+        end
+      rescue NoMethodError
+        raise TypeError, 'no implicit conversion of BasicObject into Float'
       end
 
       obj.to_f
     end
     module_function :to_f
+
+    def to_hash(obj)
+      begin
+        unless obj.respond_to?(:to_hash)
+          raise TypeError, "no implicit conversion of #{obj.class} into Hash"
+        end
+      rescue NoMethodError
+        raise TypeError, 'no implicit conversion of BasicObject into Hash'
+      end
+
+      obj.to_hash
+    end
+    module_function :to_hash
   end
 end

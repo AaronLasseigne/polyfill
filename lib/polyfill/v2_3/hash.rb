@@ -1,6 +1,14 @@
 module Polyfill
   module V2_3
     module Hash
+      def <(other)
+        other = InternalUtils.to_hash(other)
+
+        return false if size == other.size
+
+        all? { |k, v| other[k] == v }
+      end
+
       def >(other)
         other = InternalUtils.to_hash(other)
 

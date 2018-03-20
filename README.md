@@ -370,7 +370,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ | Enumerator::Lazy        | #grep_v                  | New
 | ✗ | File                    | .mkfifo                  | New
 | ✗ | File::Stat              | #ino                     | On Windows, it always returned `0`, but now returns `BY_HANDLE_FILE_INFORMATION.nFileIndexHigh/Low`.
-| ✗ | Hash                    | #<                       | New
+| ✓ | Hash                    | #<                       | New
 | ✗ |                         | #<=                      | New
 | ✓ |                         | #>                       | New
 | ✗ |                         | #>=                      | New

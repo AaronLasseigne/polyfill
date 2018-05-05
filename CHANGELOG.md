@@ -1,5 +1,9 @@
 # Master
 
+## Added
+
+- v2.5 String#grapheme_clusters
+
 # [1.3.0][] (2018-03-20)
 
 ## Added

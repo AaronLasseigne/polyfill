@@ -38,6 +38,12 @@ module Polyfill
           prefix.is_a?(Regexp) ? self[/\A#{prefix}/] : super(prefix)
         end
       end
+
+      def grapheme_clusters
+        return scan(/\X/, &::Proc.new) if block_given?
+
+        scan(/\X/)
+      end
     end
   end
 end

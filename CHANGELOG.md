@@ -2,6 +2,7 @@
 
 ## Added
 
+- v2.5 String#each_grapheme_cluster
 - v2.5 String#grapheme_clusters
 
 # [1.3.0][] (2018-03-20)

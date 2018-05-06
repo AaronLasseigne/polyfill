@@ -44,6 +44,20 @@ module Polyfill
 
         scan(/\X/)
       end
+
+      def each_grapheme_cluster
+        unless block_given?
+          grapheme_clusters = scan(/\X/)
+
+          return ::Enumerator.new(grapheme_clusters.size) do |yielder|
+            grapheme_clusters.each do |grapheme_cluster|
+              yielder.yield(grapheme_cluster)
+            end
+          end
+        end
+
+        scan(/\X/, &::Proc.new)
+      end
     end
   end
 end

@@ -219,7 +219,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | P |                  | #delete_prefix!          | New **Differences:** Throws `RuntimeError` instead of `FrozenError` when attempting to modify a frozen string.
 | ✓ |                  | #delete_suffix           | New (alias of `chomp`)
 | P |                  | #delete_suffix!          | New (alias of `chomp!`) **Differences:** Throws `RuntimeError` instead of `FrozenError` when attempting to modify a frozen string.
-| ✗ |                  | #each_grapheme_cluster   | New
+| ✓ |                  | #each_grapheme_cluster   | New
 | ✓ |                  | #grapheme_clusters       | New
 | P |                  | #start_with?             | Accepts regular expression arguments. **Differences:** Does not set `Regexp` globals.
 | ✗ |                  | #undump                  | New

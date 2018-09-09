@@ -227,7 +227,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | StringScanner    | #captures                | New
 | ✗ |                  | #size                    | New
 | ✗ |                  | #values_at               | New
-| ✗ | Struct           | .new                     | Accepts a new optional keyword argument, `:keyword_init`.
+| ✓ | Struct           | .new                     | Accepts a new optional keyword argument, `:keyword_init`.
 | ✗ | Thread           | #fetch                   | New
 | ✗ |                  | #name=                   | Description set by `Thread#name=` is now visible on Windows 10.
 | ✓ | Time             | .at                      | Accepts a third argument which specifies the unit of the second argument.

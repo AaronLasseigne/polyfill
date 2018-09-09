@@ -125,6 +125,12 @@ end
 Partial implemented features will be explained in the "Changes" section of the
 table. The explanation will follow "**Differences:**".
 
+### 2.6
+
+|   | Object           | Method                   | Changes |
+|:-:| ---------------- | ------------------------ | ------- |
+| ✓ | Kernel           | #then                    | New (alias of `yield_self`)
+
 ### 2.5
 
 Attempting to modify frozen objects now throws `FrozenError` instead of

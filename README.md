@@ -17,6 +17,7 @@ monkey patching** that may cause issues outside of your use.
   - [Polyfill](#polyfill-1)
   - [Polyfill.get](#polyfillget)
 - [Implementation Table](#implementation-table)
+  - [2.6](#26)
   - [2.5](#25)
   - [2.4](#24)
   - [2.3](#23)

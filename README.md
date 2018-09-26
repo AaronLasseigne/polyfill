@@ -17,6 +17,7 @@ monkey patching** that may cause issues outside of your use.
   - [Polyfill](#polyfill-1)
   - [Polyfill.get](#polyfillget)
 - [Implementation Table](#implementation-table)
+  - [2.6](#26)
   - [2.5](#25)
   - [2.4](#24)
   - [2.3](#23)
@@ -124,6 +125,12 @@ end
 
 Partial implemented features will be explained in the "Changes" section of the
 table. The explanation will follow "**Differences:**".
+
+### 2.6
+
+|   | Object           | Method                   | Changes |
+|:-:| ---------------- | ------------------------ | ------- |
+| ✓ | Kernel           | #then                    | New (alias of `yield_self`)
 
 ### 2.5
 

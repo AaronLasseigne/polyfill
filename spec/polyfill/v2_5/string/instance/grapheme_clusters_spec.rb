@@ -11,6 +11,12 @@ RSpec.describe 'String#grapheme_clusters' do
   end
 
   context 'with block' do
+    around do |example|
+      ignore_warnings do
+        example.run
+      end
+    end
+
     it 'yields each element' do
       acc = []
       nfc = 'à'

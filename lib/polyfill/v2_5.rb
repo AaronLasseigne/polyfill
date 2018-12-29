@@ -9,6 +9,7 @@ require_relative 'v2_5/struct'
 require_relative 'v2_5/time'
 
 require_relative 'v2_5/big_decimal'
+require_relative 'v2_5/set'
 
 module Polyfill
   module V2_5

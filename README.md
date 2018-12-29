@@ -212,7 +212,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | SecureRandom     | .alphanumeric            | New
 | ✗ | Set              | #===                     | New (alias of `include?`)
 | ✗ |                  | #reset                   | New
-| ✗ |                  | #to_s                    | New (alias of `inspect`)
+| ✓ |                  | #to_s                    | New (alias of `inspect`)
 | ✓ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✓ |                  | #casecmp?                | Returns `nil` for non-string arguments instead of raising a `TypeError`.
 | ✓ |                  | #delete_prefix           | New

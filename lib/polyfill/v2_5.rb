@@ -1,3 +1,4 @@
+require_relative 'v2_5/array'
 require_relative 'v2_5/dir'
 require_relative 'v2_5/enumerable'
 require_relative 'v2_5/hash'

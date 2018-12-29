@@ -1,3 +1,10 @@
+# [1.5.0][] (2018-09-09)
+
+## Added
+
+- v2.5 Array#append
+- v2.5 Array#prepend
+
 # [1.4.0][] (2018-09-09)
 
 ## Added

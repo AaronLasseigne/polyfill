@@ -9,6 +9,7 @@ please add it to the documentation.
 
 A list of changes can be found at:
 
+ * https://raw.githubusercontent.com/ruby/ruby/v2_6_0/NEWS
  * https://raw.githubusercontent.com/ruby/ruby/v2_5_0/NEWS
  * https://raw.githubusercontent.com/ruby/ruby/v2_4_2/NEWS
  * https://raw.githubusercontent.com/ruby/ruby/v2_3_4/NEWS

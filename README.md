@@ -130,7 +130,34 @@ table. The explanation will follow "**Differences:**".
 
 |   | Object           | Method                   | Changes |
 |:-:| ---------------- | ------------------------ | ------- |
-| ✓ | Kernel           | #then                    | New (alias of `yield_self`)
+| ✗ | Array            | #difference              | New
+| ✗ |                  | #filter                  | New (alias of `select`)
+| ✗ |                  | #filter!                 | New (alias of `select!`)
+| ✗ |                  | #to_h                    | Accepts a block that maps elements to new key/value pairs.
+| ✗ |                  | #union                   | New
+| ✗ | Binding          | #source_location         | New
+| ✗ | Dir              | #children                | New
+| ✗ |                  | #each_child              | New
+| ✗ | Enumerable       | #+                       | New
+| ✗ |                  | #chain                   | New
+| ✗ |                  | #filter                  | New (alias of `select`)
+| ✗ |                  | #to_h                    | Accepts a block that maps elements to new key/value pairs.
+| ✗ | Enumerator::Lazy | #filter                  | New (alias of `select`)
+| ✗ | ENV              | #to_h                    | Accepts a block that maps elements to new key/value pairs.
+| ✗ | Exception        | #full_message            | Accepts new optional keywords arguments, `:highlight` and `:order`.
+| ✗ | Hash             | #filter                  | New (alias of `select`)
+| ✗ |                  | #filter!                 | New (alias of `select!`)
+| ✗ |                  | #merge                   | Accepts multiple arguments.
+| ✗ |                  | #merge!                  | Accepts multiple arguments.
+| ✗ |                  | #to_h                    | Accepts a block that maps elements to new key/value pairs.
+| ✗ |                  | #update                  | Accepts multiple arguments.
+| ✗ | Kernel           | #Complex                 | Accepts a new optional keyword argument, `:exception`.
+| ✗ |                  | #exec                    | Does not close non-standard file descriptors.
+| ✗ |                  | #Float                   | Accepts a new optional keyword argument, `:exception`.
+| ✗ |                  | #Integer                 | Accepts a new optional keyword argument, `:exception`.
+| ✗ |                  | #Rational                | Accepts a new optional keyword argument, `:exception`.
+| ✓ |                  | #then                    | New (alias of `yield_self`)
+| ✗ |                  | #system                  | Accepts a new optional keyword argument, `:exception`. Does not close non-standard file descriptors.
 
 ### 2.5
 

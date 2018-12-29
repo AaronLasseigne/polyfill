@@ -4,6 +4,7 @@
 
 - v2.5 Array#append
 - v2.5 Array#prepend
+- v2.5 Set#===
 - v2.5 Set#to_s
 
 # [1.4.0][] (2018-09-09)

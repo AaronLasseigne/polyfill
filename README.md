@@ -210,7 +210,7 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✗ | Range            | .initialize              | No longer hides exceptions when comparing begin and end with `<=>` and raise a "bad value for range" `ArgumentError` but instead lets the exception from the `<=>` call go through.
 | ✗ | Random           | #urandom                 | Renamed from `raw_seed`.
 | ✗ | SecureRandom     | .alphanumeric            | New
-| ✗ | Set              | #===                     | New (alias of `include?`)
+| ✓ | Set              | #===                     | New (alias of `include?`)
 | ✗ |                  | #reset                   | New
 | ✓ |                  | #to_s                    | New (alias of `inspect`)
 | ✓ | String           | #casecmp                 | Returns `nil` for non-string arguments instead of raising a `TypeError`.

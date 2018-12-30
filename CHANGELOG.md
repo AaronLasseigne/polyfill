@@ -3,6 +3,7 @@
 ## Added
 
 - v2.6 Hash#merge
+- v2.5 Kernel#then
 
 # [1.5.0][] (2018-12-30)
 

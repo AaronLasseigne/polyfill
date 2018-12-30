@@ -1,3 +1,9 @@
+# [Master][] (TBD)
+
+## Added
+
+- v2.6 Hash#merge
+
 # [1.5.0][] (2018-12-30)
 
 ## Added

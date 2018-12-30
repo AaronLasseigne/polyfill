@@ -147,7 +147,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ | Exception        | #full_message            | Accepts new optional keywords arguments, `:highlight` and `:order`.
 | ✗ | Hash             | #filter                  | New (alias of `select`)
 | ✗ |                  | #filter!                 | New (alias of `select!`)
-| ✗ |                  | #merge                   | Accepts multiple arguments.
+| ✓ |                  | #merge                   | Accepts multiple arguments.
 | ✗ |                  | #merge!                  | Accepts multiple arguments.
 | ✗ |                  | #to_h                    | Accepts a block that maps elements to new key/value pairs.
 | ✗ |                  | #update                  | Accepts multiple arguments.

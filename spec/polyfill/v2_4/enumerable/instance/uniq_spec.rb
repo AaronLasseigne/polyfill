@@ -6,7 +6,7 @@ RSpec.describe 'Enumerable#uniq' do
   end
 
   it 'uniques the elements' do
-    expect(Dir.new(fixture).uniq).to eql %w[. .. file.txt]
+    expect(Dir.new(fixture).sort.uniq).to eql %w[. .. file.txt]
     expect(
       Enumerator.new do |y|
         y << 1
@@ -27,7 +27,7 @@ RSpec.describe 'Enumerable#uniq' do
   end
 
   it 'will base uniqueness off of the block' do
-    expect(Dir.new(fixture).uniq { |file_name| file_name[0] }).to eql %w[. file.txt]
+    expect(Dir.new(fixture).sort.uniq { |file_name| file_name[0] }).to eql %w[. file.txt]
     enum = Enumerator.new do |y|
       y << 1
       y << 2

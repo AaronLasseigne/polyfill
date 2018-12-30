@@ -6,7 +6,7 @@ RSpec.describe 'Enumerable#sum' do
   end
 
   it 'sums the elements with an initial value (default 0)' do
-    expect(Dir.new(fixture).sum('')).to eql '...file.txt'
+    expect(Dir.new(fixture).sort.sum('')).to eql '...file.txt'
     expect(
       Enumerator.new do |y|
         y << 1

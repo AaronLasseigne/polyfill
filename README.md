@@ -128,36 +128,94 @@ table. The explanation will follow "**Differences:**".
 
 ### 2.6
 
-|   | Object           | Method                   | Changes |
-|:-:| ---------------- | ------------------------ | ------- |
-| ✗ | Array            | #difference              | New
-| ✗ |                  | #filter                  | New (alias of `select`)
-| ✗ |                  | #filter!                 | New (alias of `select!`)
-| ✗ |                  | #to_h                    | Accepts a block that maps elements to new key/value pairs.
-| ✗ |                  | #union                   | New
-| ✗ | Binding          | #source_location         | New
-| ✗ | Dir              | #children                | New
-| ✗ |                  | #each_child              | New
-| ✗ | Enumerable       | #+                       | New
-| ✗ |                  | #chain                   | New
-| ✗ |                  | #filter                  | New (alias of `select`)
-| ✗ |                  | #to_h                    | Accepts a block that maps elements to new key/value pairs.
-| ✗ | Enumerator::Lazy | #filter                  | New (alias of `select`)
-| ✗ | ENV              | #to_h                    | Accepts a block that maps elements to new key/value pairs.
-| ✗ | Exception        | #full_message            | Accepts new optional keywords arguments, `:highlight` and `:order`.
-| ✗ | Hash             | #filter                  | New (alias of `select`)
-| ✗ |                  | #filter!                 | New (alias of `select!`)
-| ✓ |                  | #merge                   | Accepts multiple arguments.
-| ✗ |                  | #merge!                  | Accepts multiple arguments.
-| ✗ |                  | #to_h                    | Accepts a block that maps elements to new key/value pairs.
-| ✗ |                  | #update                  | Accepts multiple arguments.
-| ✗ | Kernel           | #Complex                 | Accepts a new optional keyword argument, `:exception`.
-| ✗ |                  | #exec                    | Does not close non-standard file descriptors.
-| ✗ |                  | #Float                   | Accepts a new optional keyword argument, `:exception`.
-| ✗ |                  | #Integer                 | Accepts a new optional keyword argument, `:exception`.
-| ✗ |                  | #Rational                | Accepts a new optional keyword argument, `:exception`.
-| ✓ |                  | #then                    | New (alias of `yield_self`)
-| ✗ |                  | #system                  | Accepts a new optional keyword argument, `:exception`. Does not close non-standard file descriptors.
+|   | Object           | Method                     | Changes |
+|:-:| ---------------- | -------------------------- | ------- |
+| ✗ | Array            | #difference                | New
+| ✗ |                  | #filter                    | New (alias of `select`)
+| ✗ |                  | #filter!                   | New (alias of `select!`)
+| ✗ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
+| ✗ |                  | #union                     | New
+| ✗ | Binding          | #source_location           | New
+| ✗ | Coverage         | .line_stub                 | New
+| ✗ |                  | .result                    | Accepts new optional keyword arguments, `:clear` and `:stop`.
+| ✗ |                  | .start                     | Accepts a new optional keyword argument, `:oneshot_line`.
+| ✗ | Dir              | #children                  | New
+| ✗ |                  | #each_child                | New
+| ✗ | Enumerable       | #+                         | New
+| ✗ |                  | #chain                     | New
+| ✗ |                  | #filter                    | New (alias of `select`)
+| ✗ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
+| ✗ | Enumerator::Lazy | #filter                    | New (alias of `select`)
+| ✗ | ENV              | #to_h                      | Accepts a block that maps elements to new key/value pairs.
+| ✗ | ERB              | .new                       | Accepts new optional keyword arguments, `:eoutvar` and `:trim_mode`.
+| ✗ | Exception        | #full_message              | Accepts new optional keyword arguments, `:highlight` and `:order`.
+| ✗ | File             | .binread                   | Does not invoke external commands even if the path starts with `|`.
+| ✗ |                  | .binwrite                  | Does not invoke external commands even if the path starts with `|`.
+| ✗ |                  | .foreach                   | Does not invoke external commands even if the path starts with `|`.
+| ✗ |                  | .read                      | Does not invoke external commands even if the path starts with `|`.
+| ✗ |                  | .readlines                 | Does not invoke external commands even if the path starts with `|`.
+| ✗ |                  | .write                     | Does not invoke external commands even if the path starts with `|`.
+| ✗ | FileUtils        | #cp_lr                     | New
+| ✗ | Hash             | #filter                    | New (alias of `select`)
+| ✗ |                  | #filter!                   | New (alias of `select!`)
+| ✓ |                  | #merge                     | Accepts multiple arguments.
+| ✗ |                  | #merge!                    | Accepts multiple arguments.
+| ✗ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
+| ✗ |                  | #update                    | Accepts multiple arguments.
+| ✗ | Kernel           | #BigDecimal                | Accepts a new optional keyword argument, `:exception`.
+| ✗ |                  | #Complex                   | Accepts a new optional keyword argument, `:exception`.
+| ✗ |                  | #exec                      | Does not close non-standard file descriptors.
+| ✗ |                  | #Float                     | Accepts a new optional keyword argument, `:exception`.
+| ✗ |                  | #Integer                   | Accepts a new optional keyword argument, `:exception`.
+| ✗ |                  | #Rational                  | Accepts a new optional keyword argument, `:exception`.
+| ✓ |                  | #then                      | New (alias of `yield_self`)
+| ✗ |                  | #system                    | Accepts a new optional keyword argument, `:exception`. Does not close non-standard file descriptors.
+| ✗ | KeyError         | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
+| ✗ | Matrix           | #[]=                       | New
+| ✗ |                  | #antisymmetric?            | New
+| ✗ |                  | #collect!                  | New
+| ✗ |                  | #map!                      | New
+| ✗ |                  | #skew_symmetric?           | New
+| ✗ | Method           | #<<                        | New
+| ✗ |                  | #>>                        | New
+| ✗ | Module           | #method_defined?           | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the acestors.
+| ✗ |                  | #private_method_defined?   | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the acestors.
+| ✗ |                  | #protected_method_defined? | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the acestors.
+| ✗ | NameError        | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
+| ✗ | Net::HTTP        | .new                       | Accepts a new optional keyword argument, `:write_timeout`.
+| ✗ |                  | #write_timeout             | New
+| ✗ |                  | #write_timeout=            | New
+| ✗ | NilClass         | #=~                        | New
+| ✗ | NoMethodError    | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
+| ✗ | Numeric          | #step                      | Now returns an instance of the Enumerator::ArithmeticSequence class rather than one of the Enumerator class.
+| ✗ | Object           | #=~                        | Warns that it is deprecated.
+| ✗ | OpenStruct       | #to_h                      | Accepts a block that maps keys and values to new keys and values.
+| ✗ | Proc             | #<<                        | New
+| ✗ |                  | #>>                        | New
+| ✗ |                  | .call                      | No longer changes `$SAFE`.
+| ✗ | Random           | .bytes                     | New
+| ✗ | Range            | #%                         | New
+| ✗ |                  | #===                       | Now uses `cover?` instead of `include?`.
+| ✗ |                  | #cover?                    | Accepts a Range.
+| ✗ |                  | #step                      | Now returns an instance of the Enumerator::ArithmeticSequence class rather than one of the Enumerator class.
+| ✗ | RSS::Parser      | .parse                     | Accepts options as a Hash. Options are `:ignore_unknown_element`, `:parser_class`, and `:validate`.
+| ✗ | Set              | #filter!                   | New (alias of `select!`)
+| ✗ | String           | #crypt                     | Warns that it is deprecated.
+| ✗ |                  | #split                     | Yields each substring to a block if given.
+| ✗ | Struct           | #filter                    | New (alias of `select`)
+| ✗ |                  | #to_h                      | Accepts a block that maps keys and values to new keys and values.
+| ✗ | Time             | #+                         | Preserves the timezone.
+| ✗ |                  | #-                         | Preserves the timezone.
+| ✗ |                  | .new                       | Accepts a timezone object as well as a UTC offset string.
+| ✗ |                  | #getlocal                  | Accepts a timezone object as well as a UTC offset string.
+| ✗ |                  | #succ                      | Preserves the timezone.
+| ✗ | TracePoint       | #enable                    | Accepts new optional keyword arguments, `:target` and `:target_line`.
+| ✗ |                  | #eval_script               | New
+| ✗ |                  | #instruction_sequence      | New
+| ✗ |                  | #parameters                | New
+| ✗ | Vector           | #[]=                       | New
+| ✗ |                  | #collect!                  | New
+| ✗ |                  | #map!                      | New
 
 ### 2.5
 

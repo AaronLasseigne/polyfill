@@ -1,4 +1,4 @@
-# [Master][] (TBD)
+# [1.6.0][] (2019-02-01)
 
 ## Added
 
@@ -264,6 +264,7 @@ incorrect type was passed:
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[1.6.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.2.0...v1.3.0

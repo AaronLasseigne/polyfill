@@ -1,7 +1,7 @@
 # Polyfill
 
-[![Version](https://badge.fury.io/rb/polyfill.svg)](https://rubygems.org/gems/polyfill)
-[![Build](https://travis-ci.org/AaronLasseigne/polyfill.svg?branch=master)](https://travis-ci.org/AaronLasseigne/polyfill)
+[![Version](https://img.shields.io/gem/v/polyfill.svg?style=flat-square)](https://rubygems.org/gems/polyfill)
+[![Build](https://img.shields.io/travis/AaronLasseigne/polyfill.svg?style=flat-square)](https://travis-ci.org/AaronLasseigne/polyfill)
 
 Polyfill implements newer Ruby features into older versions. If the Ruby
 version already supports the polyfill then calling it does nothing. This is

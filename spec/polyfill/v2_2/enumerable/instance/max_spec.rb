@@ -53,12 +53,13 @@ RSpec.describe 'Enumerable#max' do
 
       # rubocop:disable Performance/CompareWithBlock
       expect(e_strs.max { |a, b| a.length <=> b.length }).to eql '1010101010'
+      # rubocop:enable Performance/CompareWithBlock
 
       expect(e_strs.max { |a, b| a <=> b }).to eql '666666'
-      expect(e_strs.max { |a, b| a.to_i <=> b.to_i }).to eql '1010101010'
+      expect(e_strs.max { |a, b| a.to_i <=> b.to_i }).to eql '1010101010' # rubocop:disable Performance/CompareWithBlock
 
       expect(e_ints.max { |a, b| a <=> b }).to eql 1_010_101_010
-      expect(e_ints.max { |a, b| a.to_s <=> b.to_s }).to eql 666_666
+      expect(e_ints.max { |a, b| a.to_s <=> b.to_s }).to eql 666_666 # rubocop:disable Performance/CompareWithBlock
     end
   end
 

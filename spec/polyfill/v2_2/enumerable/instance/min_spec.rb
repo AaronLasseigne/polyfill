@@ -58,12 +58,13 @@ RSpec.describe 'Enumerable#min' do
 
     # rubocop:disable Performance/CompareWithBlock
     expect(e_strs.min { |a, b| a.length <=> b.length }).to eql '1'
+    # rubocop:enable Performance/CompareWithBlock
 
     expect(e_strs.min { |a, b| a <=> b }).to eql '1'
-    expect(e_strs.min { |a, b| a.to_i <=> b.to_i }).to eql '1'
+    expect(e_strs.min { |a, b| a.to_i <=> b.to_i }).to eql '1' # rubocop:disable Performance/CompareWithBlock
 
     expect(e_ints.min { |a, b| a <=> b }).to eql 22
-    expect(e_ints.min { |a, b| a.to_s <=> b.to_s }).to eql 1_010_101_010
+    expect(e_ints.min { |a, b| a.to_s <=> b.to_s }).to eql 1_010_101_010 # rubocop:disable Performance/CompareWithBlock
   end
 
   it 'returns the minimum for enumerables that contain nils' do

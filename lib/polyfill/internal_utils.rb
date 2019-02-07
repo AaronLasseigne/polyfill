@@ -27,7 +27,7 @@ module Polyfill
     def polyfill_versions_to_use(desired_version = nil)
       desired_version = VERSIONS.keys.max if desired_version.nil?
 
-      unless VERSIONS.keys.include?(desired_version)
+      unless VERSIONS.key?(desired_version)
         raise ArgumentError, "invalid value for keyword version: #{desired_version}"
       end
 

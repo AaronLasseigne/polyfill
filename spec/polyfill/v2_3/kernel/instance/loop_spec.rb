@@ -31,7 +31,7 @@ RSpec.describe 'Kernel#loop' do
       cnt = 0
       expect(
         enum.each do |*args|
-          raise 'Args should be empty #{args.inspect}' unless args.empty?
+          raise "Args should be empty #{args.inspect}" unless args.empty?
           cnt += 1
           break cnt if cnt >= 42
         end

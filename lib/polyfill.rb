@@ -61,7 +61,7 @@ module Polyfill
   module_function :get
 end
 
-def Polyfill(options = {}) # rubocop:disable Style/MethodName
+def Polyfill(options = {}) # rubocop:disable Naming/MethodName
   #
   # parse options
   #

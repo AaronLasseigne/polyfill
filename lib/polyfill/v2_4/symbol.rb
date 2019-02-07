@@ -16,7 +16,7 @@ module Polyfill
       end
 
       def match?(pattern, position = 0)
-        !!(self[position..-1] =~ pattern) # rubocop:disable Style/InverseMethods
+        !!(self[position..-1] =~ pattern)
       end
     end
   end

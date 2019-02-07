@@ -13,7 +13,7 @@ RSpec.describe 'Array#bsearch_index' do
     end
 
     it 'returns index of element when block condition is satisfied' do
-      expect(enum.each { |x| x >= 33 }).to eql 2
+      expect(enum.each { |x| x >= 33 }).to eql 2 # rubocop:disable Lint/Void
     end
   end
 

@@ -1,5 +1,7 @@
 AllCops:
   TargetRubyVersion: 2.1
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
@@ -12,20 +14,22 @@ Metrics/MethodLength:
   Enabled: false
 Metrics/PerceivedComplexity:
   Enabled: false
+Naming/ClassAndModuleCamelCase:
+  Enabled: false
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+Style/AccessModifierDeclarations:
+  Enabled: false
 Style/AsciiComments:
   Enabled: false
 Style/BarePercentLiterals:
   EnforcedStyle: percent_q
-Style/ClassAndModuleCamelCase:
-  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/DoubleNegation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
 Style/NumericPredicate:
   EnforcedStyle: comparison
 Style/PercentLiteralDelimiters:
@@ -33,3 +37,5 @@ Style/PercentLiteralDelimiters:
     '%W': '[]'
     '%i': '[]'
     '%w': '[]'
+Style/YodaCondition:
+  Enabled: false

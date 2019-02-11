@@ -130,7 +130,7 @@ table. The explanation will follow "**Differences:**".
 
 |   | Object           | Method                     | Changes |
 |:-:| ---------------- | -------------------------- | ------- |
-| ✗ | Array            | #difference                | New
+| ✓ | Array            | #difference                | New
 | ✗ |                  | #filter                    | New (alias of `select`)
 | ✗ |                  | #filter!                   | New (alias of `select!`)
 | ✗ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.

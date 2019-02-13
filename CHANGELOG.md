@@ -3,6 +3,7 @@
 ## Added
 
 - v2.6 Array#difference
+- v2.6 Array#union
 
 # [1.6.0][] (2019-02-01)
 

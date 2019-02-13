@@ -134,7 +134,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ |                  | #filter                    | New (alias of `select`)
 | ✗ |                  | #filter!                   | New (alias of `select!`)
 | ✗ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
-| ✗ |                  | #union                     | New
+| ✓ |                  | #union                     | New
 | ✗ | Binding          | #source_location           | New
 | ✗ | Coverage         | .line_stub                 | New
 | ✗ |                  | .result                    | Accepts new optional keyword arguments, `:clear` and `:stop`.

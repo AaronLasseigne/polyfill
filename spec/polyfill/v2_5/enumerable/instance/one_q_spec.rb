@@ -11,7 +11,9 @@ RSpec.describe 'Enumerable#one?' do
 
   context '2.5' do
     it 'when given an argument, the block is ignored' do
-      expect([1, 'a'].one?(Integer) { |x| x > 2 }).to be true
+      ignore_warnings do
+        expect([1, 'a'].one?(Integer) { |x| x > 2 }).to be true
+      end
     end
 
     it 'accepts a regexp' do

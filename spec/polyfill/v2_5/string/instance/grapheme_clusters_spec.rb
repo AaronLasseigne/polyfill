@@ -7,7 +7,9 @@ RSpec.describe 'String#grapheme_clusters' do
     graphemes = [nfc, nfd]
     str = graphemes.join
 
-    expect(str.grapheme_clusters).to eql graphemes
+    ignore_warnings do
+      expect(str.grapheme_clusters).to eql graphemes
+    end
   end
 
   context 'with block' do

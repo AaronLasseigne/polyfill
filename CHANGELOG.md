@@ -6,6 +6,7 @@
 - v2.6 Array#union
 - v2.6 Hash#merge!
 - v2.6 Hash#update
+- v2.6 String#split
 
 # [1.6.0][] (2019-02-01)
 

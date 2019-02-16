@@ -188,7 +188,6 @@ table. The explanation will follow "**Differences:**".
 | ✗ | NilClass         | #=~                        | New
 | ✗ | NoMethodError    | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
 | ✗ | Numeric          | #step                      | Now returns an instance of the Enumerator::ArithmeticSequence class rather than one of the Enumerator class.
-| ✗ | Object           | #=~                        | Warns that it is deprecated.
 | ✗ | OpenStruct       | #to_h                      | Accepts a block that maps keys and values to new keys and values.
 | ✗ | Proc             | #<<                        | New
 | ✗ |                  | #>>                        | New
@@ -200,8 +199,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ |                  | #step                      | Now returns an instance of the Enumerator::ArithmeticSequence class rather than one of the Enumerator class.
 | ✗ | RSS::Parser      | .parse                     | Accepts options as a Hash. Options are `:ignore_unknown_element`, `:parser_class`, and `:validate`.
 | ✗ | Set              | #filter!                   | New (alias of `select!`)
-| ✗ | String           | #crypt                     | Warns that it is deprecated.
-| ✗ |                  | #split                     | Yields each substring to a block if given.
+| ✗ | String           | #split                     | Yields each substring to a block if given.
 | ✗ | Struct           | #filter                    | New (alias of `select`)
 | ✗ |                  | #to_h                      | Accepts a block that maps keys and values to new keys and values.
 | ✗ | Time             | #+                         | Preserves the timezone.
@@ -487,7 +485,6 @@ though they have techically changed. `FrozenError` is a subclass of
 | ✓ | Numeric                 | #negative?               | New
 | ✓ |                         | #positive?               | New
 | ✗ | Object                  | #define_singleton_method | Now requires a method body, `Proc`, `Method`, or a block.
-| ✗ |                         | #timeout                 | Warns that it is deprecated.
 | ✗ | ObjectSpace             | .count_symbols           | New
 | ✗ |                         | .count_imemo_objects     | New
 | ✗ |                         | .internal_class_of       | New

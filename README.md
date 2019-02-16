@@ -149,12 +149,12 @@ table. The explanation will follow "**Differences:**".
 | ✗ | ENV              | #to_h                      | Accepts a block that maps elements to new key/value pairs.
 | ✗ | ERB              | .new                       | Accepts new optional keyword arguments, `:eoutvar` and `:trim_mode`.
 | ✗ | Exception        | #full_message              | Accepts new optional keyword arguments, `:highlight` and `:order`.
-| ✗ | File             | .binread                   | Does not invoke external commands even if the path starts with `|`.
-| ✗ |                  | .binwrite                  | Does not invoke external commands even if the path starts with `|`.
-| ✗ |                  | .foreach                   | Does not invoke external commands even if the path starts with `|`.
-| ✗ |                  | .read                      | Does not invoke external commands even if the path starts with `|`.
-| ✗ |                  | .readlines                 | Does not invoke external commands even if the path starts with `|`.
-| ✗ |                  | .write                     | Does not invoke external commands even if the path starts with `|`.
+| ✗ | File             | .binread                   | Does not invoke external commands even if the path starts with `\|`.
+| ✗ |                  | .binwrite                  | Does not invoke external commands even if the path starts with `\|`.
+| ✗ |                  | .foreach                   | Does not invoke external commands even if the path starts with `\|`.
+| ✗ |                  | .read                      | Does not invoke external commands even if the path starts with `\|`.
+| ✗ |                  | .readlines                 | Does not invoke external commands even if the path starts with `\|`.
+| ✗ |                  | .write                     | Does not invoke external commands even if the path starts with `\|`.
 | ✗ | FileUtils        | #cp_lr                     | New
 | ✗ | Hash             | #filter                    | New (alias of `select`)
 | ✗ |                  | #filter!                   | New (alias of `select!`)

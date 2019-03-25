@@ -1,3 +1,9 @@
+# [1.8.0][] (TBD)
+
+## Added
+
+- v2.6 Kernel#Float
+
 # [1.7.0][] (2019-02-17)
 
 ## Added
@@ -274,6 +280,7 @@ incorrect type was passed:
  - v2.4 String#concat?
  - v2.4 String#prepend?
 
+[1.8.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/AaronLasseigne/polyfill/compare/v1.4.0...v1.5.0

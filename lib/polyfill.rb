@@ -203,6 +203,13 @@ def Polyfill(options = {}) # rubocop:disable Naming/MethodName
             refine Object.const_get(klass, false) do
               include instance_module
 
+              # Certain Kernel methods are private outside of Kernel
+              if klass == 'Object'
+                %i[Float].each do |method|
+                  private method if methods_added.include?(method)
+                end
+              end
+
               if native
                 Polyfill::InternalUtils.ignore_warnings do
                   define_method :respond_to? do |name, include_all = false|

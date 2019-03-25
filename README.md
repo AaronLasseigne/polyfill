@@ -165,7 +165,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ | Kernel           | #BigDecimal                | Accepts a new optional keyword argument, `:exception`.
 | ✗ |                  | #Complex                   | Accepts a new optional keyword argument, `:exception`.
 | ✗ |                  | #exec                      | Does not close non-standard file descriptors.
-| ✗ |                  | #Float                     | Accepts a new optional keyword argument, `:exception`.
+| ✓ |                  | #Float                     | Accepts a new optional keyword argument, `:exception`.
 | ✗ |                  | #Integer                   | Accepts a new optional keyword argument, `:exception`.
 | ✗ |                  | #Rational                  | Accepts a new optional keyword argument, `:exception`.
 | ✓ |                  | #then                      | New (alias of `yield_self`)

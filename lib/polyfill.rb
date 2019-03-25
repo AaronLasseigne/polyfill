@@ -205,7 +205,7 @@ def Polyfill(options = {}) # rubocop:disable Naming/MethodName
 
               # Certain Kernel methods are private outside of Kernel
               if klass == 'Object'
-                %i[Float].each do |method|
+                %i[Float Integer].each do |method|
                   private method if methods_added.include?(method)
                 end
               end

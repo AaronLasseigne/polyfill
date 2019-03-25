@@ -13,6 +13,16 @@ module Polyfill
         end
       end
 
+      def Integer(arg, exception: true) # rubocop:disable Naming/MethodName
+        super(arg) if exception
+
+        begin
+          super(arg)
+        rescue ArgumentError, TypeError, FloatDomainError
+          nil
+        end
+      end
+
       def then
         return yield_self unless block_given?
 

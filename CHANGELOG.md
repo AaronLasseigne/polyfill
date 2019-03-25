@@ -3,6 +3,7 @@
 ## Added
 
 - v2.6 Kernel#Float
+- v2.6 Kernel#Integer
 
 # [1.7.0][] (2019-02-17)
 

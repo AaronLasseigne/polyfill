@@ -4,6 +4,7 @@
 
 - v2.6 Kernel#Float
 - v2.6 Kernel#Integer
+- v2.6 Hash#to_h
 
 # [1.7.0][] (2019-02-17)
 

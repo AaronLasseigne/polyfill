@@ -163,7 +163,7 @@ table. The explanation will follow "**Differences:**".
 | ✓ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
 | ✓ |                  | #update                    | Accepts multiple arguments.
 | ✗ | Kernel           | #BigDecimal                | Accepts a new optional keyword argument, `:exception`.
-| ✗ |                  | #Complex                   | Accepts a new optional keyword argument, `:exception`.
+| ✓ |                  | #Complex                   | Accepts a new optional keyword argument, `:exception`.
 | ✗ |                  | #exec                      | Does not close non-standard file descriptors.
 | ✓ |                  | #Float                     | Accepts a new optional keyword argument, `:exception`.
 | ✓ |                  | #Integer                   | Accepts a new optional keyword argument, `:exception`.

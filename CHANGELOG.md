@@ -2,6 +2,7 @@
 
 ## Added
 
+- v2.6 Kernel#Complex
 - v2.6 Kernel#Float
 - v2.6 Kernel#Integer
 - v2.6 Hash#to_h

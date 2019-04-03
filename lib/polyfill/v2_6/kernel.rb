@@ -38,6 +38,16 @@ module Polyfill
         end
       end
 
+      def Rational(*args, exception: true) # rubocop:disable Naming/MethodName
+        super(*args) if exception
+
+        begin
+          super(*args)
+        rescue ::ArgumentError, ::TypeError
+          nil
+        end
+      end
+
       def then
         return yield_self unless block_given?
 

@@ -167,7 +167,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ |                  | #exec                      | Does not close non-standard file descriptors.
 | ✓ |                  | #Float                     | Accepts a new optional keyword argument, `:exception`.
 | ✓ |                  | #Integer                   | Accepts a new optional keyword argument, `:exception`.
-| ✗ |                  | #Rational                  | Accepts a new optional keyword argument, `:exception`.
+| ✓ |                  | #Rational                  | Accepts a new optional keyword argument, `:exception`.
 | ✓ |                  | #then                      | New (alias of `yield_self`)
 | ✗ |                  | #system                    | Accepts a new optional keyword argument, `:exception`. Does not close non-standard file descriptors.
 | ✗ | KeyError         | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.

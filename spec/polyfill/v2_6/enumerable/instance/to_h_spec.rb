@@ -23,17 +23,17 @@ RSpec.describe 'Enumerable#to_h' do
     it 'raises ArgumentError if block returns longer or shorter array' do
       expect do
         klass.to_h { |(k, _)| [k, k.to_s, 1] }
-      end.to raise_error(ArgumentError, 'wrong array length at 0 (expected 2, was 3)')
+      end.to raise_error(ArgumentError, 'element has wrong array length (expected 2, was 3)')
 
       expect do
         klass.to_h { |(k, _)| [k] }
-      end.to raise_error(ArgumentError, 'wrong array length at 0 (expected 2, was 1)')
+      end.to raise_error(ArgumentError, 'element has wrong array length (expected 2, was 1)')
     end
 
     it 'raises TypeError if block returns something other than Array' do
       expect do
         klass.to_h { |_| 'not-array' }
-      end.to raise_error(TypeError, 'wrong element type String at 0 (expected array)')
+      end.to raise_error(TypeError, 'wrong element type String (expected array)')
     end
 
     it 'coerces returned pair to Array with #to_ary' do
@@ -55,7 +55,7 @@ RSpec.describe 'Enumerable#to_h' do
 
       expect do
         klass.to_h { |_| x }
-      end.to raise_error(TypeError, /wrong element type .+ at 0/)
+      end.to raise_error(TypeError, /\Awrong element type #<Class:.+?> \(expected array\)\z/)
     end
   end
 end

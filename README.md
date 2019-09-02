@@ -188,7 +188,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ | NilClass         | #=~                        | New
 | ✗ | NoMethodError    | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
 | ✗ | Numeric          | #step                      | Now returns an instance of the Enumerator::ArithmeticSequence class rather than one of the Enumerator class.
-| ✗ | OpenStruct       | #to_h                      | Accepts a block that maps keys and values to new keys and values.
+| ✓ | OpenStruct       | #to_h                      | Accepts a block that maps keys and values to new keys and values.
 | ✗ | Proc             | #<<                        | New
 | ✗ |                  | #>>                        | New
 | ✗ |                  | .call                      | No longer changes `$SAFE`.

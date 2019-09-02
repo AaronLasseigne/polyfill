@@ -201,7 +201,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ | Set              | #filter!                   | New (alias of `select!`)
 | ✓ | String           | #split                     | Yields each substring to a block if given.
 | ✗ | Struct           | #filter                    | New (alias of `select`)
-| ✗ |                  | #to_h                      | Accepts a block that maps keys and values to new keys and values.
+| ✓ |                  | #to_h                      | Accepts a block that maps keys and values to new keys and values.
 | ✗ | Time             | #+                         | Preserves the timezone.
 | ✗ |                  | #-                         | Preserves the timezone.
 | ✗ |                  | .new                       | Accepts a timezone object as well as a UTC offset string.

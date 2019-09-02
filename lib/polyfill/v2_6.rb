@@ -3,6 +3,7 @@ require_relative 'v2_6/enumerable'
 require_relative 'v2_6/hash'
 require_relative 'v2_6/kernel'
 require_relative 'v2_6/string'
+require_relative 'v2_6/struct'
 
 module Polyfill
   module V2_6

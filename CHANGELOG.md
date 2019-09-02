@@ -8,6 +8,7 @@
 - v2.6 Kernel#Rational
 - v2.6 Array#to_h
 - v2.6 Hash#to_h
+- v2.6 Enumerable#to_h
 
 # [1.7.0][] (2019-02-17)
 

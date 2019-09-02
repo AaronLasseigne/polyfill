@@ -144,7 +144,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ | Enumerable       | #+                         | New
 | ✗ |                  | #chain                     | New
 | ✗ |                  | #filter                    | New (alias of `select`)
-| ✗ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
+| ✓ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
 | ✗ | Enumerator::Lazy | #filter                    | New (alias of `select`)
 | ✗ | ENV              | #to_h                      | Accepts a block that maps elements to new key/value pairs.
 | ✗ | ERB              | .new                       | Accepts new optional keyword arguments, `:eoutvar` and `:trim_mode`.

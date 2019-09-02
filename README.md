@@ -178,9 +178,9 @@ table. The explanation will follow "**Differences:**".
 | ✗ |                  | #skew_symmetric?           | New
 | ✗ | Method           | #<<                        | New
 | ✗ |                  | #>>                        | New
-| ✗ | Module           | #method_defined?           | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the acestors.
-| ✗ |                  | #private_method_defined?   | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the acestors.
-| ✗ |                  | #protected_method_defined? | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the acestors.
+| ✗ | Module           | #method_defined?           | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the ancestors.
+| ✗ |                  | #private_method_defined?   | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the ancestors.
+| ✗ |                  | #protected_method_defined? | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the ancestors.
 | ✗ | NameError        | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
 | ✗ | Net::HTTP        | .new                       | Accepts a new optional keyword argument, `:write_timeout`.
 | ✗ |                  | #write_timeout             | New

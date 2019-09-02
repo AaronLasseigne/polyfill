@@ -133,7 +133,7 @@ table. The explanation will follow "**Differences:**".
 | ✓ | Array            | #difference                | New
 | ✗ |                  | #filter                    | New (alias of `select`)
 | ✗ |                  | #filter!                   | New (alias of `select!`)
-| ✗ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
+| ✓ |                  | #to_h                      | Accepts a block that maps elements to new key/value pairs.
 | ✓ |                  | #union                     | New
 | ✗ | Binding          | #source_location           | New
 | ✗ | Coverage         | .line_stub                 | New

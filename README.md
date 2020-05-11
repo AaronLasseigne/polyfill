@@ -172,7 +172,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ |                  | #system                    | Accepts a new optional keyword argument, `:exception`. Does not close non-standard file descriptors.
 | ✗ | KeyError         | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
 | ✗ | Matrix           | #[]=                       | New
-| ✗ |                  | #antisymmetric?            | New
+| ✓ |                  | #antisymmetric?            | New
 | ✗ |                  | #collect!                  | New
 | ✗ |                  | #map!                      | New
 | ✗ |                  | #skew_symmetric?           | New

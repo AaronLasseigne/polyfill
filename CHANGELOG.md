@@ -1,3 +1,9 @@
+# [Unreleased][]
+
+## Added
+
+- v2.6 Matrix#antisymmetric?
+
 # [1.8.0][] (2019-09-02)
 
 ## Added

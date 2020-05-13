@@ -11,6 +11,11 @@ module Polyfill
         true
       end
 
+      def collect(which = :all)
+        return to_enum(:collect, which) unless block_given?
+        dup.each_with_index(which) { |e, row_index, col_index| @rows[row_index][col_index] = yield e }
+      end
+
       def collect!(which = :all)
         return to_enum(:collect!, which) unless block_given?
         raise FrozenError, "can't modify frozen Matrix" if frozen?

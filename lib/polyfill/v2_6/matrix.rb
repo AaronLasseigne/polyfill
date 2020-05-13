@@ -22,6 +22,12 @@ module Polyfill
         each_with_index(which) { |e, row_index, col_index| @rows[row_index][col_index] = yield e }
       end
 
+      # Alias of #collect
+      def map(which = :all)
+        return to_enum(:collect, which) unless block_given?
+        dup.each_with_index(which) { |e, row_index, col_index| @rows[row_index][col_index] = yield e }
+      end
+
       # Alias of #collect!
       def map!(which = :all)
         return to_enum(:collect!, which) unless block_given?

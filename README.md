@@ -173,7 +173,7 @@ table. The explanation will follow "**Differences:**".
 | ✗ | KeyError         | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
 | ✗ | Matrix           | #[]=                       | New
 | ✓ |                  | #antisymmetric?            | New
-| ✗ |                  | #collect!                  | New
+| ✓ |                  | #collect!                  | New
 | ✗ |                  | #map!                      | New
 | ✓ |                  | #skew_symmetric?           | New
 | ✗ | Method           | #<<                        | New

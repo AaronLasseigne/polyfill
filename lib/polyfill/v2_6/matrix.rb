@@ -22,6 +22,13 @@ module Polyfill
         each_with_index(which) { |e, row_index, col_index| @rows[row_index][col_index] = yield e }
       end
 
+      # Alias of #collect!
+      def map!(which = :all)
+        return to_enum(:collect!, which) unless block_given?
+        raise FrozenError, "can't modify frozen Matrix" if frozen?
+        each_with_index(which) { |e, row_index, col_index| @rows[row_index][col_index] = yield e }
+      end
+
       # Alias of #antisymmetric?
       def skew_symmetric?
         raise StandardError unless square?

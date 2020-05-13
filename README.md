@@ -175,7 +175,7 @@ table. The explanation will follow "**Differences:**".
 | ✓ |                  | #antisymmetric?            | New
 | ✓ |                  | #collect                   | Accepts optional argument `which` (default: `:all`) to specify the elements to yield.
 | ✓ |                  | #collect!                  | New
-| ✗ |                  | #map!                      | New
+| ✓ |                  | #map!                      | New
 | ✓ |                  | #skew_symmetric?           | New
 | ✗ | Method           | #<<                        | New
 | ✗ |                  | #>>                        | New

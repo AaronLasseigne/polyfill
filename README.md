@@ -175,7 +175,7 @@ table. The explanation will follow "**Differences:**".
 | ✓ |                  | #antisymmetric?            | New
 | ✗ |                  | #collect!                  | New
 | ✗ |                  | #map!                      | New
-| ✗ |                  | #skew_symmetric?           | New
+| ✓ |                  | #skew_symmetric?           | New
 | ✗ | Method           | #<<                        | New
 | ✗ |                  | #>>                        | New
 | ✗ | Module           | #method_defined?           | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the ancestors.

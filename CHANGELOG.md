@@ -2,6 +2,7 @@
 
 ## Added
 
+- v2.6 Matrix#[]=
 - v2.6 Matrix#antisymmetric?
 - v2.6 Matrix#collect
 - v2.6 Matrix#collect!

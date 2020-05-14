@@ -171,7 +171,7 @@ table. The explanation will follow "**Differences:**".
 | ✓ |                  | #then                      | New (alias of `yield_self`)
 | ✗ |                  | #system                    | Accepts a new optional keyword argument, `:exception`. Does not close non-standard file descriptors.
 | ✗ | KeyError         | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
-| ✗ | Matrix           | #[]=                       | New
+| ✓ | Matrix           | #[]=                       | New
 | ✓ |                  | #antisymmetric?            | New
 | ✓ |                  | #collect                   | Accepts optional argument `which` (default: `:all`) to specify the elements to yield.
 | ✓ |                  | #collect!                  | New

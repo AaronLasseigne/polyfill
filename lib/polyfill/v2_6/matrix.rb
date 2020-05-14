@@ -3,6 +3,21 @@ require 'matrix'
 module Polyfill
   module V2_6
     module Matrix
+      def []=(i, j, v)
+        raise FrozenError, "can't modify frozen Matrix" if frozen?
+        (rows = check_range(i, :row)) || (row = check_int(i, :row))
+        (columns = check_range(j, :column)) || (column = check_int(j, :column))
+        if rows && columns
+          set_row_and_col_range(rows, columns, v)
+        elsif rows
+          set_row_range(rows, column, v)
+        elsif columns
+          set_col_range(row, columns, v)
+        else
+          set_value(row, column, v)
+        end
+      end
+
       def antisymmetric?
         raise StandardError unless square?
         each_with_index(:upper) do |e, row, col|

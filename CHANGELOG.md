@@ -1,3 +1,15 @@
+# [Unreleased][]
+
+## Added
+
+- v2.6 Matrix#[]=
+- v2.6 Matrix#antisymmetric?
+- v2.6 Matrix#collect
+- v2.6 Matrix#collect!
+- v2.6 Matrix#map
+- v2.6 Matrix#map!
+- v2.6 Matrix#skew_symmetric?
+
 # [1.8.0][] (2019-09-02)
 
 ## Added

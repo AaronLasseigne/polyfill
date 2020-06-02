@@ -57,3 +57,11 @@ def frozen_error_class
     RuntimeError
   end
 end
+
+def matrix_dimension_mismatch_error_class
+  if Polyfill::InternalUtils.current_ruby_version >= '2.6'
+    ExceptionForMatrix::ErrDimensionMismatch
+  else
+    StandardError
+  end
+end

@@ -171,11 +171,13 @@ table. The explanation will follow "**Differences:**".
 | ✓ |                  | #then                      | New (alias of `yield_self`)
 | ✗ |                  | #system                    | Accepts a new optional keyword argument, `:exception`. Does not close non-standard file descriptors.
 | ✗ | KeyError         | .new                       | Accepts new optional keyword arguments, `:receiver` and `:key`.
-| ✗ | Matrix           | #[]=                       | New
-| ✗ |                  | #antisymmetric?            | New
-| ✗ |                  | #collect!                  | New
-| ✗ |                  | #map!                      | New
-| ✗ |                  | #skew_symmetric?           | New
+| ✓ | Matrix           | #[]=                       | New
+| ✓ |                  | #antisymmetric?            | New
+| ✓ |                  | #collect                   | Accepts optional argument `which` (default: `:all`) to specify the elements to yield.
+| ✓ |                  | #collect!                  | New
+| ✓ |                  | #map                       | Accepts optional argument `which` (default: `:all`) to specify the elements to yield.
+| ✓ |                  | #map!                      | New
+| ✓ |                  | #skew_symmetric?           | New
 | ✗ | Method           | #<<                        | New
 | ✗ |                  | #>>                        | New
 | ✗ | Module           | #method_defined?           | Accepts a second optional argument (default: `true`). If `false`, it only checks the class and not the ancestors.

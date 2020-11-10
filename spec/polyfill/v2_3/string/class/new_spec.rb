@@ -16,7 +16,7 @@ RSpec.describe 'String.new' do
     end
 
     it 'throws an error on other unknown keywords' do
-      expect { String.new(unknown_keyword: true) }.to raise_error(ArgumentError, 'unknown keyword: unknown_keyword')
+      expect { String.new(unknown_keyword: true) }.to raise_error(ArgumentError, /unknown keyword: :?unknown_keyword/)
     end
   end
 end

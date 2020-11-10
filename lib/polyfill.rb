@@ -1,5 +1,5 @@
-require 'polyfill/version'
-require 'polyfill/internal_utils'
+require_relative 'polyfill/version'
+require_relative 'polyfill/internal_utils'
 
 module Polyfill
   module Module; end
@@ -236,8 +236,8 @@ def Polyfill(options = {}) # rubocop:disable Naming/MethodName
   end
 end
 
-require 'polyfill/v2_2'
-require 'polyfill/v2_3'
-require 'polyfill/v2_4'
-require 'polyfill/v2_5'
-require 'polyfill/v2_6'
+require_relative 'polyfill/v2_2'
+require_relative 'polyfill/v2_3'
+require_relative 'polyfill/v2_4'
+require_relative 'polyfill/v2_5'
+require_relative 'polyfill/v2_6'

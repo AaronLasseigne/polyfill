@@ -83,14 +83,29 @@ module Polyfill
     end
     module_function :methods_to_keep
 
-    def create_module
-      mod = ::Module.new
+    def create_module(*args)
+      module_name = namify_arguments(*args)
 
-      yield(mod)
-
-      Polyfill::Module.const_set("M#{mod.object_id}", mod)
+      if ::Polyfill::Module.const_defined?(module_name, false)
+        ::Polyfill::Module.const_get(module_name, false)
+      else
+        mod = ::Module.new
+        yield(mod)
+        ::Polyfill::Module.const_set(module_name, mod)
+      end
     end
     module_function :create_module
+
+    def namify_arguments(*args)
+      string = args.map(&:inspect).join
+      # we don't need this to be decodable,
+      # we just need a consistent class-nameable output for a consistent arbitrary input
+      # safest module name is: start with capital then, A-Za-z0-9_
+      encoded = [string].pack('m0')
+        .gsub(%r{[+/=]}, '+' => '_1', '/' => '_2', '=' => '_')
+      "M#{encoded}"
+    end
+    module_function :namify_arguments
 
     def to_str(obj)
       begin

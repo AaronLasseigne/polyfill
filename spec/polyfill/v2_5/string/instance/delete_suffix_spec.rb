@@ -25,6 +25,8 @@ RSpec.describe 'String#delete_suffix' do
   end
 
   it 'taints resulting strings when other is tainted' do
+    skip '2.7 has made taint a no-op' if Polyfill::InternalUtils.current_ruby_version.to_f >= 2.7
+
     expect('hello'.taint.delete_suffix('ello').tainted?).to be true
     expect('hello'.taint.delete_suffix('').tainted?).to be true
   end

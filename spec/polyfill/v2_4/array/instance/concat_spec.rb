@@ -47,6 +47,8 @@ RSpec.describe 'Array#concat' do
     end
 
     it 'keeps tainted status' do
+      skip '2.7 has made taint a no-op' if Polyfill::InternalUtils.current_ruby_version.to_f >= 2.7
+
       ary = [1, 2]
       ary.taint
       ary.concat([3])
@@ -56,6 +58,8 @@ RSpec.describe 'Array#concat' do
     end
 
     it 'is not infected by the other' do
+      skip '2.7 has made taint a no-op' if Polyfill::InternalUtils.current_ruby_version.to_f >= 2.7
+
       ary = [1, 2]
       other = [3]
       other.taint
@@ -65,6 +69,8 @@ RSpec.describe 'Array#concat' do
     end
 
     it 'keeps the tainted status of elements' do
+      skip '2.7 has made taint a no-op' if Polyfill::InternalUtils.current_ruby_version.to_f >= 2.7
+
       ary = [Object.new, Object.new, Object.new]
       ary.each(&:taint)
 

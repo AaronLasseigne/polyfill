@@ -112,6 +112,25 @@ RSpec.describe 'Polyfill()' do
         end
       end
 
+      it 'returns the same module across multiple calls with the same arguments' do
+        mod1 = Polyfill(Enumerable: :all)
+        mod2 = Polyfill(Enumerable: :all)
+        expect(mod1).to be mod2
+      end
+
+      it 'uses the same module name across multiple ruby invocations' do
+        mod1 = `ruby -r./lib/polyfill -e 'puts Polyfill(Enumerable: :all).name'`
+        mod2 = `ruby -r./lib/polyfill -e 'puts Polyfill(Enumerable: :all).name'`
+        expect(mod1).to eq(mod2)
+        expect(mod1).to start_with('Polyfill::Module::')
+      end
+
+      it 'returns a different module across multiple calls with the different arguments' do
+        mod1 = Polyfill(Enumerable: :all)
+        mod2 = Polyfill(Enumerable: %w[#to_h])
+        expect(mod1).to_not be mod2
+      end
+
       context 'capitalized symbols are treated as class names' do
         it 'returns a Module named Polyfill::Module::*' do
           mod = Polyfill({})

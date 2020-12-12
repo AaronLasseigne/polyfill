@@ -65,6 +65,25 @@ RSpec.describe 'Polyfill.get' do
       expect(obj.respond_to?(:slice_after)).to be true
     end
 
+    it 'returns the same module across multiple calls with the same arguments' do
+      mod1 = Polyfill.get(:Enumerable, :all)
+      mod2 = Polyfill.get(:Enumerable, :all)
+      expect(mod1).to be mod2
+    end
+
+    it 'uses the same module name across multiple ruby invocations' do
+      mod1 = `ruby -r./lib/polyfill -e 'puts Polyfill.get(:Enumerable, :all).name'`
+      mod2 = `ruby -r./lib/polyfill -e 'puts Polyfill.get(:Enumerable, :all).name'`
+      expect(mod1).to eq(mod2)
+      expect(mod1).to start_with('Polyfill::Module::')
+    end
+
+    it 'returns a different module across multiple calls with the different arguments' do
+      mod1 = Polyfill.get(:Enumerable, :all)
+      mod2 = Polyfill.get(Enumerable, %i[to_h])
+      expect(mod1).to_not be mod2
+    end
+
     context 'with arguments' do
       context ':version' do
         it 'includes everything for a valid version number' do
@@ -78,6 +97,28 @@ RSpec.describe 'Polyfill.get' do
             expect(obj.respond_to?(:sum)).to be false
           end
           expect(obj.respond_to?(:slice_after)).to be true
+        end
+
+        it 'returns the same module across multiple calls with the same arguments' do
+          mod1 = Polyfill.get(:Enumerable, :all, version: '2.3')
+          mod2 = Polyfill.get(:Enumerable, :all, version: '2.3')
+          expect(mod1).to be mod2
+        end
+
+        it 'uses the same module name across multiple ruby invocations' do
+          mod1 = `ruby -r./lib/polyfill -e 'puts Polyfill.get(:Enumerable, :all, version: "2.3").name'`
+          mod2 = `ruby -r./lib/polyfill -e 'puts Polyfill.get(:Enumerable, :all, version: "2.3").name'`
+          expect(mod1).to eq(mod2)
+          expect(mod1).to start_with('Polyfill::Module::')
+        end
+
+        it 'returns a different module across multiple calls with the different arguments' do
+          mod1 = Polyfill.get(:Enumerable, :all, version: '2.3')
+          mod2 = Polyfill.get(:Enumerable, :all)
+          mod3 = Polyfill.get(:Enumerable, :all, version: '2.4')
+          expect(mod1).to_not be mod2
+          expect(mod1).to_not be mod3
+          expect(mod2).to_not be mod3
         end
       end
     end

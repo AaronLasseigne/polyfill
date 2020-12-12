@@ -1,5 +1,5 @@
-require 'polyfill/version'
-require 'polyfill/internal_utils'
+require_relative 'polyfill/version'
+require_relative 'polyfill/internal_utils'
 
 module Polyfill
   module Module; end
@@ -9,10 +9,12 @@ module Polyfill
       raise ArgumentError, "#{module_name} is a class not a module"
     end
 
+    version_option = options.delete(:version)
+
     #
     # parse options
     #
-    versions = InternalUtils.polyfill_versions_to_use(options.delete(:version))
+    versions = InternalUtils.polyfill_versions_to_use(version_option)
 
     unless options.empty?
       raise ArgumentError, "unknown keyword: #{options.first[0]}"
@@ -35,7 +37,7 @@ module Polyfill
     #
     # build the module to return
     #
-    InternalUtils.create_module do |mod|
+    InternalUtils.create_module(module_name, methods, options, version_option) do |mod|
       # make sure the methods get added if this module is included
       mod.singleton_class.send(:define_method, :included) do |base|
         modules.each do |module_to_add|
@@ -90,7 +92,7 @@ def Polyfill(options = {}) # rubocop:disable Naming/MethodName
   #
   # build the module to return
   #
-  Polyfill::InternalUtils.create_module do |mod|
+  Polyfill::InternalUtils.create_module(options) do |mod|
     objects.each do |object_name, methods|
       #
       # find all polyfills for the object across all versions
@@ -234,8 +236,8 @@ def Polyfill(options = {}) # rubocop:disable Naming/MethodName
   end
 end
 
-require 'polyfill/v2_2'
-require 'polyfill/v2_3'
-require 'polyfill/v2_4'
-require 'polyfill/v2_5'
-require 'polyfill/v2_6'
+require_relative 'polyfill/v2_2'
+require_relative 'polyfill/v2_3'
+require_relative 'polyfill/v2_4'
+require_relative 'polyfill/v2_5'
+require_relative 'polyfill/v2_6'

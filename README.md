@@ -3,6 +3,8 @@
 [![Version](https://img.shields.io/gem/v/polyfill.svg?style=flat-square)](https://rubygems.org/gems/polyfill)
 [![Build](https://img.shields.io/travis/AaronLasseigne/polyfill.svg?style=flat-square)](https://travis-ci.org/AaronLasseigne/polyfill)
 
+**This gem is no longer supported. I'd recommend exploring [ruby-next](https://github.com/ruby-next/ruby-next) as a replacement.**
+
 Polyfill implements newer Ruby features into older versions. If the Ruby
 version already supports the polyfill then calling it does nothing. This is
 designed to allow gem maintainers to use newer methods and gain their
@@ -28,7 +30,7 @@ monkey patching** that may cause issues outside of your use.
 Add it to your Gemfile:
 
 ```ruby
-gem 'polyfill', '~> 1.8'
+gem 'polyfill', '~> 1.9'
 ```
 
 Or install it manually:
